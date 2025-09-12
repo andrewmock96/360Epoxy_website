@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360Epoxy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>360Epoxy</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/services">Services</a>
+        <a href="/gallery">Gallery</a>
+    </nav>
+</header>
+
+<!-- HERO / CONTACT FORM -->
+<section class="hero-contact">
+    <div class="form-container">
+        <h2>Get Your Free Quote Today!</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('contact') }}" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <textarea name="message" placeholder="Your Project Details" rows="4" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/hero-floor.jpg') }}" alt="Epoxy Flooring Example" style="width:100%; border-radius:10px;">
+    </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="services">
+    <div class="service-item">
+        <h3>Garage Flooring</h3>
+        <p>High-quality epoxy coatings that protect and beautify your garage floor.</p>
+    </div>
+    <div class="service-item">
+        <h3>Commercial Coatings</h3>
+        <p>Durable solutions for warehouses, showrooms, and industrial spaces.</p>
+    </div>
+    <div class="service-item">
+        <h3>Custom Designs</h3>
+        <p>Create a unique look with color flakes, metallic finishes, and more.</p>
+    </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section class="gallery">
+    <img src="{{ url_for('static', filename='images/gallery1.jpg') }}" alt="Gallery Image 1">
+    <img src="{{ url_for('static', filename='images/gallery2.jpg') }}" alt="Gallery Image 2">
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 360Epoxy. All rights reserved.</p>
+    <p>Phone: (555) 123-4567 | Email: 360epoxyaz@gmail.com</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - 360Epoxy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1>360Epoxy</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/services">Services</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</header>
+
+<section class="gallery">
+    <h2>Our Projects</h2>
+    <img src="{{ url_for('static', filename='images/gallery1.jpg') }}" alt="Gallery Image 1">
+    <img src="{{ url_for('static', filename='images/gallery2.jpg') }}" alt="Gallery Image 2">
+    <img src="{{ url_for('static', filename='images/gallery3.jpg') }}" alt="Gallery Image 3">
+    <img src="{{ url_for('static', filename='images/gallery4.jpg') }}" alt="Gallery Image 4">
+</section>
+
+<footer>
+    <p>&copy; 2025 360Epoxy. All rights reserved.</p>
+    <p>Phone: (555) 123-4567 | Email: info@360epoxy.com</p>
+</footer>
+
+</body>
+</html>

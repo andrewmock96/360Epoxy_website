@@ -157,18 +157,37 @@ button:active {
 .service-item {
     background: white;
     border-radius: 15px;
-    padding: 20px;
+    padding: 15px 20px;   /* reduced vertical padding for a shorter bubble */
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
-    flex: 1 1 250px;
+    flex: 1 1 auto;       /* allows height to shrink to fit content */
     max-width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
 }
 
+.service-item p {
+    line-height: 1.4;     /* tighter line spacing to reduce extra height */
+}
+
+/* Hover effect */
 .service-item:hover {
     background: linear-gradient(135deg, #1A73E8 0%, #FF9800 100%);
     color: white;
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Tablet / desktop layout */
+@media (min-width: 768px) {
+    .services {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .service-item {
+        width: 48%;  /* two cards per row */
+    }
 }
 
 /* =======================

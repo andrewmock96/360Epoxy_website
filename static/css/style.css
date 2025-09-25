@@ -102,7 +102,7 @@ button:active {
 ======================= */
 .hero-contact {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;   /* stack everything vertically */
     gap: 20px;
     padding: 50px 20px;
     background: 
@@ -113,34 +113,18 @@ button:active {
     border-radius: 15px;
 }
 
+/* Remove the image container styling completely */
+.hero-contact .hero-image {
+    display: none;  /* hides any image container */
+}
+
+/* Keep form styling the same */
 .hero-contact form {
     max-width: 400px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 15px;
-}
-
-.hero-contact form input,
-.hero-contact form textarea {
-    border-radius: 15px;
-    padding: 15px;
-    border: none;
-}
-
-.hero-contact form button {
-    background-color: #FF9800;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    padding: 15px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.hero-contact form button:hover {
-    background-color: #E68900;
-    transform: translateY(-2px);
 }
 
 /* =======================

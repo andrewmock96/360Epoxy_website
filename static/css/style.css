@@ -100,12 +100,13 @@ button:active {
 /* =======================
    HERO CONTACT SECTION
 ======================= */
+/* HERO CONTACT SECTION - full-page centered form, background only */
 .hero-contact {
     display: flex;
     flex-direction: column;
-    justify-content: center;      /* vertically centers the form */
-    align-items: center;          /* horizontally centers the form */
-    min-height: 100vh;            /* take full viewport height */
+    justify-content: center;      /* vertically center the form */
+    align-items: center;          /* horizontally center the form */
+    min-height: 100vh;            /* full viewport height */
     padding: 50px 20px;
     background: 
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
@@ -113,6 +114,11 @@ button:active {
     color: white;
     text-align: center;
     border-radius: 15px;
+}
+
+/* Hide any floating hero images */
+.hero-contact .hero-image {
+    display: none;
 }
 
 /* Form styling */
@@ -149,6 +155,7 @@ button:active {
     background-color: #E68900;
     transform: translateY(-2px);
 }
+
 /* =======================
    SERVICES SECTION
 ======================= */

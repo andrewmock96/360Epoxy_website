@@ -21,16 +21,24 @@ body {
    HEADERS & NAV
 ======================= */
 
-/* HEADER LOGO */
+/* =======================
+   HEADER + NAV + LOGO
+======================= */
+header {
+    background-color: #222222;   /* dark header */
+    color: white;
+    padding: 10px 15px;          /* slim vertical padding */
+}
+
 .header-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px 0; /* small padding to make header slimmer */
+    padding: 5px 0;              /* extra control on spacing */
 }
 
 .logo {
-    max-width: 150px;   /* adjust as needed */
+    max-width: 150px;
     height: auto;
 }
 
@@ -38,11 +46,32 @@ body {
     .header-container {
         padding: 0;
     }
-
     .logo {
-        max-width: 120px; /* slightly smaller on desktop */
+        max-width: 120px;
     }
 }
+
+/* NAVIGATION */
+header nav {
+    display: flex;
+    flex-direction: row;       /* horizontal links */
+    justify-content: center;   /* center nav links */
+    gap: 15px;                 /* spacing between links */
+    flex-wrap: wrap;           /* wrap on very small screens */
+    margin-top: 5px;           /* slight spacing from logo */
+}
+
+header nav a {
+    color: white;             /* ensure links are visible */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+header nav a:hover {
+    color: #FF9800;
+}
+
 /* =======================
    HERO SECTION
 ======================= */

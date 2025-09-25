@@ -120,7 +120,7 @@ button:active {
 /* =======================
    HERO CONTACT SECTION
 ======================= */
-/* HERO CONTACT SECTION - full-page centered form, background only */
+
 .hero-contact {
     display: flex;
     flex-direction: column;
@@ -133,7 +133,6 @@ button:active {
         url('../images/hero-floor.jpg') center/cover no-repeat;
     color: white;
     text-align: center;
-    /* border-radius: 15px; */
 }
 
 /* Hide any floating hero images */
@@ -141,24 +140,25 @@ button:active {
     display: none;
 }
 
-/* Form styling */
+/* Form styling - slightly larger */
 .hero-contact form {
-    max-width: 400px;
+    max-width: 500px;           /* increased from 400px */
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    background: rgba(0,0,0,0.4);   /* optional: subtle background for readability */
-    padding: 30px;
-    border-radius: 15px;
+    gap: 20px;                  /* more spacing between fields */
+    background: rgba(0,0,0,0.4);
+    padding: 40px;              /* larger padding for bigger form feel */
+    /* border-radius: 15px; */
 }
 
-/* Inputs and button */
+/* Inputs and button - slightly bigger */
 .hero-contact form input,
 .hero-contact form textarea {
     border-radius: 15px;
-    padding: 15px;
+    padding: 18px;              /* increased from 15px */
     border: none;
+    font-size: 1rem;
 }
 
 .hero-contact form button {
@@ -166,15 +166,17 @@ button:active {
     color: white;
     border: none;
     border-radius: 15px;
-    padding: 15px;
+    padding: 18px;              /* larger button */
     font-weight: bold;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .hero-contact form button:hover {
     background-color: #E68900;
     transform: translateY(-2px);
 }
+
 
 /* =======================
    SERVICES SECTION

@@ -12,14 +12,12 @@
 }
 
 body {
-    background-color: #F5F5F5;
+    background-color: #F5F5F5;  /* light grey page background */
     color: #333333;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
-
-/* =======================
-   HEADERS & NAV
-======================= */
 
 /* =======================
    HEADER + NAV + LOGO

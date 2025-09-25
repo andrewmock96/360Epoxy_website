@@ -20,38 +20,29 @@ body {
 /* =======================
    HEADERS & NAV
 ======================= */
-header {
-    background-color: #222222;
-    color: white;
-    padding: 10px 15px;        /* reduced padding for a slimmer header */
-}
 
-header h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;         /* slightly smaller for slim look */
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-header nav {
+/* HEADER LOGO */
+.header-container {
     display: flex;
-    flex-direction: row;       /* horizontal links */
-    justify-content: center;   /* center nav links */
-    gap: 15px;                 /* spacing between links */
-    flex-wrap: wrap;           /* wrap if needed on very small screens */
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0; /* small padding to make header slimmer */
 }
 
-header nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.95rem;        /* slightly smaller */
+.logo {
+    max-width: 150px;   /* adjust as needed */
+    height: auto;
 }
 
-header nav a:hover {
-    color: #FF9800;
-}
+@media (min-width: 768px) {
+    .header-container {
+        padding: 0;
+    }
 
+    .logo {
+        max-width: 120px; /* slightly smaller on desktop */
+    }
+}
 /* =======================
    HERO SECTION
 ======================= */

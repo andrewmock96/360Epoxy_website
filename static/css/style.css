@@ -14,7 +14,7 @@
 body {
     background-color: #F5F5F5;  /* light grey page background */
     color: #333333;
-    line-height: 1.8;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
 }
@@ -133,7 +133,7 @@ button:active {
         url('../images/hero-floor.jpg') center/cover no-repeat;
     color: white;
     text-align: center;
-    border-radius: 15px;
+    /* border-radius: 15px; */
 }
 
 /* Hide any floating hero images */

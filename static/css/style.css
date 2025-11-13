@@ -20,16 +20,54 @@ body {
 }
 
 /* =======================
-   HAMBURGER NAV
+   HEADER + NAV
 ======================= */
+header {
+    background-color: #222222; /* dark header */
+    color: white;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Header container: logo left, hamburger right */
 .header-container {
     display: flex;
-    justify-content: space-between;  /* logo left, hamburger right */
+    justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
-/* Hamburger icon (mobile only) */
+/* Logo */
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Nav links (desktop) */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #FF9800;
+}
+
+/* Current page highlight */
+.nav-links a.active {
+    color: #1A73E8; /* blue theme */
+}
+
+/* Hamburger icon */
 .menu-toggle {
     display: none;
     background: none;
@@ -39,34 +77,30 @@ body {
     cursor: pointer;
 }
 
-/* Nav links (stacked on mobile) */
-.nav-links {
-    display: flex;
-    gap: 20px;
-}
-
+/* =======================
+   MOBILE VIEW
+======================= */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
     }
 
+    /* Mobile nav - hidden by default */
     .nav-links {
-        display: none;                 /* hidden by default */
-        flex-direction: column;        /* stack links vertically */
-        align-items: flex-end;         /* right-align text */
+        display: none;
+        flex-direction: column; /* stacked links */
+        align-items: flex-end;  /* right-aligned */
         background-color: #222222;
         position: absolute;
-        top: 70px;                     /* below header */
+        top: 60px; /* just below header */
         right: 0;
-        width: 200px;
-        padding: 15px;
-        border-radius: 0 0 10px 10px;  /* rounded bottom corners */
+        width: 100%; /* full header width */
+        padding: 15px 20px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        z-index: 999;
     }
 
     .nav-links.active {
-        display: flex;                 /* shown when hamburger clicked */
+        display: flex;
         animation: slideDown 0.3s ease-in-out;
     }
 
@@ -75,18 +109,13 @@ body {
     }
 }
 
-/* Current page highlight */
-.nav-links a.active {
-    color: #1A73E8; /* your blue theme */
-}
-
-/* Animation for mobile drop-down */
+/* Mobile dropdown animation */
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Desktop view keeps horizontal nav */
+/* Desktop nav forces horizontal layout */
 @media (min-width: 769px) {
     .nav-links {
         display: flex !important;
@@ -103,46 +132,6 @@ body {
         display: none;
     }
 }
-
-
-/* =======================
-   MOBILE VIEW
-======================= */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background-color: #222222;
-        border-radius: 10px;
-        padding: 15px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        width: 200px;
-        text-align: right;
-    }
-
-    .nav-links a {
-        padding: 10px 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-        animation: fadeIn 0.3s ease-in-out;
-    }
-}
-
-/* Simple fade animation when opening mobile menu */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 /* NAVIGATION */
 header nav {
     display: flex;

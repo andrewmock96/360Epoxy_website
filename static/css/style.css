@@ -12,7 +12,7 @@
 }
 
 body {
-    background-color: #F5F5F5;  /* light grey page background */
+    background-color: #F5F5F5;
     color: #333333;
     line-height: 1.6;
     margin: 0;
@@ -94,9 +94,11 @@ header {
         position: absolute;
         top: 60px; /* just below header */
         right: 0;
-        width: 100%; /* full header width */
+        width: 200px;
         padding: 15px 20px;
+        border-radius: 0 0 10px 10px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        z-index: 999;
     }
 
     .nav-links.active {
@@ -131,26 +133,6 @@ header {
     .menu-toggle {
         display: none;
     }
-}
-/* NAVIGATION */
-header nav {
-    display: flex;
-    flex-direction: row;       /* horizontal links */
-    justify-content: center;   /* center nav links */
-    gap: 15px;                 /* spacing between links */
-    flex-wrap: wrap;           /* wrap on very small screens */
-    margin-top: 5px;           /* slight spacing from logo */
-}
-
-header nav a {
-    color: white;             /* ensure links are visible */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.95rem;
-}
-
-header nav a:hover {
-    color: #FF9800;
 }
 
 /* =======================
@@ -203,13 +185,12 @@ button:active {
 /* =======================
    HERO CONTACT SECTION
 ======================= */
-
 .hero-contact {
     display: flex;
     flex-direction: column;
-    justify-content: center;      /* vertically center the form */
-    align-items: center;          /* horizontally center the form */
-    min-height: 100vh;            /* full viewport height */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     padding: 50px 20px;
     background: 
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
@@ -218,28 +199,26 @@ button:active {
     text-align: center;
 }
 
-/* Hide any floating hero images */
+/* Hide floating hero images */
 .hero-contact .hero-image {
     display: none;
 }
 
-/* Form styling - slightly larger */
 .hero-contact form {
-    max-width: 500px;           /* increased from 400px */
+    max-width: 500px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;                  /* more spacing between fields */
+    gap: 20px;
     background: rgba(0,0,0,0.4);
-    padding: 40px;              /* larger padding for bigger form feel */
-    /* border-radius: 15px; */
+    padding: 40px;
+    border-radius: 15px;
 }
 
-/* Inputs and button - slightly bigger */
 .hero-contact form input,
 .hero-contact form textarea {
     border-radius: 15px;
-    padding: 18px;              /* increased from 15px */
+    padding: 18px;
     border: none;
     font-size: 1rem;
 }
@@ -249,7 +228,7 @@ button:active {
     color: white;
     border: none;
     border-radius: 15px;
-    padding: 18px;              /* larger button */
+    padding: 18px;
     font-weight: bold;
     cursor: pointer;
     font-size: 1rem;
@@ -259,7 +238,6 @@ button:active {
     background-color: #E68900;
     transform: translateY(-2px);
 }
-
 
 /* =======================
    SERVICES SECTION
@@ -275,19 +253,18 @@ button:active {
 .service-item {
     background: white;
     border-radius: 15px;
-    padding: 15px 20px;   /* reduced vertical padding for a shorter bubble */
+    padding: 15px 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
-    flex: 1 1 auto;       /* allows height to shrink to fit content */
+    flex: 1 1 auto;
     max-width: 300px;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
 }
 
 .service-item p {
-    line-height: 1.4;     /* tighter line spacing to reduce extra height */
+    line-height: 1.4;
 }
 
-/* Hover effect */
 .service-item:hover {
     background: linear-gradient(135deg, #1A73E8 0%, #FF9800 100%);
     color: white;
@@ -295,7 +272,6 @@ button:active {
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* Tablet / desktop layout */
 @media (min-width: 768px) {
     .services {
         flex-direction: row;
@@ -304,7 +280,7 @@ button:active {
     }
 
     .service-item {
-        width: 48%;  /* two cards per row */
+        width: 48%;
     }
 }
 
@@ -401,7 +377,7 @@ footer a:hover {
 }
 
 /* =======================
-   MEDIA QUERIES
+   MEDIA QUERIES (DESKTOP)
 ======================= */
 @media (min-width: 768px) {
     header nav {
@@ -441,31 +417,5 @@ footer a:hover {
 
     .service-item, .gallery img {
         width: 48%;
-    }
-}
-
-/* HEADER LOGO */
-.header-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo {
-    max-width: 150px;   /* Adjust size as needed */
-    height: auto;
-}
-
-@media (min-width: 768px) {
-    .header-container {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .logo {
-        max-width: 120px; /* slightly smaller on desktop if desired */
     }
 }

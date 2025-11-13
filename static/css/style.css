@@ -20,33 +20,92 @@ body {
 }
 
 /* =======================
-   HEADER + NAV + LOGO
+   HEADER + NAV (RESPONSIVE HAMBURGER)
 ======================= */
 header {
-    background-color: #222222;   /* dark header */
+    background-color: #222222;
     color: white;
-    padding: 10px 15px;          /* slim vertical padding */
+    padding: 10px 20px;
+    position: relative;
+    z-index: 1000;
 }
 
+/* Header container aligns logo and nav/hamburger */
 .header-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 5px 0;              /* extra control on spacing */
 }
 
+/* Company logo */
 .logo {
     max-width: 150px;
     height: auto;
 }
 
-@media (min-width: 768px) {
-    .header-container {
-        padding: 0;
+/* Navigation links (default desktop layout) */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.nav-links a:hover {
+    color: #FF9800;
+}
+
+/* Hamburger icon (hidden on desktop) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* =======================
+   MOBILE VIEW
+======================= */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
     }
-    .logo {
-        max-width: 120px;
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #222222;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        width: 200px;
+        text-align: right;
     }
+
+    .nav-links a {
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+}
+
+/* Simple fade animation when opening mobile menu */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* NAVIGATION */

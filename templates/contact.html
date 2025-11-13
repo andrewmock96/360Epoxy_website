@@ -13,12 +13,20 @@
     <div class="header-container">
         <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360 Epoxy Logo" class="logo">
     </div>
-    <nav>    
-        <a href="/">Home</a>
-        <a href="/services">Services</a>
-        <a href="/gallery">Gallery</a>
-    </nav>
-</header>
+    
+    <!-- Hamburger icon -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+        ☰
+      </button>
+  
+      <!-- Navigation links -->
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+      </nav>
+    </div>
+  </header>
 
 <section class="contact">
     <h2>Contact Us!</h2>
@@ -49,6 +57,15 @@
     </div>
 </footer>
 
+<!-- Hamburger Menu Script -->
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
 
 </body>
 </html>

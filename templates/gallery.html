@@ -20,9 +20,10 @@
   
       <!-- Navigation links -->
       <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
     </div>
   </header>
@@ -48,11 +49,19 @@
 <script>
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-
+    
     menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
-  </script>
+    
+    // Highlight current page link
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
+    </script>
 
 </body>
 </html>

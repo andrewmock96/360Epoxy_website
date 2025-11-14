@@ -72,14 +72,13 @@
     });
     
     // Highlight current page
-    const currentPage = window.location.pathname.split("/").pop() || "index.html"; // fallback
+    const currentPath = window.location.pathname; // full path
     document.querySelectorAll('.nav-links a').forEach(link => {
-        const linkHref = link.getAttribute('href');
-        if (linkHref === currentPage) {
+        if (link.getAttribute('href') === currentPath) {
             link.classList.add('active');
         }
     });
-    </script>
+</script>
 
 </body>
 </html>

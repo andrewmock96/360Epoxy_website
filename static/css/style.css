@@ -168,6 +168,11 @@ header {
         font-weight: bold;
         text-decoration: none;
     }
+
+    /* Mobile view - active link highlight */
+    .nav-links a.active {
+        color: #FF9800 !important;  /* orange theme */
+    }
 }
 
 

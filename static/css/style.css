@@ -8,14 +8,12 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    /* Removed global transition to prevent link color animation */
 }
 
-/* =======================
-   BODY
-======================= */
 body {
     background-color: #F5F5F5;
-    color: #333;
+    color: #333333;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -25,7 +23,7 @@ body {
    HEADER + NAV
 ======================= */
 header {
-    background-color: #222;
+    background-color: #222222;
     color: white;
     padding: 10px 20px;
     position: relative;
@@ -40,7 +38,7 @@ header {
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
 }
 
@@ -59,6 +57,7 @@ header {
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
+    /* Removed transition */
 }
 
 .nav-links a:hover {
@@ -66,7 +65,7 @@ header {
 }
 
 .nav-links a.active {
-    color: #FF9800 !important;
+    color: #FF9800 !important; /* Active link instantly orange */
 }
 
 .menu-toggle {
@@ -86,13 +85,15 @@ header {
    MOBILE VIEW (≤768px)
 ======================= */
 @media (max-width: 768px) {
-
     header {
+        background-color: #222;
         padding: 15px 20px;
-        display: block;
-        text-align: center;
+        position: relative;
+        width: 100%;
         overflow: hidden;
         transition: padding-bottom 0.3s ease;
+        display: block;
+        text-align: center;
     }
 
     header.menu-open {
@@ -100,18 +101,29 @@ header {
     }
 
     .header-container {
+        width: 100%;
+        display: flex;
         justify-content: center !important;
         align-items: center;
         position: relative;
     }
 
     .logo {
-        display: block;
+        max-width: 150px;
         margin: 0 auto;
+        display: block;
     }
 
     .menu-toggle {
+        position: absolute;
         right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
         z-index: 20;
     }
 
@@ -125,6 +137,7 @@ header {
         gap: 15px;
         opacity: 0;
         pointer-events: none;
+        /* Removed transition for link color */
     }
 
     .nav-links.active {
@@ -140,7 +153,7 @@ header {
     }
 
     .nav-links a.active {
-        color: #FF9800 !important;
+        color: #FF9800 !important; /* Active link instantly orange */
     }
 }
 
@@ -220,8 +233,9 @@ button:active {
     align-items: center;
     min-height: 100vh;
     padding: 50px 20px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('../images/hero-floor.jpg') center/cover no-repeat;
+    background: 
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+        url('../images/hero-floor.jpg') center/cover no-repeat;
     color: white;
     text-align: center;
 }
@@ -285,6 +299,10 @@ button:active {
     flex: 1 1 auto;
     max-width: 300px;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+}
+
+.service-item p {
+    line-height: 1.4;
 }
 
 .service-item:hover {
@@ -367,7 +385,7 @@ button:active {
    FOOTER
 ======================= */
 footer {
-    background-color: #222;
+    background-color: #222222;
     color: white;
     text-align: center;
     padding: 20px;

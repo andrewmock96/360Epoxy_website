@@ -597,3 +597,44 @@ footer a:hover {
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
+/* =======================
+   FLAKE ENLARGE MODAL
+======================= */
+.flake-modal {
+    display: none; /* Hidden until clicked */
+    position: fixed;
+    z-index: 5000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.85);
+    padding-top: 60px;
+}
+
+.flake-modal-content {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+.flake-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.flake-close:hover {
+    color: #FF9800;
+    transform: scale(1.2);
+}

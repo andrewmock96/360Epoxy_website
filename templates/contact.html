@@ -62,18 +62,10 @@
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     const header = document.querySelector('header');
-
+    
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        header.classList.toggle('menu-open'); // <— makes the header expand
-    });
-
-    // Highlight current page link
-    const currentPage = window.location.pathname.split("/").pop();
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('active');
-        }
+        header.classList.toggle('menu-open');
     });
 </script>
 

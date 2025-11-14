@@ -88,51 +88,77 @@ header {
 }
 
 /* =======================
-   MOBILE VIEW
+   MOBILE VIEW (≤768px)
 ======================= */
 @media (max-width: 768px) {
 
     header {
-        transition: height 0.3s ease;
+        background-color: #222;
+        padding: 15px 20px;
+        position: relative;
         overflow: hidden;
+        transition: padding-bottom 0.3s ease;
     }
 
-    /* Expanded header height when menu is open */
+    /* Add extra room when menu opens */
     header.menu-open {
-        padding-bottom: 150px; /* Change height of dropdown */
+        padding-bottom: 180px; 
     }
 
-    /* Hide links until menu is opened */
+    /* Logo centered */
+    .header-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo {
+        max-width: 150px;
+    }
+
+    /* Hamburger button aligned right */
+    .menu-toggle {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    /* Nav links — hidden until toggled */
     .nav-links {
         display: flex;
         flex-direction: column;
-        align-items: flex-end; /* RIGHT ALIGN */
-        gap: 15px;
-
-        width: 100%;
-        padding: 0 20px;
-        margin-top: 15px;
+        align-items: flex-end; /* RIGHT aligned */
+        gap: 12px;
 
         opacity: 0;
         pointer-events: none;
+
+        padding-top: 15px;
         transition: opacity 0.3s ease;
-        position: relative; /* Makes links appear under logo */
     }
 
-    /* LINKS WHEN ACTIVE */
+    /* When menu is open */
     .nav-links.active {
         opacity: 1;
         pointer-events: auto;
     }
 
-    /* Style for the links */
     .nav-links a {
         color: white;
         text-decoration: none;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         font-weight: bold;
     }
 }
+
 
 /* =======================
    DESKTOP VIEW

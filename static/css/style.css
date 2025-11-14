@@ -106,7 +106,7 @@ header {
 
     /* Add height when menu opens */
     header.menu-open {
-        padding-bottom: 185px; /* adjust as needed */
+        padding-bottom: 200px; /* adjust as needed */
     }
 
     /* Ensure logo container is centered */

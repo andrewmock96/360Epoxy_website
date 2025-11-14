@@ -20,11 +20,11 @@
   
      <!-- Navigation links -->
      <nav class="nav-links">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/services" class="nav-link">Services</a>
-        <a href="/gallery" class="nav-link">Gallery</a>
-        <a href="/contact" class="nav-link">Contact</a>
-      </nav>
+        <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
+        <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
+        <a href="/contact" class="nav-link {% if request.path == '/contact' %}active{% endif %}">Contact</a>
+    </nav>
     </div>
   </header>
 
@@ -64,32 +64,13 @@
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinksContainer = document.querySelector('.nav-links');
     const header = document.querySelector('header');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
-    // Hamburger toggle
+
+    // Hamburger toggle for mobile menu
     menuToggle.addEventListener('click', () => {
         navLinksContainer.classList.toggle('active');
         header.classList.toggle('menu-open');
     });
-    
-    // Highlight the current page on load
-    const currentPath = window.location.pathname;
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active'); // orange
-        }
-    
-        // Make clicked link orange immediately (no animation)
-        link.addEventListener('click', () => {
-            navLinks.forEach(l => l.classList.remove('active')); // reset all
-            link.classList.add('active'); // clicked link orange
-    
-            // Close mobile menu
-            navLinksContainer.classList.remove('active');
-            header.classList.remove('menu-open');
-        });
-    });
-    </script>
+</script>
 
 </body>
 </html>

@@ -66,23 +66,21 @@
     
     // Hamburger toggle
     menuToggle.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('active'); // show/hide links
-        header.classList.toggle('menu-open');        // expand header
+        navLinksContainer.classList.toggle('active');
+        header.classList.toggle('menu-open');
     });
     
-    // Highlight current page on load
-    const currentPath = window.location.pathname; // e.g., "/services"
+    // Highlight the current page on load
+    const currentPath = window.location.pathname;
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
+            link.classList.add('active'); // orange
         }
     
-        // Optional: click feedback (orange highlight before page reload)
+        // Make clicked link orange immediately (no animation)
         link.addEventListener('click', () => {
-            // Remove active from all links
-            navLinks.forEach(l => l.classList.remove('active'));
-            // Add active to clicked link
-            link.classList.add('active');
+            navLinks.forEach(l => l.classList.remove('active')); // reset all
+            link.classList.add('active'); // clicked link orange
     
             // Close mobile menu
             navLinksContainer.classList.remove('active');

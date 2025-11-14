@@ -92,41 +92,46 @@ header {
 ======================= */
 @media (max-width: 768px) {
 
-    /* hidden by default */
+    header {
+        transition: height 0.3s ease;
+        overflow: hidden;
+    }
+
+    /* Expanded header height when menu is open */
+    header.menu-open {
+        padding-bottom: 150px; /* Change height of dropdown */
+    }
+
+    /* Hide links until menu is opened */
     .nav-links {
-        display: none;
+        display: flex;
         flex-direction: column;
-        width: 100%;
-        padding-top: 10px;
-        padding-bottom: 15px;
+        align-items: flex-end; /* RIGHT ALIGN */
         gap: 15px;
 
-        /* NEW → menu appears INSIDE header */
-        position: relative;
-        background: transparent;
-        box-shadow: none;
+        width: 100%;
+        padding: 0 20px;
+        margin-top: 15px;
+
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        position: relative; /* Makes links appear under logo */
     }
 
-    /* When active: show and expand header */
-    header.menu-open {
-        padding-bottom: 40px; /* expands the header */
-    }
-
+    /* LINKS WHEN ACTIVE */
     .nav-links.active {
-        display: flex;
-        animation: slideDown 0.25s ease-in-out;
+        opacity: 1;
+        pointer-events: auto;
     }
 
+    /* Style for the links */
     .nav-links a {
-        padding: 8px 0;
+        color: white;
+        text-decoration: none;
         font-size: 1.1rem;
+        font-weight: bold;
     }
-}
-
-/* Mobile animation */
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 /* =======================

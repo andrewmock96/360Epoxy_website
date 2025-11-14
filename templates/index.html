@@ -72,33 +72,40 @@
     </div>
 </section>
 
-<!-- ADVERTISING FLAKES SECTION -->
-
+<!-- FLAKES SECTION -->
 <section class="flakes-section">
     <h2>Popular Flake Colors</h2>
 
     <p class="flakes-description">
-        Choose from our most requested epoxy flake blends. These options give your floor a premium look
-        with durability, style, and unique texture.
+        Choose from our most requested epoxy flake blends. Click any flake below to enlarge it.
     </p>
 
     <div class="flakes-grid">
 
         <!-- Flake #1 -->
         <div class="flake-card">
-            <img src="{{ url_for('static', filename='flakes/sierra.png') }}" alt="Sierra Flake">
+            <img src="{{ url_for('static', filename='flakes/sierra.png') }}" 
+                 alt="Sierra Flake" 
+                 class="flake-img">
             <h3>Sierra</h3>
         </div>
 
         <!-- Flake #2 -->
         <div class="flake-card">
-            <img src="{{ url_for('static', filename='flakes/carbon_mix.png') }}" alt="Stone Flake">
+            <img src="{{ url_for('static', filename='flakes/carbon_mix.png') }}" 
+                 alt="Carbon Mix Flake" 
+                 class="flake-img">
             <h3>Carbon Mix</h3>
         </div>
 
-
     </div>
 </section>
+
+<!-- ENLARGE MODAL -->
+<div id="flakeModal" class="flake-modal">
+    <span class="flake-close">&times;</span>
+    <img class="flake-modal-content" id="flakeModalImg">
+</div>
 
 <!-- GALLERY SECTION -->
 <section class="gallery">
@@ -112,17 +119,17 @@
 
     <div class="footer-contact" style="display: flex; justify-content: center; gap: 20px; align-items: center;">
 
-        <!-- Phone text link -->
+        <!-- Phone -->
         <a href="tel:4804044413" style="text-decoration: none; color: inherit;">
             480-404-4413
         </a>
 
-        <!-- Email text link -->
+        <!-- Email -->
         <a href="mailto:360epoxyaz@gmail.com" style="text-decoration: none; color: inherit;">
             360epoxyaz@gmail.com
         </a>
 
-        <!-- Instagram icon link -->
+        <!-- Instagram icon -->
         <a href="https://www.instagram.com/360epoxy" target="_blank">
             <img src="{{ url_for('static', filename='icons/instagram.jpg') }}"
                  alt="Instagram"
@@ -132,8 +139,9 @@
     </div>
 </footer>
 
-<!-- Hamburger Menu Script -->
+<!-- JS: Hamburger + Flake Modal -->
 <script>
+    /* Hamburger menu */
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinksContainer = document.querySelector('.nav-links');
     const header = document.querySelector('header');
@@ -141,6 +149,21 @@
     menuToggle.addEventListener('click', () => {
         navLinksContainer.classList.toggle('active');
         header.classList.toggle('menu-open');
+    });
+
+    /* Click-to-enlarge flakes */
+    document.querySelectorAll('.flake-img').forEach(img => {
+        img.addEventListener('click', function () {
+            const modal = document.getElementById('flakeModal');
+            const modalImg = document.getElementById('flakeModalImg');
+
+            modal.style.display = 'block';
+            modalImg.src = this.src;
+        });
+    });
+
+    document.querySelector('.flake-close').addEventListener('click', () => {
+        document.getElementById('flakeModal').style.display = 'none';
     });
 </script>
 

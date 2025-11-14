@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>360Epoxy</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -15,7 +15,9 @@
         <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360 Epoxy Logo" class="logo">
 
         <!-- Hamburger icon -->
-        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            ☰
+        </button>
 
         <!-- Navigation links -->
         <nav class="nav-links">
@@ -47,6 +49,10 @@
             <textarea name="message" placeholder="Your Project Details" rows="4" required></textarea>
             <button type="submit">Submit</button>
         </form>
+    </div>
+
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/hero-floor.jpg') }}" alt="Epoxy Flooring Example" style="width:100%; border-radius:10px;">
     </div>
 </section>
 
@@ -82,27 +88,15 @@
     </div>
 </footer>
 
-<!-- JS -->
+<!-- Hamburger Menu Script -->
 <script>
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinksContainer = document.querySelector('.nav-links');
     const header = document.querySelector('header');
-    const navLinks = document.querySelectorAll('.nav-links a');
 
-    // Toggle hamburger menu
     menuToggle.addEventListener('click', () => {
         navLinksContainer.classList.toggle('active');
         header.classList.toggle('menu-open');
-    });
-
-    // Click a link → highlight and close menu on mobile
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            navLinks.forEach(l => l.classList.remove('active')); // remove from all
-            link.classList.add('active'); // add to clicked
-            navLinksContainer.classList.remove('active'); // close mobile
-            header.classList.remove('menu-open');
-        });
     });
 </script>
 

@@ -23,29 +23,35 @@ body {
    HEADER + NAV
 ======================= */
 header {
-    background-color: #222222; /* dark header */
+    background-color: #222222;
     color: white;
     padding: 10px 20px;
     position: relative;
     z-index: 1000;
+
+    /* NEW → allow header to grow when menu expands */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: height 0.3s ease, padding 0.3s ease;
 }
 
-/* Center logo, hamburger on right */
+/* Centers logo, hamburger on right */
 .header-container {
     position: relative;
-    display: flex;
-    justify-content: center; /* centers logo */
-    align-items: center;
     width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
 
-/* Logo */
+/* Logo centered */
 .logo {
     max-width: 150px;
     height: auto;
 }
 
-/* Nav links (desktop) */
+/* Desktop nav links */
 .nav-links {
     display: flex;
     gap: 20px;
@@ -63,15 +69,14 @@ header {
     color: #FF9800;
 }
 
-/* Current page highlight */
 .nav-links a.active {
-    color: #1A73E8; /* blue theme */
+    color: #1A73E8;
 }
 
-/* Hamburger icon aligned right and vertically centered */
+/* Hamburger aligned right */
 .menu-toggle {
     position: absolute;
-    right: 20px; /* spacing from edge */
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
@@ -86,34 +91,41 @@ header {
    MOBILE VIEW
 ======================= */
 @media (max-width: 768px) {
-    /* Mobile nav - hidden by default */
+
+    /* hidden by default */
     .nav-links {
         display: none;
         flex-direction: column;
-        align-items: flex-start;
-        background-color: #222222;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 100%;    /* FULL WIDTH DROPDOWN */
-        padding: 20px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        z-index: 999;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        gap: 15px;
+
+        /* NEW → menu appears INSIDE header */
+        position: relative;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    /* When active: show and expand header */
+    header.menu-open {
+        padding-bottom: 40px; /* expands the header */
     }
 
     .nav-links.active {
         display: flex;
-        animation: slideDown 0.3s ease-in-out;
+        animation: slideDown 0.25s ease-in-out;
     }
 
     .nav-links a {
-        padding: 10px 0;
+        padding: 8px 0;
+        font-size: 1.1rem;
     }
 }
 
-/* Mobile dropdown animation */
+/* Mobile animation */
 @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
+    from { opacity: 0; transform: translateY(-8px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -129,13 +141,13 @@ header {
         width: auto;
         padding: 0;
         background: none;
-        box-shadow: none;
     }
 
     .menu-toggle {
         display: none;
     }
 }
+
 
 /* =======================
    HERO SECTION

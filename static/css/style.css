@@ -92,43 +92,35 @@ header {
 ======================= */
 @media (max-width: 768px) {
 
-    /* Force header to behave like a stacked block */
     header {
         background-color: #222;
         padding: 15px 20px;
         position: relative;
-        width: 100%;
         overflow: hidden;
         transition: padding-bottom 0.3s ease;
-        display: block;
-        text-align: center;
     }
 
-    /* Add height when menu opens */
+    /* Add extra room when menu opens */
     header.menu-open {
-        padding-bottom: 200px; /* adjust as needed */
-    }
-
-    /* Ensure logo container is centered */
-    .header-container {
-        width: 100%;
-        display: flex;
-        justify-content: center !important; /* CENTER LOGO */
-        align-items: center;
-        position: relative;
+        padding-bottom: 220px; /* increase this for more space under links */
     }
 
     /* Logo centered */
-    .logo {
-        max-width: 150px;
-        margin: 0 auto;
-        display: block;
+    .header-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    /* Hamburger on right */
+    .logo {
+        max-width: 150px;
+    }
+
+    /* Hamburger button aligned right */
     .menu-toggle {
         position: absolute;
-        right: 10px;
+        right: 0;
         top: 50%;
         transform: translateY(-50%);
         background: none;
@@ -136,40 +128,36 @@ header {
         font-size: 2rem;
         color: white;
         cursor: pointer;
-        z-index: 20;
+        z-index: 10;
     }
 
-    /* Links — hidden by default */
+    /* Nav links — hidden until toggled */
     .nav-links {
-        position: absolute;
-        top: 80px; /* directly under logo + hamburger */
-        right: 20px;
-
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
-
-        gap: 15px;
+        align-items: flex-end; /* right-aligned */
+        gap: 12px;
 
         opacity: 0;
         pointer-events: none;
+
+        padding-top: 50px; /* space from logo/button */
         transition: opacity 0.3s ease;
     }
 
-    /* Visible when active */
+    /* When menu is open */
     .nav-links.active {
         opacity: 1;
         pointer-events: auto;
     }
 
     .nav-links a {
-        color: white !important;
+        color: white;
+        text-decoration: none;
         font-size: 1.2rem;
         font-weight: bold;
-        text-decoration: none;
     }
 }
-
 
 /* =======================
    DESKTOP VIEW

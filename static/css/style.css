@@ -30,10 +30,11 @@ header {
     z-index: 1000;
 }
 
-/* Header container: logo left, hamburger right */
+/* Center logo, hamburger on right */
 .header-container {
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* centers logo */
     align-items: center;
     width: 100%;
 }
@@ -67,36 +68,35 @@ header {
     color: #1A73E8; /* blue theme */
 }
 
-/* Hamburger icon */
+/* Hamburger icon aligned right and vertically centered */
 .menu-toggle {
-    display: none;
+    position: absolute;
+    right: 20px; /* spacing from edge */
+    top: 50%;
+    transform: translateY(-50%);
     background: none;
     border: none;
     font-size: 2rem;
     color: white;
     cursor: pointer;
+    display: block;
 }
 
 /* =======================
    MOBILE VIEW
 ======================= */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
     /* Mobile nav - hidden by default */
     .nav-links {
         display: none;
-        flex-direction: column; /* stacked links */
-        align-items: flex-end;  /* right-aligned */
+        flex-direction: column;
+        align-items: flex-start;
         background-color: #222222;
         position: absolute;
-        top: 60px; /* just below header */
+        top: 70px;
         right: 0;
-        width: 200px;
-        padding: 15px 20px;
-        border-radius: 0 0 10px 10px;
+        width: 100%;    /* FULL WIDTH DROPDOWN */
+        padding: 20px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         z-index: 999;
     }
@@ -117,7 +117,9 @@ header {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Desktop nav forces horizontal layout */
+/* =======================
+   DESKTOP VIEW
+======================= */
 @media (min-width: 769px) {
     .nav-links {
         display: flex !important;

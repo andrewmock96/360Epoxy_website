@@ -13,20 +13,20 @@
     <div class="header-container">
         <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360 Epoxy Logo" class="logo">
     
-        <!-- Hamburger icon -->
+    <!-- Hamburger icon -->
     <button class="menu-toggle" aria-label="Toggle menu">
-        ☰
-      </button>
-  
+            ☰
+        </button>
+      
       <!-- Navigation links -->
-      <nav class="nav-links">
-        <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
-        <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
-        <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
-        <a href="/contact" class="nav-link {% if request.path == '/contact' %}active{% endif %}">Contact</a>
-    </nav>
+        <nav class="nav-links">
+            <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+            <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
+            <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
+            <a href="/contact" class="nav-link {% if request.path == '/contact' %}active{% endif %}">Contact</a>
+        </nav>
     </div>
-  </header>
+</header>
 
 <section class="contact">
     <h2>Contact Us!</h2>
@@ -59,14 +59,43 @@
 
 <!-- Hamburger Menu Script -->
 <script>
+    // Grab elements
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinksContainer = document.querySelector('.nav-links');
     const header = document.querySelector('header');
+    const navLinks = document.querySelectorAll('.nav-links a');
 
-    // Hamburger toggle for mobile menu
+    // ------------------------
+    // Hamburger toggle (mobile)
+    // ------------------------
     menuToggle.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('active');
-        header.classList.toggle('menu-open');
+        navLinksContainer.classList.toggle('active'); // show/hide links
+        header.classList.toggle('menu-open');        // expand header
+    });
+
+    // ------------------------
+    // Highlight current page on load
+    // ------------------------
+    const currentPath = window.location.pathname;
+
+    navLinks.forEach(link => {
+        // Highlight current page link
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+        }
+
+        // Highlight clicked link immediately
+        link.addEventListener('click', () => {
+            // Remove active from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+
+            // Add active to clicked link
+            link.classList.add('active');
+
+            // Close mobile menu if open
+            navLinksContainer.classList.remove('active');
+            header.classList.remove('menu-open');
+        });
     });
 </script>
 

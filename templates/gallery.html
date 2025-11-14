@@ -51,11 +51,21 @@
     const navLinks = document.querySelector('.nav-links');
     const header = document.querySelector('header');
     
+    // Toggle menu open/close
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         header.classList.toggle('menu-open');
     });
-</script>
+    
+    // Highlight current page
+    const currentPage = window.location.pathname.split("/").pop() || "index.html"; // fallback
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === currentPage) {
+            link.classList.add('active');
+        }
+    });
+    </script>
 
 </body>
 </html>

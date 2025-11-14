@@ -170,8 +170,8 @@ header {
     }
 
     /* Mobile view - active link highlight */
-    .nav-links a.active {
-        color: #FF9800 !important;  /* orange theme */
+    header .nav-links a.active {
+        color: #FF9800 !important;
     }
 }
 

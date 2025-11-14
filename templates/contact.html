@@ -50,10 +50,21 @@
 
 <footer>
     <p>&copy; 2025 360Epoxy. All rights reserved.</p>
-    <div class="footer-contact">
-        <p>Phone: (480)-404-4413</p>
-        <p>Email: <a href="mailto:360epoxyaz@gmail.com">360epoxyaz@gmail.com</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/360epoxy" target="_blank">@360epoxy</a></p>
+    <div class="footer-contact" style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+        <!-- Phone -->
+        <a href="tel:4804044413">
+            <img src="{{ url_for('static', filename='icons/phone.png') }}" alt="Phone" style="width:30px; height:30px;">
+        </a>
+        
+        <!-- Email -->
+        <a href="mailto:360epoxyaz@gmail.com">
+            <img src="{{ url_for('static', filename='icons/email.png') }}" alt="Email" style="width:30px; height:30px;">
+        </a>
+        
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/360epoxy" target="_blank">
+            <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram" style="width:30px; height:30px;">
+        </a>
     </div>
 </footer>
 

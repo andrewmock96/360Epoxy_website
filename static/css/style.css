@@ -142,7 +142,7 @@ header {
     /* Links — hidden by default */
     .nav-links {
         position: absolute;
-        top: 150px; /* increased from 80px for more vertical spacing */
+        top: 140px; /* increased from 80px for more vertical spacing */
         right: 20px;
 
         display: flex;

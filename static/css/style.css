@@ -92,35 +92,29 @@ header {
 ======================= */
 @media (max-width: 768px) {
 
+    /* Header */
     header {
         background-color: #222;
         padding: 15px 20px;
         position: relative;
-        overflow: hidden;
-        transition: padding-bottom 0.3s ease;
-    }
-
-    /* Add extra room when menu opens */
-    header.menu-open {
-        padding-bottom: 220px; /* increase this for more space under links */
-    }
-
-    /* Logo centered */
-    .header-container {
-        position: relative;
+        width: 100%;
+        overflow: visible; /* allow links to show below header */
         display: flex;
-        justify-content: center;
+        justify-content: center; /* centers logo */
         align-items: center;
     }
 
+    /* Logo centered */
     .logo {
         max-width: 150px;
+        display: block;
+        margin: 0 auto;
     }
 
-    /* Hamburger button aligned right */
+    /* Hamburger button on the right */
     .menu-toggle {
         position: absolute;
-        right: 0;
+        right: 10px;
         top: 50%;
         transform: translateY(-50%);
         background: none;
@@ -128,36 +122,36 @@ header {
         font-size: 2rem;
         color: white;
         cursor: pointer;
-        z-index: 10;
+        z-index: 20;
     }
 
-    /* Nav links — hidden until toggled */
+    /* Nav links — hidden by default */
     .nav-links {
         display: flex;
         flex-direction: column;
-        align-items: flex-end; /* right-aligned */
-        gap: 12px;
+        align-items: flex-start; /* left-align under button if needed */
+        gap: 15px;
 
+        margin-top: 60px; /* moves links farther down */
         opacity: 0;
         pointer-events: none;
-
-        padding-top: 50px; /* space from logo/button */
         transition: opacity 0.3s ease;
     }
 
-    /* When menu is open */
+    /* Visible when menu is active */
     .nav-links.active {
         opacity: 1;
         pointer-events: auto;
     }
 
     .nav-links a {
-        color: white;
-        text-decoration: none;
+        color: white !important;
         font-size: 1.2rem;
         font-weight: bold;
+        text-decoration: none;
     }
 }
+
 
 /* =======================
    DESKTOP VIEW

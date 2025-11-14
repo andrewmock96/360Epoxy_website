@@ -21,27 +21,23 @@ body {
     padding: 0;
 }
 
-/* =======================
-   HEADER + NAV
-======================= */
+/* HEADER + NAV */
 header {
     background-color: #222;
-    color: white;
     padding: 10px 20px;
     position: relative;
     z-index: 1000;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: height 0.3s ease, padding 0.3s ease;
 }
 
 .header-container {
-    position: relative;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    position: relative;
 }
 
 .logo {
@@ -66,7 +62,7 @@ header {
 }
 
 .nav-links a.active {
-    color: #FF9800 !important;
+    color: #FF9800 !important; /* Active link orange */
 }
 
 .menu-toggle {
@@ -82,16 +78,13 @@ header {
     display: block;
 }
 
-/* =======================
-   MOBILE VIEW (≤768px)
-======================= */
+/* MOBILE VIEW */
 @media (max-width: 768px) {
-
     header {
-        padding: 15px 20px;
         display: block;
         text-align: center;
         overflow: hidden;
+        padding: 15px 20px;
         transition: padding-bottom 0.3s ease;
     }
 
@@ -99,29 +92,11 @@ header {
         padding-bottom: 215px;
     }
 
-    .header-container {
-        justify-content: center !important;
-        align-items: center;
-        position: relative;
-    }
-
-    .logo {
-        display: block;
-        margin: 0 auto;
-    }
-
-    .menu-toggle {
-        right: 10px;
-        z-index: 20;
-    }
-
     .nav-links {
         position: absolute;
-        top: 130px;
+        top: 60px;
         right: 20px;
-        display: flex;
         flex-direction: column;
-        align-items: flex-end;
         gap: 15px;
         opacity: 0;
         pointer-events: none;
@@ -135,29 +110,11 @@ header {
     .nav-links a {
         color: white !important;
         font-size: 1.5rem;
-        font-weight: bold;
-        text-decoration: none;
-    }
-
-    .nav-links a.active {
-        color: #FF9800 !important;
     }
 }
 
-/* =======================
-   DESKTOP VIEW
-======================= */
+/* DESKTOP VIEW */
 @media (min-width: 769px) {
-    .nav-links {
-        display: flex !important;
-        flex-direction: row;
-        gap: 20px;
-        position: static;
-        width: auto;
-        padding: 0;
-        background: none;
-    }
-
     .menu-toggle {
         display: none;
     }

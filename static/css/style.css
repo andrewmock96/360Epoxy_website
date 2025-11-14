@@ -167,7 +167,6 @@ header {
         font-size: 1.5rem;
         font-weight: bold;
         text-decoration: none;
-        transition: color 0.3s ease;
     }
 
     /* Mobile view - active link highlight */

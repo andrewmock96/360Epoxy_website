@@ -8,7 +8,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    transition: all 0.3s ease-in-out;
+    /* Removed global transition to prevent link color animation */
 }
 
 body {
@@ -28,15 +28,12 @@ header {
     padding: 10px 20px;
     position: relative;
     z-index: 1000;
-
-    /* NEW → allow header to grow when menu expands */
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: height 0.3s ease, padding 0.3s ease;
 }
 
-/* Centers logo, hamburger on right */
 .header-container {
     position: relative;
     width: 100%;
@@ -45,13 +42,11 @@ header {
     align-items: center;
 }
 
-/* Logo centered */
 .logo {
     max-width: 150px;
     height: auto;
 }
 
-/* Desktop nav links */
 .nav-links {
     display: flex;
     gap: 20px;
@@ -62,6 +57,7 @@ header {
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
+    /* Removed transition */
 }
 
 .nav-links a:hover {
@@ -69,10 +65,9 @@ header {
 }
 
 .nav-links a.active {
-    color: #1A73E8;
+    color: #FF9800 !important; /* Active link instantly orange */
 }
 
-/* Hamburger aligned right */
 .menu-toggle {
     position: absolute;
     right: 20px;
@@ -90,8 +85,6 @@ header {
    MOBILE VIEW (≤768px)
 ======================= */
 @media (max-width: 768px) {
-
-    /* Force header to behave like a stacked block */
     header {
         background-color: #222;
         padding: 15px 20px;
@@ -103,28 +96,24 @@ header {
         text-align: center;
     }
 
-    /* Add height when menu opens */
     header.menu-open {
-        padding-bottom: 215px; /* adjust as needed */
+        padding-bottom: 215px;
     }
 
-    /* Ensure logo container is centered */
     .header-container {
         width: 100%;
         display: flex;
-        justify-content: center !important; /* CENTER LOGO */
+        justify-content: center !important;
         align-items: center;
         position: relative;
     }
 
-    /* Logo centered */
     .logo {
         max-width: 150px;
         margin: 0 auto;
         display: block;
     }
 
-    /* Hamburger on right */
     .menu-toggle {
         position: absolute;
         right: 10px;
@@ -138,24 +127,19 @@ header {
         z-index: 20;
     }
 
-    /* Links — hidden by default */
     .nav-links {
         position: absolute;
-        top: 130px; /* increased from 80px for more vertical spacing */
+        top: 130px;
         right: 20px;
-
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-
         gap: 15px;
-
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.3s ease;
+        /* Removed transition for link color */
     }
 
-    /* Visible when active */
     .nav-links.active {
         opacity: 1;
         pointer-events: auto;
@@ -168,12 +152,10 @@ header {
         text-decoration: none;
     }
 
-    /* Mobile view - active link highlight */
     .nav-links a.active {
-        color: #FF9800 !important;
+        color: #FF9800 !important; /* Active link instantly orange */
     }
-}                           
-
+}
 
 /* =======================
    DESKTOP VIEW
@@ -193,7 +175,6 @@ header {
         display: none;
     }
 }
-
 
 /* =======================
    HERO SECTION
@@ -259,7 +240,6 @@ button:active {
     text-align: center;
 }
 
-/* Hide floating hero images */
 .hero-contact .hero-image {
     display: none;
 }

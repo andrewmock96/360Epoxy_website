@@ -12,7 +12,7 @@
 <!-- HEADER -->
 <header>
     <div class="header-container">
-        <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360 Epoxy Logo" class="logo">
+        <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360Epoxy Logo" class="logo">
 
         <!-- Hamburger icon -->
         <button class="menu-toggle" aria-label="Toggle menu">
@@ -59,12 +59,10 @@
 <!-- WELCOME SECTION -->
 <section class="welcome-section">
     <div class="welcome-content">
-        <h2>Welcome To 360Epoxy</h2>
-        <div class="welcome-divider">
-            <span class="divider-line"></span>
-            <img src="{{ url_for('static', filename='icons/epoxy_icon.png') }}" alt="Epoxy Icon" class="divider-icon">
-            <span class="divider-line"></span>
+        <div class="welcome-logo-banner">
+            <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360Epoxy Logo" class="welcome-logo">
         </div>
+        <div class="welcome-divider"></div>
         <p>At 360Epoxy, we specialize in transforming floors into stunning, durable surfaces that last for years. Our coatings are designed to resist wear, stains, and fading, giving your garage, basement, or commercial space a flawless finish you can be proud of. Serving the Salt Lake City, Utah area, we focus on delivering exceptional results and a seamless experience from start to finish.</p>
     </div>
 </section>

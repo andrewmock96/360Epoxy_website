@@ -347,6 +347,29 @@ button:active {
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
+.flake-gallery-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.flake-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.flake-gallery-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.flake-gallery-card h3 {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
 /* =======================
    CONTACT SECTION
 ======================= */
@@ -638,3 +661,4 @@ footer a:hover {
     color: #FF9800;
     transform: scale(1.2);
 }
+

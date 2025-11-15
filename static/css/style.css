@@ -643,6 +643,35 @@ footer a:hover {
 }
 
 /* =======================
+   WELCOME SECTION
+======================= */
+.welcome-section {
+    background: #F5F5F5; 
+    color: #333;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.welcome-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.welcome-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #1A73E8;
+}
+
+.welcome-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* =======================
    POPULAR FLAKES SECTION
 ======================= */
 .flakes-section {

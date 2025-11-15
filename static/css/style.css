@@ -398,7 +398,7 @@ button:active {
     object-fit: cover;
     border-radius: 10px;
     display: block;
-    margin-bottom: 8px; /* <-- this controls spacing between image and name */
+    margin-bottom: 6px; /* <-- this controls spacing between image and name */
 }
 
 .flake-gallery-card h3 {

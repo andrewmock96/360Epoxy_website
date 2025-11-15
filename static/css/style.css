@@ -675,8 +675,9 @@ footer a:hover {
 
 .welcome-logo-banner h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
+    font-size: 5rem;
     font-weight: 700;
+    color: white;
     margin: 0 0 15px 0;
 }
 

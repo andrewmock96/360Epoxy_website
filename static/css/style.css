@@ -699,6 +699,35 @@ footer a:hover {
     color: #333;
 }
 
+/* =======================
+   SEE MORE FLAKES BUTTON
+======================= */
+.see-more-flakes-btn {
+    display: inline-block;
+    margin: 30px auto 0;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, #1A73E8 0%, #FF9800 100%);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+.see-more-flakes-btn:hover {
+    background: linear-gradient(135deg, #FF9800 0%, #1A73E8 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+.see-more-flakes-btn:active {
+    transform: scale(0.97);
+}
+
+
 /* Desktop layout */
 @media (min-width: 768px) {
     .flakes-grid {

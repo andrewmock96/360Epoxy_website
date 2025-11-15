@@ -436,7 +436,7 @@ button:active {
 }
 
 .flake-gallery-card h3 {
-    margin-top: 3px; /* <-- this controls spacing between image and name */
+    margin-top: 0px; /* <-- this controls spacing between image and name */
     font-size: 1.1rem;
     font-weight: bold;
     text-align: center;

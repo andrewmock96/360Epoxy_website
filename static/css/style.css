@@ -661,8 +661,28 @@ footer a:hover {
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: #1A73E8;
+}
+
+.welcome-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.divider-line {
+    flex: 1;
+    height: 3px;
+    background: linear-gradient(to right, #1A73E8, #FF9800);
+    border-radius: 2px;
+}
+
+.divider-icon {
+    width: 30px;
+    height: 30px;
 }
 
 .welcome-content p {

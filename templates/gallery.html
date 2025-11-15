@@ -9,15 +9,14 @@
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
     <div class="header-container">
         <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360 Epoxy Logo" class="logo">
 
-    <!-- Hamburger icon -->
-    <button class="menu-toggle" aria-label="Toggle menu">
-        ☰
-        </button>
-    
+        <!-- Hamburger icon -->
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+
         <!-- Navigation links -->
         <nav class="nav-links">
             <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
@@ -28,6 +27,7 @@
     </div>
 </header>
 
+<!-- GALLERY PROJECTS -->
 <section class="gallery">
     <h2>Our Projects</h2>
     <img src="{{ url_for('static', filename='images/Empty_garage_door_shut.jpg') }}" alt="Gallery Image 1">
@@ -39,7 +39,6 @@
 <!-- FLAKE GALLERY SECTION -->
 <section id="flake-gallery" class="flake-gallery-section">
     <h2>Flake Color Options</h2>
-
     <p class="flake-gallery-description">
         Browse our full collection of premium epoxy flake blends. These options provide durability,
         texture, and a polished finish that elevates any floor.
@@ -97,7 +96,7 @@
             <img src="{{ url_for('static', filename='flakes/smoked_sage.png') }}" alt="Smoked Sage">
             <h3>Smoked Sage</h3>
         </div>
-        
+
         <div class="flake-gallery-card">
             <img src="{{ url_for('static', filename='flakes/snowdrift.png') }}" alt="Snowdrift">
             <h3>Snowdrift</h3>
@@ -154,6 +153,12 @@
         </div>
 
         <div class="flake-gallery-card">
+            <a href="#flake-gallery" style="display:block; text-decoration:none; text-align:center; margin-top:10px; color:#FF9800; font-weight:bold;">
+                See More Flakes
+            </a>
+        </div>
+
+        <div class="flake-gallery-card">
             <img src="{{ url_for('static', filename='flakes/thunder_cloud.png') }}" alt="Thunder Cloud">
             <h3>Thunder Cloud</h3>
         </div>
@@ -171,6 +176,7 @@
     </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
     <p>&copy; 2025 360Epoxy. All rights reserved.</p>
 
@@ -192,51 +198,34 @@
         <a href="mailto:360epoxyaz@gmail.com" style="text-decoration: none; color: inherit;">
             Email: 360epoxyaz@gmail.com
         </a>
-
-
     </div>
 </footer>
 
 <!-- Hamburger Menu Script -->
 <script>
-    // Grab elements
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinksContainer = document.querySelector('.nav-links');
     const header = document.querySelector('header');
     const navLinks = document.querySelectorAll('.nav-links a');
 
-    // ------------------------
-    // Hamburger toggle (mobile)
-    // ------------------------
     menuToggle.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('active'); // show/hide links
-        header.classList.toggle('menu-open');        // expand header
+        navLinksContainer.classList.toggle('active');
+        header.classList.toggle('menu-open');
     });
 
-    // ------------------------
-    // Highlight current page on load
-    // ------------------------
     const currentPath = window.location.pathname;
-
     navLinks.forEach(link => {
-        // Highlight current page link
         if (link.getAttribute('href') === currentPath) {
             link.classList.add('active');
         }
-
-        // Highlight clicked link immediately
         link.addEventListener('click', () => {
-            // Remove active from all links
             navLinks.forEach(l => l.classList.remove('active'));
-
-            // Add active to clicked link
             link.classList.add('active');
-
-            // Close mobile menu if open
             navLinksContainer.classList.remove('active');
             header.classList.remove('menu-open');
         });
     });
 </script>
+
 </body>
 </html>

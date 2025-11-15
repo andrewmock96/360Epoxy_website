@@ -389,7 +389,7 @@ button:active {
     justify-content: flex-start;
 
     width: 100%;
-    height: 250px; /* uniform height */
+    height: 200px; /* uniform height */
 }
 
 .flake-gallery-card img {

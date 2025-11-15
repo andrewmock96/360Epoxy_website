@@ -8,12 +8,15 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    /* Removed global transition to prevent link color animation */
 }
 
 body {
     background-color: #F5F5F5;
     color: #333333;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 /* =======================
@@ -28,6 +31,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: height 0.3s ease, padding 0.3s ease;
 }
 
 .header-container {
@@ -49,24 +53,19 @@ header {
 }
 
 .nav-links a {
-    display: inline-block;
+    color: white;
+    text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
-    text-decoration: none;
-    color: #FF9800; /* fallback color for unsupported browsers */
-    background: linear-gradient(135deg, #FF9800, #FFC107);
-    background-clip: text;          /* standard property */
-    -webkit-background-clip: text;  /* webkit browsers */
-    -webkit-text-fill-color: transparent; /* webkit browsers */
+    /* Removed transition */
+}
+
+.nav-links a:hover {
+    color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* orange gradient */
 }
 
 .nav-links a.active {
-    display: inline-block;
-    color: #FF9800; /* fallback */
-    background: linear-gradient(135deg, #FF9800, #FFC107);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%)!important; /* Active link instantly orange gradient*/
 }
 
 .menu-toggle {
@@ -79,6 +78,7 @@ header {
     font-size: 2rem;
     color: white;
     cursor: pointer;
+    display: block;
 }
 
 /* =======================
@@ -86,9 +86,12 @@ header {
 ======================= */
 @media (max-width: 768px) {
     header {
+        background-color: #222;
         padding: 15px 20px;
+        position: relative;
         width: 100%;
         overflow: hidden;
+        transition: padding-bottom 0.3s ease;
         display: block;
         text-align: center;
     }
@@ -100,12 +103,13 @@ header {
     .header-container {
         width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: center !important;
         align-items: center;
         position: relative;
     }
 
     .logo {
+        max-width: 150px;
         margin: 0 auto;
         display: block;
     }
@@ -133,6 +137,7 @@ header {
         gap: 15px;
         opacity: 0;
         pointer-events: none;
+        /* Removed transition for link color */
     }
 
     .nav-links.active {
@@ -141,23 +146,15 @@ header {
     }
 
     .nav-links a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    background: linear-gradient(135deg, #FF9800, #FFC107);
-    background-clip: text;           /* standard property for compatibility */
-    -webkit-background-clip: text;   /* required for Chrome, Safari, Edge */
-    -webkit-text-fill-color: transparent;
-    color: #FF9800;                  /* fallback if gradient not supported */
-}
+        color: white !important;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+    }
 
-.nav-links a.active {
-    background: linear-gradient(135deg, #FF9800, #FFC107);
-    background-clip: text;           /* standard property */
-    -webkit-background-clip: text;   /* required for Chrome, Safari, Edge */
-    -webkit-text-fill-color: transparent;
-    color: #FF9800;                  /* fallback if gradient not supported */
-}
+    .nav-links a.active {
+        color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%)  !important; /* Active link instantly orange gradient*/
+    }
 }
 
 /* =======================
@@ -209,18 +206,16 @@ header {
     width: 100%;
     padding: 15px;
     border: none;
+    background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* orange gradient */
+    color: white;
+    font-weight: bold;
     border-radius: 15px;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    color: white;
-    background: linear-gradient(135deg, #FF9800, #FFC107);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
 }
 
 .hero button:hover {
-    background: linear-gradient(135deg, #E68900, #FFB300);
+    background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* orange gradient */
     transform: translateY(-2px);
 }
 
@@ -269,7 +264,7 @@ button:active {
 }
 
 .hero-contact form button {
-    background: linear-gradient(135deg, #FF9800, #FFC107);
+    background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* correct gradient usage */
     color: white;
     border: none;
     border-radius: 15px;
@@ -280,7 +275,7 @@ button:active {
 }
 
 .hero-contact form button:hover {
-    background: linear-gradient(135deg, #E68900, #FFB300);
+    background: linear-gradient(135deg, #E68900 0%, #FFB300 100%); /* slightly darker on hover */
     transform: translateY(-2px);
 }
 
@@ -311,7 +306,7 @@ button:active {
 }
 
 .service-item:hover {
-    background: linear-gradient(135deg, #1A73E8, #FF9800);
+    background: linear-gradient(135deg, #1A73E8 0%, #FF9800 100%);
     color: white;
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
@@ -330,10 +325,328 @@ button:active {
 }
 
 /* =======================
+   GALLERY SECTION
+======================= */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 30px 15px;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* =======================
+   OUR PROJECTS GRID
+======================= */
+.gallery {
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.gallery img {
+    width: 100%;
+    height: 350px; /* uniform height */
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.gallery h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* =======================
+   FLAKE GALLERY SECTION
+======================= */
+.flake-gallery-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.flake-gallery-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.flake-gallery-description {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.flake-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on mobile */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.flake-gallery-card {
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 200px; /* uniform height */
+}
+
+.flake-gallery-card img {
+    width: 100%;
+    height: 160px; /* uniform image height */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 8px; /* <-- this controls vertical spacing between each card */
+    display: block;
+}
+
+.flake-gallery-card h3 {
+    margin-top: 0px; /* <-- this controls spacing between image and name */
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Hover effect */
+.flake-gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+    .flake-gallery-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 per row on desktop */
+    }
+}
+
+/* =======================
+   CONTACT SECTION
+======================= */
+.contact {
+    padding: 40px 20px;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact input,
+.contact textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
+
+.contact button {
+    padding: 15px;
+    border: none;
+    background-color: #1A73E8;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.contact button:hover {
+    background-color: #155ab6;
+}
+
+/* =======================
+   FOOTER
+======================= */
+footer {
+    background-color: #222222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer a {
+    color: #FF9800;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* =======================
+   FLASH MESSAGES
+======================= */
+.flash-message {
+    background-color: #FF9800;
+    color: white;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.flash-message.success {
+    background-color: #4CAF50;
+}
+
+/* =======================
+   MEDIA QUERIES (DESKTOP)
+======================= */
+@media (min-width: 768px) {
+    header nav {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        padding: 60px 40px;
+    }
+
+    .hero-contact {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .hero-contact form {
+        margin: 0;
+    }
+
+    .services {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .gallery {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .service-item, .gallery img {
+        width: 48%;
+    }
+}
+
+/* ---------------------------------------
+   DESKTOP LAYOUT — 900px and up
+---------------------------------------- */
+@media (min-width: 900px) {
+
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links {
+        display: flex !important;
+        gap: 30px;
+    }
+
+    .menu-toggle {
+        display: none !important;
+    }
+
+    .hero-contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1400px;
+        margin: 50px auto;
+        padding: 30px;
+        gap: 40px;
+    }
+
+    .form-container {
+        flex: 1;
+        max-width: 450px;
+    }
+
+    .hero-image {
+        flex: 1;
+        max-width: 600px;
+        display: block !important; /* allow image on desktop */
+    }
+
+    .services {
+        max-width: 1200px;
+        margin: 50px auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 20px 40px;
+    }
+
+    .gallery {
+        max-width: 1200px;
+        margin: 50px auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 20px 40px;
+    }
+
+    .gallery img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 50px;
+    }
+}
+
+/* =======================
    WELCOME SECTION
 ======================= */
 .welcome-section {
-    background: #F5F5F5;
+    background: #F5F5F5; 
     color: #333;
     text-align: center;
     padding: 50px 20px;
@@ -349,22 +662,23 @@ button:active {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1A73E8, #FF9800);
+    background: linear-gradient(135deg, #1A73E8, #FF9800); /* gradient */
     padding: 30px 50px;
     border-radius: 20px;
     margin-bottom: 25px;
     color: white;
-    width: 100%;
-    max-width: 600px;
-    box-sizing: border-box;
+
+    width: 100%; /* make it full width of parent */
+    max-width: 600px; /* optional, controls max size */
+    box-sizing: border-box; /* include padding in width */
 }
 
 .welcome-logo-banner h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 15px;
     color: white;
+    margin: 0 0 15px 0;
 }
 
 .welcome-logo {
@@ -375,7 +689,7 @@ button:active {
 .welcome-divider {
     width: 300px;
     height: 4px;
-    background: linear-gradient(135deg, #3399FF, #1A73E8);
+    background-color: linear-gradient(135deg, #7EC0EE, #3399FF); /* gradient */
     margin: 20px auto 30px auto;
     border-radius: 2px;
 }
@@ -448,30 +762,31 @@ button:active {
 ======================= */
 .see-more-flakes-btn {
     display: block;
-    margin: 30px auto 0;
-    padding: 15px 30px;
-    background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%);
+    margin: 30px auto 0;  /* center button with spacing above */
+    padding: 15px 30px;   /* comfy padding */
+    background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* orange gradient */
     color: white;
     font-weight: bold;
-    border: none;
-    border-radius: 15px;
+    border: none;         /* removes any default border */
+    border-radius: 15px;  /* rounded corners */
     cursor: pointer;
     font-size: 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    outline: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* subtle shadow */
+    outline: none;        /* removes default focus outline */
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 }
 
 .see-more-flakes-btn:hover {
-    background: linear-gradient(135deg, #E68900 0%, #FFB300 100%);
+    background: linear-gradient(135deg, #E68900 0%, #FFB300 100%); /* slightly darker gradient on hover */
     transform: translateY(-2px);
-    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2); /* stronger shadow */
 }
 
 .see-more-flakes-btn:active {
     transform: scale(0.97);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* reset shadow on click */
 }
+
 
 /* Desktop layout */
 @media (min-width: 768px) {
@@ -484,7 +799,7 @@ button:active {
    FLAKE ENLARGE MODAL
 ======================= */
 .flake-modal {
-    display: none;
+    display: none; /* Hidden until clicked */
     position: fixed;
     z-index: 5000;
     left: 0;
@@ -520,3 +835,4 @@ button:active {
     color: #FF9800;
     transform: scale(1.2);
 }
+

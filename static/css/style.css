@@ -671,9 +671,9 @@ footer a:hover {
 }
 
 .welcome-divider {
-    width: 80px;
+    width: 200px;
     height: 4px;
-    background: linear-gradient(to right, #1A73E8, #FF9800);
+    background-color: #add8e6;
     margin: 20px auto 30px auto;
     border-radius: 2px;
 }

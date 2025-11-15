@@ -61,11 +61,11 @@ header {
 }
 
 .nav-links a:hover {
-    color: #FF9800;
+    color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* orange gradient */
 }
 
 .nav-links a.active {
-    color: #FF9800 !important; /* Active link instantly orange */
+    color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%)!important; /* Active link instantly orange gradient*/
 }
 
 .menu-toggle {
@@ -153,7 +153,7 @@ header {
     }
 
     .nav-links a.active {
-        color: #FF9800 !important; /* Active link instantly orange */
+        color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%)  !important; /* Active link instantly orange gradient*/
     }
 }
 
@@ -206,7 +206,7 @@ header {
     width: 100%;
     padding: 15px;
     border: none;
-    background-color: #FF9800;
+    background-color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* orange gradient */
     color: white;
     font-weight: bold;
     border-radius: 15px;
@@ -215,7 +215,7 @@ header {
 }
 
 .hero button:hover {
-    background-color: #E68900;
+    background-color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* orange gradient */
     transform: translateY(-2px);
 }
 
@@ -264,7 +264,7 @@ button:active {
 }
 
 .hero-contact form button {
-    background-color: #FF9800;
+    background-color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* orange gradient */
     color: white;
     border: none;
     border-radius: 15px;
@@ -275,7 +275,7 @@ button:active {
 }
 
 .hero-contact form button:hover {
-    background-color: #E68900;
+    background-color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* orange gradient */
     transform: translateY(-2px);
 }
 

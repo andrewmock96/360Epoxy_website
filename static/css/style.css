@@ -703,28 +703,30 @@ footer a:hover {
    SEE MORE FLAKES BUTTON
 ======================= */
 .see-more-flakes-btn {
-    display: inline-block;
-    margin: 30px auto 0;
-    padding: 15px 35px;
-    background: linear-gradient(135deg, #1A73E8 0%, #FF9800 100%);
+    display: block;
+    margin: 30px auto 0;  /* center button with spacing above */
+    padding: 15px 30px;   /* comfy padding */
+    background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* orange gradient */
     color: white;
     font-weight: bold;
-    font-size: 1rem;
-    border: none;
-    border-radius: 15px;
+    border: none;         /* removes any default border */
+    border-radius: 15px;  /* rounded corners */
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* subtle shadow */
+    outline: none;        /* removes default focus outline */
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 }
 
 .see-more-flakes-btn:hover {
-    background: linear-gradient(135deg, #FF9800 0%, #1A73E8 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #E68900 0%, #FFB300 100%); /* slightly darker gradient on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2); /* stronger shadow */
 }
 
 .see-more-flakes-btn:active {
     transform: scale(0.97);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* reset shadow on click */
 }
 
 

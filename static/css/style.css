@@ -773,6 +773,7 @@ footer a:hover {
     display: block;
     margin: 30px auto 0;  /* center button with spacing above */
     padding: 15px 30px;   /* comfy padding */
+    outline: none;
     background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* orange gradient */
     color: white;
     font-weight: bold;

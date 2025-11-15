@@ -360,7 +360,7 @@ button:active {
 
 .gallery img {
     width: 100%;
-    height: 300px; /* uniform height */
+    height: 350px; /* uniform height */
     object-fit: cover;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -431,12 +431,12 @@ button:active {
     height: 160px; /* uniform image height */
     object-fit: cover;
     border-radius: 10px;
+    margin-bottom: 8px; /* <-- this controls vertical spacing between each card */
     display: block;
-    margin-bottom: 6px; /* <-- this controls spacing between image and name */
 }
 
 .flake-gallery-card h3 {
-    margin-top: 5px;
+    margin-top: 3px; /* <-- this controls spacing between image and name */
     font-size: 1.1rem;
     font-weight: bold;
     text-align: center;

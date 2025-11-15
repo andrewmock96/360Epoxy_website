@@ -61,11 +61,17 @@ header {
 }
 
 .nav-links a:hover {
-    color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); /* orange gradient */
+    background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* standard fallback */
 }
 
 .nav-links a.active {
-    color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%)!important; /* Active link instantly orange gradient*/
+    background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%) !important;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* standard fallback */
 }
 
 .menu-toggle {
@@ -153,8 +159,11 @@ header {
     }
 
     .nav-links a.active {
-        color: linear-gradient(135deg, #FF9800 0%, #FFC107 100%)  !important; /* Active link instantly orange gradient*/
-    }
+    background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%) !important;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* standard fallback */
+}
 }
 
 /* =======================

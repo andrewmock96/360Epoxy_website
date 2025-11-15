@@ -152,17 +152,22 @@ header {
     }
 
     .nav-links a {
-        color: white !important;
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-decoration: none;
-    }
-
-    .nav-links a.active {
-    background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%) !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    background: none; /* reset any previous background */
+    color: white; /* fallback color */
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text; /* standard fallback */
+    -webkit-text-fill-color: white; /* fallback text fill */
+    background-clip: text;
+}
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text; /* standard property for compatibility */
 }
 }
 

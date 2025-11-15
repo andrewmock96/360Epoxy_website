@@ -658,11 +658,22 @@ footer a:hover {
 }
 
 .welcome-logo-banner {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(135deg, #1A73E8, #FF9800);
-    padding: 15px 40px;
+    padding: 30px 50px;
     border-radius: 20px;
     margin-bottom: 25px;
+    color: white;
+}
+
+.welcome-logo-banner h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 15px 0;
 }
 
 .welcome-logo {
@@ -671,7 +682,7 @@ footer a:hover {
 }
 
 .welcome-divider {
-    width: 200px;
+    width: 300px;
     height: 4px;
     background-color: #add8e6;
     margin: 20px auto 30px auto;

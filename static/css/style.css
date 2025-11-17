@@ -257,9 +257,9 @@ body {
 ======================= */
 .top-banner {
     width: 100%;
-    background: #1A73E8;
+    background: #7EC0EE;
     color: white;
-    padding: 10px 20px;
+    padding: 0px 0px;
 
     display: flex;
     justify-content: space-between;

@@ -256,8 +256,8 @@ body {
    TOP BANNER WITH SOCIALS
 ======================= */
 .top-banner {
-    width: 100%;
-    background: #222222;
+    width: 100vw;
+    background: blue;
     color: white;
     padding: 10px 20px;
 
@@ -272,6 +272,7 @@ body {
 
     position: sticky;
     top: 0;
+    left: 0;
     z-index: 9999;
 }
 

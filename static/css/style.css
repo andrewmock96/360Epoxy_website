@@ -434,7 +434,7 @@ button:active {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1A73E8, #222222); /* gradient */
+    background: linear-gradient(135deg, #222222, #1A73E8); /* gradient */
     padding: 30px 50px;
     border-radius: 20px;
     margin-bottom: 25px;

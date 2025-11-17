@@ -259,7 +259,7 @@ body {
     width: 100%;
     background: #7EC0EE;
     color: white;
-    padding: 0px 0px;
+    padding: 10px 20px;
 
     display: flex;
     justify-content: space-between;
@@ -274,6 +274,7 @@ body {
 .banner-right {
     display: flex;
     align-items: center;
+    justify-content: right;
     gap: 15px;
 }
 
@@ -306,7 +307,7 @@ body {
     color: #1A73E8;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;

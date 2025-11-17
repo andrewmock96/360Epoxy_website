@@ -285,7 +285,7 @@ body {
 .banner-right {
     display: flex;
     align-items: center;
-    justify-content: right;
+    margin-left: auto;
     gap: 15px;
 }
 

@@ -8,14 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<!-- HEADER -->
-<header>
     <!-- TOP BANNER BAR -->
     <div class="top-banner">
         <div class="banner-right">
             <a href="/contact" class="banner-btn">Get Free Quote</a>
-
+    
             <div class="social-icons">
                 <a href="https://www.facebook.com/" target="_blank" class="social-icon fb">
                     <img src="{{ url_for('static', filename='icons/facebook.png') }}"
@@ -31,14 +28,17 @@
         </div>
     </div>
     
-    <div class="header-container">
-        <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360Epoxy Logo" class="logo">
-
+    <!-- HEADER -->
+    <header>
+        
+        <div class="header-container">
+            <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360Epoxy Logo" class="logo">
+        
         <!-- Hamburger icon -->
         <button class="menu-toggle" aria-label="Toggle menu">
             ☰
         </button>
-
+        
         <!-- Navigation links -->
         <nav class="nav-links">
             <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
@@ -49,9 +49,9 @@
     </div>
 </header>
 
-    <div class="hero-image">
-        <img src="{{ url_for('static', filename='images/hero-floor.jpg') }}" alt="Epoxy Flooring Example" style="width:100%; border-radius:10px;">
-    </div>
+<div class="hero-image">
+    <img src="{{ url_for('static', filename='images/hero-floor.jpg') }}" alt="Epoxy Flooring Example" style="width:100%; border-radius:10px;">
+</div>
 </section>
 
 <!-- WELCOME SECTION -->
@@ -87,25 +87,25 @@
 <!-- ADVERTISING FLAKES SECTION -->
 <section class="flakes-section">
     <h2>Popular Flake Colors</h2>
-
+    
     <p class="flakes-description">
         Choose from our most requested epoxy flake blends. These options give your floor a premium look
         with durability, style, and unique texture.
     </p>
-
+    
     <div class="flakes-grid">
-
+        
         <!-- Flake #1 -->
         <div class="flake-card">
             <img src="{{ url_for('static', filename='flakes/sierra.png') }}" alt="Sierra Flake">
             <h3>Sierra</h3>
         </div>
-
+        
         <!-- Flake #2 -->
         <div class="flake-card">
             <img src="{{ url_for('static', filename='flakes/carbon_mix.png') }}" alt="Carbon Mix Flake">
             <h3>Carbon Mix</h3>
-
+            
         </div>
     </div>
     <button>
@@ -127,14 +127,14 @@
 <!-- FOOTER -->
 <footer>
     <p>&copy; 2025 360Epoxy. All rights reserved.</p>
-
+    
     <div class="footer-contact" style="display: flex; justify-content: center; gap: 20px; align-items: center;">
-
+        
         <!-- Phone -->
         <a href="tel:4804044413" style="text-decoration: none; color: inherit;">
             480-404-4413
         </a>
-
+        
         <!-- Email -->
         <a href="mailto:360epoxyaz@gmail.com" style="text-decoration: none; color: inherit;">
             360epoxyaz@gmail.com

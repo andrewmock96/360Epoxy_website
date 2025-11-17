@@ -355,7 +355,7 @@ header {
 
 .nav-links a {
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-decoration: none;
     color: white; /* fallback color */
     background: none; /* ensure no gradient applied yet */

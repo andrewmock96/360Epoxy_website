@@ -253,6 +253,40 @@ body {
 }
 
 /* =======================
+   TOP BANNER
+======================= */
+.top-banner {
+    width: 100%;
+    background: #1A73E8; /* Light Blue Banner */
+    color: white;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.top-banner .banner-btn {
+    background: linear-gradient(135deg, #FF9800, #FFC107);
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.top-banner .banner-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* =======================
 HEADER + NAV
 ======================= */
 header {

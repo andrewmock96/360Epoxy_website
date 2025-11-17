@@ -28,24 +28,31 @@
     </div>
 </header>
 
-<section class="contact">
-    <h2>Contact Us!</h2>
+<!-- CONTACT FORM -->
+<section class="hero-contact">
+    <div class="form-container">
+        <h2>Get Your Free Quote Today!</h2>
 
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, message in messages %}
-          <div class="flash-message {{ category }}">{{ message }}</div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
 
-    <form action="{{ url_for('contact') }}" method="POST">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <input type="tel" name="phone" placeholder="Phone Number" required>
-        <textarea name="message" placeholder="Your Project Details" rows="4" required></textarea>
-        <button type="submit">Submit</button>
-    </form>
+        <form action="{{ url_for('contact') }}" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <textarea name="message" placeholder="Your Project Details" rows="4" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/hero-floor.jpg') }}" alt="Epoxy Flooring Example" style="width:100%; border-radius:10px;">
+    </div>
 </section>
 
 <footer>

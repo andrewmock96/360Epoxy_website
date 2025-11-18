@@ -309,7 +309,7 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: white;
+    background: transparent;
     color: #1A73E8;
     display: flex;
     justify-content: center;

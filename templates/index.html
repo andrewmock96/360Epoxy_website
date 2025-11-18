@@ -77,15 +77,16 @@
 
     <div class="reviews-grid">
         <div class="review-card">
-            <p>"Amazing service! My garage floor looks brand new."</p>
-            <span>- John D.</span>
+            <p>"I went with their Sierra blend on my garage floor, they where extremely professional and reasonably priced. They floor looks GREAT. I would 
+                definitely recommend their service for anyone in the Salt Lake area."</p>
+            <span>- Andrew M.</span>
         </div>
         <div class="review-card">
-            <p>"Professional and durable flooring. Highly recommend!"</p>
+            <p>"Highly recommend!"</p>
             <span>- Sarah P.</span>
         </div>
         <div class="review-card">
-            <p>"Fantastic results and fast application. Love my new floor!"</p>
+            <p>"Got Carbon Mix blend for my garage, and the floor looks awesome."</p>
             <span>- Mike W.</span>
         </div>
     </div>
@@ -239,6 +240,36 @@
     serviceItems.forEach(item => {
         observer.observe(item);
     });
+
+    // ==============================
+    // Fetch and display Google Reviews
+    // ==============================
+    async function loadGoogleReviews() {
+        try {
+            const response = await fetch("/api/reviews");
+            if (!response.ok) throw new Error("Network response was not ok");
+
+            const reviews = await response.json();
+
+            const container = document.querySelector(".google-reviews");
+            container.innerHTML = `<h2>What Our Customers Say</h2>`; // reset container
+
+            reviews.forEach(review => {
+                const reviewEl = document.createElement("div");
+                reviewEl.classList.add("review-item");
+                reviewEl.innerHTML = `
+                    <p><strong>${review.author_name}</strong> - Rating: ${review.rating} / 5</p>
+                    <p>${review.text}</p>
+                `;
+                container.appendChild(reviewEl);
+            });
+
+        } catch (error) {
+            console.error("Failed to load Google reviews:", error);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadGoogleReviews);
 </script>
 
 </body>

@@ -550,44 +550,78 @@ button:active {
     SERVICES SECTION
 ======================= */
 .services {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 30px 15px;
-    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.services-description {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 10px;
 }
 
 .service-item {
     background: white;
-    border-radius: 15px;
-    padding: 15px 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    padding: 20px 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     text-align: center;
-    flex: 1 1 auto;
-    max-width: 300px;
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+}
+
+.service-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #333;
 }
 
 .service-item p {
-    line-height: 1.4;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
 }
 
 .service-item:hover {
-    background: linear-gradient(135deg, #1A73E8 0%, #FF9800 100%);
+    background: linear-gradient(135deg, #1A73E8, #FF9800);
     color: white;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+.service-item:hover p {
+    color: white;
 }
 
 @media (min-width: 768px) {
-    .services {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
     }
-    
-    .service-item {
-        width: 48%;
+}
+
+@media (min-width: 1000px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 

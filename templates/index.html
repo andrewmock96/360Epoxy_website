@@ -75,25 +75,31 @@
 <section class="google-reviews">
     <h2>What Our Customers Say</h2>
 
-    <div class="reviews-grid">
-        <div class="review-card">
-            <p>"I went with their Sierra blend on my garage floor, they where extremely professional and reasonably priced. They floor looks GREAT. I would 
-                definitely recommend their service for anyone in the Salt Lake area."</p>
-            <span>- Andrew M.</span>
-        </div>
-        <div class="review-card">
-            <p>"Highly recommend!"</p>
-            <span>- Sarah P.</span>
-        </div>
-        <div class="review-card">
-            <p>"Got Carbon Mix blend for my garage, and the floor looks awesome."</p>
-            <span>- Mike W.</span>
+    <div class="reviews-carousel">
+        <div class="reviews-track">
+            <!-- Individual reviews will be appended here -->
+            <div class="review-item">
+                <p>"I went with their Sierra blend on my garage floor, they were extremely professional and reasonably priced. The floor looks GREAT."</p>
+                <span>- Andrew M.</span>
+            </div>
+            <div class="review-item">
+                <p>"Highly recommend!"</p>
+                <span>- Sarah P.</span>
+            </div>
+            <div class="review-item">
+                <p>"Got Carbon Mix blend for my garage, and the floor looks awesome."</p>
+                <span>- Mike W.</span>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- <section class="google-reviews">
     <h2>What Our Customers Say</h2>
+
+    <div class="reviews-track">
+        
+    </div>
 </section> -->
 
 <!-- SERVICES SECTION -->
@@ -244,6 +250,23 @@
     serviceItems.forEach(item => {
         observer.observe(item);
     });
+
+    function initReviewCarousel() {
+        const track = document.querySelector('.reviews-track');
+        const reviews = document.querySelectorAll('.review-item');
+        let index = 0;
+
+        if (!track || reviews.length <= 1) return; // extra safety check
+
+        setInterval(() => {
+            index++;
+            if (index >= reviews.length) index = 0;
+            const offset = -index * 100; // slide 100% each time
+            track.style.transform = `translateX(${offset}%)`;
+        }, 4000); // change every 4 seconds
+    }
+
+    document.addEventListener('DOMContentLoaded', initReviewCarousel);
 
     // ==============================
     // Fetch and display Google Reviews

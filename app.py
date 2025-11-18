@@ -35,10 +35,10 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=port)
 
 
-
+"""
 # GOOGLE REVIEWS API SETTINGS
-API_KEY = "YOUR_GOOGLE_API_KEY"  # replace with your Google API Key
-PLACE_ID = "YOUR_PLACE_ID"        # replace with your verified business Place ID
+API_KEY = "AIzaSyCDW2koVVSyKpMgX7aaVFajRmQPP0TCZhA"  # replace with your Google API Key
+PLACE_ID = ""        # replace with your verified business Place ID
 
 @app.route("/api/reviews")
 def get_reviews():
@@ -58,3 +58,4 @@ def get_reviews():
     ]
     
     return jsonify(simplified_reviews)
+"""

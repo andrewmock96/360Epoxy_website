@@ -92,6 +92,10 @@
     </div>
 </section>
 
+<!-- <section class="google-reviews">
+    <h2>What Our Customers Say</h2>
+</section> -->
+
 <!-- SERVICES SECTION -->
 <section class="services">
     <div class="service-item">
@@ -244,32 +248,32 @@
     // ==============================
     // Fetch and display Google Reviews
     // ==============================
-    async function loadGoogleReviews() {
-        try {
-            const response = await fetch("/api/reviews");
-            if (!response.ok) throw new Error("Network response was not ok");
+    // async function loadGoogleReviews() {
+    //     try {
+    //         const response = await fetch("/api/reviews");
+    //         if (!response.ok) throw new Error("Network response was not ok");
 
-            const reviews = await response.json();
+    //         const reviews = await response.json();
 
-            const container = document.querySelector(".google-reviews");
-            container.innerHTML = `<h2>What Our Customers Say</h2>`; // reset container
+    //         const container = document.querySelector(".google-reviews");
+    //         container.innerHTML = `<h2>What Our Customers Say</h2>`; // reset container
 
-            reviews.forEach(review => {
-                const reviewEl = document.createElement("div");
-                reviewEl.classList.add("review-item");
-                reviewEl.innerHTML = `
-                    <p><strong>${review.author_name}</strong> - Rating: ${review.rating} / 5</p>
-                    <p>${review.text}</p>
-                `;
-                container.appendChild(reviewEl);
-            });
+    //         reviews.forEach(review => {
+    //             const reviewEl = document.createElement("div");
+    //             reviewEl.classList.add("review-item");
+    //             reviewEl.innerHTML = `
+    //                 <p><strong>${review.author_name}</strong> - Rating: ${review.rating} / 5</p>
+    //                 <p>${review.text}</p>
+    //             `;
+    //             container.appendChild(reviewEl);
+    //         });
 
-        } catch (error) {
-            console.error("Failed to load Google reviews:", error);
-            }
-        }
+    //     } catch (error) {
+    //         console.error("Failed to load Google reviews:", error);
+    //         }
+    //     }
 
-        document.addEventListener("DOMContentLoaded", loadGoogleReviews);
+    //     document.addEventListener("DOMContentLoaded", loadGoogleReviews);
 </script>
 
 </body>

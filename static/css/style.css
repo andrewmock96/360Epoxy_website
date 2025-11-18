@@ -302,7 +302,7 @@ body {
 /* SOCIAL ICONS */
 .social-icons {
     display: flex;
-    gap: 3px;
+    gap: 0px;
 }
 
 .social-icon {

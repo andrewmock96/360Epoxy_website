@@ -553,6 +553,9 @@ button:active {
 /* =======================
    GOOGLE REVIEW SECTION
 ======================= */
+/* =======================
+   GOOGLE REVIEW SECTION
+======================= */
 .google-reviews {
     max-width: 1200px;
     margin: 50px auto;
@@ -563,7 +566,56 @@ button:active {
 .google-reviews h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+/* Grid for review cards */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.review-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.review-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.review-card span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1000px) {
+    .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 /* =======================

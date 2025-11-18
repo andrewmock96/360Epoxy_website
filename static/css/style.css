@@ -308,22 +308,23 @@ body {
 .social-icon {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
-    background: transparent;
-    color: #1A73E8;
     display: flex;
     justify-content: center;
-    align-items: left;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: 0.2s ease;
+    align-items: center; /* changed from left to center */
+    background: transparent; /* ensure no white background */
+    transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-.social-icon:hover {
-    background: #FF9800;
-    color: white;
-    transform: translateY(-2px);
+.social-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.social-icon:hover img {
+    transform: scale(1.1); /* subtle zoom on hover */
+    filter: brightness(1.2) sepia(0.3) saturate(1.5); /* brighten colors */
 }
 
 /* =======================

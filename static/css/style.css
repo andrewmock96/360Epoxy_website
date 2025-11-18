@@ -306,8 +306,8 @@ body {
 }
 
 .social-icon {
-    width: 90px;
-    height: 90px;
+    width: 45px;
+    height: 45px;
     display: flex;
     border-radius: 50%;
     justify-content: center;
@@ -319,7 +319,7 @@ body {
 .social-icon img {
     width: 100%;
     height: 10%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
     border-radius: 50%;
     transition: filter 0.2s ease, transform 0.2s ease;

@@ -579,38 +579,47 @@ button:active {
     padding: 0 10px;
 }
 
+/* Card base styling */
 .service-item {
     background: white;
-    border-radius: 20px;
-    padding: 20px 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-    text-align: center;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
 }
 
+/* Titles */
 .service-item h3 {
-    font-family: 'Montserrat', sans-serif;
     font-size: 1.3rem;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
     color: #333;
+    font-weight: 600;
 }
 
+/* Text */
 .service-item p {
     font-size: 1rem;
     color: #555;
     line-height: 1.5;
 }
 
-.service-item:hover {
-    background: linear-gradient(135deg, #1A73E8, #FF9800);
-    color: white;
-    transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+/* Slide-up animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.service-item:hover p {
-    color: white;
-}
+/* Optional stagger */
+.service-item:nth-child(1) { animation-delay: 0.1s; }
+.service-item:nth-child(2) { animation-delay: 0.25s; }
+.service-item:nth-child(3) { animation-delay: 0.4s; }
 
 @media (min-width: 768px) {
     .services-grid {

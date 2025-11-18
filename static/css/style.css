@@ -669,7 +669,7 @@ button:active {
     SERVICES SECTION
 ======================= */
 .services {
-    padding: 40px 20px;
+    padding: 40px 30px;
     gap: 20px; /* spacing between each bubble */
     text-align: center;
     max-width: 1200px;

@@ -318,7 +318,7 @@ body {
 
 .social-icon img {
     width: 100%;
-    height: 10%;
+    height: 100%;
     object-fit: contain;
     display: block;
     border-radius: 50%;

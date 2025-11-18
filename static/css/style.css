@@ -548,6 +548,22 @@ button:active {
 }
 
 /* =======================
+   GOOGLE REVIEW SECTION
+======================= */
+.google-reviews {
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.google-reviews h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* =======================
     SERVICES SECTION
 ======================= */
 .services {

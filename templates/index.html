@@ -177,7 +177,7 @@
     </div>
 </footer>
 
-<!-- JS: Hamburger + Flake Modal -->
+<!-- JS: Hamburger + Flake Modal + Services Scroll Animation -->
 <script>
     /* Hamburger menu */
     const menuToggle = document.querySelector('.menu-toggle');
@@ -202,6 +202,24 @@
 
     document.querySelector('.flake-close').addEventListener('click', () => {
         document.getElementById('flakeModal').style.display = 'none';
+    });
+
+    /* ==============================
+       Services Section Scroll Animation
+    ============================== */
+    const serviceItems = document.querySelectorAll('.services .service-item');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // animate only once
+            }
+        });
+    }, { threshold: 0.2 }); // 20% visible triggers animation
+
+    serviceItems.forEach(item => {
+        observer.observe(item);
     });
 </script>
 

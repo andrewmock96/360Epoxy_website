@@ -585,8 +585,14 @@ button:active {
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
-    animation: slideUp 0.8s ease-out forwards;
-    opacity: 0;
+    opacity: 0;                /* start hidden */
+    transform: translateY(20px); /* start slightly lower */
+    transition: all 0.8s ease-out; /* smooth slide-up transition */
+}
+
+.service-item.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Titles */

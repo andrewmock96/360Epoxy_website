@@ -302,12 +302,12 @@ body {
 /* SOCIAL ICONS */
 .social-icons {
     display: flex;
-    gap: 5px;
+    gap: 3px;
 }
 
 .social-icon {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     display: flex;
     border-radius: 50%;
     justify-content: center;

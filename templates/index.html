@@ -195,18 +195,24 @@
 
 <!-- FOOTER -->
 <footer>
-    <p>&copy; 2025 360Epoxy. All rights reserved.</p>
-    
+    <!-- Social icons at the top -->
+    <div class="footer-socials">
+        <a href="https://www.instagram.com/360epoxy" target="_blank">
+            <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
+        </a>
+        <a href="https://www.facebook.com/360epoxy" target="_blank">
+            <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
+        </a>
+    </div>
+
+    <!-- Contact info -->
     <div class="footer-contact">
-    <a href="tel:4804044413">480-404-4413</a>
-    <a href="mailto:360epoxyaz@gmail.com">360epoxyaz@gmail.com</a>
-    <a href="https://www.instagram.com/360epoxy" target="_blank">
-        <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
-    </a>
-    <a href="https://www.facebook.com/360epoxy" target="_blank">
-        <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
-    </a>
-</div>
+        <a href="tel:4804044413">480-404-4413</a>
+        <a href="mailto:360epoxyaz@gmail.com">360epoxyaz@gmail.com</a>
+    </div>
+
+    <!-- Copyright -->
+    <p>&copy; 2025 360Epoxy. All rights reserved.</p>
 </footer>
 
 <!-- JS: Hamburger + Flake Modal + Services Scroll Animation -->

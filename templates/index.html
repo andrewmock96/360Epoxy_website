@@ -137,30 +137,29 @@
     </div>
 </section>
 
-<!-- ADVERTISING FLAKES SECTION -->
-<section class="flakes-section">
+<!-- POPULAR FLAKES SECTION -->
+<section class="flakes-gallery-section">
     <h2>Popular Flake Colors</h2>
     
-    <p class="flakes-description">
+    <div class="flakes-gallery-description">
         Choose from our most requested epoxy flake blends. These options give your floor a premium look
         with durability, style, and unique texture.
-    </p>
+    </div>
     
-    <div class="flakes-grid">
-        
+    <div class="flakes-gallery-grid">
         <!-- Flake #1 -->
-        <div class="flake-card">
+        <div class="flake-gallery-card">
             <img src="{{ url_for('static', filename='flakes/sierra.png') }}" alt="Sierra Flake">
             <h3>Sierra</h3>
         </div>
         
         <!-- Flake #2 -->
-        <div class="flake-card">
+        <div class="flake-gallery-card">
             <img src="{{ url_for('static', filename='flakes/carbon_mix.png') }}" alt="Carbon Mix Flake">
             <h3>Carbon Mix</h3>
-            
         </div>
     </div>
+    
     <!-- SEE MORE FLAKES LINK -->  
     <a href="/gallery#flake-gallery" class="see-more-btn">See More Options</a>
 </section>

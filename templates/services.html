@@ -72,29 +72,20 @@
     </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
     <p>&copy; 2025 360Epoxy. All rights reserved.</p>
-
-    <div class="footer-contact" style="display: flex; justify-content: center; gap: 20px; align-items: center;">
-
-        <!-- Phone text link -->
-        <a href="tel:4804044413" style="text-decoration: none; color: inherit;">
-            480-404-4413
-        </a>
-
-        <!-- Email text link -->
-        <a href="mailto:360epoxyaz@gmail.com" style="text-decoration: none; color: inherit;">
-            360epoxyaz@gmail.com
-        </a>
-
-        <!-- Instagram icon link -->
-        <a href="https://www.instagram.com/360epoxy" target="_blank">
-            <img src="{{ url_for('static', filename='icons/instagram.png') }}"
-                 alt="Instagram"
-                 style="width:30px; height:30px;">
-        </a>
-
-    </div>
+    
+    <div class="footer-contact">
+    <a href="tel:4804044413">480-404-4413</a>
+    <a href="mailto:360epoxyaz@gmail.com">360epoxyaz@gmail.com</a>
+    <a href="https://www.instagram.com/360epoxy" target="_blank">
+        <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/360epoxy" target="_blank">
+        <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
+    </a>
+</div>
 </footer>
 
 <!-- Hamburger Menu Script -->

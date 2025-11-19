@@ -1173,14 +1173,42 @@ footer {
     background-color: #222222;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 30px 20px; /* a bit more padding for breathing room */
+    font-family: 'Roboto', sans-serif;
 }
 
+/* Text links (phone, email) */
 footer a {
     color: #FF9800;
     text-decoration: none;
+    margin: 0 10px; /* spacing between links */
+    font-weight: 500;
 }
 
+/* Hover effect for text links */
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Icon container */
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* space between each link and icon */
+    margin-top: 10px;
+}
+
+/* Icon styling */
+.footer-contact img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Icon hover effect */
+.footer-contact img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }

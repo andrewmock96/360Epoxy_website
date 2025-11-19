@@ -578,10 +578,12 @@ button:active {
 .review-card,
 .review-item { /* dynamic reviews will use 'review-item' class */
     background: white;
+    flex-shrink: 0;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     text-align: left;
+    white-space: normal;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 

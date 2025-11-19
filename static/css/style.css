@@ -975,6 +975,63 @@ button:active {
     }
 }
 
+/* =======================
+ BASE COAT GALLERY SECTION
+======================= */
+.basecoat-gallery-section {
+    padding: 40px 30px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.basecoat-gallery-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.basecoat-gallery-description {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.basecoat-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 0 10px;
+}
+
+.basecoat-gallery-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.basecoat-gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.12);
+}
+
+.basecoat-gallery-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.basecoat-gallery-card h3 {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    color: #333;
+}
 
 /* =======================
     CONTACT SECTION

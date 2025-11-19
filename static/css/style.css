@@ -699,7 +699,12 @@ button:active {
     text-align: left;
     opacity: 0;               
     transform: translateY(20px);
-    animation: slideUp 0.8s ease-out forwards; /* add this if you want the slide-up */
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.service-item.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Titles */

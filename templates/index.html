@@ -162,7 +162,7 @@
         </div>
     </div>
     <!-- SEE MORE FLAKES LINK -->  
-    <a href="/gallery#flake-gallery" class="see-more-flakes-btn">See More Flakes</a>
+    <a href="/gallery#flake-gallery" class="see-more-flakes-btn">See More Options</a>
 </section>
 
 <!-- ENLARGE MODAL -->
@@ -171,8 +171,26 @@
     <img class="flake-modal-content" id="flakeModalImg">
 </div>
 
-<!-- GALLERY SECTION -->
-<section class="gallery">
+<!-- ADVERTISING BASE COAT SECTION -->
+<section class="basecoat-popular-section">
+    <h2>Popular Base Coat Colors</h2>
+    <p class="basecoat-popular-description">
+        Check out our most popular base coat colors for a smooth, durable finish.
+    </p>
+
+    <div class="basecoat-popular-grid">
+        <div class="basecoat-popular-card">
+            <img src="{{ url_for('static', filename='base_coats/midway_gray') }}" alt="Midway Grey">
+            <h3>Midway Gray</h3>
+        </div>
+        
+        <div class="basecoat-popular-card">
+            <img src="{{ url_for('static', filename='base_coats/sand_beige') }}" alt="Sand Beige">
+            <h3>Sand Beige</h3>
+        </div>
+    </div>
+
+    <a href="/gallery/#basecoat-gallery" class="see-more-button">See More Options</a>
 </section>
 
 <!-- FOOTER -->

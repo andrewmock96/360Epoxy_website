@@ -995,9 +995,9 @@ button:active {
  BASE COAT GALLERY SECTION
 ======================= */
 .basecoat-gallery-section {
-    padding: 40px 30px;
+    padding: 40px 20px;  /* same as flakes */
     text-align: center;
-    max-width: 1200px;
+    max-width: none;     /* remove the 1200px limit */
     margin: 0 auto;
 }
 
@@ -1019,9 +1019,16 @@ button:active {
 
 .basecoat-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    padding: 0 10px;
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on mobile */
+    gap: 15px;                              /* same as flakes */
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .basecoat-gallery-grid {
+        grid-template-columns: repeat(4, 1fr); /* same as flakes on desktop */
+        gap: 15px;
+    }
 }
 
 .basecoat-gallery-card {
@@ -1052,7 +1059,7 @@ button:active {
 
 .basecoat-gallery-card h3 {
     font-size: 1.1rem;
-    margin-top: 10px;
+    margin-top: 0;  /* remove extra spacing */
     color: #333;
 }
 

@@ -865,7 +865,7 @@ button:active {
 .see-more-flakes-btn {
     display: block;
     margin: 30px auto 0;
-    padding: 15px 30px;
+    padding: 8px 30px;
     outline: none;
     background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%);
     color: white;

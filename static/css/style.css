@@ -944,9 +944,9 @@ POPULAR BASE COATS SECTION
 }
 
 /* =======================
-   SEE MORE FLAKES BUTTON
+   SEE MORE BUTTON
 ======================= */
-.see-more-flakes-btn {
+.see-more-btn {
     display: inline-block;  /* shrink to content width */
     margin: 30px auto 0;    /* still center it */
     padding: 15px 25px;     /* adjust horizontal padding for nicer width */
@@ -962,13 +962,13 @@ POPULAR BASE COATS SECTION
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 }
 
-.see-more-flakes-btn:hover {
+.see-more-btn:hover {
     background: linear-gradient(135deg, #E68900 0%, #FFB300 100%);
     transform: translateY(-2px);
     box-shadow: 0 8px 12px rgba(0,0,0,0.2);
 }
 
-.see-more-flakes-btn:active {
+.see-more-btn:active {
     transform: scale(0.97);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }

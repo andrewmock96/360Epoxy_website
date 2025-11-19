@@ -1183,7 +1183,7 @@ footer {
     background-color: #222222;
     color: white;
     text-align: center;
-    padding: 40px 20px 20px 20px; /* more top padding for socials */
+    padding: 40px 20px 20px 20px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -1205,24 +1205,23 @@ footer {
     transform: scale(1.1);
 }
 
-/* Contact info */
+/* Contact info stacked vertically */
 .footer-contact {
     display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap; /* wrap if on small screens */
+    flex-direction: column;
+    gap: 8px;
     margin-bottom: 20px;
+    font-weight: 500;
 }
 
 .footer-contact a {
     color: white;
     text-decoration: none;
-    font-weight: 500;
     transition: color 0.2s ease;
 }
 
 .footer-contact a:hover {
-    color: #FF9800; /* subtle hover highlight */
+    color: #FF9800;
 }
 
 /* Footer copyright */

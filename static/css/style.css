@@ -863,9 +863,9 @@ button:active {
    SEE MORE FLAKES BUTTON
 ======================= */
 .see-more-flakes-btn {
-    display: block;
-    margin: 30px auto 0;
-    padding: 15px 15px;
+    display: inline-block;  /* shrink to content width */
+    margin: 30px auto 0;    /* still center it */
+    padding: 15px 25px;     /* adjust horizontal padding for nicer width */
     outline: none;
     background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%);
     color: white;

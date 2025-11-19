@@ -567,26 +567,30 @@ button:active {
 }
 
 .reviews-carousel {
-    overflow: hidden; /* hide overflowing cards */
+    overflow: hidden;  /* keeps extra cards hidden */
     position: relative;
+    height: auto;      /* important! allows container to fit tallest card */
 }
 
 .reviews-track {
-    display: flex; /* align cards in a row */
+    display: flex;
     transition: transform 0.5s ease-in-out;
+    align-items: stretch;  /* make cards stretch vertically */
+    height: auto;          /* allow track to grow with card */
 }
 
 .review-card {
-    min-width: 100%; /* each card takes full width of carousel container */
+    min-width: 100%;   /* keeps each card full width */
     flex-shrink: 0;
     background: white;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     text-align: left;
-    margin: 0 10px; /* optional spacing between cards */
     box-sizing: border-box;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    height: auto;       /* allow card to grow with content */
 }
 
 .review-card:hover {

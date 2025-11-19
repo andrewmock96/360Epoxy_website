@@ -73,27 +73,25 @@
 
 <!-- GOOGLE REVIEWS -->
 <section class="google-reviews">
-    <h2>What Our Customers Say</h2>
+  <h2>What Our Customers Say</h2>
 
-    <div class="reviews-carousel">
+  <div class="reviews-carousel">
         <div class="reviews-track">
-            <!-- Individual reviews will be appended here -->
-            <div class="review-item">
+            <div class="review-card">
                 <p>"I went with their Sierra blend on my garage floor, they were extremely professional and reasonably priced. The floor looks GREAT."</p>
                 <span>- Andrew M.</span>
             </div>
-            <div class="review-item">
+            <div class="review-card">
                 <p>"Highly recommend!"</p>
                 <span>- Sarah P.</span>
             </div>
-            <div class="review-item">
+            <div class="review-card">
                 <p>"Got Carbon Mix blend for my garage, and the floor looks awesome."</p>
                 <span>- Mike W.</span>
             </div>
         </div>
     </div>
 </section>
-
 <!-- <section class="google-reviews">
     <h2>What Our Customers Say</h2>
 
@@ -267,7 +265,7 @@
     ============================== */
     function initReviewCarousel() {
         const track = document.querySelector('.reviews-track');
-        const reviews = document.querySelectorAll('.review-item');
+        const reviews = document.querySelectorAll('.review-card');
         let index = 0;
 
         if (!track || reviews.length <= 1) return; // extra safety check

@@ -552,14 +552,14 @@ button:active {
 /* =======================
    GOOGLE REVIEWS CAROUSEL
 ======================= */
-.google-reviews-carousel {
+.google-reviews {
     max-width: 900px;
     margin: 50px auto;
     text-align: center;
     padding: 20px;
 }
 
-.google-reviews-carousel h2 {
+.google-reviews h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
     margin-bottom: 30px;
@@ -567,76 +567,26 @@ button:active {
 }
 
 .reviews-carousel {
-    overflow: hidden;
+    overflow: hidden; /* hide overflowing cards */
     position: relative;
 }
 
 .reviews-track {
-    display: flex;
+    display: flex; /* align cards in a row */
     transition: transform 0.5s ease-in-out;
 }
 
-.carousel-review-item {
-    min-width: 100%;
+.review-card {
+    min-width: 100%; /* each card takes full width of carousel container */
     flex-shrink: 0;
     background: white;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     text-align: left;
-}
-
-.carousel-review-item p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.5;
-}
-
-.carousel-review-item span {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #333;
-}
-
-.carousel-review-item .rating {
-    margin-top: 5px;
-    color: #FFC107; /* gold stars */
-    font-weight: bold;
-}
-
-/* =======================
-   GOOGLE REVIEWS GRID
-======================= */
-.google-reviews-grid {
-    max-width: 1200px;
-    margin: 50px auto;
-    text-align: center;
-    padding: 20px;
-}
-
-.google-reviews-grid h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-.reviews-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 0 10px;
-    margin: 0 auto;
-}
-
-.review-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    text-align: left;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 0 10px; /* optional spacing between cards */
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .review-card:hover {
@@ -657,22 +607,16 @@ button:active {
     color: #333;
 }
 
-.review-card .rating {
-    margin-top: 5px;
-    color: #FFC107; /* gold stars */
-    font-weight: bold;
-}
-
-/* Responsive for grid only */
+/* Optional: make carousel responsive */
 @media (min-width: 768px) {
-    .reviews-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .review-card {
+        padding: 25px;
     }
 }
 
 @media (min-width: 1000px) {
-    .reviews-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .review-card {
+        padding: 30px;
     }
 }
 

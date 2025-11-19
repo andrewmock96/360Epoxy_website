@@ -1205,6 +1205,14 @@ footer {
     transform: scale(1.1);
 }
 
+/* Divider line above contact info */
+.footer-divider {
+    height: 1px;
+    background-color: #444;
+    margin: 15px auto;
+    width: 80%;
+}
+
 /* Contact info stacked vertically */
 .footer-contact {
     display: flex;

@@ -687,7 +687,7 @@ button:active {
 .services-grid {
     display: grid;
     grid-template-columns: 1fr;  /* mobile: single column */
-    gap: 30px;                   /* spacing between bubbles */
+    gap: 20px;                   /* spacing between bubbles */
 }
 
 /* Individual service bubble */

@@ -956,6 +956,7 @@ POPULAR BASE COATS SECTION
     margin: 30px auto 0;    /* still center it */
     padding: 15px 25px;     /* adjust horizontal padding for nicer width */
     outline: none;
+    text-decoration: none; /* removes underline */
     background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%);
     color: white;
     font-weight: bold;

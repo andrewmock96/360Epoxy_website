@@ -1020,11 +1020,16 @@ button:active {
 }
 
 .basecoat-gallery-card {
+    height: 200px; /* same as flake cards */
     background: white;
-    padding: 1rem;
+    padding: 10px; /* optional */
     border-radius: 12px;
     box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .basecoat-gallery-card:hover {
@@ -1034,8 +1039,10 @@ button:active {
 
 .basecoat-gallery-card img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    height: 160px; /* same as flake images */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 8px;
 }
 
 .basecoat-gallery-card h3 {

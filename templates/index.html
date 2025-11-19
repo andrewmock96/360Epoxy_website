@@ -263,22 +263,18 @@
     /* ==============================
     Review Section Carousel Animation
     ============================== */
-    function initReviewCarousel() {
-        const track = document.querySelector('.reviews-track');
-        const reviews = document.querySelectorAll('.review-card');
-        let index = 0;
+    const track = document.querySelector('.reviews-track');
+    const cards = document.querySelectorAll('.review-card');
+    let currentIndex = 0;
 
-        if (!track || reviews.length <= 1) return; // extra safety check
-
-        setInterval(() => {
-            index++;
-            if (index >= reviews.length) index = 0;
-            const offset = -index * 100; // slide 100% each time
-            track.style.transform = `translateX(${offset}%)`;
-        }, 4000); // change every 4 seconds
+    function showNextReview() {
+        currentIndex = (currentIndex + 1) % cards.length;
+        const offset = -currentIndex * 100; // slide by 100% per card
+        track.style.transform = `translateX(${offset}%)`;
     }
 
-    document.addEventListener('DOMContentLoaded', initReviewCarousel);
+    // Rotate every 5 seconds
+    setInterval(showNextReview, 5000);
 
     // ==============================
     // Fetch and display Google Reviews

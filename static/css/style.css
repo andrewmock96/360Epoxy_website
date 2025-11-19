@@ -553,75 +553,48 @@ button:active {
    GOOGLE REVIEWS CAROUSEL
 ======================= */
 .google-reviews {
-    max-width: 900px;
-    margin: 50px auto;
-    text-align: center;
-    padding: 20px;
+  padding: 40px 20px;
+  text-align: center;
+  background: #f9f9f9;
 }
 
 .google-reviews h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #333;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
 }
 
 .reviews-carousel {
-    overflow: hidden;  /* keeps extra cards hidden */
-    position: relative;
-    height: auto;      /* important! allows container to fit tallest card */
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden; /* hide non-visible cards */
+  border-radius: 15px;
 }
 
 .reviews-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    align-items: stretch;  /* make cards stretch vertically */
-    height: auto;          /* allow track to grow with card */
+  display: flex;
+  transition: transform 0.5s ease; /* smooth sliding */
 }
 
 .review-card {
-    min-width: 100%;   /* keeps each card full width */
-    flex-shrink: 0;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    text-align: left;
-    box-sizing: border-box;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    height: auto;       /* allow card to grow with content */
-}
-
-.review-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  min-width: 100%; /* each card takes full carousel width */
+  background: white;
+  border-radius: 15px;
+  padding: 30px 25px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  flex-shrink: 0;
 }
 
 .review-card p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.5;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 15px;
 }
 
 .review-card span {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #333;
-}
-
-/* Optional: make carousel responsive */
-@media (min-width: 768px) {
-    .review-card {
-        padding: 25px;
-    }
-}
-
-@media (min-width: 1000px) {
-    .review-card {
-        padding: 30px;
-    }
+  font-weight: bold;
+  color: #555;
 }
 
 /* =======================

@@ -670,76 +670,62 @@ button:active {
     SERVICES SECTION
 ======================= */
 .services {
-    padding: 40px 30px;
-    gap: 20px; /* spacing between each bubble */
-    text-align: center;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 50px auto;
+    padding: 40px 20px;
+    text-align: center;
 }
 
 .services h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     color: #333;
 }
 
-.services-description {
-    max-width: 700px;
-    margin: 0 auto 30px;
-    color: #555;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
+/* Grid wrapper */
 .services-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 0 10px;
+    grid-template-columns: 1fr;  /* mobile: single column */
+    gap: 30px;                   /* spacing between bubbles */
 }
 
-/* Card base styling */
+/* Individual service bubble */
 .service-item {
     background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
-    opacity: 0;                /* start hidden */
-    transform: translateY(20px); /* start slightly lower */
-    transition: all 0.8s ease-out; /* smooth slide-up transition */
-}
-
-.service-item.visible {
-    opacity: 1;
-    transform: translateY(0);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: left;
 }
 
 /* Titles */
 .service-item h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
     color: #333;
-    font-weight: 600;
 }
 
 /* Text */
 .service-item p {
     font-size: 1rem;
+    line-height: 1.6;
     color: #555;
-    line-height: 1.5;
 }
 
-/* Slide-up animation */
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+/* Tablet layout: 2 columns */
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px; /* spacing between columns and rows */
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+}
+
+/* Desktop layout: 3 columns */
+@media (min-width: 1000px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px; /* more spacing for larger screens */
     }
 }
 

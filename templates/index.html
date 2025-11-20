@@ -79,24 +79,24 @@
 
         <!-- GOOGLE REVIEWS -->
         <section class="reviews-carousel-section">
-            <h2>What our customers have to say</h2>
+            <h2 class="animate-on-scroll">What our customers have to say</h2>
 
             <!-- Swiper container -->
             <div class="swiper reviews-swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide review-card">
+                    <div class="swiper-slide review-card animate-on-scroll">
                         <p class="review-text">"I went with their Sierra blend on my garage floor, they were extremely professional and reasonably priced. The floor looks GREAT."</p>
                         <p class="reviewer-name">- Andrew M.</p>
                     </div>
-                    <div class="swiper-slide review-card">
+                    <div class="swiper-slide review-card animate-on-scroll">
                         <p class="review-text">"Amazing service and quality! I highly recommend their epoxy coatings to anyone in the area."</p>
                         <p class="reviewer-name">- Sarah M.</p>
                     </div>
-                    <div class="swiper-slide review-card">
+                    <div class="swiper-slide review-card animate-on-scroll">
                         <p class="review-text">"Our garage has never looked better! Very professional and timely."</p>
                         <p class="reviewer-name">- Mike T.</p>
                     </div>
-                    <div class="swiper-slide review-card">
+                    <div class="swiper-slide review-card animate-on-scroll">
                         <p class="review-text">"High-quality work and a great team. The process was smooth and the results are beautiful."</p>
                         <p class="reviewer-name">- Emily R.</p>
                     </div>
@@ -121,10 +121,10 @@
         <div class="section-divider"></div>
 
         <section class="services">
-            <h2>Our Services</h2>
+            <h2 class="animate-on-scroll">Our Services</h2>
 
             <div class="services-grid">
-                <div class="service-item">
+                <div class="service-item animate-on-scroll">
                     <h3>Garage Flooring</h3>
                     <p>
                         We use top-of-the-line polyaspartic coatings that are designed to protect, strengthen, and elevate the look of your garage floor. 
@@ -133,7 +133,7 @@
                         modern, and functional space you can be proud of.
                     </p>
                 </div>
-                <div class="service-item">
+                <div class="service-item animate-on-scroll">
                     <h3>Commercial Coatings</h3>
                     <p>
                         We provide durable flooring solutions built to withstand demanding environments such as warehouses, showrooms, manufacturing facilities, 
@@ -142,7 +142,7 @@
                         maximum durability, our coatings offer reliable performance you can depend on.
                     </p>
                 </div>
-                <div class="service-item">
+                <div class="service-item animate-on-scroll">
                     <h3>Custom Designs</h3>
                     <p>
                         Create a truly unique look with our wide range of design choices. With 24 different flake options and 4 base coat colors, you can tailor 
@@ -159,30 +159,30 @@
 
         <!-- POPULAR FLAKES SECTION -->
         <section class="flakes-popular-section">
-            <h2>Popular Flake Colors</h2>
+            <h2 class="animate-on-scroll">Popular Flake Colors</h2>
             
-            <p class="flakes-popular-description">
+            <p class="flakes-popular-description animate-on-scroll">
                 Choose from our most requested epoxy flake blends. These options give your floor a premium look
                 with durability, style, and unique texture.
             </p>
 
-            <div class="flakes-popular-grid">
+            <div class="flakes-popular-grid animate-on-scroll">
                 
                 <!-- Flake #1 -->
-                <div class="flakes-popular-card">
+                <div class="flakes-popular-card animate-on-scroll">
                     <img src="{{ url_for('static', filename='flakes/carbon_mix.png') }}" alt="Carbon Mix Flake">
                     <h3>Carbon Mix</h3>
                 </div>
                 
                 <!-- Flake #2 -->
-                <div class="flakes-popular-card">
+                <div class="flakes-popular-card animate-on-scroll">
                     <img src="{{ url_for('static', filename='flakes/sierra.png') }}" alt="Sierra Flake">
                     <h3>Sierra</h3>
                 </div>
             </div>
 
             <!-- SEE MORE FLAKES LINK -->  
-            <a href="/gallery#flake-gallery" class="see-more-btn">See More Options</a>
+            <a href="/gallery#flake-gallery" class="see-more-btn animate-on-scroll">See More Options</a>
 
         </section>
 
@@ -197,24 +197,24 @@
 
         <!-- POPULAR BASE COAT SECTION -->
         <section class="basecoat-popular-section">
-            <h2>Popular Base Coat Colors</h2>
+            <h2 class="animate-on-scroll">Popular Base Coat Colors</h2>
             <p class="basecoat-popular-description">
                 Check out our most popular base coat colors for a smooth, durable finish.
             </p>
 
             <div class="basecoat-popular-grid">
-                <div class="basecoat-popular-card">
+                <div class="basecoat-popular-card animate-on-scroll">
                     <img src="{{ url_for('static', filename='base_coats/midway_gray.png') }}" alt="Midway Grey">
                     <h3>Midway Gray</h3>
                 </div>
                 
-                <div class="basecoat-popular-card">
+                <div class="basecoat-popular-card animate-on-scroll">
                     <img src="{{ url_for('static', filename='base_coats/sand_beige.png') }}" alt="Sand Beige">
                     <h3>Sand Beige</h3>
                 </div>
             </div>
 
-            <a href="/gallery#basecoat-gallery" class="see-more-btn">See More Options</a>
+            <a href="/gallery#basecoat-gallery" class="see-more-btn animate-on-scroll">See More Options</a>
         </section>
 
         <!-- SECTION DIVIDER -->
@@ -275,21 +275,22 @@
             });
 
             /* ==============================
-            Services Section Scroll Animation
+            Section Scroll Animation
             ============================== */
-            const serviceItems = document.querySelectorAll('.services .service-item');
+            // Scroll animation for any elements with .animate-on-scroll
+            const scrollItems = document.querySelectorAll('.animate-on-scroll');
 
-            const observer = new IntersectionObserver((entries, observer) => {
+            const scrollObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         observer.unobserve(entry.target); // animate only once
                     }
                 });
-            }, { threshold: 0.2 }); // 20% visible triggers animation
+            }, { threshold: 0.2 });
 
-            serviceItems.forEach(item => {
-                observer.observe(item);
+            scrollItems.forEach(item => {
+                scrollObserver.observe(item);
             });
 
 

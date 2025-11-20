@@ -78,24 +78,33 @@
         <div class="section-divider"></div>
 
         <!-- GOOGLE REVIEWS -->
-        <section class="google-reviews">
-        <h2>What Our Customers Say</h2>
+        <section class="reviews-carousel-section">
+            <h2>What our customers have to say</h2>
 
-        <div class="reviews-carousel">
-                <div class="reviews-track">
-                    <div class="review-card">
-                        <p>"I went with their Sierra blend on my garage floor, they were extremely professional and reasonably priced. The floor looks GREAT."</p>
-                        <span>- Andrew M.</span>
+            <!-- Swiper container -->
+            <div class="swiper reviews-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide review-card">
+                        <p class="review-text">"I went with their Sierra blend on my garage floor, they were extremely professional and reasonably priced. The floor looks GREAT."</p>
+                        <p class="reviewer-name">- John D.</p>
                     </div>
-                    <div class="review-card">
-                        <p>"Highly recommend!"</p>
-                        <span>- Sarah P.</span>
+                    <div class="swiper-slide review-card">
+                        <p class="review-text">"Amazing service and quality! I highly recommend their epoxy coatings to anyone in the area."</p>
+                        <p class="reviewer-name">- Sarah M.</p>
                     </div>
-                    <div class="review-card">
-                        <p>"Got Carbon Mix blend for my garage, and the floor looks awesome."</p>
-                        <span>- Mike W.</span>
+                    <div class="swiper-slide review-card">
+                        <p class="review-text">"Our garage has never looked better! Very professional and timely."</p>
+                        <p class="reviewer-name">- Mike T.</p>
+                    </div>
+                    <div class="swiper-slide review-card">
+                        <p class="review-text">"High-quality work and a great team. The process was smooth and the results are beautiful."</p>
+                        <p class="reviewer-name">- Emily R.</p>
                     </div>
                 </div>
+
+                <!-- Navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </section>
         <!-- <section class="google-reviews">
@@ -235,6 +244,9 @@
             <p>&copy; 2025 360Epoxy. All rights reserved.</p>
         </footer>
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+        
         <!-- JS: Hamburger + Flake Modal + Services Scroll Animation -->
         <script>
             /* Hamburger menu */
@@ -284,18 +296,18 @@
             /* ==============================
             Review Section Carousel Animation
             ============================== */
-            const track = document.querySelector('.reviews-track');
-            const cards = document.querySelectorAll('.review-card');
-            let currentIndex = 0;
-
-            function showNextReview() {
-                currentIndex = (currentIndex + 1) % cards.length;
-                const offset = -currentIndex * 100; // slide by 100% per card
-                track.style.transform = `translateX(${offset}%)`;
-            }
-
-            // Rotate every 5 seconds
-            setInterval(showNextReview, 5000);
+            const swiper = new Swiper('.reviews-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    768: { slidesPerView: 2 } // two reviews visible on desktop
+                }
+            });
 
             // ==============================
             // Fetch and display Google Reviews

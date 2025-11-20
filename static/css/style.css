@@ -550,51 +550,40 @@ button:active {
 }
 
 /* =======================
-   GOOGLE REVIEWS CAROUSEL
+   CUSTOMER REVIEWS CAROUSEL
 ======================= */
-.google-reviews {
-  padding: 40px 20px;
-  text-align: center;
-  background: #f9f9f9;
+.reviews-carousel-section {
+    padding: 40px 20px;
+    text-align: center;
 }
 
-.google-reviews h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-.reviews-carousel {
-  max-width: 600px;
-  margin: 0 auto;
-  overflow: hidden; /* hide non-visible cards */
-  border-radius: 15px;
-}
-
-.reviews-track {
-  display: flex;
-  transition: transform 0.5s ease; /* smooth sliding */
+.reviews-carousel-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
 }
 
 .review-card {
-  min-width: 100%; /* each card takes full carousel width */
-  background: white;
-  border-radius: 15px;
-  padding: 30px 25px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  text-align: center;
-  flex-shrink: 0;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.review-card p {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 15px;
+.review-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
 }
 
-.review-card span {
-  font-weight: bold;
-  color: #555;
+.reviewer-name {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95rem;
 }
 
 /* =======================

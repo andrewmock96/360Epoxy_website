@@ -495,7 +495,7 @@ button:active {
    WELCOME SECTION
 ======================= */
 .welcome-section {
-    background-color: #f9f9f9; /* clean, neutral background */
+    background: none; /* clean, neutral background */
     padding: 80px 20px;
     text-align: center;
     display: flex;

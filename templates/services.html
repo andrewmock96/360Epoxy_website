@@ -163,21 +163,22 @@
             });
 
             /* ==============================
-            Services Section Scroll Animation
+                Section Scroll Animation
             ============================== */
-            const serviceItems = document.querySelectorAll('.services .service-item');
+            // Scroll animation for any elements with .animate-on-scroll
+            const scrollItems = document.querySelectorAll('.animate-on-scroll');
 
-            const observer = new IntersectionObserver((entries, observer) => {
+            const scrollObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         observer.unobserve(entry.target); // animate only once
                     }
                 });
-            }, { threshold: 0.2 }); // 20% visible triggers animation
+            }, { threshold: 0.2 });
 
-            serviceItems.forEach(item => {
-                observer.observe(item);
+            scrollItems.forEach(item => {
+                scrollObserver.observe(item);
             });
         </script>
     </body>

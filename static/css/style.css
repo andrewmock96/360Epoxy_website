@@ -536,6 +536,11 @@ button:active {
     transform: translateY(-3px);
 }
 
+.surfboard-img {
+    height: 2em; /* matches text height */
+    vertical-align: middle; /* aligns with text */
+}
+
 /* =======================
    CUSTOMER REVIEWS CAROUSEL
 ======================= */

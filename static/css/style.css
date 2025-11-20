@@ -700,21 +700,8 @@ button:active {
 /* =======================
   POPULAR FLAKES SECTION
 ======================= */
-.flake-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-top: 20px;
-}
-
-@media (min-width: 768px) {
-    .flake-gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
 .flake-gallery-card {
-    height: 200px; /* same as base coat cards */
+    height: 200px;
     background: white;
     padding: 10px;
     border-radius: 15px;
@@ -728,7 +715,7 @@ button:active {
 
 .flake-gallery-card img {
     width: 100%;
-    height: 160px; /* match base coat */
+    height: 160px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 8px;
@@ -743,6 +730,19 @@ button:active {
 .flake-gallery-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+}
+
+.flake-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .flake-gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 /* =======================

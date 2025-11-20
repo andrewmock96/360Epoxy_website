@@ -550,7 +550,7 @@ button:active {
 }
 
 .surfboard-img {
-    height: 1.2rem; /* matches text height */
+    height: 2rem; /* matches text height */
     vertical-align: middle; /* aligns with text */
 }
 

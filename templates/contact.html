@@ -167,6 +167,35 @@
                 scrollObserver.observe(item);
             });
 
+            /* ==============================
+                        ZOOM MODAL
+            ============================== */
+            // Zoom Elements
+            const zoomModal = document.getElementById("zoom-modal");
+            const zoomImg = document.getElementById("zoom-image");
+            const zoomClose = document.getElementById("zoom-close");
+
+            // Any flake image should open zoom
+            document.querySelectorAll(".flake-card img").forEach(img => {
+                img.addEventListener("click", () => {
+                    zoomImg.src = img.src;       // show clicked image
+                    zoomModal.style.display = "flex";
+                    
+                    // slight delay so animation works
+                    requestAnimationFrame(() => {
+                        zoomModal.classList.add("show");
+                    });
+                });
+            });
+
+            // Close modal (click X or background)
+            zoomModal.addEventListener("click", () => {
+                zoomModal.classList.remove("show");
+                setTimeout(() => {
+                    zoomModal.style.display = "none";
+                }, 300);
+            });
+
         </script>
     </body>
 </html>

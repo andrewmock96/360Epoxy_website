@@ -189,19 +189,14 @@
         <!-- SECTION DIVIDER -->
         <div class="section-divider"></div>
 
-        <!-- ENLARGE MODAL -->
-        <div id="flakeModal" class="flake-modal">
-            <span class="flake-close">&times;</span>
-            <img class="flake-modal-content" id="flakeModalImg">
-        </div>
-
+        
         <!-- POPULAR BASE COAT SECTION -->
         <section class="basecoat-popular-section">
             <h2 class="animate-on-scroll">Popular Base Coat Colors</h2>
             <p class="basecoat-popular-description">
                 Check out our most popular base coat colors for a smooth, durable finish.
             </p>
-
+            
             <div class="basecoat-popular-grid">
                 <div class="basecoat-popular-card animate-on-scroll">
                     <img src="{{ url_for('static', filename='base_coats/midway_gray.png') }}" alt="Midway Grey">
@@ -213,13 +208,13 @@
                     <h3>Sand Beige</h3>
                 </div>
             </div>
-
+            
             <a href="/gallery#basecoat-gallery" class="see-more-btn animate-on-scroll">See More Options</a>
         </section>
-
+        
         <!-- SECTION DIVIDER -->
         <div class="section-divider"></div>
-
+        
         <footer>
             <!-- Social icons at the top -->
             <div class="footer-socials">
@@ -230,19 +225,31 @@
                     <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
                 </a>
             </div>
-
+            
             <!-- Divider line -->
             <div class="footer-divider"></div>
-
+            
             <!-- Contact info stacked -->
             <div class="footer-contact">
                 <a href="tel:4804044413">Phone: 480-404-4413</a>
                 <a href="mailto:360epoxyaz@gmail.com">Email: 360epoxyaz@gmail.com</a>
             </div>
-
+            
             <!-- Copyright -->
             <p>&copy; 2025 360Epoxy. All rights reserved.</p>
         </footer>
+        
+        <!-- ENLARGE MODAL -->
+        <div id="flakeModal" class="flake-modal">
+            <span class="flake-close">&times;</span>
+            <img class="flake-modal-content" id="flakeModalImg">
+        </div>
+        
+        <!-- IMAGE ZOOM MODAL -->
+        <div id="zoom-modal">
+            <span id="zoom-close">&times;</span>
+            <img id="zoom-image" src="" alt="">
+        </div>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

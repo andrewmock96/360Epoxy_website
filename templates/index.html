@@ -1,311 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>360Epoxy</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- TOP BANNER BAR -->
-    <div class="top-banner">
-        <div class="banner-left">    
-            <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61576135785952#" target="_blank" class="social-icon fb">
-                    <img src="{{ url_for('static', filename='icons/facebook.png') }}"
-                    alt="Facebook"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>360Epoxy</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!-- TOP BANNER BAR -->
+        <div class="top-banner">
+            <div class="banner-left">    
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61576135785952#" target="_blank" class="social-icon fb">
+                        <img src="{{ url_for('static', filename='icons/facebook.png') }}"
+                        alt="Facebook"> 
+                    </a>
+                    <a href="https://www.instagram.com/360epoxy" target="_blank" class="social-icon ig">
+                        <img src="{{ url_for('static', filename='icons/instagram.png') }}"
+                        alt="Instagram">
+                    </a>
+                </div>
+            </div>
+
+            <div class="banner-right">
+                <a href="/contact" class="banner-btn">Get Free Quote</a>
+            </div>
+        </div>
+        
+        <!-- HEADER -->
+        <header>
+            
+            <div class="header-container">
+                <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360Epoxy Logo" class="logo">
+            
+            <!-- Hamburger icon -->
+            <button class="menu-toggle" aria-label="Toggle menu">
+                ☰
+            </button>
+            
+            <!-- Navigation links -->
+            <nav class="nav-links">
+                <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+                <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
+                <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
+                <a href="/contact" class="nav-link {% if request.path == '/contact' %}active{% endif %}">Contact</a>
+            </nav>
+            </div>
+        </header>
+
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/Garage_with_viper.jpg') }}" alt="Epoxy Flooring Example" style="width:100%; border-radius:0;">
+        </div>
+        </section>
+
+        <!-- WELCOME SECTION -->
+        <section class="welcome-section">
+            <div class="welcome-content">
+                <div class="welcome-logo-banner">
+                    <h2>Welcome To</h2>
+                    <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360Epoxy Logo" class="welcome-logo">
+                </div>
+                <div class="welcome-divider"></div>
+                <p>
+                    At 360Epoxy, we are passionate about transforming floors into beautiful, durable spaces for homes and businesses in the Salt Lake City area. 
+                    Using top-quality polyaspartic coatings and skilled applicators, we create floors that not only look amazing but stand up to daily wear and tear. 
+                    Whether you want to upgrade your garage, showroom, or industrial space, we are here to bring your vision to life and make your space something 
+                    you can be proud of.
+                </p>
+            </div>
+        </section>
+
+        <!-- GOOGLE REVIEWS -->
+        <section class="google-reviews">
+        <h2>What Our Customers Say</h2>
+
+        <div class="reviews-carousel">
+                <div class="reviews-track">
+                    <div class="review-card">
+                        <p>"I went with their Sierra blend on my garage floor, they were extremely professional and reasonably priced. The floor looks GREAT."</p>
+                        <span>- Andrew M.</span>
+                    </div>
+                    <div class="review-card">
+                        <p>"Highly recommend!"</p>
+                        <span>- Sarah P.</span>
+                    </div>
+                    <div class="review-card">
+                        <p>"Got Carbon Mix blend for my garage, and the floor looks awesome."</p>
+                        <span>- Mike W.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <section class="google-reviews">
+            <h2>What Our Customers Say</h2>
+
+            <div class="reviews-track">
+
+            </div>
+        </section> -->
+
+        <!-- SERVICES SECTION -->
+        <section class="services">
+            <h2>Our Services</h2>
+
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Garage Flooring</h3>
+                    <p>
+                        We use top-of-the-line polyaspartic coatings that are designed to protect, strengthen, and elevate the look of your garage floor. 
+                        Unlike traditional epoxy, polyaspartic coatings cure faster, resist UV discoloration, and offer superior durability against chemicals, 
+                        abrasions, and daily wear. The result is a long-lasting, glossy, and easy-to-clean surface that transforms your garage into a clean, 
+                        modern, and functional space you can be proud of.
+                    </p>
+                </div>
+                <div class="service-item">
+                    <h3>Commercial Coatings</h3>
+                    <p>
+                        We provide durable flooring solutions built to withstand demanding environments such as warehouses, showrooms, manufacturing facilities, 
+                        and industrial workspaces. Our commercial-grade polyaspartic systems deliver exceptional strength, chemical resistance, and slip protection, 
+                        ensuring a safe and long-lasting surface that stands up to heavy traffic and tough conditions. Whether you need a polished aesthetic or 
+                        maximum durability, our coatings offer reliable performance you can depend on.
+                    </p>
+                </div>
+                <div class="service-item">
+                    <h3>Custom Designs</h3>
+                    <p>
+                        Create a truly unique look with our wide range of design choices. With 24 different flake options and 4 base coat colors, you can tailor 
+                        your floor to match any style, bold, modern, subtle, or anything in between. Choose from decorative color flakes, metallic finishes, 
+                        quartz blends, and more to add depth, texture, and visual impact. No matter your vision, our polyaspartic coating system gives you the 
+                        flexibility to achieve a one-of-a-kind floor that is both beautiful and durable.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- POPULAR FLAKES SECTION -->
+        <section class="flakes-gallery-section">
+            <h2>Popular Flake Colors</h2>
+            
+            <div class="flakes-gallery-description">
+                Choose from our most requested epoxy flake blends. These options give your floor a premium look
+                with durability, style, and unique texture.
+            </div>
+            
+            <div class="flakes-gallery-grid">
+                <!-- Flake #1 -->
+                <div class="flake-gallery-card">
+                    <img src="{{ url_for('static', filename='flakes/sierra.png') }}" alt="Sierra Flake">
+                    <h3>Sierra</h3>
+                </div>
+                
+                <!-- Flake #2 -->
+                <div class="flake-gallery-card">
+                    <img src="{{ url_for('static', filename='flakes/carbon_mix.png') }}" alt="Carbon Mix Flake">
+                    <h3>Carbon Mix</h3>
+                </div>
+            </div>
+            
+            <!-- SEE MORE FLAKES LINK -->  
+            <a href="/gallery#flake-gallery" class="see-more-btn">See More Options</a>
+        </section>
+
+        <!-- ENLARGE MODAL -->
+        <div id="flakeModal" class="flake-modal">
+            <span class="flake-close">&times;</span>
+            <img class="flake-modal-content" id="flakeModalImg">
+        </div>
+
+        <!-- ADVERTISING BASE COAT SECTION -->
+        <section class="basecoat-popular-section">
+            <h2>Popular Base Coat Colors</h2>
+            <p class="basecoat-popular-description">
+                Check out our most popular base coat colors for a smooth, durable finish.
+            </p>
+
+            <div class="basecoat-popular-grid">
+                <div class="basecoat-popular-card">
+                    <img src="{{ url_for('static', filename='base_coats/midway_gray.png') }}" alt="Midway Grey">
+                    <h3>Midway Gray</h3>
+                </div>
+                
+                <div class="basecoat-popular-card">
+                    <img src="{{ url_for('static', filename='base_coats/sand_beige.png') }}" alt="Sand Beige">
+                    <h3>Sand Beige</h3>
+                </div>
+            </div>
+
+            <a href="/gallery#basecoat-gallery" class="see-more-btn">See More Options</a>
+        </section>
+
+        <footer>
+            <!-- Social icons at the top -->
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/360epoxy" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
                 </a>
-                <a href="https://www.instagram.com/360epoxy" target="_blank" class="social-icon ig">
-                    <img src="{{ url_for('static', filename='icons/instagram.png') }}"
-                    alt="Instagram">
+                <a href="https://www.instagram.com/360epoxy" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
                 </a>
             </div>
-        </div>
 
-        <div class="banner-right">
-            <a href="/contact" class="banner-btn">Get Free Quote</a>
-        </div>
-    </div>
-    
-    <!-- HEADER -->
-    <header>
-        
-        <div class="header-container">
-            <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360Epoxy Logo" class="logo">
-        
-        <!-- Hamburger icon -->
-        <button class="menu-toggle" aria-label="Toggle menu">
-            ☰
-        </button>
-        
-        <!-- Navigation links -->
-        <nav class="nav-links">
-            <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
-            <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
-            <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
-            <a href="/contact" class="nav-link {% if request.path == '/contact' %}active{% endif %}">Contact</a>
-        </nav>
-        </div>
-    </header>
+            <!-- Divider line -->
+            <div class="footer-divider"></div>
 
-<div class="hero-image">
-    <img src="{{ url_for('static', filename='images/Garage_with_viper.jpg') }}" alt="Epoxy Flooring Example" style="width:100%; border-radius:0;">
-</div>
-</section>
-
-<!-- WELCOME SECTION -->
-<section class="welcome-section">
-    <div class="welcome-content">
-        <div class="welcome-logo-banner">
-            <h2>Welcome To</h2>
-            <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360Epoxy Logo" class="welcome-logo">
-        </div>
-        <div class="welcome-divider"></div>
-        <p>
-            At 360Epoxy, we are passionate about transforming floors into beautiful, durable spaces for homes and businesses in the Salt Lake City area. 
-            Using top-quality polyaspartic coatings and skilled applicators, we create floors that not only look amazing but stand up to daily wear and tear. 
-            Whether you want to upgrade your garage, showroom, or industrial space, we are here to bring your vision to life and make your space something 
-            you can be proud of.
-        </p>
-    </div>
-</section>
-
-<!-- GOOGLE REVIEWS -->
-<section class="google-reviews">
-  <h2>What Our Customers Say</h2>
-
-  <div class="reviews-carousel">
-        <div class="reviews-track">
-            <div class="review-card">
-                <p>"I went with their Sierra blend on my garage floor, they were extremely professional and reasonably priced. The floor looks GREAT."</p>
-                <span>- Andrew M.</span>
+            <!-- Contact info stacked -->
+            <div class="footer-contact">
+                <a href="tel:4804044413">Phone: 480-404-4413</a>
+                <a href="mailto:360epoxyaz@gmail.com">Email: 360epoxyaz@gmail.com</a>
             </div>
-            <div class="review-card">
-                <p>"Highly recommend!"</p>
-                <span>- Sarah P.</span>
-            </div>
-            <div class="review-card">
-                <p>"Got Carbon Mix blend for my garage, and the floor looks awesome."</p>
-                <span>- Mike W.</span>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- <section class="google-reviews">
-    <h2>What Our Customers Say</h2>
 
-    <div class="reviews-track">
+            <!-- Copyright -->
+            <p>&copy; 2025 360Epoxy. All rights reserved.</p>
+        </footer>
 
-    </div>
-</section> -->
+        <!-- JS: Hamburger + Flake Modal + Services Scroll Animation -->
+        <script>
+            /* Hamburger menu */
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinksContainer = document.querySelector('.nav-links');
+            const header = document.querySelector('header');
 
-<!-- SERVICES SECTION -->
-<section class="services">
-    <h2>Our Services</h2>
+            menuToggle.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('active');
+                header.classList.toggle('menu-open');
+            });
 
-    <div class="services-grid">
-        <div class="service-item">
-            <h3>Garage Flooring</h3>
-            <p>
-                We use top-of-the-line polyaspartic coatings that are designed to protect, strengthen, and elevate the look of your garage floor. 
-                Unlike traditional epoxy, polyaspartic coatings cure faster, resist UV discoloration, and offer superior durability against chemicals, 
-                abrasions, and daily wear. The result is a long-lasting, glossy, and easy-to-clean surface that transforms your garage into a clean, 
-                modern, and functional space you can be proud of.
-            </p>
-        </div>
-        <div class="service-item">
-            <h3>Commercial Coatings</h3>
-            <p>
-                We provide durable flooring solutions built to withstand demanding environments such as warehouses, showrooms, manufacturing facilities, 
-                and industrial workspaces. Our commercial-grade polyaspartic systems deliver exceptional strength, chemical resistance, and slip protection, 
-                ensuring a safe and long-lasting surface that stands up to heavy traffic and tough conditions. Whether you need a polished aesthetic or 
-                maximum durability, our coatings offer reliable performance you can depend on.
-            </p>
-        </div>
-        <div class="service-item">
-            <h3>Custom Designs</h3>
-            <p>
-                Create a truly unique look with our wide range of design choices. With 24 different flake options and 4 base coat colors, you can tailor 
-                your floor to match any style, bold, modern, subtle, or anything in between. Choose from decorative color flakes, metallic finishes, 
-                quartz blends, and more to add depth, texture, and visual impact. No matter your vision, our polyaspartic coating system gives you the 
-                flexibility to achieve a one-of-a-kind floor that is both beautiful and durable.
-            </p>
-        </div>
-    </div>
-</section>
+            /* Click-to-enlarge flakes */
+            document.querySelectorAll('.flake-img').forEach(img => {
+                img.addEventListener('click', function () {
+                    const modal = document.getElementById('flakeModal');
+                    const modalImg = document.getElementById('flakeModalImg');
 
-<!-- POPULAR FLAKES SECTION -->
-<section class="flakes-gallery-section">
-    <h2>Popular Flake Colors</h2>
-    
-    <div class="flakes-gallery-description">
-        Choose from our most requested epoxy flake blends. These options give your floor a premium look
-        with durability, style, and unique texture.
-    </div>
-    
-    <div class="flakes-gallery-grid">
-        <!-- Flake #1 -->
-        <div class="flake-gallery-card">
-            <img src="{{ url_for('static', filename='flakes/sierra.png') }}" alt="Sierra Flake">
-            <h3>Sierra</h3>
-        </div>
-        
-        <!-- Flake #2 -->
-        <div class="flake-gallery-card">
-            <img src="{{ url_for('static', filename='flakes/carbon_mix.png') }}" alt="Carbon Mix Flake">
-            <h3>Carbon Mix</h3>
-        </div>
-    </div>
-    
-    <!-- SEE MORE FLAKES LINK -->  
-    <a href="/gallery#flake-gallery" class="see-more-btn">See More Options</a>
-</section>
+                    modal.style.display = 'block';
+                    modalImg.src = this.src;
+                });
+            });
 
-<!-- ENLARGE MODAL -->
-<div id="flakeModal" class="flake-modal">
-    <span class="flake-close">&times;</span>
-    <img class="flake-modal-content" id="flakeModalImg">
-</div>
+            document.querySelector('.flake-close').addEventListener('click', () => {
+                document.getElementById('flakeModal').style.display = 'none';
+            });
 
-<!-- ADVERTISING BASE COAT SECTION -->
-<section class="basecoat-popular-section">
-    <h2>Popular Base Coat Colors</h2>
-    <p class="basecoat-popular-description">
-        Check out our most popular base coat colors for a smooth, durable finish.
-    </p>
+            /* ==============================
+            Services Section Scroll Animation
+            ============================== */
+            const serviceItems = document.querySelectorAll('.services .service-item');
 
-    <div class="basecoat-popular-grid">
-        <div class="basecoat-popular-card">
-            <img src="{{ url_for('static', filename='base_coats/midway_gray.png') }}" alt="Midway Grey">
-            <h3>Midway Gray</h3>
-        </div>
-        
-        <div class="basecoat-popular-card">
-            <img src="{{ url_for('static', filename='base_coats/sand_beige.png') }}" alt="Sand Beige">
-            <h3>Sand Beige</h3>
-        </div>
-    </div>
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // animate only once
+                    }
+                });
+            }, { threshold: 0.2 }); // 20% visible triggers animation
 
-    <a href="/gallery#basecoat-gallery" class="see-more-btn">See More Options</a>
-</section>
+            serviceItems.forEach(item => {
+                observer.observe(item);
+            });
 
-<footer>
-    <!-- Social icons at the top -->
-    <div class="footer-socials">
-        <a href="https://www.facebook.com/360epoxy" target="_blank">
-            <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/360epoxy" target="_blank">
-            <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
-        </a>
-    </div>
 
-    <!-- Divider line -->
-    <div class="footer-divider"></div>
+            /* ==============================
+            Review Section Carousel Animation
+            ============================== */
+            const track = document.querySelector('.reviews-track');
+            const cards = document.querySelectorAll('.review-card');
+            let currentIndex = 0;
 
-    <!-- Contact info stacked -->
-    <div class="footer-contact">
-        <a href="tel:4804044413">Phone: 480-404-4413</a>
-        <a href="mailto:360epoxyaz@gmail.com">Email: 360epoxyaz@gmail.com</a>
-    </div>
-
-    <!-- Copyright -->
-    <p>&copy; 2025 360Epoxy. All rights reserved.</p>
-</footer>
-
-<!-- JS: Hamburger + Flake Modal + Services Scroll Animation -->
-<script>
-    /* Hamburger menu */
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinksContainer = document.querySelector('.nav-links');
-    const header = document.querySelector('header');
-
-    menuToggle.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('active');
-        header.classList.toggle('menu-open');
-    });
-
-    /* Click-to-enlarge flakes */
-    document.querySelectorAll('.flake-img').forEach(img => {
-        img.addEventListener('click', function () {
-            const modal = document.getElementById('flakeModal');
-            const modalImg = document.getElementById('flakeModalImg');
-
-            modal.style.display = 'block';
-            modalImg.src = this.src;
-        });
-    });
-
-    document.querySelector('.flake-close').addEventListener('click', () => {
-        document.getElementById('flakeModal').style.display = 'none';
-    });
-
-    /* ==============================
-       Services Section Scroll Animation
-    ============================== */
-    const serviceItems = document.querySelectorAll('.services .service-item');
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // animate only once
+            function showNextReview() {
+                currentIndex = (currentIndex + 1) % cards.length;
+                const offset = -currentIndex * 100; // slide by 100% per card
+                track.style.transform = `translateX(${offset}%)`;
             }
-        });
-    }, { threshold: 0.2 }); // 20% visible triggers animation
 
-    serviceItems.forEach(item => {
-        observer.observe(item);
-    });
+            // Rotate every 5 seconds
+            setInterval(showNextReview, 5000);
 
+            // ==============================
+            // Fetch and display Google Reviews
+            // ==============================
+            // async function loadGoogleReviews() {
+            //     try {
+            //         const response = await fetch("/api/reviews");
+            //         if (!response.ok) throw new Error("Network response was not ok");
 
-    /* ==============================
-    Review Section Carousel Animation
-    ============================== */
-    const track = document.querySelector('.reviews-track');
-    const cards = document.querySelectorAll('.review-card');
-    let currentIndex = 0;
+            //         const reviews = await response.json();
 
-    function showNextReview() {
-        currentIndex = (currentIndex + 1) % cards.length;
-        const offset = -currentIndex * 100; // slide by 100% per card
-        track.style.transform = `translateX(${offset}%)`;
-    }
+            //         const container = document.querySelector(".google-reviews");
+            //         container.innerHTML = `<h2>What Our Customers Say</h2>`; // reset container
 
-    // Rotate every 5 seconds
-    setInterval(showNextReview, 5000);
+            //         reviews.forEach(review => {
+            //             const reviewEl = document.createElement("div");
+            //             reviewEl.classList.add("review-item");
+            //             reviewEl.innerHTML = `
+            //                 <p><strong>${review.author_name}</strong> - Rating: ${review.rating} / 5</p>
+            //                 <p>${review.text}</p>
+            //             `;
+            //             container.appendChild(reviewEl);
+            //         });
 
-    // ==============================
-    // Fetch and display Google Reviews
-    // ==============================
-    // async function loadGoogleReviews() {
-    //     try {
-    //         const response = await fetch("/api/reviews");
-    //         if (!response.ok) throw new Error("Network response was not ok");
+            //     } catch (error) {
+            //         console.error("Failed to load Google reviews:", error);
+            //         }
+            //     }
 
-    //         const reviews = await response.json();
-
-    //         const container = document.querySelector(".google-reviews");
-    //         container.innerHTML = `<h2>What Our Customers Say</h2>`; // reset container
-
-    //         reviews.forEach(review => {
-    //             const reviewEl = document.createElement("div");
-    //             reviewEl.classList.add("review-item");
-    //             reviewEl.innerHTML = `
-    //                 <p><strong>${review.author_name}</strong> - Rating: ${review.rating} / 5</p>
-    //                 <p>${review.text}</p>
-    //             `;
-    //             container.appendChild(reviewEl);
-    //         });
-
-    //     } catch (error) {
-    //         console.error("Failed to load Google reviews:", error);
-    //         }
-    //     }
-
-    //     document.addEventListener("DOMContentLoaded", loadGoogleReviews);
-</script>
-
-</body>
+            //     document.addEventListener("DOMContentLoaded", loadGoogleReviews);
+        </script>
+    </body>
 </html>

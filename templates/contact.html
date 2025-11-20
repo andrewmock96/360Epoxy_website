@@ -1,140 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact 360Epoxy</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact 360Epoxy</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
 
-<header>
-    <div class="header-container">
-        <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360 Epoxy Logo" class="logo">
-    
-    <!-- Hamburger icon -->
-    <button class="menu-toggle" aria-label="Toggle menu">
-            ☰
-        </button>
-      
-      <!-- Navigation links -->
-        <nav class="nav-links">
-            <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
-            <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
-            <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
-            <a href="/contact" class="nav-link {% if request.path == '/contact' %}active{% endif %}">Contact</a>
-        </nav>
-    </div>
-</header>
+        <!-- TOP BANNER BAR -->
+        <div class="top-banner">
+            <div class="banner-left">    
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61576135785952#" target="_blank" class="social-icon fb">
+                        <img src="{{ url_for('static', filename='icons/facebook.png') }}"
+                        alt="Facebook"> 
+                    </a>
+                    <a href="https://www.instagram.com/360epoxy" target="_blank" class="social-icon ig">
+                        <img src="{{ url_for('static', filename='icons/instagram.png') }}"
+                        alt="Instagram">
+                    </a>
+                </div>
+            </div>
 
-<!-- CONTACT FORM -->
-<section class="hero-contact">
-    <div class="form-container">
-        <h2>Get Your Free Quote Today!</h2>
+            <div class="banner-right">
+                <a href="/contact" class="banner-btn">Get Free Quote</a>
+            </div>
+        </div>
 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            {% for category, message in messages %}
-              <div class="flash-message {{ category }}">{{ message }}</div>
-            {% endfor %}
-          {% endif %}
-        {% endwith %}
+        <header>
+            <div class="header-container">
+                <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360 Epoxy Logo" class="logo">
+            
+            <!-- Hamburger icon -->
+            <button class="menu-toggle" aria-label="Toggle menu">
+                    ☰
+                </button>
+            
+            <!-- Navigation links -->
+                <nav class="nav-links">
+                    <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+                    <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
+                    <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
+                    <a href="/contact" class="nav-link {% if request.path == '/contact' %}active{% endif %}">Contact</a>
+                </nav>
+            </div>
+        </header>
 
-        <form action="{{ url_for('contact') }}" method="POST">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
-            <input type="tel" name="phone" placeholder="Phone Number" required>
-            <textarea name="message" placeholder="Your Project Details" rows="4" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-</section>
+        <!-- CONTACT FORM -->
+        <section class="hero-contact">
+            <div class="form-container">
+                <h2>Get Your Free Quote Today!</h2>
 
-<footer>
-    <!-- Social icons at the top -->
-    <div class="footer-socials">
-        <a href="https://www.facebook.com/360epoxy" target="_blank">
-            <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/360epoxy" target="_blank">
-            <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
-        </a>
-    </div>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
 
-    <!-- Divider line -->
-    <div class="footer-divider"></div>
+                <form action="{{ url_for('contact') }}" method="POST">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <textarea name="message" placeholder="Your Project Details" rows="4" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
 
-    <!-- Contact info stacked -->
-    <div class="footer-contact">
-        <a href="tel:4804044413">Phone: 480-404-4413</a>
-        <a href="mailto:360epoxyaz@gmail.com">Email: 360epoxyaz@gmail.com</a>
-    </div>
+        <footer>
+            <!-- Social icons at the top -->
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/360epoxy" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/360epoxy" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
+                </a>
+            </div>
 
-    <!-- Copyright -->
-    <p>&copy; 2025 360Epoxy. All rights reserved.</p>
-</footer>
+            <!-- Divider line -->
+            <div class="footer-divider"></div>
 
-<!-- Hamburger Menu Script -->
-<script>
-    // Grab elements
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinksContainer = document.querySelector('.nav-links');
-    const header = document.querySelector('header');
-    const navLinks = document.querySelectorAll('.nav-links a');
+            <!-- Contact info stacked -->
+            <div class="footer-contact">
+                <a href="tel:4804044413">Phone: 480-404-4413</a>
+                <a href="mailto:360epoxyaz@gmail.com">Email: 360epoxyaz@gmail.com</a>
+            </div>
 
-    // ------------------------
-    // Hamburger toggle (mobile)
-    // ------------------------
-    menuToggle.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('active'); // show/hide links
-        header.classList.toggle('menu-open');        // expand header
-    });
+            <!-- Copyright -->
+            <p>&copy; 2025 360Epoxy. All rights reserved.</p>
+        </footer>
 
-    // ------------------------
-    // Highlight current page on load
-    // ------------------------
-    const currentPath = window.location.pathname;
+        <!-- Hamburger Menu Script -->
+        <script>
+            // Grab elements
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinksContainer = document.querySelector('.nav-links');
+            const header = document.querySelector('header');
+            const navLinks = document.querySelectorAll('.nav-links a');
 
-    navLinks.forEach(link => {
-        // Highlight current page link
-        if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
-        }
+            // ------------------------
+            // Hamburger toggle (mobile)
+            // ------------------------
+            menuToggle.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('active'); // show/hide links
+                header.classList.toggle('menu-open');        // expand header
+            });
 
-        // Highlight clicked link immediately
-        link.addEventListener('click', () => {
-            // Remove active from all links
-            navLinks.forEach(l => l.classList.remove('active'));
+            // ------------------------
+            // Highlight current page on load
+            // ------------------------
+            const currentPath = window.location.pathname;
 
-            // Add active to clicked link
-            link.classList.add('active');
+            navLinks.forEach(link => {
+                // Highlight current page link
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
 
-            // Close mobile menu if open
-            navLinksContainer.classList.remove('active');
-            header.classList.remove('menu-open');
-        });
-    });
+                // Highlight clicked link immediately
+                link.addEventListener('click', () => {
+                    // Remove active from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
 
-    /* ==============================
-       Services Section Scroll Animation
-    ============================== */
-    const serviceItems = document.querySelectorAll('.services .service-item');
+                    // Add active to clicked link
+                    link.classList.add('active');
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // animate only once
-            }
-        });
-    }, { threshold: 0.2 }); // 20% visible triggers animation
+                    // Close mobile menu if open
+                    navLinksContainer.classList.remove('active');
+                    header.classList.remove('menu-open');
+                });
+            });
 
-    serviceItems.forEach(item => {
-        observer.observe(item);
-    });
+            /* ==============================
+            Services Section Scroll Animation
+            ============================== */
+            const serviceItems = document.querySelectorAll('.services .service-item');
 
-</script>
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // animate only once
+                    }
+                });
+            }, { threshold: 0.2 }); // 20% visible triggers animation
 
-</body>
+            serviceItems.forEach(item => {
+                observer.observe(item);
+            });
+
+        </script>
+    </body>
 </html>

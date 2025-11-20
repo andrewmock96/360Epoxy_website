@@ -495,58 +495,45 @@ button:active {
    WELCOME SECTION
 ======================= */
 .welcome-section {
-    background: #F5F5F5; 
-    color: #333;
+    background-color: #f9f9f9; /* clean, neutral background */
+    padding: 80px 20px;
     text-align: center;
-    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .welcome-content {
     max-width: 900px;
-    margin: 0 auto;
 }
 
-.welcome-logo-banner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #222222, #1A73E8); /* gradient */
-    padding: 30px 50px;
-    border-radius: 20px;
-    margin-bottom: 25px;
-    color: white;
-
-    width: 100%; /* make it full width of parent */
-    max-width: 600px; /* optional, controls max size */
-    box-sizing: border-box; /* include padding in width */
-}
-
-.welcome-logo-banner h2 {
+.welcome-section h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: white;
-    margin: 0 0 15px 0;
+    font-size: 3rem;
+    color: #222; /* dark grey for a refined look */
+    margin-bottom: 20px;
 }
 
-.welcome-logo {
-    max-width: 250px;
-    height: auto;
-}
-
-.welcome-divider {
-    width: 300px;
-    height: 4px;
-    background-color: linear-gradient(135deg, #7EC0EE, #3399FF); /* gradient */
-    margin: 20px auto 30px auto;
-    border-radius: 2px;
-}
-
-.welcome-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+.welcome-section p {
+    font-size: 1.2rem;
     color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    background-color: #222; /* dark, professional button */
+    color: white;
+    padding: 15px 35px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #444;
+    transform: translateY(-3px);
 }
 
 /* =======================

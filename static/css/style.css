@@ -1171,6 +1171,26 @@ POPULAR BASE COATS SECTION
 }
 
 /* =======================
+SECTION DIVIDERS
+======================= */
+.section-divider {
+    width: 80%;
+    height: 2px; /* thickness of the line */
+    background-color: #ddd; /* light gray line */
+    margin: 60px auto; /* spacing above and below */
+    border-radius: 1px; /* subtle rounding */
+}
+
+/* Optional: add a fade effect */
+.section-divider::before {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, #ddd, transparent);
+}
+
+/* =======================
         FOOTER
 ======================= */
 footer {

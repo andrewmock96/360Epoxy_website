@@ -678,7 +678,7 @@ button:active {
 .service-item img,
 .service-img {
     width: 100%;
-    height: 160px;          /* matches your flake/basecoat image height */
+    height: 200px;          /* matches your flake/basecoat image height */
     object-fit: cover;      /* crops nicely */
     border-radius: 10px;    /* matches your other image rounding */
     margin-bottom: 12px;    /* space before the h3 */

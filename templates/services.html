@@ -55,84 +55,100 @@
             <h2 class="animate-on-scroll">Our Services Package</h2>
             <div class="services-grid">    
                 
-                <div class="service-item animate-on-scroll">
-                    <img class = "service-img" src="{{ url_for('static', filename='systems/one_day_install.JPG') }}" alt="Systems Image 1">
-                    
-                    <h3>1-Day  Install</h3>
-                    
-                    <p>
+                <details class="service-item animate-on-scroll service-accordion">
+                    <summary class= "service-summary">
+                        <img class= "service-img" src = "{{ url_for('static', filename='systems/one_day_install.JPG') }}" alt="Systems Image 1">
+                        <h3>1-Day Install</h3>
+                        <span class = "service-toggle" aria-hidden="true">Read more</span>
+                    </summary>
+
+                    <div class="service-body">
+                        <p>
                         Our 1-Day Polyaspartic Flooring System delivers exceptional strength and durability, outperforming traditional epoxy with superior resistance to 
                         impacts, chemicals, abrasions, and UV exposure. Its smooth, non-porous surface makes it incredibly easy to clean, allowing spills, dirt, and 
                         dust to wipe away effortlessly while maintaining a fresh, polished look. Available in a wide range of colors and flake blends, this system provides 
                         a great-looking, modern finish that enhances any residential or commercial space. Best of all, every installation is backed by our Lifetime Warranty, 
                         giving you long-lasting confidence and peace of mind.
+                        </p>
+                    </div>
+                </details>
 
-                    </p>
+                <details class="service-item animate-on-scroll service-accordion">
+                    <summary class = "service-summary">
+                        <img class = "service-img" src = "{{ url_for('static', filename='systems/two_day_install.JPG') }}" alt="Systems Image 2">
+                        <h3>2-Day Install</h3>
+                        <span class = "service-toggle" aria-hidden="true">Read more</span>
+                    </summary>
+                        
+                    <div class="service-body">
+                        <p>
+                            Our 2-Day 100% Solids Epoxy Floor system delivers a heavy-duty, long-lasting surface engineered for superior strength, chemical resistance, and 
+                            impact protection, making it ideal for high-traffic garages, shops, and commercial environments. Its dense, seamless finish bonds deeply with the 
+                            concrete to create a rock-solid foundation that resists wear, stains, and moisture while remaining easy to clean and maintain. With customizable colors 
+                            and flake options, this system provides a sleek, high-gloss, great-looking finish that elevates any space. Backed by a Lifetime Warranty, it offers 
+                            outstanding performance and peace of mind for years to come.
 
-                </div>
+                        </p>
+                    </div>
+                </details>
 
-                <div class="service-item animate-on-scroll">
-                    <img class = "service-img" src="{{ url_for('static', filename='systems/two_day_install.JPG') }}" alt="Systems Image 2">
+                <details class="service-item animate-on-scroll service-accordion">
+                    <summary class="service-summary">
+                        <img class = "service-img" src="{{ url_for('static', filename='systems/premium_package.JPG') }}" alt="Systems Image 3">
+                        <h3>Premium Package</h3>
+                    <span class = "service-toggle" aria-hidden="true">Read more</span>
+                    </summary>
                     
-                    <h3>2-Day Install</h3>
-                    
-                    <p>
-                        Our 2-Day 100% Solids Epoxy Floor system delivers a heavy-duty, long-lasting surface engineered for superior strength, chemical resistance, and 
-                        impact protection, making it ideal for high-traffic garages, shops, and commercial environments. Its dense, seamless finish bonds deeply with the 
-                        concrete to create a rock-solid foundation that resists wear, stains, and moisture while remaining easy to clean and maintain. With customizable colors 
-                        and flake options, this system provides a sleek, high-gloss, great-looking finish that elevates any space. Backed by a Lifetime Warranty, it offers 
-                        outstanding performance and peace of mind for years to come.
+                    <div class="service-body">   
+                        <p>
+                            Our 5-Layer Premium Flooring System is engineered for maximum durability, with its strength taken to the next level by two ultra-tough polyaspartic 
+                            top coats that provide significantly more protection than traditional single-coat systems. These dual top coats create an exceptionally hard, 
+                            UV-stable, abrasion-resistant shield that dramatically boosts impact resistance, chemical resistance, and overall longevity, making the floor far 
+                            stronger and more resilient under heavy use. The seamless, non-porous surface ensures the floor stays extremely easy to clean, allowing oil, dirt, 
+                            dust, and spills to wipe away effortlessly while maintaining a spotless finish. With customizable colors and flake blends, it offers a high-end, 
+                            great-looking finish with outstanding clarity and depth. Backed by a Lifetime Warranty, this premium package delivers unmatched strength, beauty, 
+                            and long-term peace of mind.
+                        </p>
+                    </div>
+                </details>
 
-                    </p>
 
-                </div>
+                <details class="service-item animate-on-scroll service-accordion">
+                    <summary class="service-summary">
+                        <img class = "service-img" src="{{ url_for('static', filename='systems/vapor_barrier.JPG') }}" alt="Systems Image 4">
+                        <h3>Vapor Barrier</h3>
+                        <span class = "service-toggle" aria-hidden="true">Read more</span>
+                    </summary>
+                        
+                    <div class="service-body">   
+                        <p>
+                            Our Vapor Barrier is an optional upgrade that can be added to any of our flooring packages, providing an extra layer of protection against moisture 
+                            rising through the concrete. Installed beneath the base coat, this specialized barrier prevents vapor intrusion, delamination, and moisture-related 
+                            damage, ensuring maximum adhesion and long-term performance of the entire floor system. Whether your space is prone to humidity, ground moisture, 
+                            or fluctuating conditions, the vapor barrier creates a stable foundation that keeps your floor strong, reliable, and looking its best for years to come. 
+                            Perfect for garages, basements, and commercial environments, it offers an added level of confidence and durability for any installation.
+                        </p>
+                    </div>
+                </details>
 
-                <div class="service-item animate-on-scroll">
-                    <img class = "service-img" src="{{ url_for('static', filename='systems/premium_package.JPG') }}" alt="Systems Image 3">
-                    
-                    <h3>Premium Package</h3>
-                    
-                    <p>
-                        Our 5-Layer Premium Flooring System is engineered for maximum durability, with its strength taken to the next level by two ultra-tough polyaspartic 
-                        top coats that provide significantly more protection than traditional single-coat systems. These dual top coats create an exceptionally hard, 
-                        UV-stable, abrasion-resistant shield that dramatically boosts impact resistance, chemical resistance, and overall longevity, making the floor far 
-                        stronger and more resilient under heavy use. The seamless, non-porous surface ensures the floor stays extremely easy to clean, allowing oil, dirt, 
-                        dust, and spills to wipe away effortlessly while maintaining a spotless finish. With customizable colors and flake blends, it offers a high-end, 
-                        great-looking finish with outstanding clarity and depth. Backed by a Lifetime Warranty, this premium package delivers unmatched strength, beauty, 
-                        and long-term peace of mind.
-                    </p>
 
-                </div>
+                <details class="service-item animate-on-scroll service-accordion">
+                    <summary class="service-summary">
+                        <img class = "service-img" src="{{ url_for('static', filename='systems/concrete_restoration.JPG') }}" alt="Systems Image 5">
+                        <h3>Concrete Restoration Package</h3>
+                        <span class = "service-toggle" aria-hidden="true">Read more</span>
+                    </summary>
 
-                <div class="service-item animate-on-scroll">
-                    <img class = "service-img" src="{{ url_for('static', filename='systems/vapor_barrier.JPG') }}" alt="Systems Image 4">
-                    
-                    <h3>Vapor Barrier</h3>
-                    
-                    <p>
-                        Our Vapor Barrier is an optional upgrade that can be added to any of our flooring packages, providing an extra layer of protection against moisture 
-                        rising through the concrete. Installed beneath the base coat, this specialized barrier prevents vapor intrusion, delamination, and moisture-related 
-                        damage, ensuring maximum adhesion and long-term performance of the entire floor system. Whether your space is prone to humidity, ground moisture, 
-                        or fluctuating conditions, the vapor barrier creates a stable foundation that keeps your floor strong, reliable, and looking its best for years to come. 
-                        Perfect for garages, basements, and commercial environments, it offers an added level of confidence and durability for any installation.
-                    </p>
-
-                </div>
-
-                <div class="service-item animate-on-scroll">
-                    <img class = "service-img" src="{{ url_for('static', filename='systems/concrete_restoration.JPG') }}" alt="Systems Image 5">
-                    
-                    <h3>Concrete Restoration Package</h3>
-                    
-                    <p>
-                        Our Concrete Restoration System is an add-on upgrade that can be paired with any of our flooring packages, ensuring the surface is fully repaired 
-                        and perfected before the base coat is applied. This system includes professional crack filling and repair, patching damaged or broken concrete, and 
-                        correcting surface imperfections to create a smooth, strong, and level foundation. By restoring the integrity of the concrete first, your flooring 
-                        system bonds more effectively, performs better, and lasts longer. Ideal for older slabs or surfaces showing wear, the Concrete Restoration System 
-                        ensures your final floor is not only durable and beautiful but built on a solid, properly repaired foundation.
-                    </p>
-
-                </div>
+                    <div class="service-body">   
+                        <p>
+                            Our Concrete Restoration System is an add-on upgrade that can be paired with any of our flooring packages, ensuring the surface is fully repaired 
+                            and perfected before the base coat is applied. This system includes professional crack filling and repair, patching damaged or broken concrete, and 
+                            correcting surface imperfections to create a smooth, strong, and level foundation. By restoring the integrity of the concrete first, your flooring 
+                            system bonds more effectively, performs better, and lasts longer. Ideal for older slabs or surfaces showing wear, the Concrete Restoration System 
+                            ensures your final floor is not only durable and beautiful but built on a solid, properly repaired foundation.
+                        </p>
+                    </div>
+                </details>
             </div>
         </section>
 

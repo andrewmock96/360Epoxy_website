@@ -685,6 +685,73 @@ button:active {
     display: block;
 }
 
+/* =======================
+   SERVICES DROPDOWN CARDS
+======================= */
+.service-accordion {
+  overflow: hidden; /* keeps rounded corners clean */
+}
+
+/* remove default summary marker */
+.service-summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.service-summary::-webkit-details-marker {
+  display: none;
+}
+
+.service-summary h3 {
+  margin: 0;
+}
+
+/* "button" line under the title */
+.service-toggle {
+  align-self: flex-start;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: white;
+  background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* content area */
+.service-body {
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  margin-top: 5px;
+}
+
+/* smooth-ish open/close feel */
+.service-accordion .service-body {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+/* when open */
+.service-accordion[open] .service-body {
+  max-height: 1000px; /* big enough for your longest text */
+  opacity: 1;
+}
+
+/* toggle text changes when open */
+.service-accordion[open] .service-toggle {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* optional: change label text using CSS */
+.service-accordion[open] .service-toggle::after {
+  content: " (Hide)";
+}
+
 /* Tablet layout: 2 columns */
 @media (min-width: 768px) {
     .services-grid {

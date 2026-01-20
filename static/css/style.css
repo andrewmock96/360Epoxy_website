@@ -636,9 +636,16 @@ button:active {
 }
 
 @media (max-width: 480px) {
-  .reviews-swiper {
-    padding: 0 35px;
+  .reviews-carousel-section .review-card {
+    padding-left: 45px;
+    padding-right: 45px;
   }
+}
+
+/* Prevent swiper arrows from overlapping review text */
+.reviews-carousel-section .review-card {
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 /* =======================

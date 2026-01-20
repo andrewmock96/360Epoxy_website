@@ -621,6 +621,27 @@ button:active {
 }
 
 /* =======================
+   REVIEWS SWIPER SPACING
+======================= */
+.reviews-swiper {
+  padding: 0 50px; /* space for arrows */
+}
+
+.swiper-button-prev {
+  left: 5px;
+}
+
+.swiper-button-next {
+  right: 5px;
+}
+
+@media (max-width: 480px) {
+  .reviews-swiper {
+    padding: 0 35px;
+  }
+}
+
+/* =======================
    HOW IT WORKS SECTION
 ======================= */
 .how-it-works-section {

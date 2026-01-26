@@ -738,7 +738,7 @@ POPULAR SERVICE PACKAGES
 
 .packages-popular-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 15px;
   margin-top: 20px;
   justify-items: center;

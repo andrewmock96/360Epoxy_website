@@ -1183,7 +1183,8 @@ POPULAR BASE COATS SECTION
     justify-content: center;
 }
 
-.gallery img {
+/* Only style images that are direct children of .gallery (NOT project-card images) */
+.gallery > img {
     width: 100%;
     max-width: 300px;
     border-radius: 15px;

@@ -1603,3 +1603,188 @@ footer p {
 .flake-card img {
     cursor: zoom-in;
 }
+
+/* =========================================
+   DESKTOP POLISH LAYER
+========================================= */
+
+/* consistent page gutters + max width */
+:root{
+  --page-max: 1200px;
+  --page-pad: 40px;
+  --section-gap: 70px;
+}
+
+@media (min-width: 900px) {
+
+  /* ---------- Header + Nav ---------- */
+  header{
+    padding: 14px 0;
+  }
+
+  .header-container{
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo{
+    max-width: 165px;
+  }
+
+  .nav-links{
+    display: flex !important;
+    gap: 28px;
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a{
+    font-size: 1.15rem;
+  }
+
+  .menu-toggle{
+    display: none !important;
+  }
+
+  /* ---------- Top banner ---------- */
+  .top-banner{
+    padding: 12px 0;
+  }
+
+  .top-banner .banner-left,
+  .top-banner .banner-right{
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+  }
+
+  /* ---------- Section spacing ---------- */
+  .welcome-section,
+  .reviews-carousel-section,
+  .how-it-works-section,
+  .services,
+  .flakes-popular-section,
+  .basecoat-popular-section,
+  .packages-popular-section,
+  .flake-gallery-section,
+  .basecoat-gallery-section,
+  footer{
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+  }
+
+  .welcome-section,
+  .reviews-carousel-section,
+  .how-it-works-section,
+  .services,
+  .flakes-popular-section,
+  .basecoat-popular-section,
+  .packages-popular-section{
+    max-width: var(--page-max);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-divider{
+    margin: var(--section-gap) auto;
+  }
+
+  /* ---------- Reviews: no arrow overlap ---------- */
+  .reviews-carousel-section .swiper.reviews-swiper{
+    padding: 0 70px;
+  }
+
+  .reviews-carousel-section .review-card{
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  /* ---------- How it works ---------- */
+  .how-it-works-steps{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  /* ---------- Services (homepage + services page cards) ---------- */
+  .services-grid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .service-item{
+    height: 100%;
+  }
+
+  /* ---------- Popular packages ---------- */
+  .packages-popular-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  /* if you still only have 1 card, it stays centered because of justify-items */
+  .packages-popular-card{
+    height: 260px;
+  }
+
+  .packages-popular-card img{
+    height: 210px;
+  }
+
+  /* ---------- Popular flakes + base coats ---------- */
+  .flakes-popular-grid,
+  .basecoat-popular-grid{
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  /* ---------- Gallery page: Projects grid ---------- */
+  /* IMPORTANT: avoid global .gallery img rules from breaking cards */
+  section.gallery{
+    max-width: var(--page-max);
+    margin: 50px auto;
+    padding: 40px var(--page-pad);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    align-items: start;
+  }
+
+  section.gallery h2{
+    grid-column: 1 / -1;
+  }
+
+  section.gallery .project-card{
+    width: 100%;
+  }
+
+  section.gallery .project-card img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ---------- Gallery page: Flake/Basecoat grids stay clean ---------- */
+  .flake-gallery-grid,
+  .basecoat-gallery-grid{
+    max-width: var(--page-max);
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding-top: 45px;
+  }
+}
+
+/* Ultra-wide screens: keep content from stretching too far */
+@media (min-width: 1300px){
+  :root{ --page-pad: 60px; }
+}

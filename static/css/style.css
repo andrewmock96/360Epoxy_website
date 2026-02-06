@@ -394,6 +394,36 @@ header{
   padding: 0 50px;
 }
 
+/* REVIEWS CAROUSEL – MOBILE OVERRIDE */
+@media (max-width: 768px){
+
+  .reviews-carousel-section .swiper-button-next,
+  .reviews-carousel-section .swiper-button-prev{
+    color: #FF9800;      /* brand color */
+    width: 30px;
+    height: 30px;
+  }
+
+  .reviews-carousel-section .swiper-button-next::after,
+  .reviews-carousel-section .swiper-button-prev::after{
+    font-size: 18px;     /* smaller arrows */
+  }
+
+  /* Bring arrows closer on mobile */
+  .reviews-carousel-section .swiper-button-prev{
+    left: 6px;
+  }
+
+  .reviews-carousel-section .swiper-button-next{
+    right: 6px;
+  }
+
+  /* Reduce side padding so arrows aren't floating */
+  .reviews-swiper{
+    padding: 0 30px;
+  }
+}
+
 /* =====================================================
    SERVICES & PACKAGES
 ===================================================== */

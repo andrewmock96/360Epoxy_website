@@ -395,33 +395,42 @@ header{
 }
 
 /* REVIEWS CAROUSEL – MOBILE OVERRIDE */
-@media (max-width: 768px){
 
-  .reviews-carousel-section .swiper-button-next,
-  .reviews-carousel-section .swiper-button-prev{
-    color: #9e9e9e;      /* brand color */
-    width: 30px;
-    height: 30px;
-  }
+/* Force Swiper theme + navigation to NOT be blue */
+.reviews-carousel-section{
+  --swiper-theme-color: #bdbdbd;       /* affects pagination + some UI */
+  --swiper-navigation-color: #bdbdbd;  /* affects arrows */
+}
 
-  .reviews-carousel-section .swiper-button-next::after,
-  .reviews-carousel-section .swiper-button-prev::after{
-    font-size: 18px;     /* smaller arrows */
-  }
+/* Arrow buttons */
+.reviews-carousel-section .swiper-button-next,
+.reviews-carousel-section .swiper-button-prev{
+  color: #bdbdbd !important;          /* hard override */
+  opacity: 1;
+}
 
-  /* Bring arrows closer on mobile */
-  .reviews-carousel-section .swiper-button-prev{
-    left: 6px;
-  }
+/* Shrink arrow icons */
+.reviews-carousel-section .swiper-button-next::after,
+.reviews-carousel-section .swiper-button-prev::after{
+  font-size: 18px !important;         /* smaller than 24px */
+  font-weight: 700;
+}
 
-  .reviews-carousel-section .swiper-button-next{
-    right: 6px;
-  }
+/* Make the carousel behave like 1 card at a time on mobile */
+.reviews-carousel-section .reviews-swiper{
+  overflow: hidden;                    /* prevents partial slides */
+  padding: 0 40px;                     /* room for arrows */
+}
 
-  /* Reduce side padding so arrows aren't floating */
-  .reviews-swiper{
-    padding: 0 30px;
-  }
+/* Force each slide to take full width */
+.reviews-carousel-section .swiper-slide{
+  width: 100% !important;
+}
+
+/* Keep review cards consistent */
+.reviews-carousel-section .review-card{
+  height: 200px;                       /* keeps all equal height */
+  width: 100%;
 }
 
 /* =====================================================

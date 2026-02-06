@@ -1341,25 +1341,24 @@ footer p{
     /* HOME – Popular Flakes & Base Coats (DESKTOP ONLY) */
 
     /* HOME – Popular Flakes & Base Coats (DESKTOP ONLY) */
-  .flakes-popular-card,
-  .basecoat-popular-card{
-    height: 320px;     /* bigger container */
-    padding: 16px;     /* more breathing room */
-    gap: 10px;         /* extra vertical spacing between image + text */
-  }
+    .flakes-popular-card,
+    .basecoat-popular-card{
+        height: 340px;     /* bigger container */
+        padding: 18px;     /* more breathing room */
+        gap: 10px;         /* extra vertical spacing between image + text */
+    }
 
-  .flakes-popular-card img,
-  .basecoat-popular-card img{
-    height: 260px;     /* taller image */
-  }
+    .flakes-popular-card img,
+    .basecoat-popular-card img{
+        height: 260px;     /* taller image */
+    }
 
-  .flakes-popular-card h3,
-  .basecoat-popular-card h3{
-    margin-top: 2px;
-    font-size: 1.2rem;
-    line-height: 1.2;
-  }
-}
+    .flakes-popular-card h3,
+    .basecoat-popular-card h3{
+        margin-top: 2px;
+        font-size: 1.2rem;
+        line-height: 1.2;
+    }
 
   /* ---- Services: 3-column desktop ---- */
   .services-grid{

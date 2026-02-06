@@ -1261,85 +1261,112 @@ footer p{
 
 /* Header */
 
-  header{
-    padding: 16px 0;
-  }
+    header{
+        padding: 16px 0;
+    }
 
-  .header-container{
-    width: 100vw;                /* ⬅ full viewport width */
-    max-width: none;             /* ⬅ remove centering constraint */
-    margin: 0;
+    .header-container{
+        width: 100vw;                /* ⬅ full viewport width */
+        max-width: none;             /* ⬅ remove centering constraint */
+        margin: 0;
 
-    padding-left: 24px;          /* ⬅ tighter left edge */
-    padding-right: 24px;         /* ⬅ tighter right edge */
+        padding-left: 24px;          /* ⬅ tighter left edge */
+        padding-right: 24px;         /* ⬅ tighter right edge */
 
-    display: flex;
-    align-items: center;
-  }
+        display: flex;
+        align-items: center;
+    }
 
-  /* ---- Logo: push FAR LEFT ---- */
-  .logo{
-    max-width: 170px;
-    margin-left: 80px;           /* controls how far from left edge */
-    margin-right: auto;          /* ⬅ forces nav away */
-  }
+    /* ---- Logo: push FAR LEFT ---- */
+    .logo{
+        max-width: 170px;
+        margin-left: 80px;           /* controls how far from left edge */
+        margin-right: auto;          /* ⬅ forces nav away */
+    }
 
-  /* ---- Nav: push FAR RIGHT ---- */
-  .nav-links{
-    display: flex !important;
-    gap: 2vw;                   /* wider spacing */
+    /* ---- Nav: push FAR RIGHT ---- */
+    .nav-links{
+        display: flex !important;
+        gap: 2vw;                   /* wider spacing */
 
-    margin-left: auto;           /* ⬅ hard push right */
-    margin-right: 4.5vw;
+        margin-left: auto;           /* ⬅ hard push right */
+        margin-right: 4.5vw;
 
-    position: static;
-    opacity: 1;
-    pointer-events: auto;
-  }
+        position: static;
+        opacity: 1;
+        pointer-events: auto;
+    }
 
-  .nav-links a{
-    font-size: 1.35rem;          /* larger desktop scale */
-    font-weight: 700;
-    letter-spacing: 0.6px;
-  }
+    .nav-links a{
+        font-size: 1.35rem;          /* larger desktop scale */
+        font-weight: 700;
+        letter-spacing: 0.6px;
+    }
 
- /* Hide hamburger */
-  .menu-toggle{
-    display: none !important;
-  }
+    /* Hide hamburger */
+    .menu-toggle{
+        display: none !important;
+    }
 
-  /* ---- Home hero image ---- */
-  .hero-image{
-    width: 100vw;
-    max-width: none;
-    height: 35vh;
-    max-height: 540px;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    overflow: hidden;
-  }
+    /* ---- Home hero image ---- */
+    .hero-image{
+        width: 100vw;
+        max-width: none;
+        height: 35vh;
+        max-height: 540px;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        overflow: hidden;
+    }
 
-  .hero-image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 55%;
-    display: block;
-  }
-  
-  /* ---- Reviews: give arrows room ---- */
-  .reviews-carousel-section .swiper.reviews-swiper{
-    padding: 0 70px;
-  }
-}
+    .hero-image img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 55%;
+        display: block;
+    }
+    
+    /* ---- Reviews: give arrows room ---- */
+    .reviews-carousel-section .swiper.reviews-swiper{
+        padding: 0 70px;
+    }
 
-  /* ---- Reviews: give arrows room ---- */
-  .reviews-carousel-section .swiper.reviews-swiper{
-    padding: 0 70px;
-  }
 
-    /* HOME – Popular Flakes & Base Coats (DESKTOP ONLY) */
+    /* ---- Reviews: give arrows room ---- */
+    .reviews-carousel-section .swiper.reviews-swiper{
+        padding: 0 70px;
+    }
 
+    /* HOME – Popular Service Section DESKTOP ONLY */
+
+    .packages-popular-section{
+        max-width: 1200px;   /* section width */
+        margin: 0 auto;
+        padding: 80px 40px;  /* section height */
+    }
+
+    .packages-popular-grid{
+        max-width: 900px;
+        margin: 40px auto 0;
+    }
+
+    .packages-popular-card{
+        max-width: 900px;
+        height: 460px;
+        padding: 20px;
+    }
+
+    .packages-popular-card img{
+        height: 360px;
+    }
+
+    .packages-popular-card h3{
+        font-size: 1.4rem;
+        margin-top: 12px;
+    }
+    
+        
     /* HOME – Popular Flakes & Base Coats (DESKTOP ONLY) */
     .flakes-popular-card,
     .basecoat-popular-card{
@@ -1366,25 +1393,25 @@ footer p{
     gap: 32px;   /* nice vertical spacing */
     }
 
-  /* ---- Our Projects gallery: 3-column + taller images ---- */
-  section.gallery{
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-    justify-items: stretch;
-  }
+    /* ---- Our Projects gallery: 3-column + taller images ---- */
+    section.gallery{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        justify-items: stretch;
+    }
 
-  section.gallery .project-card{
-    max-width: none;
-  }
+    section.gallery .project-card{
+        max-width: none;
+    }
 
-  section.gallery .project-card img{
-    height: 300px;
-    object-fit: cover;
-    object-position: center top;
-  }
-
+    section.gallery .project-card img{
+        height: 300px;
+        object-fit: cover;
+        object-position: center top;
+    }
+}
 
 /* Ultra-wide screens: bigger gutters */
 @media (min-width: 1300px){
-  :root{ --page-pad: 60px; }
+:root{ --page-pad: 60px; }
 }

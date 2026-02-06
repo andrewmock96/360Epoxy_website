@@ -1276,7 +1276,7 @@ header{
     width: 100vw;
     max-width: none;
     height: 15vh;                 /* controls hero height */
-    max-height: 600px;            /* prevents it from getting too tall */
+    max-height: 480px;            /* prevents it from getting too tall */
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     overflow: hidden;             /* crop excess image */

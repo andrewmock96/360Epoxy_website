@@ -1358,7 +1358,9 @@ footer p{
     }
 
     .packages-popular-card img{
-        height: 360px;
+        object-fit: cover;
+        transform: scale(0.92);          /* zoom OUT slightly */
+        transition: transform 0.3s ease;
     }
 
     .packages-popular-card h3{

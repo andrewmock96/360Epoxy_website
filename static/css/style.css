@@ -1236,7 +1236,7 @@ footer p{
 
 /* Move Get Free Quote slightly left */
 .banner-right{
-  margin-right: 2vw;  /* adjust as needed */
+  margin-right: 3vw;  /* adjust as needed */
 }
 
 /* =======================
@@ -1274,7 +1274,7 @@ footer p{
     gap: 2vw;                   /* wider spacing */
 
     margin-left: auto;           /* ⬅ hard push right */
-    margin-right: 4vw;
+    margin-right: 4.5vw;
 
     position: static;
     opacity: 1;

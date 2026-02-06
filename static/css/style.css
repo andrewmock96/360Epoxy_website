@@ -1340,25 +1340,26 @@ footer p{
 
     /* HOME – Popular Flakes & Base Coats (DESKTOP ONLY) */
 
-    /* Make cards taller overall */
-    .flakes-popular-card,
-    .basecoat-popular-card{
-    height: 260px;          /* card grows with image */
-    padding: 14px;          /* more breathing room */
-    }
+    /* HOME – Popular Flakes & Base Coats (DESKTOP ONLY) */
+  .flakes-popular-card,
+  .basecoat-popular-card{
+    height: 320px;     /* bigger container */
+    padding: 16px;     /* more breathing room */
+    gap: 10px;         /* extra vertical spacing between image + text */
+  }
 
-    /* Make images taller */
-    .flakes-popular-card img,
-    .basecoat-popular-card img{
-    height: 220px;          /* taller than before */
-    }
+  .flakes-popular-card img,
+  .basecoat-popular-card img{
+    height: 260px;     /* taller image */
+  }
 
-    /* Improve text spacing */
-    .flakes-popular-card h3,
-    .basecoat-popular-card h3{
-    margin-top: 6px;
-    font-size: 1.15rem;
-    }
+  .flakes-popular-card h3,
+  .basecoat-popular-card h3{
+    margin-top: 2px;
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+}
 
   /* ---- Services: 3-column desktop ---- */
   .services-grid{

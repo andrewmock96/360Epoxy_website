@@ -428,9 +428,28 @@ header{
 }
 
 /* Keep review cards consistent */
+/* Keep review cards consistent (but NOT cutting off names) */
 .reviews-carousel-section .review-card{
-  height: 200px;                       /* keeps all equal height */
   width: 100%;
+  min-height: 240px;   /* bump up from 200 */
+  height: auto;        /* allow growth */
+  padding: 20px 22px;  /* better for mobile */
+}
+
+/* Clamp text so name always fits */
+.reviews-carousel-section .review-text{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;  /* tweak 4–6 */
+}
+
+/* Prevent name clipping */
+.reviews-carousel-section .reviewer-name{
+  margin-top: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* =====================================================

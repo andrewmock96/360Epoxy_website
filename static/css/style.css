@@ -1272,30 +1272,29 @@ footer p{
     letter-spacing: 0.6px;
   }
 
-  /* Hide hamburger */
+ /* Hide hamburger */
   .menu-toggle{
     display: none !important;
   }
-}
+
   /* ---- Home hero image ---- */
   .hero-image{
     width: 100vw;
     max-width: none;
-    height: 25vh;                 /* controls hero height */
-    max-height: 480px;            /* prevents it from getting too tall */
+    height: 25vh;
+    max-height: 480px;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    overflow: hidden;             /* crop excess image */
+    overflow: hidden;
   }
 
   .hero-image img{
     width: 100%;
     height: 100%;
-    object-fit: cover;            /* keeps it visually clean */
-    object-position: center 50%;      /* adjust if needed */
+    object-fit: cover;
+    object-position: center 50%;
     display: block;
   }
-
 
   /* ---- Services: 3-column desktop ---- */
   .services-grid{
@@ -1311,14 +1310,20 @@ footer p{
   }
 
   section.gallery .project-card{
-    max-width: none; /* fill the grid cell */
+    max-width: none;
   }
 
   section.gallery .project-card img{
-    height: 300px; /* taller desktop images */
+    height: 300px;
     object-fit: cover;
     object-position: center top;
   }
+
+  /* ---- Reviews: give arrows room ---- */
+  .reviews-carousel-section .swiper.reviews-swiper{
+    padding: 0 70px;
+  }
+}
 
   /* ---- Reviews: give arrows room ---- */
   .reviews-carousel-section .swiper.reviews-swiper{

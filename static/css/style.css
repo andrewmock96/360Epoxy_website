@@ -1339,9 +1339,25 @@ footer p{
   }
 
     /* HOME – Popular Flakes & Base Coats (DESKTOP ONLY) */
+
+    /* Make cards taller overall */
+    .flakes-popular-card,
+    .basecoat-popular-card{
+    height: 260px;          /* card grows with image */
+    padding: 14px;          /* more breathing room */
+    }
+
+    /* Make images taller */
     .flakes-popular-card img,
     .basecoat-popular-card img{
-    height: 260px;
+    height: 220px;          /* taller than before */
+    }
+
+    /* Improve text spacing */
+    .flakes-popular-card h3,
+    .basecoat-popular-card h3{
+    margin-top: 6px;
+    font-size: 1.15rem;
     }
 
   /* ---- Services: 3-column desktop ---- */

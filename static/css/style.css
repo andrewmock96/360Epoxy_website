@@ -428,7 +428,6 @@ header{
 }
 
 /* Keep review cards consistent */
-/* Keep review cards consistent (but NOT cutting off names) */
 .reviews-carousel-section .review-card{
   width: 100%;
   min-height: 240px;   /* bump up from 200 */
@@ -441,7 +440,7 @@ header{
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;  /* tweak 4–6 */
+  -webkit-line-clamp: 5;
 }
 
 /* Prevent name clipping */
@@ -1197,10 +1196,7 @@ footer p{
   transform: translateY(0);
 }
 
-/* =========================================
-   DESKTOP SECTION (ONLY DESKTOP CHANGES HERE)
-   From now on, we edit inside this block.
-========================================= */
+
 /* =====================================================
    DESKTOP OVERRIDES (900px+)
    Desktop-only layout & spacing changes
@@ -1262,7 +1258,7 @@ footer p{
   .hero-image{
     width: 100vw;
     max-width: none;
-    height: 65vh;                 /* 🔽 controls hero height */
+    height: 65vh;                 /* controls hero height */
     max-height: 520px;            /* prevents it from getting too tall */
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
@@ -1277,12 +1273,6 @@ footer p{
     display: block;
   }
 }
-
-  .hero-image img{
-    width: 100%;
-    height: auto;
-    display: block;
-  }
 
   /* ---- Services: 3-column desktop ---- */
   .services-grid{

@@ -733,7 +733,7 @@ section.gallery .project-card:hover{
 /* make images uniform */
 section.gallery .project-card img{
   width: 100%;
-  height: 320px;                /* uniform mobile height */
+  height: 360px;                /* uniform mobile height */
   object-fit: cover;
   display: block;
   border-radius: 0;             /* card handles rounding */

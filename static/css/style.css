@@ -688,47 +688,64 @@ header{
 }
 
 /* =======================
-   GALLERY: PROJECTS (GLOBAL)
-   (THIS REPLACES the 3 conflicting .gallery blocks)
+   GALLERY PAGES ONLY
+   OUR PROJECTS (MOBILE FIRST)
 ======================= */
 section.gallery{
-  max-width: 1200px;
-  margin: 50px auto;
-  text-align: center;
+  width: 100%;
+  margin: 0 auto;
   padding: 40px 20px;
+  text-align: center;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  justify-items: center;
+  grid-template-columns: 1fr;   /* mobile: single column */
+  gap: 16px;
+
+  justify-items: stretch;       /* IMPORTANT: cards fill the row */
+  align-items: start;
 }
 
+/* keep the heading spanning full width */
 section.gallery h2{
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   margin-bottom: 10px;
   color: #333;
-  grid-column: 1 / -1;
 }
 
-.project-card{
+/* cards should be full width, but not ridiculously wide */
+section.gallery .project-card{
+  width: 100%;
+  max-width: 520px;             /* nice mobile max */
+  margin: 0 auto;               /* center the max-width card */
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%;
 }
 
-.project-card:hover{
+section.gallery .project-card:hover{
   transform: translateY(-5px);
   box-shadow: 0 10px 18px rgba(0,0,0,0.15);
 }
 
-.project-card img{
+/* make images uniform */
+section.gallery .project-card img{
   width: 100%;
-  height: 200px;
+  height: 220px;                /* uniform mobile height */
   object-fit: cover;
   display: block;
+  border-radius: 0;             /* card handles rounding */
+}
+
+/* optional: if you have titles under images */
+section.gallery .project-card h3{
+  padding: 12px 14px;
+  margin: 0;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #333;
 }
 
 /* =======================

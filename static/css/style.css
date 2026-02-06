@@ -1226,6 +1226,20 @@ footer p{
   }
 
 /* =======================
+   TOP BANNER – DESKTOP ONLY
+======================= */
+
+  /* Move social icons slightly right */
+.banner-left{
+  margin-left: 24px;   /* adjust as needed */
+}
+
+/* Move Get Free Quote slightly left */
+.banner-right{
+  margin-right: 24px;  /* adjust as needed */
+}
+
+/* =======================
      HEADER – DESKTOP SPREAD
   ======================= */
 

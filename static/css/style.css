@@ -1271,10 +1271,10 @@ footer p{
   /* ---- Nav: push FAR RIGHT ---- */
   .nav-links{
     display: flex !important;
-    gap: 40px;                   /* wider spacing */
+    gap: 2vw;                   /* wider spacing */
 
     margin-left: auto;           /* ⬅ hard push right */
-    margin-right: 60px;
+    margin-right: 4vw;
 
     position: static;
     opacity: 1;

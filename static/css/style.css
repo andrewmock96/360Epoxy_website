@@ -1231,12 +1231,12 @@ footer p{
 
   /* Move social icons slightly right */
 .banner-left{
-  margin-left: 60px;   /* adjust as needed */
+  margin-left: 3vw;   /* adjust as needed */
 }
 
 /* Move Get Free Quote slightly left */
 .banner-right{
-  margin-right: 80px;  /* adjust as needed */
+  margin-right: 3vw;  /* adjust as needed */
 }
 
 /* =======================

@@ -1225,34 +1225,51 @@ footer p{
     padding-right: var(--page-pad);
   }
 
-  /* ---- Header desktop layout ---- */
-  header{
-    padding: 14px 0;
+header{
+    padding: 16px 0;
   }
 
   .header-container{
     max-width: var(--page-max);
     margin: 0 auto;
     padding: 0 var(--page-pad);
-    justify-content: space-between;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* logo left, nav right */
   }
 
-  .menu-toggle{
-    display: none !important;
+  /* ---- Logo: hard-left alignment ---- */
+  .logo{
+    max-width: 170px;
+    margin: 0;              /* removes centering behavior */
+    align-self: flex-start; /* ensures left edge alignment */
   }
 
+  /* ---- Nav links: larger & farther right ---- */
   .nav-links{
     display: flex !important;
     flex-direction: row;
-    gap: 28px;
+
+    gap: 36px;              /* ⬅ more space between links */
+    margin-left: auto;      /* ⬅ pushes nav to the far right */
+
     position: static;
     opacity: 1;
     pointer-events: auto;
   }
 
   .nav-links a{
-    font-size: 1.15rem;
+    font-size: 1.3rem;      /* ⬅ larger text */
+    font-weight: 700;
+    letter-spacing: 0.5px; /* subtle polish */
   }
+
+  /* Hide hamburger on desktop */
+  .menu-toggle{
+    display: none !important;
+  }
+}
 
   /* ---- Home hero image ---- */
   .hero-image{

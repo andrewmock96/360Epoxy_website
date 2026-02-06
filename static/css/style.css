@@ -399,7 +399,7 @@ header{
 
   .reviews-carousel-section .swiper-button-next,
   .reviews-carousel-section .swiper-button-prev{
-    color: #FF9800;      /* brand color */
+    color: #9e9e9e;      /* brand color */
     width: 30px;
     height: 30px;
   }
@@ -1245,7 +1245,7 @@ footer p{
     width: 100%;
     height: 100%;
     object-fit: cover;            /* keeps it visually clean */
-    object-position: center;      /* adjust if needed */
+    object-position: center bottom;      /* adjust if needed */
     display: block;
   }
 }
@@ -1283,7 +1283,6 @@ footer p{
   .reviews-carousel-section .swiper.reviews-swiper{
     padding: 0 70px;
   }
-}
 
 /* Ultra-wide screens: bigger gutters */
 @media (min-width: 1300px){

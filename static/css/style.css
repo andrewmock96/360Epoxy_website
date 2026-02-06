@@ -1282,8 +1282,8 @@ footer p{
   .hero-image{
     width: 100vw;
     max-width: none;
-    height: 35vh;
-    max-height: 480px;
+    height: 40vh;
+    max-height: 540px;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     overflow: hidden;

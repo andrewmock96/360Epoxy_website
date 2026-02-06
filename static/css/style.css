@@ -1326,6 +1326,23 @@ footer p{
     object-position: center 55%;
     display: block;
   }
+  
+  /* ---- Reviews: give arrows room ---- */
+  .reviews-carousel-section .swiper.reviews-swiper{
+    padding: 0 70px;
+  }
+}
+
+  /* ---- Reviews: give arrows room ---- */
+  .reviews-carousel-section .swiper.reviews-swiper{
+    padding: 0 70px;
+  }
+
+    /* HOME – Popular Flakes & Base Coats (DESKTOP ONLY) */
+    .flakes-popular-card img,
+    .basecoat-popular-card img{
+    height: 260px;
+    }
 
   /* ---- Services: 3-column desktop ---- */
   .services-grid{
@@ -1350,16 +1367,6 @@ footer p{
     object-position: center top;
   }
 
-  /* ---- Reviews: give arrows room ---- */
-  .reviews-carousel-section .swiper.reviews-swiper{
-    padding: 0 70px;
-  }
-}
-
-  /* ---- Reviews: give arrows room ---- */
-  .reviews-carousel-section .swiper.reviews-swiper{
-    padding: 0 70px;
-  }
 
 /* Ultra-wide screens: bigger gutters */
 @media (min-width: 1300px){

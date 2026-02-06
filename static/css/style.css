@@ -1200,13 +1200,25 @@ footer p{
     font-size: 1.15rem;
   }
 
-  /* ---- Home hero image: full-bleed desktop ---- */
+  /* ---- Home hero image ---- */
   .hero-image{
     width: 100vw;
     max-width: none;
+    height: 65vh;                 /* 🔽 controls hero height */
+    max-height: 520px;            /* prevents it from getting too tall */
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
+    overflow: hidden;             /* crop excess image */
   }
+
+  .hero-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;            /* keeps it visually clean */
+    object-position: center;      /* adjust if needed */
+    display: block;
+  }
+}
 
   .hero-image img{
     width: 100%;

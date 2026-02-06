@@ -1250,7 +1250,7 @@ footer p{
   /* ---- Logo: push FAR LEFT ---- */
   .logo{
     max-width: 170px;
-    margin-left: 40px;           /* controls how far from left edge */
+    margin-left: 80px;           /* controls how far from left edge */
     margin-right: auto;          /* ⬅ forces nav away */
   }
 
@@ -1260,7 +1260,7 @@ footer p{
     gap: 40px;                   /* wider spacing */
 
     margin-left: auto;           /* ⬅ hard push right */
-    margin-right: 40px;
+    margin-right: 60px;
 
     position: static;
     opacity: 1;

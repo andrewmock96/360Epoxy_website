@@ -1231,12 +1231,12 @@ footer p{
 
   /* Move social icons slightly right */
 .banner-left{
-  margin-left: 24px;   /* adjust as needed */
+  margin-left: 60px;   /* adjust as needed */
 }
 
 /* Move Get Free Quote slightly left */
 .banner-right{
-  margin-right: 24px;  /* adjust as needed */
+  margin-right: 80px;  /* adjust as needed */
 }
 
 /* =======================
@@ -1296,7 +1296,7 @@ footer p{
   .hero-image{
     width: 100vw;
     max-width: none;
-    height: 40vh;
+    height: 35vh;
     max-height: 540px;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
@@ -1307,7 +1307,7 @@ footer p{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 60%;
+    object-position: center 55%;
     display: block;
   }
 

@@ -1360,11 +1360,11 @@ footer p{
         line-height: 1.2;
     }
 
-  /* ---- Services: 3-column desktop ---- */
-  .services-grid{
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
+    /* ---- Services: 3-column desktop ---- */
+    .services-grid{
+    grid-template-columns: 1fr;
+    gap: 32px;   /* nice vertical spacing */
+    }
 
   /* ---- Our Projects gallery: 3-column + taller images ---- */
   section.gallery{

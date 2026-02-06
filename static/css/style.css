@@ -1225,34 +1225,41 @@ footer p{
     padding-right: var(--page-pad);
   }
 
-header{
+/* =======================
+     HEADER – DESKTOP SPREAD
+  ======================= */
+
+/* Header */
+
+  header{
     padding: 16px 0;
   }
 
   .header-container{
-    max-width: var(--page-max);
-    margin: 0 auto;
-    padding: 0 var(--page-pad);
+    width: 100vw;                /* ⬅ full viewport width */
+    max-width: none;             /* ⬅ remove centering constraint */
+    margin: 0;
+
+    padding-left: 24px;          /* ⬅ tighter left edge */
+    padding-right: 24px;         /* ⬅ tighter right edge */
 
     display: flex;
     align-items: center;
-    justify-content: space-between; /* logo left, nav right */
   }
 
-  /* ---- Logo: hard-left alignment ---- */
+  /* ---- Logo: push FAR LEFT ---- */
   .logo{
     max-width: 170px;
-    margin: 0;              /* removes centering behavior */
-    align-self: flex-start; /* ensures left edge alignment */
+    margin-right: auto;          /* ⬅ forces nav away */
   }
 
-  /* ---- Nav links: larger & farther right ---- */
+  /* ---- Nav: push FAR RIGHT ---- */
   .nav-links{
     display: flex !important;
-    flex-direction: row;
+    gap: 40px;                   /* wider spacing */
 
-    gap: 36px;              /* ⬅ more space between links */
-    margin-left: auto;      /* ⬅ pushes nav to the far right */
+    margin-left: auto;           /* ⬅ hard push right */
+    margin-right: 0;
 
     position: static;
     opacity: 1;
@@ -1260,17 +1267,16 @@ header{
   }
 
   .nav-links a{
-    font-size: 1.3rem;      /* ⬅ larger text */
+    font-size: 1.35rem;          /* larger desktop scale */
     font-weight: 700;
-    letter-spacing: 0.5px; /* subtle polish */
+    letter-spacing: 0.6px;
   }
 
-  /* Hide hamburger on desktop */
+  /* Hide hamburger */
   .menu-toggle{
     display: none !important;
   }
 }
-
   /* ---- Home hero image ---- */
   .hero-image{
     width: 100vw;

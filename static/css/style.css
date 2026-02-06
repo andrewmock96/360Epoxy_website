@@ -1393,6 +1393,10 @@ footer p{
     gap: 40px;   /* nice vertical spacing */
     }
 
+    .services .service-item h3{
+    text-align: center;
+    }
+
     /* ---- Our Projects gallery: 3-column + taller images ---- */
     section.gallery{
         grid-template-columns: repeat(3, 1fr);

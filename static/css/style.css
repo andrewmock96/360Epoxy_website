@@ -1,6 +1,7 @@
-/* =======================
-   IMPORTS + RESET (GLOBAL)
-======================= */
+/* =====================================================
+   GLOBAL STYLES
+   Fonts, resets, variables, shared utilities
+===================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600;800&display=swap');
 
 :root{
@@ -24,9 +25,13 @@ body{
   padding: 0;
 }
 
-/* =======================
-   TOP BANNER (GLOBAL)
-======================= */
+/* =====================================================
+   HEADER & NAVIGATION
+   Mobile-first navigation + hamburger menu
+===================================================== */
+
+/* Top banner */
+
 .top-banner{
   display: flex;
   justify-content: space-between;
@@ -99,9 +104,8 @@ body{
   filter: brightness(1.2) sepia(0.3) saturate(1.5);
 }
 
-/* =======================
-   HEADER + NAV (GLOBAL)
-======================= */
+/* Header container */
+
 header{
   background-color: #222222;
   color: white;
@@ -127,6 +131,8 @@ header{
   height: auto;
 }
 
+/* Navigation links */
+
 .nav-links{
   display: flex;
   gap: 20px;
@@ -148,6 +154,8 @@ header{
   background-clip: text;
 }
 
+/* Mobile menu toggle */
+
 .menu-toggle{
   position: absolute;
   right: 20px;
@@ -161,10 +169,8 @@ header{
   display: block;
 }
 
-/* =======================
-   MOBILE-ONLY NAV BEHAVIOR
-   (keeps your hamburger logic)
-======================= */
+/* MOBILE-ONLY NAV BEHAVIOR */
+
 @media (max-width: 768px){
   header{
     padding: 15px 20px;
@@ -242,9 +248,12 @@ header{
   background-color: #4CAF50;
 }
 
-/* =======================
-   WELCOME SECTION
-======================= */
+/* =====================================================
+   HOME PAGE
+===================================================== */
+
+/* Welcome section */
+
 .welcome-section{
   background: none;
   padding: 80px 20px;
@@ -310,19 +319,16 @@ header{
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* =======================
-   HOME HERO IMAGE (GLOBAL)
-   (lets desktop override make it full-bleed)
-======================= */
+/* Hero image */
+
 .hero-image img{
   width: 100%;
   display: block;
   border-radius: 0;
 }
 
-/* =======================
-   REVIEWS CAROUSEL (GLOBAL)
-======================= */
+/* Reviews carousel */
+
 .reviews-carousel-section{
   padding: 40px 20px;
   text-align: center;
@@ -383,14 +389,17 @@ header{
   color: #999;
 }
 
-/* Give arrows room (global baseline) */
+/* Give arrows space */
 .reviews-swiper{
   padding: 0 50px;
 }
 
-/* =======================
-   HOW IT WORKS (GLOBAL)
-======================= */
+/* =====================================================
+   SERVICES & PACKAGES
+===================================================== */
+
+/* How It Works */
+
 .how-it-works-section{
   padding: 70px 20px;
   text-align: center;
@@ -446,9 +455,8 @@ header{
   margin-top: 28px;
 }
 
-/* =======================
-   POPULAR PACKAGES (GLOBAL)
-======================= */
+/* Popular packages */
+
 .packages-popular-section{
   padding: 40px 20px;
   text-align: center;
@@ -511,9 +519,8 @@ header{
   box-shadow: 0 10px 18px rgba(0,0,0,0.15);
 }
 
-/* =======================
-   SERVICES SECTION (GLOBAL)
-======================= */
+/* Services list */
+
 .services{
   max-width: 1200px;
   margin: 50px auto;
@@ -687,10 +694,13 @@ header{
   box-shadow: 0 10px 18px rgba(0,0,0,0.15);
 }
 
-/* =======================
-   GALLERY PAGES ONLY
-   OUR PROJECTS (MOBILE FIRST)
-======================= */
+/* =====================================================
+   GALLERY PAGES
+   Our Projects, Flakes, Basecoats
+===================================================== */
+
+/* ---------- OUR PROJECTS ---------- */
+
 section.gallery{
   width: 100%;
   margin: 0 auto;
@@ -748,9 +758,8 @@ section.gallery .project-card h3{
   color: #333;
 }
 
-/* =======================
-   FLAKE GALLERY (MOBILE)
-======================= */
+/* ---------- FLAKE GALLERY ---------- */
+
 .flake-gallery-section{
   padding: 40px 20px;
   text-align: center;
@@ -811,9 +820,8 @@ section.gallery .project-card h3{
   box-shadow: 0 10px 18px rgba(0,0,0,0.15);
 }
 
-/* =======================
-   BASECOAT GALLERY (MOBILE)
-======================= */
+/* ---------- BASECOAT GALLERY ---------- */
+
 .basecoat-gallery-section{
   padding: 40px 20px;
   text-align: center;
@@ -875,9 +883,7 @@ section.gallery .project-card h3{
   color: #333;
 }
 
-/* =======================
-   FLAKE MODAL + ZOOM MODAL
-======================= */
+/* FLAKE MODAL + ZOOM MODAL */
 .flake-modal{
   display: none;
   position: fixed;
@@ -958,9 +964,12 @@ section.gallery .project-card h3{
   cursor: zoom-in;
 }
 
-/* =======================
-   CONTACT SECTION
-======================= */
+/* =====================================================
+   CONTACT PAGE
+===================================================== */
+
+/* Contact form */
+
 .contact{
   padding: 40px 20px;
 }
@@ -992,9 +1001,8 @@ section.gallery .project-card h3{
   background-color: #155ab6;
 }
 
-/* =======================
-   HERO CONTACT SECTION (MOBILE BASE)
-======================= */
+/* Hero contact section */
+
 .hero-contact{
   display: flex;
   flex-direction: column;
@@ -1039,9 +1047,12 @@ section.gallery .project-card h3{
   font-size: 1rem;
 }
 
-/* =======================
-   SECTION DIVIDERS
-======================= */
+/* =====================================================
+   SHARED COMPONENTS
+===================================================== */
+
+/* Section dividers */
+
 .section-divider{
   width: 80%;
   height: 2px;
@@ -1058,9 +1069,8 @@ section.gallery .project-card h3{
   background: linear-gradient(to right, transparent, #ddd, transparent);
 }
 
-/* =======================
-   FOOTER
-======================= */
+/* FOOTER */
+
 footer{
   background-color: #222222;
   color: white;
@@ -1116,9 +1126,8 @@ footer p{
   margin: 0;
 }
 
-/* ============================
-   UNIVERSAL SCROLL ANIMATION
-============================ */
+/* Scroll animations */
+
 .animate-on-scroll{
   opacity: 0;
   transform: translateY(20px);
@@ -1134,13 +1143,19 @@ footer p{
    DESKTOP SECTION (ONLY DESKTOP CHANGES HERE)
    From now on, we edit inside this block.
 ========================================= */
+/* =====================================================
+   DESKTOP OVERRIDES (900px+)
+   Desktop-only layout & spacing changes
+===================================================== */
 @media (min-width: 900px){
+
+  /* ---- Global spacing / layout ---- */
   :root{
     --page-pad: 40px;
     --section-gap: 70px;
   }
 
-  /* container widths for major sections */
+  /* Keep main sections centered on desktop */
   .welcome-section,
   .reviews-carousel-section,
   .how-it-works-section,
@@ -1152,10 +1167,14 @@ footer p{
     max-width: var(--page-max);
     margin-left: auto;
     margin-right: auto;
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
   }
 
-  /* Header layout */
-  header{ padding: 14px 0; }
+  /* ---- Header desktop layout ---- */
+  header{
+    padding: 14px 0;
+  }
 
   .header-container{
     max-width: var(--page-max);
@@ -1164,7 +1183,9 @@ footer p{
     justify-content: space-between;
   }
 
-  .logo{ max-width: 165px; }
+  .menu-toggle{
+    display: none !important;
+  }
 
   .nav-links{
     display: flex !important;
@@ -1175,11 +1196,11 @@ footer p{
     pointer-events: auto;
   }
 
-  .nav-links a{ font-size: 1.15rem; }
+  .nav-links a{
+    font-size: 1.15rem;
+  }
 
-  .menu-toggle{ display: none !important; }
-
-  /* Make hero image FULL BLEED on desktop */
+  /* ---- Home hero image: full-bleed desktop ---- */
   .hero-image{
     width: 100vw;
     max-width: none;
@@ -1193,24 +1214,36 @@ footer p{
     display: block;
   }
 
-  /* Reviews arrow spacing */
-  .reviews-carousel-section .swiper.reviews-swiper{
-    padding: 0 70px;
-  }
-
-  /* Services grid desktop */
+  /* ---- Services: 3-column desktop ---- */
   .services-grid{
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
 
-  /* Gallery images uniform on desktop */
+  /* ---- Our Projects gallery: 3-column + taller images ---- */
+  section.gallery{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    justify-items: stretch;
+  }
+
+  section.gallery .project-card{
+    max-width: none; /* fill the grid cell */
+  }
+
   section.gallery .project-card img{
-    height: 260px;
+    height: 300px; /* taller desktop images */
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* ---- Reviews: give arrows room ---- */
+  .reviews-carousel-section .swiper.reviews-swiper{
+    padding: 0 70px;
   }
 }
 
-/* Ultra-wide screens: slightly bigger gutters */
+/* Ultra-wide screens: bigger gutters */
 @media (min-width: 1300px){
   :root{ --page-pad: 60px; }
 }

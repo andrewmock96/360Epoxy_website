@@ -1258,7 +1258,7 @@ footer p{
   .hero-image{
     width: 100vw;
     max-width: none;
-    height: 20vh;                 /* controls hero height */
+    height: 15vh;                 /* controls hero height */
     max-height: 540px;            /* prevents it from getting too tall */
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);

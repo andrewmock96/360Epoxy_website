@@ -1390,7 +1390,7 @@ footer p{
     /* ---- Services: 3-column desktop ---- */
     .services-grid{
     grid-template-columns: 1fr;
-    gap: 32px;   /* nice vertical spacing */
+    gap: 40px;   /* nice vertical spacing */
     }
 
     /* ---- Our Projects gallery: 3-column + taller images ---- */

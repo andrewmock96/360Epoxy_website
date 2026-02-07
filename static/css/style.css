@@ -1453,6 +1453,13 @@ footer p{
     }
 
     /* ---- Our Projects gallery: 3-column + taller images ---- */
+    
+    section.gallery h2{
+      grid-column: 1 / -1;   /* puts title above all columns */
+      text-align: center;    /* centered */
+      margin-bottom: 32px;   /* spacing between title and pics */
+    }
+
     section.gallery{
         grid-template-columns: repeat(3, 1fr);
         gap: 22px;

@@ -1344,6 +1344,18 @@ footer p{
       display: none !important;
     }
 
+     /* REVIEWS – desktop: no clipping + no arrow padding */
+    .reviews-carousel-section .reviews-swiper{
+      padding: 0 0 40px;        /* remove side padding, add bottom room */
+      overflow-x: visible;      /* allow Swiper to size correctly */
+      overflow-y: visible;      /* prevent bottom clipping */
+    }
+
+    .reviews-carousel-section .swiper,
+    .reviews-carousel-section .swiper-wrapper{
+      overflow: visible !important;  /* stop any hidden clipping */
+    }
+
     /* HOW IT WORKS – DESKTOP CENTERING FIX */
   .how-it-works-section{
     max-width: var(--page-max);

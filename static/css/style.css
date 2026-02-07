@@ -1470,7 +1470,7 @@ footer p{
   /* ---- Project card ---- */
   section.gallery .project-card{
     max-width: none;
-    height: 420px;           /* overall card size */
+    height: 520px;           /* overall card size */
     overflow: hidden;        /* ✅ prevents white bleed */
   }
 

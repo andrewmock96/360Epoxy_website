@@ -418,13 +418,15 @@ header{
 
 /* Make the carousel behave like 1 card at a time on mobile */
 .reviews-carousel-section .reviews-swiper{
-  overflow: hidden;                    /* prevents partial slides */
-  padding: 0 40px;                     /* room for arrows */
+  overflow-x: hidden;          /* prevents partial slides horizontally */
+  overflow-y: visible;         /* ✅ prevents bottom clipping */
+  padding: 0 40px 30px;        /* ✅ adds bottom room for card/shadow */
 }
 
-/* Force each slide to take full width */
-.reviews-carousel-section .swiper-slide{
-  width: 100% !important;
+@media (max-width: 768px){
+  .reviews-carousel-section .swiper-slide{
+    width: 100% !important;
+  }
 }
 
 /* Keep review cards consistent */

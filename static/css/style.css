@@ -1358,6 +1358,14 @@ footer p{
     margin-right: auto;
   }
 
+  .how-step h3{
+    text-align: center;
+  }
+
+  .how-step p{
+    text-align: left;
+  }
+
 
     /* HOME – Popular Service Section DESKTOP ONLY */
 

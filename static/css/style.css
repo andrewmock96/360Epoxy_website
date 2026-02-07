@@ -1366,32 +1366,48 @@ footer p{
         display: block;
     }
     
-    /* ---- Reviews: give arrows room ---- */
+   /* =======================
+    REVIEWS – DESKTOP ONLY FIX
+  ======================= */
+
+    /* Remove arrow gutter padding from older desktop rule */
     .reviews-carousel-section .swiper.reviews-swiper{
-        padding: 0 70px;
+      padding: 0 !important;
     }
 
-    /* Restore Swiper’s computed widths on desktop */
+    /* Desktop: bottom breathing room only */
+    .reviews-carousel-section .reviews-swiper{
+      padding: 0 0 40px !important;
+      overflow: hidden !important;   /* keep loop clean */
+    }
+
+    /* Critical: prevent loop clones from showing */
+    .reviews-carousel-section .swiper,
+    .reviews-carousel-section .swiper-wrapper{
+      overflow: hidden !important;
+    }
+
+    /* Restore Swiper's computed widths on desktop */
     .reviews-carousel-section .swiper-slide{
       width: auto !important;
     }
 
+    /* Hide arrows on desktop */
     .reviews-carousel-section .swiper-button-next,
     .reviews-carousel-section .swiper-button-prev{
       display: none !important;
     }
 
-     /* REVIEWS – desktop: no clipping + no arrow padding */
-    .reviews-carousel-section .reviews-swiper{
-      overflow-x: hidden;     /* ✅ prevents seeing extra/duplicate slides */
-      overflow-y: visible;    /* ✅ prevents bottom cut-off */
-      padding: 0 0 40px;      /* bottom space for card/shadow */
+    /* Mouse drag cursor */
+    .reviews-carousel-section .swiper-wrapper{
+      cursor: grab;
+    }
+    .reviews-carousel-section .swiper-wrapper:active{
+      cursor: grabbing;
     }
 
-    /* Keep Swiper’s normal horizontal clipping behavior */
-    .reviews-carousel-section .swiper,
     .reviews-carousel-section .swiper-wrapper{
-      overflow: hidden;       /* ✅ important for loop to look correct */
+      overflow: visible;
     }
 
     /* HOW IT WORKS – DESKTOP CENTERING FIX */

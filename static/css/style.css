@@ -1476,12 +1476,12 @@ footer p{
   }
 
   .flake-gallery-card{
-    height: 340px;          /* ⬆ taller card */
+    height: 400px;          /* ⬆ taller card */
     padding: 18px;
   }
 
   .flake-gallery-card img{
-    height: 270px;          /* ⬆ taller image */
+    height: 330px;          /* ⬆ taller image */
     object-fit: cover;
   }
 
@@ -1492,12 +1492,12 @@ footer p{
     }
 
     .basecoat-gallery-card{
-      height: 340px;          /* taller card */
+      height: 400px;          /* taller card */
       padding: 18px;
     }
 
     .basecoat-gallery-card img{
-      height: 270px;          /* taller image */
+      height: 330px;          /* taller image */
       object-fit: cover;
     }
   }

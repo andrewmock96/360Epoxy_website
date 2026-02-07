@@ -1471,33 +1471,33 @@ footer p{
 
     /* GALLERY – Flake grid: 3 per row */
     .flake-gallery-grid{
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
 
-    .flake-gallery-card{
-      height: 280px;          /* taller card */
-      padding: 16px;
-    }
+  .flake-gallery-card{
+    height: 340px;          /* ⬆ taller card */
+    padding: 18px;
+  }
 
-    .flake-gallery-card img{
-      height: 220px;          /* taller image */
-      object-fit: cover;
-    }
+  .flake-gallery-card img{
+    height: 270px;          /* ⬆ taller image */
+    object-fit: cover;
+  }
 
     /* GALLERY – Basecoat grid: 3 per row */
     .basecoat-gallery-grid{
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 32px;
     }
 
     .basecoat-gallery-card{
-      height: 280px;          /* taller card */
-      padding: 16px;
+      height: 340px;          /* taller card */
+      padding: 18px;
     }
 
     .basecoat-gallery-card img{
-      height: 220px;          /* taller image */
+      height: 270px;          /* taller image */
       object-fit: cover;
     }
   }

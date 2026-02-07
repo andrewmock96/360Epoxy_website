@@ -1454,9 +1454,10 @@ footer p{
 
   /* SERVICES PAGE */
   .page-services .services-grid{
-    grid-template-columns: repeat(3, 1fr); /* keep your desktop grid */
-    gap: 32px;
-    align-items: stretch;
+    grid-template-columns: 1fr;   /* one per row */
+    max-width: 900px;             /* keeps it centered and readable */
+    margin: 0 auto;
+    gap: 48px;                    /* vertical spacing between cards */
   }
 
   .page-services .service-item{

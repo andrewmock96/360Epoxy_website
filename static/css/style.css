@@ -1337,6 +1337,11 @@ footer p{
       width: auto !important;
     }
 
+    .reviews-carousel-section .swiper-button-next,
+    .reviews-carousel-section .swiper-button-prev{
+      display: none !important;
+    }
+
     /* HOW IT WORKS – DESKTOP CENTERING FIX */
   .how-it-works-section{
     max-width: var(--page-max);

@@ -683,6 +683,18 @@ header{
   content: " (Hide)";
 }
 
+/* SERVICES PAGE – center Read more toggle */
+.page-services .service-summary{
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* ✅ centers h3 + Read more */
+}
+
+.page-services .service-toggle{
+  margin-top: 12px;
+  text-align: center;
+}
+
 /* =======================
    POPULAR FLAKES + BASECOATS (GLOBAL)
 ======================= */
@@ -1498,9 +1510,9 @@ footer p{
     margin-right: auto;
   }
 
-    /* Gallery */
+  /* Gallery */
     
-   /* Shared gallery sections */
+  /* Shared gallery sections */
   .flake-gallery-section,
   .basecoat-gallery-section,
   section.gallery{

@@ -1332,10 +1332,9 @@ footer p{
         padding: 0 70px;
     }
 
-
-    /* ---- Reviews: give arrows room ---- */
-    .reviews-carousel-section .swiper.reviews-swiper{
-        padding: 0 70px;
+    /* Restore Swiper’s computed widths on desktop */
+    .reviews-carousel-section .swiper-slide{
+      width: auto !important;
     }
 
     /* HOW IT WORKS – DESKTOP CENTERING FIX */

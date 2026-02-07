@@ -1458,7 +1458,7 @@ footer p{
   .flake-gallery-section,
   .basecoat-gallery-section,
   section.gallery{
-    max-width: 1400px;          /* ⬅ wider for 4 columns */
+    max-width: 1800px;          /* ⬅ wider for 4 columns */
     margin-left: auto;
     margin-right: auto;
     padding-left: 48px;         /* ⬅ side margins */

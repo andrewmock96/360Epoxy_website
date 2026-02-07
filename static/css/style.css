@@ -1340,31 +1340,38 @@ footer p{
 
     /* HOME – Popular Service Section DESKTOP ONLY */
 
-    .packages-popular-section{
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 40px;
+   .packages-popular-section{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
   }
 
   .packages-popular-grid{
-      max-width: 900px;
-      margin: 40px auto 0;
+    max-width: 900px;
+    margin: 40px auto 0;
   }
 
   .packages-popular-card{
-      max-width: 900px;
-      height: 460px;
-      padding: 20px;
+    max-width: 900px;
+    height: 460px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
   }
 
   .packages-popular-card img{
-      object-fit: cover;               /* keep full-bleed */
-      object-position: center 70%;     /* 👈 THIS is the change */
+    width: 100%;
+    flex: 1;
+    object-fit: cover;
+    object-position: center 70%;
+    display: block;
   }
 
   .packages-popular-card h3{
-      font-size: 1.4rem;
-      margin-top: 12px;
+    font-size: 1.4rem;
+    margin-top: 12px;
+    text-align: center;
   }
         
     /* HOME – Popular Flakes & Base Coats (DESKTOP ONLY) */

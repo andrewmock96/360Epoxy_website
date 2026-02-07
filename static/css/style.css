@@ -1352,6 +1352,13 @@ footer p{
     margin-right: auto;
   }
 
+  .how-it-works-steps{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
     /* HOME – Popular Service Section DESKTOP ONLY */
 
    .packages-popular-section{

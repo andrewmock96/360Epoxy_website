@@ -1289,6 +1289,11 @@ footer p{
   margin-right: 3vw;  /* adjust as needed */
 }
 
+.social-icons img{
+  width: 26px;   /* default is usually ~20–22px */
+  height: 26px;
+}
+
 /* =======================
      HEADER – DESKTOP SPREAD
   ======================= */

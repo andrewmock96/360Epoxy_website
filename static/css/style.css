@@ -1338,6 +1338,20 @@ footer p{
         padding: 0 70px;
     }
 
+    /* HOW IT WORKS – DESKTOP CENTERING FIX */
+  .how-it-works-section{
+    max-width: var(--page-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+  }
+
+  .how-it-works-inner{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
     /* HOME – Popular Service Section DESKTOP ONLY */
 
    .packages-popular-section{

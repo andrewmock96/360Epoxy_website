@@ -1468,6 +1468,22 @@ footer p{
         object-fit: cover;
         object-position: center top;
     }
+
+    /* GALLERY – Flake grid: 3 per row */
+    .flake-gallery-grid{
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .flake-gallery-card{
+      height: 280px;          /* taller card */
+      padding: 16px;
+    }
+
+    .flake-gallery-card img{
+      height: 220px;          /* taller image */
+      object-fit: cover;
+    }
 }
 
 /* Ultra-wide screens: bigger gutters */

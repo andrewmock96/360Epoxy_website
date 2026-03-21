@@ -6,6 +6,7 @@ from flask_wtf.csrf import CSRFProtect
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_talisman import Talisman
+from flask_caching import Cache
 
 load_dotenv()
 
@@ -21,8 +22,13 @@ app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SECURE"] = os.environ.get("FLASK_ENV") == "production"
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 
+# Cache config
+app.config["CACHE_TYPE"] = "SimpleCache"
+app.config["CACHE_DEFAULT_TIMEOUT"] = 3600  # 1 hour
+
+cache = Cache(app)
+
 # Security headers / HTTPS protection
-# For Render or other reverse proxies, this is usually fine.
 Talisman(app, content_security_policy=None)
 
 # CSRF protection
@@ -37,7 +43,6 @@ limiter = Limiter(
 
 
 def is_valid_email(email: str) -> bool:
-    """Basic email validation without extra dependencies in route logic."""
     if not email or "@" not in email or "." not in email:
         return False
     if len(email) > 120:
@@ -46,7 +51,6 @@ def is_valid_email(email: str) -> bool:
 
 
 def clean_field(value, max_length):
-    """Trim whitespace and cap size safely."""
     if value is None:
         return ""
     value = value.strip()
@@ -77,12 +81,10 @@ def contact():
         phone = clean_field(request.form.get("phone"), 25)
         message = clean_field(request.form.get("message"), 2000)
 
-        # Required fields
         if not name or not email or not message:
             flash("Please fill out all required fields.", "error")
             return redirect(url_for("contact"))
 
-        # Basic validation
         if not is_valid_email(email):
             flash("Please enter a valid email address.", "error")
             return redirect(url_for("contact"))
@@ -91,10 +93,7 @@ def contact():
             flash("Message is too short.", "error")
             return redirect(url_for("contact"))
 
-        # Minimal logging only — do not log personal details
         app.logger.info("New contact form submission received.")
-
-        # Future: send email or save to database here
 
         flash("Thank you! Your message has been sent.", "success")
         return redirect(url_for("contact"))
@@ -102,12 +101,10 @@ def contact():
     return render_template("contact.html")
 
 
-@app.route("/api/reviews")
-@limiter.limit("20 per minute")
-def get_reviews():
+def fetch_google_reviews():
     if not GOOGLE_API_KEY or not PLACE_ID:
         app.logger.error("Google Places configuration missing.")
-        return jsonify({"error": "Server configuration is incomplete."}), 500
+        return {"error": "Server configuration is incomplete."}, 500
 
     url = "https://maps.googleapis.com/maps/api/place/details/json"
     params = {
@@ -127,18 +124,32 @@ def get_reviews():
                 data.get("status"),
                 data.get("error_message"),
             )
-            return jsonify({"error": "Unable to load reviews right now."}), 502
+            return {"error": "Unable to load reviews right now."}, 502
 
         result = data.get("result", {})
-        return jsonify({
+        return {
             "name": result.get("name"),
             "rating": result.get("rating"),
             "reviews": result.get("reviews", [])
-        })
+        }, 200
 
     except requests.RequestException as exc:
         app.logger.error("Reviews request exception: %s", exc)
-        return jsonify({"error": "Unable to fetch reviews right now."}), 502
+        return {"error": "Unable to fetch reviews right now."}, 502
+
+
+@app.route("/api/reviews")
+@limiter.limit("20 per minute")
+@cache.cached(timeout=3600)
+def get_reviews():
+    data, status_code = fetch_google_reviews()
+    return jsonify(data), status_code
+
+
+@app.route("/admin/clear-reviews-cache", methods=["POST"])
+def clear_reviews_cache():
+    cache.delete_memoized(get_reviews)
+    return jsonify({"message": "Reviews cache cleared successfully."}), 200
 
 
 @app.errorhandler(429)

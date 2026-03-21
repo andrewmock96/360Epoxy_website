@@ -225,6 +225,27 @@ def clear_reviews_cache():
 def ratelimit_handler(e):
     return jsonify({"error": "Too many requests. Please try again later."}), 429
 
+@app.route("/api/find-place")
+def find_place():
+    query = "360 Epoxy Payson Utah"
+
+    url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
+    params = {
+        "input": query,
+        "inputtype": "textquery",
+        "fields": "place_id,name,formatted_address",
+        "key": GOOGLE_API_KEY,
+    }
+
+    try:
+        response = requests.get(url, params=params, timeout=10)
+        return jsonify(response.json()), response.status_code
+    except requests.RequestException as exc:
+        return jsonify({
+            "error": "Request failed",
+            "details": str(exc)
+        }), 502
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)

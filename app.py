@@ -12,36 +12,49 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Secrets / config
+# ==============================
+# Config / Secrets
+# ==============================
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "dev-only-secret")
+
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 PLACE_ID = os.environ.get("GOOGLE_PLACE_ID")
+FLASK_ENV = os.environ.get("FLASK_ENV", "development")
 
-# Secure cookie settings
+# ==============================
+# Security settings
+# ==============================
 app.config["SESSION_COOKIE_HTTPONLY"] = True
-app.config["SESSION_COOKIE_SECURE"] = os.environ.get("FLASK_ENV") == "production"
+app.config["SESSION_COOKIE_SECURE"] = FLASK_ENV == "production"
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 
-# Cache config
+# ==============================
+# Cache
+# ==============================
 app.config["CACHE_TYPE"] = "SimpleCache"
 app.config["CACHE_DEFAULT_TIMEOUT"] = 3600  # 1 hour
-
 cache = Cache(app)
 
-# Security headers / HTTPS protection
-Talisman(app, content_security_policy=None)
+# ==============================
+# Extensions
+# ==============================
+Talisman(
+    app,
+    content_security_policy=None,
+    force_https=FLASK_ENV == "production"
+)
 
-# CSRF protection
 csrf = CSRFProtect(app)
 
-# Rate limiting
 limiter = Limiter(
     key_func=get_remote_address,
     app=app,
     default_limits=["200 per day", "50 per hour"]
 )
 
-
+# ==============================
+# Helpers
+# ==============================
 def is_valid_email(email: str) -> bool:
     if not email or "@" not in email or "." not in email:
         return False
@@ -53,10 +66,67 @@ def is_valid_email(email: str) -> bool:
 def clean_field(value, max_length):
     if value is None:
         return ""
-    value = value.strip()
-    return value[:max_length]
+    return value.strip()[:max_length]
 
 
+def fetch_google_reviews():
+    """
+    Fetch reviews from Google Places API and return:
+    (data_dict, status_code)
+    """
+    if not GOOGLE_API_KEY or not PLACE_ID:
+        return {
+            "error": "Server configuration is incomplete.",
+            "debug": {
+                "GOOGLE_API_KEY_set": bool(GOOGLE_API_KEY),
+                "GOOGLE_PLACE_ID_set": bool(PLACE_ID),
+                "GOOGLE_PLACE_ID_value": PLACE_ID
+            }
+        }, 500
+
+    url = "https://maps.googleapis.com/maps/api/place/details/json"
+    params = {
+        "place_id": PLACE_ID,
+        "fields": "name,rating,reviews",
+        "key": GOOGLE_API_KEY,
+    }
+
+    try:
+        response = requests.get(url, params=params, timeout=10)
+        data = response.json()
+
+        # Helpful while debugging
+        if data.get("status") != "OK":
+            app.logger.error("Google Places API error: %s", data)
+            return {
+                "error": "Google Places request failed.",
+                "debug": {
+                    "google_http_status": response.status_code,
+                    "google_response": data,
+                    "place_id_used": PLACE_ID
+                }
+            }, 502
+
+        result = data.get("result", {})
+        return {
+            "name": result.get("name"),
+            "rating": result.get("rating"),
+            "reviews": result.get("reviews", [])
+        }, 200
+
+    except requests.RequestException as exc:
+        app.logger.error("Google request exception: %s", exc)
+        return {
+            "error": "Unable to fetch reviews right now.",
+            "debug": {
+                "exception": str(exc)
+            }
+        }, 502
+
+
+# ==============================
+# Routes
+# ==============================
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -94,48 +164,10 @@ def contact():
             return redirect(url_for("contact"))
 
         app.logger.info("New contact form submission received.")
-
         flash("Thank you! Your message has been sent.", "success")
         return redirect(url_for("contact"))
 
     return render_template("contact.html")
-
-
-def fetch_google_reviews():
-    if not GOOGLE_API_KEY or not PLACE_ID:
-        app.logger.error("Google Places configuration missing.")
-        return {"error": "Server configuration is incomplete."}, 500
-
-    url = "https://maps.googleapis.com/maps/api/place/details/json"
-    params = {
-        "place_id": PLACE_ID,
-        "fields": "name,rating,reviews",
-        "key": GOOGLE_API_KEY,
-    }
-
-    try:
-        response = requests.get(url, params=params, timeout=10)
-        response.raise_for_status()
-        data = response.json()
-
-        if data.get("status") != "OK":
-            app.logger.error(
-                "Google Places request failed. Status=%s Message=%s",
-                data.get("status"),
-                data.get("error_message"),
-            )
-            return {"error": "Unable to load reviews right now."}, 502
-
-        result = data.get("result", {})
-        return {
-            "name": result.get("name"),
-            "rating": result.get("rating"),
-            "reviews": result.get("reviews", [])
-        }, 200
-
-    except requests.RequestException as exc:
-        app.logger.error("Reviews request exception: %s", exc)
-        return {"error": "Unable to fetch reviews right now."}, 502
 
 
 @app.route("/api/reviews")
@@ -146,15 +178,67 @@ def get_reviews():
     return jsonify(data), status_code
 
 
-@app.route("/admin/clear-reviews-cache", methods=["POST"])
+@app.route("/api/reviews-debug")
+@limiter.limit("10 per minute")
+def reviews_debug():
+    """
+    Temporary debug route:
+    Use this to see exactly what Google is returning.
+    Do not leave this public forever.
+    """
+    if not GOOGLE_API_KEY or not PLACE_ID:
+        return jsonify({
+            "error": "Missing config",
+            "GOOGLE_API_KEY_set": bool(GOOGLE_API_KEY),
+            "GOOGLE_PLACE_ID_set": bool(PLACE_ID),
+            "GOOGLE_PLACE_ID_value": PLACE_ID
+        }), 500
+
+    url = "https://maps.googleapis.com/maps/api/place/details/json"
+    params = {
+        "place_id": PLACE_ID,
+        "fields": "name,rating,reviews",
+        "key": GOOGLE_API_KEY,
+    }
+
+    try:
+        response = requests.get(url, params=params, timeout=10)
+        return jsonify({
+            "request_url": response.url,
+            "google_http_status": response.status_code,
+            "google_response": response.json()
+        }), response.status_code
+    except requests.RequestException as exc:
+        return jsonify({
+            "error": "Request failed",
+            "details": str(exc)
+        }), 502
+
+
+@app.route("/api/clear-reviews-cache", methods=["POST"])
 def clear_reviews_cache():
-    cache.delete_memoized(get_reviews)
-    return jsonify({"message": "Reviews cache cleared successfully."}), 200
+    cache.clear()
+    return jsonify({"message": "Reviews cache cleared."}), 200
 
 
 @app.errorhandler(429)
 def ratelimit_handler(e):
     return jsonify({"error": "Too many requests. Please try again later."}), 429
+
+@app.route("/api/find-place")
+def find_place():
+    query = "360 Epoxy Orem Utah"
+
+    url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
+    params = {
+        "input": query,
+        "inputtype": "textquery",
+        "fields": "place_id,name,formatted_address",
+        "key": GOOGLE_API_KEY,
+    }
+
+    response = requests.get(url, params=params)
+    return jsonify(response.json())
 
 
 if __name__ == "__main__":

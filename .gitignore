@@ -7,8 +7,10 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Ignore environment/IDE files
-*.env
-.env/
+# Ignore environment variables
+.env
+
+# Ignore IDE files
 .vscode/
 .idea/
+.vs/

@@ -61,13 +61,15 @@
                 {% endif %}
                 {% endwith %}
 
-                <form action="{{ url_for('contact') }}" method="POST">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="tel" name="phone" placeholder="Phone Number" required>
-                    <textarea name="message" placeholder="Your Project Details" rows="4" required></textarea>
-                    <button type="submit">Submit</button>
-                </form>
+                    <form action="{{ url_for('contact') }}" method="POST">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                        <input type="text" name="name" placeholder="Full Name" maxlength="100" required>
+                        <input type="email" name="email" placeholder="Email Address" maxlength="120" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" maxlength="25" required>
+                        <textarea name="message" placeholder="Your Project Details" rows="4" maxlength="2000" required></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
             </div>
         </section>
 
@@ -158,32 +160,28 @@
             /* ==============================
                         ZOOM MODAL
             ============================== */
-            // Zoom Elements
             const zoomModal = document.getElementById("zoom-modal");
             const zoomImg = document.getElementById("zoom-image");
-            const zoomClose = document.getElementById("zoom-close");
 
-            // Any flake image should open zoom
-            document.querySelectorAll(".flake-card img").forEach(img => {
-                img.addEventListener("click", () => {
-                    zoomImg.src = img.src;       // show clicked image
-                    zoomModal.style.display = "flex";
-                    
-                    // slight delay so animation works
-                    requestAnimationFrame(() => {
-                        zoomModal.classList.add("show");
+            if (zoomModal && zoomImg) {
+                document.querySelectorAll(".flake-card img").forEach(img => {
+                    img.addEventListener("click", () => {
+                        zoomImg.src = img.src;
+                        zoomModal.style.display = "flex";
+
+                        requestAnimationFrame(() => {
+                            zoomModal.classList.add("show");
+                        });
                     });
                 });
-            });
 
-            // Close modal (click X or background)
-            zoomModal.addEventListener("click", () => {
-                zoomModal.classList.remove("show");
-                setTimeout(() => {
-                    zoomModal.style.display = "none";
-                }, 300);
-            });
-
+                zoomModal.addEventListener("click", () => {
+                    zoomModal.classList.remove("show");
+                    setTimeout(() => {
+                        zoomModal.style.display = "none";
+                    }, 300);
+                });
+            }
         </script>
     </body>
 </html>

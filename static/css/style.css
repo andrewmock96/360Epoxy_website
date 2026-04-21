@@ -327,8 +327,10 @@ header{
 /* Reviews carousel */
 
 .reviews-carousel-section{
-  padding: 40px 20px;
+  padding: 40px 20px 80px;
   text-align: center;
+  --swiper-theme-color: #bdbdbd;
+  --swiper-navigation-color: #bdbdbd;
 }
 
 .reviews-carousel-section h2{
@@ -340,13 +342,16 @@ header{
 
 .review-card{
   background: white;
-  padding: 20px 40px; /* FIXED: removed the "40 px" bug */
+  padding: 20px 40px;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 200px;
+  min-height: 300px;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -369,85 +374,92 @@ header{
   box-shadow: 0 10px 18px rgba(0,0,0,0.15);
 }
 
-.swiper-button-next,
-.swiper-button-prev{
-  color: #ccc;
+.reviews-carousel-section .swiper-button-next,
+.reviews-carousel-section .swiper-button-prev{
+  color: #bdbdbd !important;
   opacity: 1;
   transition: color 0.2s ease;
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after{
-  font-size: 24px;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover{
-  color: #999;
-}
-
-/* Give arrows space */
-.reviews-swiper{
-  padding: 0 50px;
-}
-
-/* REVIEWS CAROUSEL – MOBILE OVERRIDE */
-
-/* Force Swiper theme + navigation to NOT be blue */
-.reviews-carousel-section{
-  --swiper-theme-color: #bdbdbd;       /* affects pagination + some UI */
-  --swiper-navigation-color: #bdbdbd;  /* affects arrows */
-}
-
-/* Arrow buttons */
-.reviews-carousel-section .swiper-button-next,
-.reviews-carousel-section .swiper-button-prev{
-  color: #bdbdbd !important;          /* hard override */
-  opacity: 1;
-}
-
-/* Shrink arrow icons */
 .reviews-carousel-section .swiper-button-next::after,
 .reviews-carousel-section .swiper-button-prev::after{
-  font-size: 18px !important;         /* smaller than 24px */
+  font-size: 18px !important;
   font-weight: 700;
 }
 
-/* Make the carousel behave like 1 card at a time on mobile */
+.reviews-carousel-section .swiper-button-next:hover,
+.reviews-carousel-section .swiper-button-prev:hover{
+  color: #999;
+}
+
 .reviews-carousel-section .reviews-swiper{
-  overflow-x: hidden;          /* prevents partial slides horizontally */
-  overflow-y: visible;         /* ✅ prevents bottom clipping */
-  padding: 0 40px 30px;        /* ✅ adds bottom room for card/shadow */
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 0 40px;
+  overflow: visible !important;
+}
+
+.reviews-carousel-section .swiper{
+  overflow: visible !important;
+}
+
+.reviews-carousel-section .swiper-wrapper{
+  align-items: stretch;
+}
+
+.reviews-carousel-section .swiper-slide{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: auto !important;
+  overflow: visible !important;
 }
 
 @media (max-width: 768px){
+  .reviews-carousel-section .reviews-swiper{
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding: 0 40px 30px;
+  }
+
   .reviews-carousel-section .swiper-slide{
     width: 100% !important;
   }
+
+  .reviews-carousel-section .review-card{
+    width: 100%;
+    min-height: 240px;
+    padding: 20px 22px;
+  }
+
+  .reviews-carousel-section .review-text{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+  }
+
+  .reviews-carousel-section .reviewer-name{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
-/* Keep review cards consistent */
-.reviews-carousel-section .review-card{
-  width: 100%;
-  min-height: 240px;   /* bump up from 200 */
-  height: auto;        /* allow growth */
-  padding: 20px 22px;  /* better for mobile */
-}
+@media (min-width: 900px){
+  .reviews-carousel-section .reviews-swiper{
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-/* Clamp text so name always fits */
-.reviews-carousel-section .review-text{
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-}
-
-/* Prevent name clipping */
-.reviews-carousel-section .reviewer-name{
-  margin-top: auto;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  .reviews-carousel-section .review-card{
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* =====================================================
@@ -1367,45 +1379,53 @@ footer p{
     REVIEWS – DESKTOP ONLY FIX
   ======================= */
 
-    /* Remove arrow gutter padding from older desktop rule */
-    .reviews-carousel-section .swiper.reviews-swiper{
-      padding: 0 !important;
-    }
+.reviews-carousel-section{
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 40px var(--page-pad) 90px;
+  text-align: center;
+}
 
-    /* Desktop: bottom breathing room only */
-    .reviews-carousel-section .reviews-swiper{
-      padding: 0 0 40px !important;
-      overflow: hidden !important;   /* keep loop clean */
-    }
+.reviews-carousel-section h2{
+  text-align: center;
+}
 
-    /* Critical: prevent loop clones from showing */
-    .reviews-carousel-section .swiper,
-    .reviews-carousel-section .swiper-wrapper{
-      overflow: hidden !important;
-    }
+.reviews-carousel-section .reviews-swiper{
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 40px;
+  overflow: visible !important;
+}
 
-    /* Restore Swiper's computed widths on desktop */
-    .reviews-carousel-section .swiper-slide{
-      width: auto !important;
-    }
+.reviews-carousel-section .swiper{
+  overflow: visible !important;
+}
 
-    /* Hide arrows on desktop */
-    .reviews-carousel-section .swiper-button-next,
-    .reviews-carousel-section .swiper-button-prev{
-      display: none !important;
-    }
+.reviews-carousel-section .swiper-wrapper{
+  align-items: stretch;
+}
 
-    /* Mouse drag cursor */
-    .reviews-carousel-section .swiper-wrapper{
-      cursor: grab;
-    }
-    .reviews-carousel-section .swiper-wrapper:active{
-      cursor: grabbing;
-    }
+.reviews-carousel-section .swiper-slide{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: auto !important;
+}
 
-    .reviews-carousel-section .swiper-wrapper{
-      overflow: visible;
-    }
+.reviews-carousel-section .review-card{
+  width: 100%;
+  max-width: 500px;
+  min-height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reviews-carousel-section .swiper-button-next,
+.reviews-carousel-section .swiper-button-prev{
+  display: none !important;
+}
 
     /* HOW IT WORKS – DESKTOP CENTERING FIX */
   .how-it-works-section{

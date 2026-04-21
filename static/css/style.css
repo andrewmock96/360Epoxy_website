@@ -156,17 +156,17 @@ header{
 
 /* Mobile menu toggle */
 
-.menu-toggle{
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  font-size: 3rem;
-  color: white;
-  cursor: pointer;
-  display: block;
+.menu-toggle {
+    position: static;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    display: block;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
 }
 
 /* MOBILE-ONLY NAV BEHAVIOR */
@@ -199,11 +199,8 @@ header{
   }
 
   .menu-toggle{
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 2rem;
+    padding: 4px 8px;
     z-index: 20;
   }
 

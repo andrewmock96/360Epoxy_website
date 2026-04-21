@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact 360Epoxy</title>
+    <title>About Us 360Epoxy</title>
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='googletabicon-32px.png') }}">
     <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='googlesearchicon-48px.png') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='googlesearchicon-48px.png') }}">
@@ -30,17 +30,17 @@
 
             <div class="banner-right">
                 <a href="/contact" class="banner-btn">Get Free Quote</a>
+                
+                <!-- Hamburger icon -->
+                <button class="menu-toggle" aria-label="Toggle menu">
+                        ☰
+                </button>
             </div>
         </div>
 
         <header>
             <div class="header-container">
                 <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360 Epoxy Logo" class="logo">
-            
-            <!-- Hamburger icon -->
-            <button class="menu-toggle" aria-label="Toggle menu">
-                    ☰
-                </button>
             
             <!-- Navigation links -->
                 <nav class="nav-links">
@@ -52,30 +52,7 @@
             </div>
         </header>
 
-        <!-- CONTACT FORM -->
-        <section class="hero-contact">
-            <div class="form-container">
-                <h2>Get Your Free Quote Today!</h2>
-
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                    <div class="flash-message {{ category }}">{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
-                {% endwith %}
-
-                    <form action="{{ url_for('contact') }}" method="POST">
-                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-
-                        <input type="text" name="name" placeholder="Full Name" maxlength="100" required>
-                        <input type="email" name="email" placeholder="Email Address" maxlength="120" required>
-                        <input type="tel" name="phone" placeholder="Phone Number" maxlength="25" required>
-                        <textarea name="message" placeholder="Your Project Details" rows="4" maxlength="2000" required></textarea>
-                        <button type="submit">Submit</button>
-                    </form>
-            </div>
-        </section>
+        
 
         <footer>
             <!-- Social icons at the top -->

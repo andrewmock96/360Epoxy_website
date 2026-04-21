@@ -28,8 +28,12 @@
                 </div>
             </div>
 
-            <div class="banner-right">
-                <a href="/contact" class="banner-btn">Get Free Quote</a>
+            <a href="https://360epoxy.org/lead-generation"
+               class="banner-btn"
+               target="_blank"
+               rel="noopener noreferrer">
+                Get Free Quote
+            </a>
                 
                 <!-- Hamburger icon -->
                 <button class="menu-toggle" aria-label="Toggle menu">
@@ -42,10 +46,10 @@
                 <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
                 <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
                 <a href="https://360epoxy.org/lead-generation"
-                    class="banner-btn"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Get Free Quote
+                   class="nav-link"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Contact Us
                 </a>
             </nav>
         </div>
@@ -61,10 +65,10 @@
                     <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
                     <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
                     <a href="https://360epoxy.org/lead-generation"
-                       class="banner-btn"
+                       class="nav-link"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Get Free Quote
+                        Contact Us
                     </a>
                 </nav>
             </div>
@@ -342,26 +346,27 @@
         <!-- Hamburger Menu Script -->
         <script>
             const menuToggle = document.querySelector('.menu-toggle');
-            const navLinksContainer = document.querySelector('.mobile-nav');
-            const navLinks = document.querySelectorAll('.mobile-nav a');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const mobileLinks = document.querySelectorAll('.mobile-nav a');
+            const allNavLinks = document.querySelectorAll('.nav-links a');
 
-            if (menuToggle && navLinksContainer) {
+            if (menuToggle && mobileNav) {
                 menuToggle.addEventListener('click', () => {
-                    navLinksContainer.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
                 });
             }
 
             const currentPath = window.location.pathname;
 
-            navLinks.forEach(link => {
+            allNavLinks.forEach(link => {
                 if (link.getAttribute('href') === currentPath) {
                     link.classList.add('active');
                 }
+            });
 
+            mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
-                    navLinksContainer.classList.remove('active');
+                    mobileNav.classList.remove('active');
                 });
             });
 

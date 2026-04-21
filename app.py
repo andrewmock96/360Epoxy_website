@@ -84,10 +84,10 @@ def fetch_google_reviews():
             }
         }, 500
 
-    url = "https://maps.googleapis.com/maps/api/place/details/json"
+    url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
     params = {
         "place_id": PLACE_ID,
-        "fields": "name,rating,reviews",
+        "fields": "name,rating,reviews,formatted_address",
         "key": GOOGLE_API_KEY,
     }
 
@@ -111,6 +111,7 @@ def fetch_google_reviews():
         return {
             "name": result.get("name"),
             "rating": result.get("rating"),
+            "formatted_address": result.get("formatted_address"),
             "reviews": result.get("reviews", [])
         }, 200
 
@@ -227,19 +228,21 @@ def ratelimit_handler(e):
 
 @app.route("/api/find-place")
 def find_place():
-    query = "360 Epoxy Payson Utah"
+    query = request.args.get("q", "360Epoxy").strip()
 
-    url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
+    url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
     params = {
-        "input": query,
-        "inputtype": "textquery",
-        "fields": "place_id,name,formatted_address",
+        "query": query,
+        "region": "us",
         "key": GOOGLE_API_KEY,
     }
 
     try:
         response = requests.get(url, params=params, timeout=10)
-        return jsonify(response.json()), response.status_code
+        return jsonify({
+            "query_used": query,
+            "google_response": response.json()
+        }), response.status_code
     except requests.RequestException as exc:
         return jsonify({
             "error": "Request failed",

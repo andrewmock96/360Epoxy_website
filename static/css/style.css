@@ -295,7 +295,7 @@ header{
   padding: 15px 25px;
   outline: none;
   text-decoration: none;
-  background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%);
+  background: linear-gradient(135deg, #6FA6C2 0%, #3E7FA3 100%);
   color: white;
   font-weight: bold;
   border: none;
@@ -308,7 +308,7 @@ header{
 
 .cta-btn:hover,
 .see-more-btn:hover{
-  background: linear-gradient(135deg, #E68900 0%, #FFB300 100%);
+  background: linear-gradient(135deg, #5C95B3 0%, #356F8E 100%);
   transform: translateY(-2px);
   box-shadow: 0 8px 12px rgba(0,0,0,0.2);
 }
@@ -657,7 +657,7 @@ header{
   font-weight: bold;
   font-size: 0.95rem;
   color: white;
-  background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%);
+  background: linear-gradient(135deg, #6FA6C2 0%, #3E7FA3 100%);
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 

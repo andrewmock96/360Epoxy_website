@@ -56,8 +56,9 @@ body{
 .banner-right{
   display: flex;
   align-items: center;
+  justify-content: flex-end; /* 🔥 important */
   margin-left: auto;
-  gap: 15px;
+  gap: 10px;
 }
 
 .top-banner .banner-btn{
@@ -132,14 +133,6 @@ header{
 
 /* Navigation links */
 
-.mobile-nav {
-    display: none;
-}
-
-.desktop-nav {
-    display: flex;
-}
-
 .nav-links{
   gap: 20px;
 }
@@ -161,8 +154,9 @@ header{
 }
 
 /* Default visibility */
-.mobile-nav{
-  display: none;
+.mobile-nav {
+    display: none;
+    background: inherit;
 }
 
 .desktop-nav{
@@ -232,6 +226,7 @@ header{
     margin-top: 12px;
     padding-top: 12px;
     border-top: 1px solid rgba(255,255,255,0.12);
+    order: 3;
   }
 
   .mobile-nav.active{

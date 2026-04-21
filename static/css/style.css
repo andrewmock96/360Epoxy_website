@@ -36,7 +36,7 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   padding: 10px 20px;
   gap: 10px;
   background: #222222;
@@ -134,7 +134,6 @@ header{
 /* Navigation links */
 
 .nav-links{
-  display: flex;
   gap: 20px;
 }
 
@@ -152,6 +151,15 @@ header{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Default visibility */
+.mobile-nav{
+  display: none;
+}
+
+.desktop-nav{
+  display: flex;
 }
 
 /* Mobile menu toggle */
@@ -175,16 +183,8 @@ header{
   header{
     padding: 15px 20px;
     width: 100%;
-    overflow: hidden;
     display: block;
     text-align: center;
-    max-height: 90px;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-  }
-
-  header.menu-open{
-    max-height: 320px;
-    padding-bottom: 30px;
   }
 
   .header-container{
@@ -205,31 +205,62 @@ header{
     font-size: 2rem;
     padding: 4px 8px;
     z-index: 20;
+    display: block;
   }
 
-  .nav-links{
-    position: static;
-    display: flex;
+  .top-banner{
+    flex-wrap: wrap;
+  }
+
+  .desktop-nav{
+    display: none !important;
+  }
+
+  .mobile-nav{
+    width: 100%;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    opacity: 0;
-    pointer-events: none;
-    margin-top: 15px;
-    transition: opacity 0.2s ease;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.12);
   }
 
-  .nav-links.active{
-    opacity: 1;
-    pointer-events: auto;
+  .mobile-nav.active{
+    display: flex;
   }
 
-  .nav-links a{
+  .mobile-nav a{
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
     -webkit-text-fill-color: white;
   }
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+    .top-banner {
+        padding: 10px 16px;
+    }
+
+    .banner-right {
+        gap: 10px;
+    }
+
+    .top-banner .banner-btn {
+        padding: 10px 14px;
+        font-size: 0.95rem;
+    }
+
+    .menu-toggle {
+        font-size: 2.1rem;
+        padding: 4px 8px;
+    }
+
+    .mobile-nav a {
+        font-size: 1.35rem;
+    }
 }
 
 /* =======================
@@ -1275,8 +1306,6 @@ footer p{
    TOP BANNER – DESKTOP ONLY
 ======================= */
 
-@media (min-width: 900px){
-
   /* Sync top banner with header columns */
   .top-banner{
     padding-left: clamp(24px, 3vw, 48px);
@@ -1289,7 +1318,7 @@ footer p{
     margin: 0;
   }
 
-}
+
 
   /* Move social icons slightly right */
 .banner-left{
@@ -1317,7 +1346,7 @@ footer p{
     }
 
     .header-container{
-        width: 100vw;                /* ⬅ full viewport width */
+        width: 100%;                /* ⬅ full width */
         max-width: none;             /* ⬅ remove centering constraint */
         margin: 0;
 
@@ -1328,6 +1357,10 @@ footer p{
         align-items: center;
     }
 
+    .mobile-nav {
+        display: none !important;
+    }
+
     /* ---- Logo: push FAR LEFT ---- */
     .logo{
         max-width: 170px;
@@ -1336,20 +1369,16 @@ footer p{
     }
 
     /* ---- Nav: push FAR RIGHT ---- */
-    .nav-links{
+    .desktop-nav {
         display: flex !important;
-        gap: 2vw;                   /* wider spacing */
-
-        margin-left: auto;           /* ⬅ hard push right */
+        gap: 2vw;
+        margin-left: auto;
         margin-right: 4.5vw;
-
         position: static;
-        opacity: 1;
-        pointer-events: auto;
     }
 
-    .nav-links a{
-        font-size: 1.35rem;          /* larger desktop scale */
+    .desktop-nav a {
+        font-size: 1.35rem;
         font-weight: 700;
         letter-spacing: 0.6px;
     }

@@ -35,6 +35,18 @@
                     ☰
                 </button>
             </div>
+            <!-- Navigation links Mobile -->
+            <nav class="nav-links mobile-nav">
+                <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+                <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
+                <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
+                <a href="https://360epoxy.org/lead-generation" 
+                    class="banner-btn" 
+                    target="_blank" 
+                    rel="noopener noreferrer">
+                    Get Free Quote
+                </a>
+            </nav>
         </div>
 
         <!-- HEADER -->
@@ -43,16 +55,16 @@
             <div class="header-container">
                 <img src="{{ url_for('static', filename='logo/360Epoxy_logo.png') }}" alt="360Epoxy Logo" class="logo">
 
-                <!-- Navigation links -->
-                <nav class="nav-links">
+                <!-- Navigation links Desktop -->
+                <nav class="nav-links desktop-nav">
                     <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
                     <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
                     <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
-                    <a href="https://360epoxy.org/lead-generation" 
-                       class="banner-btn" 
-                       target="_blank" 
+                    <a href="https://360epoxy.org/lead-generation"
+                       class="banner-btn"
+                       target="_blank"
                        rel="noopener noreferrer">
-                       Get Free Quote
+                        Get Free Quote
                     </a>
                 </nav>
             </div>
@@ -319,14 +331,27 @@
             ============================== */
             const menuToggle = document.querySelector('.menu-toggle');
             const navLinksContainer = document.querySelector('.nav-links');
-            const header = document.querySelector('header');
+            const navLinks = document.querySelectorAll('.nav-links a');
 
-            if (menuToggle) {
+            if (menuToggle && navLinksContainer) {
                 menuToggle.addEventListener('click', () => {
                     navLinksContainer.classList.toggle('active');
-                    header.classList.toggle('menu-open');
                 });
             }
+
+            const currentPath = window.location.pathname;
+
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+
+                link.addEventListener('click', () => {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                    navLinksContainer.classList.remove('active');
+                });
+            });
 
             /* ==============================
                Click-to-enlarge flakes

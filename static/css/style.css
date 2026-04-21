@@ -181,63 +181,53 @@ header{
 /* MOBILE-ONLY NAV BEHAVIOR */
 
 @media (max-width: 768px){
-  header{
-    padding: 15px 20px;
-    width: 100%;
-    display: block;
-    text-align: center;
-  }
-
-  .header-container{
-    width: 100%;
-    display: flex;
-    justify-content: center !important;
-    align-items: center;
-    position: relative;
-  }
-
-  .logo{
-    max-width: 150px;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .menu-toggle{
-    font-size: 2rem;
-    padding: 4px 8px;
-    z-index: 20;
-    display: block;
-  }
-
   .top-banner{
+    display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .desktop-nav{
-    display: none !important;
+  .top-banner .banner-left{
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    margin: 0;
   }
 
-  .mobile-nav{
+  .top-banner .banner-right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 0 auto;
+    margin-left: auto;
+    margin-right: 0;
+    gap: 10px;
+    width: auto;
+  }
+
+  .top-banner .banner-btn{
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .top-banner .mobile-nav{
+    order: 3;
     width: 100%;
     display: none;
     flex-direction: column;
     align-items: center;
     gap: 15px;
     margin-top: 12px;
-    padding-top: 12px;
+    padding: 12px 0 10px;
+    background: #222222;
     border-top: 1px solid rgba(255,255,255,0.12);
-    order: 3;
   }
 
-  .mobile-nav.active{
+  .top-banner .mobile-nav.active{
     display: flex;
-  }
-
-  .mobile-nav a{
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    -webkit-text-fill-color: white;
   }
 }
 

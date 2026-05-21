@@ -143,17 +143,18 @@ def gallery():
     return render_template("gallery.html")
 
 @app.route('/robots.txt')
+@limiter.exempt
 def robots():
     with open('static/robots.txt', 'r', encoding='utf-8') as f:
         text = f.read()
-
     return Response(text, mimetype='text/plain')
 
+
 @app.route('/sitemap.xml')
+@limiter.exempt
 def sitemap():
     with open('static/sitemap.xml', 'r', encoding='utf-8') as f:
         xml = f.read()
-
     return Response(xml, mimetype='application/xml')
 
 @app.route("/contact", methods=["GET", "POST"])

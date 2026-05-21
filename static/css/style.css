@@ -182,7 +182,20 @@ header{
 
 @media (max-width: 768px){
   header{
-    display: none;
+    display: flex;
+    padding: 10px 20px;
+  }
+
+  .desktop-nav{
+    display: none !important;
+  }
+
+  .header-container{
+    justify-content: center;
+  }
+
+  .logo{
+    max-width: 130px;
   }
 
   body{

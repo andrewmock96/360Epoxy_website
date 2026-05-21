@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, Response
 import requests
 import os
 from dotenv import load_dotenv
@@ -144,12 +144,17 @@ def gallery():
 
 @app.route('/robots.txt')
 def robots():
-    return send_from_directory('static', 'robots.txt')
+    with open('static/robots.txt', 'r', encoding='utf-8') as f:
+        text = f.read()
+
+    return Response(text, mimetype='text/plain')
 
 @app.route('/sitemap.xml')
 def sitemap():
-    return send_from_directory('static', 'sitemap.xml')
+    with open('static/sitemap.xml', 'r', encoding='utf-8') as f:
+        xml = f.read()
 
+    return Response(xml, mimetype='application/xml')
 
 @app.route("/contact", methods=["GET", "POST"])
 @limiter.limit("5 per minute")

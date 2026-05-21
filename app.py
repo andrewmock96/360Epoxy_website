@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, send_from_directory
 import requests
 import os
 from dotenv import load_dotenv
@@ -141,6 +141,14 @@ def services():
 @app.route("/gallery")
 def gallery():
     return render_template("gallery.html")
+
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('static', 'robots.txt')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('static', 'sitemap.xml')
 
 
 @app.route("/contact", methods=["GET", "POST"])

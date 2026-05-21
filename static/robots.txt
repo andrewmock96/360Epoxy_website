@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://360-Epoxy.com/sitemap.xml

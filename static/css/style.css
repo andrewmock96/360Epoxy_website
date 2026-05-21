@@ -245,6 +245,7 @@ header{
     padding: 12px 0 10px;
     background: #222222;
     border-top: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
   }
 
   .top-banner .mobile-nav.active{

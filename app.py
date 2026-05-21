@@ -38,11 +38,11 @@ cache = Cache(app)
 # ==============================
 # Extensions
 # ==============================
-# Talisman(
-#     app,
-#     content_security_policy=None,
-#     force_https=FLASK_ENV == "production"
-# )
+Talisman(
+    app,
+    content_security_policy=None,
+    force_https=FLASK_ENV == "production"
+)
 
 csrf = CSRFProtect(app)
 

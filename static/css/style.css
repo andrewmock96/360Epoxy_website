@@ -160,7 +160,7 @@ header{
 }
 
 .desktop-nav{
-  display: flex;
+  display: none;
 }
 
 /* Mobile menu toggle */
@@ -181,6 +181,14 @@ header{
 /* MOBILE-ONLY NAV BEHAVIOR */
 
 @media (max-width: 768px){
+  header{
+    display: none;
+  }
+
+  body{
+    overflow-x: hidden;
+  }
+  
   .top-banner{
     display: flex;
     flex-wrap: wrap;

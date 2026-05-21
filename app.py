@@ -38,19 +38,19 @@ cache = Cache(app)
 # ==============================
 # Extensions
 # ==============================
-Talisman(
-    app,
-    content_security_policy=None,
-    force_https=FLASK_ENV == "production"
-)
+# Talisman(
+#     app,
+#     content_security_policy=None,
+#     force_https=FLASK_ENV == "production"
+# )
 
-csrf = CSRFProtect(app)
+# csrf = CSRFProtect(app)
 
-limiter = Limiter(
-    key_func=get_remote_address,
-    app=app,
-    default_limits=["200 per day", "50 per hour"]
-)
+# limiter = Limiter(
+#     key_func=get_remote_address,
+#     app=app,
+#     default_limits=["200 per day", "50 per hour"]
+# )
 
 # ==============================
 # Helpers
@@ -143,7 +143,7 @@ def gallery():
     return render_template("gallery.html")
 
 @app.route('/robots.txt')
-@limiter.exempt
+# @limiter.exempt
 def robots():
     with open('static/robots.txt', 'r', encoding='utf-8') as f:
         text = f.read()
@@ -151,14 +151,14 @@ def robots():
 
 
 @app.route('/sitemap.xml')
-@limiter.exempt
+# @limiter.exempt
 def sitemap():
     with open('static/sitemap.xml', 'r', encoding='utf-8') as f:
         xml = f.read()
     return Response(xml, mimetype='application/xml')
 
 @app.route("/contact", methods=["GET", "POST"])
-@limiter.limit("5 per minute")
+# @limiter.limit("5 per minute")
 def contact():
     if request.method == "POST":
         name = clean_field(request.form.get("name"), 100)
@@ -186,7 +186,7 @@ def contact():
 
 
 @app.route("/api/reviews")
-@limiter.limit("20 per minute")
+# @limiter.limit("20 per minute")
 @cache.cached(timeout=3600)
 def get_reviews():
     data, status_code = fetch_google_reviews()
@@ -194,7 +194,7 @@ def get_reviews():
 
 
 @app.route("/api/reviews-debug")
-@limiter.limit("10 per minute")
+# @limiter.limit("10 per minute")
 def reviews_debug():
     """
     Temporary debug route:

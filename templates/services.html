@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Services | 360Epoxy</title>
+    <meta name="description" content="Explore 360Epoxy flooring systems including 1-day installs, 2-day epoxy systems, premium coatings, vapor barriers, and concrete restoration.">
+    
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='googletabicon-32px.png') }}">
     <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='googlesearchicon-48px.png') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='googlesearchicon-48px.png') }}">
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='googlesearchicon-48px.png') }}">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-    <body class="page-services">
-
+    <body>
         <!-- TOP BANNER BAR -->
         <div class="top-banner">
-            <div class="banner-left">    
+            <div class="banner-left">
                 <div class="social-icons">
                     <a href="https://www.facebook.com/profile.php?id=61576135785952#" target="_blank" class="social-icon fb">
-                        <img src="{{ url_for('static', filename='icons/facebook.png') }}"
-                        alt="Facebook"> 
+                        <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
                     </a>
                     <a href="https://www.instagram.com/360epoxy" target="_blank" class="social-icon ig">
-                        <img src="{{ url_for('static', filename='icons/instagram.png') }}"
-                        alt="Instagram">
+                        <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
                     </a>
                 </div>
             </div>
 
             <div class="banner-right">
                 <a href="https://360epoxy.org/lead-generation"
-                   class="banner-btn"
-                   target="_blank"
-                   rel="noopener noreferrer">
+                class="banner-btn"
+                target="_blank"
+                rel="noopener noreferrer">
                     Get Free Quote
                 </a>
 
@@ -41,6 +41,7 @@
                     ☰
                 </button>
             </div>
+
             <!-- Navigation links Mobile -->
             <nav class="nav-links mobile-nav">
                 <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>

@@ -84,7 +84,7 @@ def fetch_google_reviews():
             }
         }, 500
 
-    url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
+    url = "https://maps.googleapis.com/maps/api/place/details/json"
     params = {
         "place_id": PLACE_ID,
         "fields": "name,rating,reviews,formatted_address",
@@ -228,12 +228,13 @@ def ratelimit_handler(e):
 
 @app.route("/api/find-place")
 def find_place():
-    query = request.args.get("q", "360Epoxy").strip()
+    query = request.args.get("q", "360 Epoxy").strip()
 
-    url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
+    url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
     params = {
-        "query": query,
-        "region": "us",
+        "input": query,
+        "inputtype": "textquery",
+        "fields": "place_id,name,formatted_address,business_status,rating,user_ratings_total",
         "key": GOOGLE_API_KEY,
     }
 
@@ -248,6 +249,19 @@ def find_place():
             "error": "Request failed",
             "details": str(exc)
         }), 502
+    
+@app.route("/api/nearby-place")
+def nearby_place():
+    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+    params = {
+        "location": "40.2349254,-111.740896",
+        "radius": 50000,
+        "keyword": "epoxy",
+        "key": GOOGLE_API_KEY,
+    }
+
+    response = requests.get(url, params=params, timeout=10)
+    return jsonify(response.json()), response.status_code
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))

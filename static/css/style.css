@@ -160,7 +160,7 @@ header{
 }
 
 .desktop-nav{
-  display: flex;
+  display: none;
 }
 
 /* Mobile menu toggle */
@@ -181,6 +181,27 @@ header{
 /* MOBILE-ONLY NAV BEHAVIOR */
 
 @media (max-width: 768px){
+  header{
+    display: flex;
+    padding: 10px 20px;
+  }
+
+  .desktop-nav{
+    display: none !important;
+  }
+
+  .header-container{
+    justify-content: center;
+  }
+
+  .logo{
+    max-width: 130px;
+  }
+
+  body{
+    overflow-x: hidden;
+  }
+  
   .top-banner{
     display: flex;
     flex-wrap: wrap;
@@ -224,6 +245,7 @@ header{
     padding: 12px 0 10px;
     background: #222222;
     border-top: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
   }
 
   .top-banner .mobile-nav.active{

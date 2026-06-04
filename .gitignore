@@ -1,4 +1,4 @@
-S# Ignore virtual environments
+# Ignore virtual environments
 venv/
 
 # Ignore Python cache files

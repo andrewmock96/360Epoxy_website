@@ -6,6 +6,13 @@
 
     <title>Gallery | 360Epoxy</title>
     <meta name="description" content="Browse completed epoxy flooring projects, flake color options, and base coat styles from 360Epoxy in Salt Lake City.">
+    <link rel="canonical" href="{{ site_url }}/gallery">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gallery | 360Epoxy">
+    <meta property="og:description" content="Browse completed epoxy flooring projects, flake color options, and base coat styles from 360Epoxy in Salt Lake City.">
+    <meta property="og:url" content="{{ site_url }}/gallery">
+    <meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='jobs/1st_job_after1.png') }}">
+    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='googletabicon-32px.png') }}">
     <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='googlesearchicon-48px.png') }}">
@@ -19,10 +26,10 @@
         <div class="top-banner">
             <div class="banner-left">
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61576135785952#" target="_blank" class="social-icon fb">
+                    <a href="https://www.facebook.com/profile.php?id=61576135785952#" target="_blank" rel="noopener noreferrer" class="social-icon fb">
                         <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
                     </a>
-                    <a href="https://www.instagram.com/360epoxy" target="_blank" class="social-icon ig">
+                    <a href="https://www.instagram.com/360epoxy" target="_blank" rel="noopener noreferrer" class="social-icon ig">
                         <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
                     </a>
                 </div>
@@ -81,40 +88,40 @@
 
         <!-- GALLERY PROJECTS -->
         <section class="gallery">
-            <h2 class="animate-on-scroll">Our Projects</h2>
+            <h1 class="animate-on-scroll">Epoxy Floor Project Gallery</h1>
 
             <div class="project-card animate-on-scroll">
-                <img src="{{ url_for('static', filename='jobs/1st_job_after1.png') }}" alt="Gallery Image 1">
+                <img src="{{ url_for('static', filename='jobs/1st_job_after1.png') }}" alt="Finished gray flake epoxy garage floor project" loading="lazy">
             </div>
             <div class="project-card animate-on-scroll">
-                <img src="{{ url_for('static', filename='jobs/1st_job_after2.png') }}" alt="Gallery Image 2">
+                <img src="{{ url_for('static', filename='jobs/1st_job_after2.png') }}" alt="Completed residential epoxy garage floor coating" loading="lazy">
             </div>
             <div class="project-card animate-on-scroll">
-                <img src="{{ url_for('static', filename='jobs/2nd_job_after1.png') }}" alt="Gallery Image 3">
+                <img src="{{ url_for('static', filename='jobs/2nd_job_after1.png') }}" alt="Durable epoxy floor coating after installation" loading="lazy">
             </div>
             <div class="project-card animate-on-scroll">
-                <img src="{{ url_for('static', filename='jobs/2nd_job_after2.png') }}" alt="Gallery Image 4">
+                <img src="{{ url_for('static', filename='jobs/2nd_job_after2.png') }}" alt="Decorative flake garage floor coating finish" loading="lazy">
             </div>
             <div class="project-card animate-on-scroll">
-                <img src="{{ url_for('static', filename='jobs/2nd_job_after3.png') }}" alt="Gallery Image 5">
+                <img src="{{ url_for('static', filename='jobs/2nd_job_after3.png') }}" alt="Seamless epoxy floor coating in a garage" loading="lazy">
             </div>
             <div class="project-card animate-on-scroll">
-                <img src="{{ url_for('static', filename='jobs/3rd_job_part_1.jpeg') }}" alt="Gallery Image 6">
+                <img src="{{ url_for('static', filename='jobs/3rd_job_part_1.jpeg') }}" alt="Epoxy flooring project with decorative flake blend" loading="lazy">
             </div>
             <div class="project-card animate-on-scroll">
-                <img src="{{ url_for('static', filename='jobs/3rd_job_part_2.jpeg') }}" alt="Gallery Image 7">
+                <img src="{{ url_for('static', filename='jobs/3rd_job_part_2.jpeg') }}" alt="Installed garage floor coating with clean glossy finish" loading="lazy">
             </div>
             <div class="project-card animate-on-scroll">
-                <img src="{{ url_for('static', filename='jobs/3rd_job_part_3.jpeg') }}" alt="Gallery Image 8">
+                <img src="{{ url_for('static', filename='jobs/3rd_job_part_3.jpeg') }}" alt="Residential concrete floor after epoxy coating" loading="lazy">
             </div>
             <div class="project-card animate-on-scroll">
-                <img src="{{ url_for('static', filename='jobs/4th_job_part_1.jpeg') }}" alt="Gallery Image 9">
+                <img src="{{ url_for('static', filename='jobs/4th_job_part_1.jpeg') }}" alt="Epoxy garage floor coating close-up" loading="lazy">
             </div>
             <div class="project-card animate-on-scroll">
-                <img src="{{ url_for('static', filename='jobs/4th_job_part_2.jpeg') }}" alt="Gallery Image 10">
+                <img src="{{ url_for('static', filename='jobs/4th_job_part_2.jpeg') }}" alt="Completed polyaspartic garage floor coating" loading="lazy">
             </div>
             <div class="project-card animate-on-scroll">
-                <img src="{{ url_for('static', filename='jobs/4th_job_part_3.jpeg') }}" alt="Gallery Image 11">
+                <img src="{{ url_for('static', filename='jobs/4th_job_part_3.jpeg') }}" alt="Finished decorative epoxy floor installation" loading="lazy">
             </div>
         </section>
 
@@ -134,122 +141,122 @@
 
                 <!-- Example Flake Items -->
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/weathered_oak.png') }}" alt="Weathered Oak">
+                    <img src="{{ url_for('static', filename='flakes/weathered_oak.png') }}" alt="Weathered Oak epoxy flake blend" loading="lazy">
                     <h3>Weathered Oak</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/torrys_peak.png') }}" alt="Torry's Peak">
+                    <img src="{{ url_for('static', filename='flakes/torrys_peak.png') }}" alt="Torry's Peak epoxy flake blend" loading="lazy">
                     <h3>Torry's Peak</h3>
                 </div>
                 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/tobacco.png') }}" alt="Tobacco">
+                    <img src="{{ url_for('static', filename='flakes/tobacco.png') }}" alt="Tobacco epoxy flake blend" loading="lazy">
                     <h3>Tobacco</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/ember.png') }}" alt="Ember">
+                    <img src="{{ url_for('static', filename='flakes/ember.png') }}" alt="Ember epoxy flake blend" loading="lazy">
                     <h3>Ember</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/sierra.png') }}" alt="Sierra">
+                    <img src="{{ url_for('static', filename='flakes/sierra.png') }}" alt="Sierra epoxy flake blend" loading="lazy">
                     <h3>Sierra</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/sonoran.png') }}" alt="Sonoran">
+                    <img src="{{ url_for('static', filename='flakes/sonoran.png') }}" alt="Sonoran epoxy flake blend" loading="lazy">
                     <h3>Sonoran</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/ginger_root.png') }}" alt="Ginger Root">
+                    <img src="{{ url_for('static', filename='flakes/ginger_root.png') }}" alt="Ginger Root epoxy flake blend" loading="lazy">
                     <h3>Ginger Root</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/shearling.png') }}" alt="Shearling">
+                    <img src="{{ url_for('static', filename='flakes/shearling.png') }}" alt="Shearling epoxy flake blend" loading="lazy">
                     <h3>Shearling</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/obolisk.png') }}" alt="Obolisk">
+                    <img src="{{ url_for('static', filename='flakes/obolisk.png') }}" alt="Obolisk epoxy flake blend" loading="lazy">
                     <h3>Obolisk</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/smoked_sage.png') }}" alt="Smoked Sage">
+                    <img src="{{ url_for('static', filename='flakes/smoked_sage.png') }}" alt="Smoked Sage epoxy flake blend" loading="lazy">
                     <h3>Smoked Sage</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/snowdrift.png') }}" alt="Snowdrift">
+                    <img src="{{ url_for('static', filename='flakes/snowdrift.png') }}" alt="Snowdrift epoxy flake blend" loading="lazy">
                     <h3>Snowdrift</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/palladium.png') }}" alt="Palladium">
+                    <img src="{{ url_for('static', filename='flakes/palladium.png') }}" alt="Palladium epoxy flake blend" loading="lazy">
                     <h3>Palladium</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/storm.png') }}" alt="Storm">
+                    <img src="{{ url_for('static', filename='flakes/storm.png') }}" alt="Storm epoxy flake blend" loading="lazy">
                     <h3>Storm</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/ocean_pearl.png') }}" alt="Ocean Pearl">
+                    <img src="{{ url_for('static', filename='flakes/ocean_pearl.png') }}" alt="Ocean Pearl epoxy flake blend" loading="lazy">
                     <h3>Ocean Pearl</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/brume.png') }}" alt="Brume">
+                    <img src="{{ url_for('static', filename='flakes/brume.png') }}" alt="Brume epoxy flake blend" loading="lazy">
                     <h3>Brume</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/dune.png') }}" alt="Dune">
+                    <img src="{{ url_for('static', filename='flakes/dune.png') }}" alt="Dune epoxy flake blend" loading="lazy">
                     <h3>Dune</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/silver_birch.png') }}" alt="Silver Birch">
+                    <img src="{{ url_for('static', filename='flakes/silver_birch.png') }}" alt="Silver Birch epoxy flake blend" loading="lazy">
                     <h3>Silver Birch</h3>
                 </div>
                 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/sea_glass.png') }}" alt="Sea Glass">
+                    <img src="{{ url_for('static', filename='flakes/sea_glass.png') }}" alt="Sea Glass epoxy flake blend" loading="lazy">
                     <h3>Sea Glass</h3>
                 </div>
                 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/surf.png') }}" alt="Surf">
+                    <img src="{{ url_for('static', filename='flakes/surf.png') }}" alt="Surf epoxy flake blend" loading="lazy">
                     <h3>Surf</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/cobalt.png') }}" alt="Cobalt">
+                    <img src="{{ url_for('static', filename='flakes/cobalt.png') }}" alt="Cobalt epoxy flake blend" loading="lazy">
                     <h3>Cobalt</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/carbon_mix.png') }}" alt="Carbon Mix">
+                    <img src="{{ url_for('static', filename='flakes/carbon_mix.png') }}" alt="Carbon Mix epoxy flake blend" loading="lazy">
                     <h3>Carbon Mix</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/thunder_cloud.png') }}" alt="Thunder Cloud">
+                    <img src="{{ url_for('static', filename='flakes/thunder_cloud.png') }}" alt="Thunder Cloud epoxy flake blend" loading="lazy">
                     <h3>Thunder Cloud</h3>
                 </div>
 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/volcanic_ash.png') }}" alt="Volcanic Ash">
+                    <img src="{{ url_for('static', filename='flakes/volcanic_ash.png') }}" alt="Volcanic Ash epoxy flake blend" loading="lazy">
                     <h3>Volcanic Ash</h3>
                 </div>
                 
                 <div class="flake-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='flakes/driftwood.png') }}" alt="Driftwood">
+                    <img src="{{ url_for('static', filename='flakes/driftwood.png') }}" alt="Driftwood epoxy flake blend" loading="lazy">
                     <h3>Driftwood</h3>
                 </div>
 
@@ -270,37 +277,37 @@
             <div class="basecoat-gallery-grid">
                 <!-- Example Base Coat Items -->
                 <div class="basecoat-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='base_coats/black.png') }}" alt="Black Base Coat">
+                    <img src="{{ url_for('static', filename='base_coats/black.png') }}" alt="Black epoxy base coat color" loading="lazy">
                     <h3>Black</h3>
                 </div>
 
                 <div class="basecoat-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='base_coats/charcoal.png') }}" alt="Charcoal Base Coat">
+                    <img src="{{ url_for('static', filename='base_coats/charcoal.png') }}" alt="Charcoal epoxy base coat color" loading="lazy">
                     <h3>Charcoal</h3>
                 </div>
                 
                 <div class="basecoat-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='base_coats/dark_gray.png') }}" alt="Dark Gray Base Coat">
+                    <img src="{{ url_for('static', filename='base_coats/dark_gray.png') }}" alt="Dark Gray epoxy base coat color" loading="lazy">
                     <h3>Dark Gray</h3>
                 </div>
 
                 <div class="basecoat-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='base_coats/midway_gray.png') }}" alt="Midway Gray Base Coat">
+                    <img src="{{ url_for('static', filename='base_coats/midway_gray.png') }}" alt="Midway Gray epoxy base coat color" loading="lazy">
                     <h3>Midway Gray</h3>
                 </div>
 
                 <div class="basecoat-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='base_coats/light_gray.png') }}" alt="Light Gray Base Coat">
+                    <img src="{{ url_for('static', filename='base_coats/light_gray.png') }}" alt="Light Gray epoxy base coat color" loading="lazy">
                     <h3>Light Gray</h3>
                 </div>
 
                 <div class="basecoat-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='base_coats/white.png') }}" alt="White Base Coat">
+                    <img src="{{ url_for('static', filename='base_coats/white.png') }}" alt="White epoxy base coat color" loading="lazy">
                     <h3>White</h3>
                 </div>
                 
                 <div class="basecoat-gallery-card animate-on-scroll">
-                    <img src="{{ url_for('static', filename='base_coats/sand_beige.png') }}" alt="Sand Beige Base Coat">
+                    <img src="{{ url_for('static', filename='base_coats/sand_beige.png') }}" alt="Sand Beige epoxy base coat color" loading="lazy">
                     <h3>Sand Beige</h3>
                 </div>
             </div>
@@ -324,10 +331,10 @@
         <footer>
             <!-- Social icons at the top -->
             <div class="footer-socials">
-                <a href="https://www.facebook.com/360epoxy" target="_blank">
+                <a href="https://www.facebook.com/360epoxy" target="_blank" rel="noopener noreferrer">
                     <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
                 </a>
-                <a href="https://www.instagram.com/360epoxy" target="_blank">
+                <a href="https://www.instagram.com/360epoxy" target="_blank" rel="noopener noreferrer">
                     <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
                 </a>
             </div>

@@ -6,6 +6,13 @@
 
     <title>Contact Us | 360Epoxy</title>
     <meta name="description" content="Contact 360Epoxy for a free quote on garage floor coatings and epoxy flooring services in Salt Lake City.">
+    <link rel="canonical" href="{{ site_url }}/contact">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact Us | 360Epoxy">
+    <meta property="og:description" content="Contact 360Epoxy for a free quote on garage floor coatings and epoxy flooring services in Salt Lake City.">
+    <meta property="og:url" content="{{ site_url }}/contact">
+    <meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='images/Garage_with_viper.jpg') }}">
+    <meta name="twitter:card" content="summary_large_image">
     
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='googletabicon-32px.png') }}">
     <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='googlesearchicon-48px.png') }}">
@@ -19,10 +26,10 @@
         <div class="top-banner">
             <div class="banner-left">
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61576135785952#" target="_blank" class="social-icon fb">
+                    <a href="https://www.facebook.com/profile.php?id=61576135785952#" target="_blank" rel="noopener noreferrer" class="social-icon fb">
                         <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
                     </a>
-                    <a href="https://www.instagram.com/360epoxy" target="_blank" class="social-icon ig">
+                    <a href="https://www.instagram.com/360epoxy" target="_blank" rel="noopener noreferrer" class="social-icon ig">
                         <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
                     </a>
                 </div>
@@ -47,6 +54,10 @@
                 <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
                 <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
                 <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
+                <a href="https://360epoxy.org/home"
+                   class="nav-link"
+                   target="_blank"
+                   rel="noopener noreferrer">Contact Us</a>
             </nav>
         </div>
 
@@ -60,6 +71,10 @@
                     <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
                     <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
                     <a href="https://360epoxy.org/home"
+                       class="nav-link"
+                       target="_blank"
+                       rel="noopener noreferrer">Contact Us</a>
+                    <a href="https://360epoxy.org/home"
                        class="banner-btn"
                        target="_blank"
                        rel="noopener noreferrer">
@@ -69,15 +84,36 @@
             </div>
         </header>
 
-        
+        <section class="hero-contact">
+            <form method="post" action="/contact">
+                <h1>Contact 360Epoxy</h1>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="form-messages">
+                            {% for category, message in messages %}
+                                <p class="form-message {{ category }}">{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="text" name="name" placeholder="Name" autocomplete="name" required>
+                <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+                <input type="tel" name="phone" placeholder="Phone" autocomplete="tel">
+                <textarea name="message" placeholder="Tell us about your floor project" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
 
         <footer>
             <!-- Social icons at the top -->
             <div class="footer-socials">
-                <a href="https://www.facebook.com/360epoxy" target="_blank">
+                <a href="https://www.facebook.com/360epoxy" target="_blank" rel="noopener noreferrer">
                     <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
                 </a>
-                <a href="https://www.instagram.com/360epoxy" target="_blank">
+                <a href="https://www.instagram.com/360epoxy" target="_blank" rel="noopener noreferrer">
                     <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
                 </a>
             </div>

@@ -6,6 +6,13 @@
 
     <title>Services | 360Epoxy</title>
     <meta name="description" content="Explore 360Epoxy flooring systems including 1-day installs, 2-day epoxy systems, premium coatings, vapor barriers, and concrete restoration.">
+    <link rel="canonical" href="{{ site_url }}/services">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Services | 360Epoxy">
+    <meta property="og:description" content="Explore garage floor coating systems including 1-day installs, 2-day epoxy systems, vapor barriers, and concrete restoration.">
+    <meta property="og:url" content="{{ site_url }}/services">
+    <meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='systems/one_day_install.JPG') }}">
+    <meta name="twitter:card" content="summary_large_image">
     
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='googletabicon-32px.png') }}">
     <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='googlesearchicon-48px.png') }}">
@@ -14,15 +21,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-    <body>
+    <body class="page-services">
         <!-- TOP BANNER BAR -->
         <div class="top-banner">
             <div class="banner-left">
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61576135785952#" target="_blank" class="social-icon fb">
+                    <a href="https://www.facebook.com/profile.php?id=61576135785952#" target="_blank" rel="noopener noreferrer" class="social-icon fb">
                         <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
                     </a>
-                    <a href="https://www.instagram.com/360epoxy" target="_blank" class="social-icon ig">
+                    <a href="https://www.instagram.com/360epoxy" target="_blank" rel="noopener noreferrer" class="social-icon ig">
                         <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
                     </a>
                 </div>
@@ -79,12 +86,12 @@
         <div class="section-divider"></div>
 
         <section class="services">
-            <h2 class="animate-on-scroll">Our Services Package</h2>
+            <h1 class="animate-on-scroll">Garage Floor Coating Services</h1>
             <div class="services-grid">    
                 
                 <details class="service-item animate-on-scroll service-accordion">
                     <summary class= "service-summary">
-                        <img class= "service-img" src = "{{ url_for('static', filename='systems/one_day_install.JPG') }}" alt="Systems Image 1">
+                        <img class= "service-img" src = "{{ url_for('static', filename='systems/one_day_install.JPG') }}" alt="1-day polyaspartic garage floor coating system" loading="lazy">
                         <h3>1-Day Install</h3>
                         <span class = "service-toggle" aria-hidden="true">Read more</span>
                     </summary>
@@ -102,7 +109,7 @@
 
                 <details class="service-item animate-on-scroll service-accordion">
                     <summary class = "service-summary">
-                        <img class = "service-img" src = "{{ url_for('static', filename='systems/two_day_install.JPG') }}" alt="Systems Image 2">
+                        <img class = "service-img" src = "{{ url_for('static', filename='systems/two_day_install.JPG') }}" alt="2-day 100 percent solids epoxy floor system" loading="lazy">
                         <h3>2-Day Install</h3>
                         <span class = "service-toggle" aria-hidden="true">Read more</span>
                     </summary>
@@ -121,7 +128,7 @@
 
                 <details class="service-item animate-on-scroll service-accordion">
                     <summary class="service-summary">
-                        <img class = "service-img" src="{{ url_for('static', filename='systems/premium_package.JPG') }}" alt="Systems Image 3">
+                        <img class = "service-img" src="{{ url_for('static', filename='systems/premium_package.JPG') }}" alt="5-layer premium epoxy and polyaspartic floor coating package" loading="lazy">
                         <h3>Premium Package</h3>
                     <span class = "service-toggle" aria-hidden="true">Read more</span>
                     </summary>
@@ -142,7 +149,7 @@
 
                 <details class="service-item animate-on-scroll service-accordion">
                     <summary class="service-summary">
-                        <img class = "service-img" src="{{ url_for('static', filename='systems/vapor_barrier.JPG') }}" alt="Systems Image 4">
+                        <img class = "service-img" src="{{ url_for('static', filename='systems/vapor_barrier.JPG') }}" alt="Epoxy floor vapor barrier coating upgrade" loading="lazy">
                         <h3>Vapor Barrier</h3>
                         <span class = "service-toggle" aria-hidden="true">Read more</span>
                     </summary>
@@ -161,7 +168,7 @@
 
                 <details class="service-item animate-on-scroll service-accordion">
                     <summary class="service-summary">
-                        <img class = "service-img" src="{{ url_for('static', filename='systems/concrete_restoration.JPG') }}" alt="Systems Image 5">
+                        <img class = "service-img" src="{{ url_for('static', filename='systems/concrete_restoration.JPG') }}" alt="Concrete restoration and crack repair before floor coating" loading="lazy">
                         <h3>Concrete Restoration Package</h3>
                         <span class = "service-toggle" aria-hidden="true">Read more</span>
                     </summary>
@@ -197,10 +204,10 @@
         <footer>
             <!-- Social icons at the top -->
             <div class="footer-socials">
-                <a href="https://www.facebook.com/360epoxy" target="_blank">
+                <a href="https://www.facebook.com/360epoxy" target="_blank" rel="noopener noreferrer">
                     <img src="{{ url_for('static', filename='icons/facebook.png') }}" alt="Facebook">
                 </a>
-                <a href="https://www.instagram.com/360epoxy" target="_blank">
+                <a href="https://www.instagram.com/360epoxy" target="_blank" rel="noopener noreferrer">
                     <img src="{{ url_for('static', filename='icons/instagram.png') }}" alt="Instagram">
                 </a>
             </div>

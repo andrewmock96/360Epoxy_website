@@ -169,6 +169,14 @@ def home():
     return render_template("index.html")
 
 
+@app.route("/mobile-preview")
+def mobile_preview():
+    if FLASK_ENV == "production":
+        abort(404)
+
+    return render_template("mobile_preview.html")
+
+
 @app.route("/services")
 def services():
     return render_template("services.html")

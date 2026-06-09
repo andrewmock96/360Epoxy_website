@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360Epoxy Mobile Preview</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #151515;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px;
+            background: #222;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        .toolbar button {
+            padding: 9px 13px;
+            border: 1px solid #555;
+            border-radius: 8px;
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .toolbar button:hover,
+        .toolbar button.active {
+            border-color: #6fa6c2;
+            background: #3e7fa3;
+        }
+
+        .dimensions {
+            min-width: 105px;
+            color: #bbb;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .preview-area {
+            display: flex;
+            justify-content: center;
+            padding: 28px 16px 50px;
+            overflow: auto;
+        }
+
+        .device {
+            width: 410px;
+            height: 864px;
+            flex: 0 0 auto;
+            overflow: hidden;
+            border: 10px solid #050505;
+            border-radius: 30px;
+            background: #fff;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+            transition: width 0.2s ease, height 0.2s ease;
+        }
+
+        .device iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="toolbar">
+        <button type="button" data-width="375" data-height="667">iPhone SE</button>
+        <button type="button" class="active" data-width="390" data-height="844">iPhone 14</button>
+        <button type="button" data-width="412" data-height="915">Pixel</button>
+        <button type="button" id="rotate">Rotate</button>
+        <button type="button" id="reload">Reload</button>
+        <span class="dimensions" id="dimensions">390 x 844</span>
+    </div>
+
+    <main class="preview-area">
+        <div class="device" id="device">
+            <iframe id="preview" src="{{ url_for('home') }}" title="Mobile website preview"></iframe>
+        </div>
+    </main>
+
+    <script>
+        const device = document.getElementById("device");
+        const preview = document.getElementById("preview");
+        const dimensions = document.getElementById("dimensions");
+        const sizeButtons = document.querySelectorAll("[data-width]");
+        let currentWidth = 390;
+        let currentHeight = 844;
+
+        function setSize(width, height) {
+            currentWidth = Number(width);
+            currentHeight = Number(height);
+            device.style.width = `${currentWidth + 20}px`;
+            device.style.height = `${currentHeight + 20}px`;
+            dimensions.textContent = `${currentWidth} x ${currentHeight}`;
+        }
+
+        sizeButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                sizeButtons.forEach(item => item.classList.remove("active"));
+                button.classList.add("active");
+                setSize(button.dataset.width, button.dataset.height);
+            });
+        });
+
+        document.getElementById("rotate").addEventListener("click", () => {
+            setSize(currentHeight, currentWidth);
+        });
+
+        document.getElementById("reload").addEventListener("click", () => {
+            preview.contentWindow.location.reload();
+        });
+    </script>
+</body>
+</html>

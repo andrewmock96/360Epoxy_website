@@ -164,13 +164,16 @@
 
             <div class="google-reviews-card animate-on-scroll">
                 <div class="google-reviews-rating" aria-label="5 out of 5 stars">
-                    <span class="google-reviews-score">5.0 / 5</span>
                     <span class="google-reviews-stars" aria-hidden="true">
-                        &#9733;&#9733;&#9733;&#9733;&#9733;
+                        <span>&#9733;</span>
+                        <span>&#9733;</span>
+                        <span>&#9733;</span>
+                        <span>&#9733;</span>
+                        <span>&#9733;</span>
                     </span>
                 </div>
                 <div class="google-reviews-copy">
-                    <h3>Every Current Review Is 5 Stars</h3>
+                    <h3>5 Star Google Rating</h3>
                     <p>
                         See what customers are saying about 360Epoxy on Google Maps, or leave a review after your project.
                     </p>
@@ -523,11 +526,7 @@
                                 reviewerName.className = "reviewer-name";
                                 reviewerName.textContent = `- ${review.author_name || "Google User"}`;
 
-                                const reviewRating = document.createElement("p");
-                                reviewRating.className = "review-rating";
-                                reviewRating.textContent = `${review.rating || "N/A"}/5`;
-
-                                slide.append(avatar, reviewText, reviewerName, reviewRating);
+                                slide.append(avatar, reviewText, reviewerName);
 
                                 container.appendChild(slide);
                             });

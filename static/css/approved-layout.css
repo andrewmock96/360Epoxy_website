@@ -83,6 +83,7 @@ body .footer-column a{
   body .top-banner{
     display: flex;
     flex-wrap: wrap;
+    position: relative;
     padding: 10px 14px;
   }
 

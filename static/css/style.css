@@ -1371,13 +1371,13 @@ section.gallery .project-card h3{
 }
 
 .hero-contact form{
-  max-width: 500px;
+  max-width: 900px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 13px;
   background: rgba(0,0,0,0.4);
-  padding: 40px;
+  padding: 30px;
   border-radius: 15px;
 }
 
@@ -1385,6 +1385,86 @@ section.gallery .project-card h3{
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   margin: 0;
+}
+
+.contact-intro{
+  margin: -8px 0 4px;
+  color: #f1f1f1;
+  line-height: 1.5;
+}
+
+.field-label{
+  text-align: left;
+  font-weight: 700;
+}
+
+.contact-name-fields{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.contact-address-fields{
+  display: grid;
+  grid-template-columns: 2fr 1.15fr 1fr 0.8fr;
+  gap: 14px;
+}
+
+.contact-field{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-field input{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-field select{
+  width: 100%;
+}
+
+.optional-label{
+  font-weight: 400;
+  color: #ddd;
+}
+
+.minimum-project-notice{
+  padding: 14px 16px;
+  border: 1px solid rgba(255,193,7,0.55);
+  border-radius: 15px;
+  background: rgba(0,0,0,0.35);
+  text-align: left;
+}
+
+.minimum-project-notice > strong{
+  display: block;
+  color: #FFC107;
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+.minimum-project-notice > p{
+  margin: 5px 0 10px;
+  color: #eee;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.minimum-acknowledgement{
+  margin: 0;
+}
+
+.is-hidden{
+  display: none;
+}
+
+@media (max-width: 520px){
+  .contact-name-fields,
+  .contact-address-fields{
+    grid-template-columns: 1fr;
+  }
 }
 
 .form-messages{
@@ -1409,11 +1489,18 @@ section.gallery .project-card h3{
 }
 
 .hero-contact form input,
+.hero-contact form select,
 .hero-contact form textarea{
   border-radius: 15px;
-  padding: 18px;
+  padding: 13px 15px;
   border: none;
   font-size: 1rem;
+}
+
+.hero-contact form select{
+  width: 100%;
+  background-color: white;
+  color: #333;
 }
 
 .hero-contact form button{
@@ -1421,10 +1508,136 @@ section.gallery .project-card h3{
   color: white;
   border: none;
   border-radius: 15px;
-  padding: 18px;
+  padding: 14px;
   font-weight: bold;
   cursor: pointer;
   font-size: 1rem;
+}
+
+.consent-option{
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: start;
+  text-align: left;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: #f1f1f1;
+}
+
+.hero-contact form .consent-option input{
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  padding: 0;
+  accent-color: #FF9800;
+}
+
+.consent-note{
+  margin: -4px 0 0;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: #ddd;
+  text-align: left;
+}
+
+@media (min-width: 521px) and (max-width: 850px){
+  .contact-address-fields{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.consent-note a,
+.legal-page a{
+  color: #FFC107;
+}
+
+.legal-page{
+  max-width: 920px;
+  min-height: 65vh;
+  margin: 48px auto 72px;
+  padding: clamp(30px, 6vw, 64px);
+  border-top: 5px solid #FF9800;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  color: #333333;
+  line-height: 1.75;
+}
+
+.legal-eyebrow{
+  margin-bottom: 6px;
+  color: #FF9800;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.legal-page h1,
+.legal-page h2{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.legal-page h1{
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  line-height: 1.05;
+  color: #222222;
+}
+
+.legal-updated{
+  margin-top: 10px;
+  color: #68757d;
+}
+
+.legal-page h2{
+  margin-top: 34px;
+  margin-bottom: 8px;
+  padding-left: 12px;
+  border-left: 4px solid #FF9800;
+  color: #333333;
+}
+
+.legal-page h3{
+  margin-top: 22px;
+  margin-bottom: 4px;
+  color: #333333;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+}
+
+.legal-page p + p{
+  margin-top: 10px;
+}
+
+.legal-callout{
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-left: 4px solid #FF9800;
+  border-radius: 0 10px 10px 0;
+  background: #fff4df;
+  color: #573600;
+  font-weight: 800;
+}
+
+.legal-page a{
+  color: #b56500;
+  font-weight: 700;
+}
+
+header .banner-btn{
+  background: linear-gradient(135deg, #FF9800, #FFC107);
+  padding: 10px 18px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media (max-width: 600px){
+  .legal-page{
+    margin: 24px 14px;
+    border-radius: 16px;
+  }
 }
 
 /* =====================================================

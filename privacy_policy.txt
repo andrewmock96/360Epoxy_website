@@ -1,0 +1,117 @@
+Privacy Policy
+Last updated: April 24, 2026
+
+360Epoxy ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy describes how we collect, use, store, and protect your personal information when you visit our website, submit a form, or opt in to receive SMS text messages from us.
+
+1. Information We Collect
+We collect personal information that you voluntarily provide to us when you fill out forms on our website. This includes:
+
+Contact Information: First name, last name, email address, and mobile phone number
+Address Information: Street address, city, state, and ZIP code
+Project Information: Project type (garage, basement, commercial, etc.), approximate square footage, desired timeline, and additional project details or notes
+Consent Records: Your SMS opt-in preferences (transactional and/or marketing), the timestamp of your opt-in, and the device/browser used at the time of consent
+We do not collect sensitive personal information such as Social Security numbers, financial account numbers, or payment card information through our website forms.
+
+2. How We Use Your Information
+We use the personal information we collect strictly for the following business purposes:
+
+Providing Estimates: To prepare and deliver a free project estimate based on the details you provide
+Communication: To contact you by phone call, email, or SMS regarding your project inquiry, estimate, or appointment
+Appointment Scheduling: To schedule, confirm, and send reminders for on-site evaluations and project appointments
+Transactional SMS: If you opt in, to send transactional text messages including appointment reminders, project status updates, estimate follow-ups, and scheduling confirmations
+Marketing SMS: If you separately opt in, to send promotional text messages including special offers, seasonal discounts, new service announcements, and company updates
+Customer Service: To respond to your questions, requests, and feedback
+Service Improvement: To analyze how visitors use our website so we can improve our services and user experience
+We will never use your personal information for purposes other than those listed above without obtaining your explicit consent first.
+
+3. SMS Opt-In & Messaging Details
+By checking the SMS consent checkboxes on our website form, you expressly consent to receive text messages from 360Epoxy at the mobile phone number you provide. We maintain two separate categories of SMS messaging, each requiring its own explicit consent:
+
+Transactional Messages (requires separate opt-in):
+
+Appointment confirmations and reminders
+Project estimate follow-ups
+Scheduling updates and changes
+Project status notifications
+Service completion confirmations
+Marketing & Promotional Messages (requires separate opt-in):
+
+Seasonal promotions and special offers
+New service announcements
+Discounts and exclusive deals
+Company news and updates
+Message Frequency: Message frequency may vary. Transactional messages are sent as needed based on your project status and interactions. Marketing messages may be sent up to 4 times per month.
+
+Message & Data Rates: Standard message and data rates may apply depending on your mobile carrier and plan. 360Epoxy is not responsible for any messaging or data charges imposed by your carrier.
+
+How to Opt Out: You may opt out at any time by replying STOP to any text message from 360Epoxy. You will receive a one-time confirmation message, and no further messages will be sent. You can also call us at (385) 401-2227 or email 360epoxyaz@gmail.com to request removal.
+
+How to Get Help: Reply HELP to any text message for assistance, or contact us directly at (385) 401-2227 or 360epoxyaz@gmail.com.
+
+Consent Is Not Required: Opting in to SMS messaging is completely voluntary and is not a condition of purchasing any goods or services from 360Epoxy. You may request a project estimate without opting in to receive text messages.
+
+4. Cookies & Tracking Technologies
+Our website uses cookies and similar tracking technologies to improve your experience and understand how our site is used. The types of cookies and tracking we employ include:
+
+Essential/Functional Cookies: These cookies are necessary for the basic operation of our website, including form submission functionality, page navigation, and session management. They do not collect personal information for marketing purposes.
+Analytics Cookies: We may use third-party analytics services, such as Google Analytics, to collect anonymized and aggregated data about website traffic, page views, user behavior, and traffic sources. This data helps us understand how visitors interact with our website so we can make improvements. Google Analytics may use cookies to track your interactions. You can learn more about Google's practices at https://policies.google.com/privacy.
+Third-Party Widgets: Our website may include embedded third-party tools such as live chat widgets, scheduling tools, or social media buttons. These tools may set their own cookies and collect data according to their own privacy policies, which are separate from ours.
+Pixel/Conversion Tracking: We may use tracking pixels from advertising platforms (such as Facebook/Meta or Google Ads) to measure the effectiveness of our advertising campaigns. These pixels may collect anonymized data about your visit.
+Managing Cookies: You can control and manage cookies through your browser settings. Most browsers allow you to block or delete cookies. However, disabling cookies may affect certain features of our website, such as form submission. For instructions on managing cookies, refer to your browser's help documentation.
+
+Do Not Track: Our website currently does not respond to "Do Not Track" browser signals. However, you can manage tracking through cookie settings and browser controls as described above.
+
+5. Data Security Practices
+We take the security and protection of your personal information seriously and implement appropriate technical and organizational measures, including:
+
+Encryption in Transit: All data submitted through our website forms is transmitted using SSL/TLS encryption (HTTPS), ensuring your information is encrypted during transmission between your browser and our servers.
+Secure Data Storage: Your personal information is stored securely within our customer relationship management (CRM) platform, GoHighLevel, which maintains industry-standard security certifications and practices including SOC 2 compliance, data encryption at rest, and regular security audits.
+Access Controls: Access to your personal data is restricted to authorized 360Epoxy personnel who require it to perform their job functions (e.g., preparing estimates, scheduling appointments, sending authorized communications). All personnel with access are trained on data privacy practices.
+SMS Provider Security: Our SMS messaging is delivered through GoHighLevel's integrated messaging platform, which utilizes compliant carrier connections and industry-standard security protocols for message transmission.
+Regular Reviews: We periodically review our data handling procedures, security measures, and access controls to ensure they remain appropriate and effective.
+While we implement reasonable safeguards to protect your data, no method of electronic transmission or digital storage is 100% secure. We cannot guarantee absolute security, but we are committed to protecting your information to the best of our ability and will promptly notify affected individuals in the event of a data breach as required by applicable law.
+
+6. Your Rights
+You have the following rights regarding your personal information held by 360Epoxy:
+
+Right to Access: You may request a copy of the personal information we hold about you at any time.
+Right to Correction: You may request that we update or correct any inaccurate or incomplete information in our records.
+Right to Deletion: You may request that we permanently delete your personal information from our systems and records.
+Right to Opt Out of SMS: Reply STOP to any text message to immediately stop receiving SMS communications. This applies separately to transactional and marketing messages.
+Right to Opt Out of Email: Click the "Unsubscribe" link at the bottom of any marketing email to stop receiving promotional emails from us.
+Right to Withdraw Consent: You may withdraw your consent for any data processing activities at any time. Withdrawal of consent does not affect the lawfulness of processing performed before the withdrawal.
+Right to Data Portability: You may request your personal data in a commonly used, machine-readable format.
+To exercise any of these rights, please contact us at (385) 401-2227 or email 360epoxyaz@gmail.com. We will respond to all requests within 30 days.
+
+7. No Sharing of SMS Consent & Personal Data
+IMPORTANT — NO SHARING POLICY:
+
+360Epoxy does NOT sell, rent, lease, trade, share, or otherwise disclose your personal information, including your mobile phone number and SMS messaging opt-in consent data, to any third parties or affiliates for their own marketing, promotional, or commercial purposes.
+
+Your mobile phone number, SMS opt-in consent status, and all related consent records are used exclusively by 360Epoxy for the sole purpose of sending you the specific text messages you have consented to receive (transactional and/or marketing messages from 360Epoxy only).
+
+The only exception is our SMS service provider (currently GoHighLevel / LeadConnector), which is used solely for the technical delivery of text messages on our behalf. Our SMS service provider is contractually prohibited from using your phone number, opt-in status, or personal data for any purpose other than delivering messages as directed by 360Epoxy.
+
+We may also disclose personal information if required to do so by law, court order, or governmental regulation, or if necessary to protect the rights, safety, or property of 360Epoxy or others.
+
+8. Data Retention
+We retain your personal information for as long as reasonably necessary to fulfill the purposes for which it was collected, to provide our services, and to comply with legal, accounting, or reporting requirements. Specifically:
+
+Active project data is retained for the duration of the project plus 3 years
+SMS consent records are retained for a minimum of 5 years for compliance purposes
+Marketing contact data is retained until you opt out or request deletion
+If you request deletion of your data, we will remove it within 30 days, except where retention is required by law or for compliance record-keeping.
+
+9. Children's Privacy
+Our website, services, and SMS messaging program are intended only for individuals who are 18 years of age or older. We do not knowingly collect personal information from anyone under 18. If you are under 18, do not submit any information through our website or opt in to receive SMS messages. If we discover that we have collected information from a minor under 18, we will immediately delete that information from our records.
+
+10. Changes to This Privacy Policy
+We may update this Privacy Policy from time to time to reflect changes in our practices, technologies, or legal requirements. When we make material changes, we will update the "Last updated" date at the top of this page. We encourage you to review this policy periodically. Your continued use of our website or SMS program after changes are posted constitutes your acceptance of the revised Privacy Policy.
+
+11. Contact Us
+If you have any questions, concerns, or requests regarding this Privacy Policy, our data practices, or your personal information, please contact us:
+
+360Epoxy
+Utah, United States
+Phone: (385) 401-2227
+Email: 360epoxyaz@gmail.com

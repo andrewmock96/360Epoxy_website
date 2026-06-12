@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | 360Epoxy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/"><img src="{{ url_for('static', filename='images/logo/360Epoxy_logo.webp') }}" alt="360Epoxy Logo" class="logo"></a>
+            <nav class="nav-links desktop-nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/services" class="nav-link">Services</a>
+                <a href="/gallery" class="nav-link">Gallery</a>
+                <a href="/contact" class="nav-link">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+    <main class="legal-page">
+        <p class="legal-eyebrow">360Epoxy</p>
+        <h1>Terms of Service</h1>
+        {% for block in legal_blocks %}
+            {% if block.type == 'updated' %}
+                <p class="legal-updated">{{ block.text }}</p>
+            {% elif block.type == 'heading' %}
+                <h2>{{ block.text }}</h2>
+            {% elif block.type == 'subheading' %}
+                <h3>{{ block.text }}</h3>
+            {% elif block.type == 'callout' %}
+                <p class="legal-callout">{{ block.text }}</p>
+            {% else %}
+                <p>{{ block.text }}</p>
+            {% endif %}
+        {% endfor %}
+    </main>
+    <footer>
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/360epoxy" target="_blank" rel="noopener noreferrer">
+                <img src="{{ url_for('static', filename='images/icons/facebook.webp') }}" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/360epoxy" target="_blank" rel="noopener noreferrer">
+                <img src="{{ url_for('static', filename='images/icons/instagram.webp') }}" alt="Instagram">
+            </a>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-contact">
+            <a href="tel:+13854012227">Phone: (385)-401-2227</a>
+            <a href="mailto:360epoxyaz@gmail.com">Email: 360epoxyaz@gmail.com</a>
+            <a href="/privacy">Privacy Policy</a>
+        </div>
+        <p>&copy; 2026 360Epoxy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

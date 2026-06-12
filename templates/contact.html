@@ -36,12 +36,6 @@
             </div>
 
             <div class="banner-right">
-                <a href="https://360epoxy.org/estimate"
-                class="banner-btn"
-                target="_blank"
-                rel="noopener noreferrer">
-                    Get Free Quote
-                </a>
 
                 <!-- Hamburger icon -->
                 <button class="menu-toggle" aria-label="Toggle menu">
@@ -54,10 +48,7 @@
                 <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
                 <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
                 <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
-                <a href="https://360epoxy.org/estimate"
-                   class="nav-link"
-                   target="_blank"
-                   rel="noopener noreferrer">Contact Us</a>
+                <a href="/contact" class="nav-link active">Contact Us</a>
             </nav>
         </div>
 
@@ -70,23 +61,15 @@
                     <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
                     <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
                     <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
-                    <a href="https://360epoxy.org/home"
-                       class="nav-link"
-                       target="_blank"
-                       rel="noopener noreferrer">Contact Us</a>
-                    <a href="https://360epoxy.org/estimate"
-                       class="banner-btn"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Get Free Quote
-                    </a>
+                    <a href="/contact" class="nav-link active">Contact Us</a>
                 </nav>
             </div>
         </header>
 
         <section class="hero-contact">
             <form method="post" action="/contact">
-                <h1>Contact 360Epoxy</h1>
+                <h1>Get Your Free Estimate</h1>
+                <!-- <p class="contact-intro">Tell us about your floor project and our local team will follow up.</p> -->
 
                 {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
@@ -99,11 +82,124 @@
                 {% endwith %}
 
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <input type="text" name="name" placeholder="Name" autocomplete="name" required>
-                <input type="email" name="email" placeholder="Email" autocomplete="email" required>
-                <input type="tel" name="phone" placeholder="Phone" autocomplete="tel">
-                <textarea name="message" placeholder="Tell us about your floor project" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
+                <div class="contact-name-fields">
+                    <div class="contact-field">
+                        <label class="field-label" for="first_name">First Name</label>
+                        <input id="first_name" type="text" name="first_name" value="{{ form_data.get('first_name', '') }}" autocomplete="given-name" required>
+                    </div>
+                    <div class="contact-field">
+                        <label class="field-label" for="last_name">Last Name</label>
+                        <input id="last_name" type="text" name="last_name" value="{{ form_data.get('last_name', '') }}" autocomplete="family-name" required>
+                    </div>
+                </div>
+
+                <div class="contact-name-fields">
+                    <div class="contact-field">
+                        <label class="field-label" for="email">Email</label>
+                        <input id="email" type="email" name="email" value="{{ form_data.get('email', '') }}" autocomplete="email" required>
+                    </div>
+                    <div class="contact-field">
+                        <label class="field-label" for="phone">Phone</label>
+                        <input id="phone" type="tel" name="phone" value="{{ form_data.get('phone', '') }}" autocomplete="tel" inputmode="tel" maxlength="14" placeholder="(385)-401-2227" required>
+                    </div>
+                </div>
+
+                <!-- <label class="field-label" for="lead_source">How did you hear about us?</label>
+                <select id="lead_source" name="lead_source" required>
+                    <option value="" {% if not form_data.get('lead_source') %}selected{% endif %} disabled>Select an option</option>
+                    <option value="google_search" {% if form_data.get('lead_source') == 'google_search' %}selected{% endif %}>Google Search</option>
+                    <option value="google_maps" {% if form_data.get('lead_source') == 'google_maps' %}selected{% endif %}>Google Maps</option>
+                    <option value="facebook" {% if form_data.get('lead_source') == 'facebook' %}selected{% endif %}>Facebook</option>
+                    <option value="instagram" {% if form_data.get('lead_source') == 'instagram' %}selected{% endif %}>Instagram</option>
+                    <option value="referral" {% if form_data.get('lead_source') == 'referral' %}selected{% endif %}>Friend or Family Referral</option>
+                    <option value="yard_sign_or_vehicle" {% if form_data.get('lead_source') == 'yard_sign_or_vehicle' %}selected{% endif %}>Yard Sign or Company Vehicle</option>
+                    <option value="repeat_customer" {% if form_data.get('lead_source') == 'repeat_customer' %}selected{% endif %}>Previous Customer</option>
+                    <option value="other" {% if form_data.get('lead_source') == 'other' %}selected{% endif %}>Other</option>
+                </select>
+
+                <div id="lead-source-other-field" class="contact-field {% if form_data.get('lead_source') != 'other' %}is-hidden{% endif %}">
+                    <label class="field-label" for="lead_source_other">Please tell us where</label>
+                    <input id="lead_source_other" type="text" name="lead_source_other" value="{{ form_data.get('lead_source_other', '') }}" maxlength="120">
+                </div> -->
+
+                <label class="field-label" for="project_type">Project Type</label>
+                <select id="project_type" name="project_type" required>
+                    <option value="" {% if not form_data.get('project_type') %}selected{% endif %} disabled>Select your project type...</option>
+                    <option value="garage_floor" {% if form_data.get('project_type') == 'garage_floor' %}selected{% endif %}>Garage Floor</option>
+                    <option value="basement_floor" {% if form_data.get('project_type') == 'basement_floor' %}selected{% endif %}>Basement Floor</option>
+                    <option value="patio_outdoor" {% if form_data.get('project_type') == 'patio_outdoor' %}selected{% endif %}>Patio / Outdoor</option>
+                    <option value="commercial_space" {% if form_data.get('project_type') == 'commercial_space' %}selected{% endif %}>Commercial Space</option>
+                    <option value="industrial_warehouse" {% if form_data.get('project_type') == 'industrial_warehouse' %}selected{% endif %}>Industrial / Warehouse</option>
+                    <option value="other" {% if form_data.get('project_type') == 'other' %}selected{% endif %}>Other</option>
+                </select>
+
+                <div class="contact-name-fields">
+                    <div class="contact-field">
+                        <label class="field-label" for="square_feet">Approximate Sq. Ft.</label>
+                        <input id="square_feet" type="number" name="square_feet" value="{{ form_data.get('square_feet', '') }}" min="50" step="50" inputmode="numeric" placeholder="e.g. 500" required>
+                    </div>
+                    <div class="contact-field">
+                        <label class="field-label" for="desired_timeline">Desired Timeline</label>
+                        <select id="desired_timeline" name="desired_timeline">
+                            <option value="" {% if not form_data.get('desired_timeline') %}selected{% endif %}>When do you need this?</option>
+                            <option value="as_soon_as_possible" {% if form_data.get('desired_timeline') == 'as_soon_as_possible' %}selected{% endif %}>As Soon as Possible</option>
+                            <option value="within_1_month" {% if form_data.get('desired_timeline') == 'within_1_month' %}selected{% endif %}>Within 1 Month</option>
+                            <option value="within_1_to_3_months" {% if form_data.get('desired_timeline') == 'within_1_to_3_months' %}selected{% endif %}>Within 1-3 Months</option>
+                            <option value="within_3_to_6_months" {% if form_data.get('desired_timeline') == 'within_3_to_6_months' %}selected{% endif %}>Within 3-6 Months</option>
+                            <option value="more_than_6_months" {% if form_data.get('desired_timeline') == 'more_than_6_months' %}selected{% endif %}>More Than 6 Months</option>
+                            <option value="exploring_options" {% if form_data.get('desired_timeline') == 'exploring_options' %}selected{% endif %}>Just Exploring Options</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="contact-address-fields">
+                    <div class="contact-field contact-address-street">
+                        <label class="field-label" for="street_address">Street Address</label>
+                        <input id="street_address" type="text" name="street_address" value="{{ form_data.get('street_address', '') }}" autocomplete="street-address" required>
+                    </div>
+                    <div class="contact-field">
+                        <label class="field-label" for="city">City</label>
+                        <input id="city" type="text" name="city" value="{{ form_data.get('city', '') }}" autocomplete="address-level2" required>
+                    </div>
+                    <div class="contact-field">
+                        <label class="field-label" for="state">State</label>
+                        <select id="state" name="state" autocomplete="address-level1" required>
+                            <option value="" {% if not form_data.get('state') %}selected{% endif %} disabled>Select...</option>
+                            {% for state_name in ['Utah', 'Arizona', 'Colorado', 'Idaho', 'Nevada', 'Wyoming', 'Other'] %}
+                                <option value="{{ state_name }}" {% if form_data.get('state') == state_name %}selected{% endif %}>{{ state_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="contact-field">
+                        <label class="field-label" for="zip_code">ZIP Code</label>
+                        <input id="zip_code" type="text" name="zip_code" value="{{ form_data.get('zip_code', '') }}" autocomplete="postal-code" inputmode="numeric" maxlength="10" required>
+                    </div>
+                </div>
+
+                <label class="field-label" for="additional_details">Additional Project Details <span class="optional-label">(optional)</span></label>
+                <textarea id="additional_details" name="additional_details" rows="3" placeholder="Condition of floor, color preferences, or anything else we should know.">{{ form_data.get('additional_details', '') }}</textarea>
+
+                <label class="consent-option">
+                    <input type="checkbox" name="sms_consent" value="yes" {% if form_data.get('sms_consent') %}checked{% endif %}>
+                    <span>I agree to receive conversational text messages from 360Epoxy about my estimate, appointments, and project. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help.</span>
+                </label>
+
+                <label class="consent-option">
+                    <input type="checkbox" name="marketing_sms_consent" value="yes" {% if form_data.get('marketing_sms_consent') %}checked{% endif %}>
+                    <span>I agree to receive occasional promotional text messages from 360Epoxy. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help.</span>
+                </label>
+
+                <p class="consent-note">Consent is not a condition of purchase. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
+
+                <div class="minimum-project-notice">
+                    <strong>$1,999 Minimum Project Investment</strong>
+                    <p>Our professional flooring systems include premium materials and thorough surface preparation.</p>
+                    <label class="consent-option minimum-acknowledgement">
+                        <input type="checkbox" name="minimum_project_acknowledged" value="yes" {% if form_data.get('minimum_project_acknowledged') %}checked{% endif %} required>
+                        <span>I understand the minimum project investment is $1,999 and I am ready to move forward with my free estimate.</span>
+                    </label>
+                </div>
+                <button type="submit">Request Free Estimate</button>
             </form>
         </section>
 
@@ -123,8 +219,10 @@
 
             <!-- Contact info stacked -->
             <div class="footer-contact">
-                <a href="tel:+13855583495">Phone: (385)-558-3495</a>
+                <a href="tel:+13854012227">Phone: (385)-401-2227</a>
                 <a href="mailto:360epoxyaz@gmail.com">Email: 360epoxyaz@gmail.com</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
             </div>
 
             <!-- Copyright -->
@@ -137,7 +235,6 @@
             const mobileNav = document.querySelector('.mobile-nav');
             const mobileLinks = document.querySelectorAll('.mobile-nav a');
             const allNavLinks = document.querySelectorAll('.nav-links a');
-
             if (menuToggle && mobileNav) {
                 menuToggle.addEventListener('click', () => {
                     mobileNav.classList.toggle('active');
@@ -157,6 +254,35 @@
                     mobileNav.classList.remove('active');
                 });
             });
+
+            const phoneInput = document.getElementById('phone');
+
+            if (phoneInput) {
+                const formatPhoneNumber = value => {
+                    let digits = value.replace(/\D/g, '');
+
+                    if (digits.length === 11 && digits.startsWith('1')) {
+                        digits = digits.slice(1);
+                    }
+
+                    digits = digits.slice(0, 10);
+
+                    if (digits.length < 4) {
+                        return digits ? `(${digits}` : '';
+                    }
+
+                    if (digits.length < 7) {
+                        return `(${digits.slice(0, 3)})-${digits.slice(3)}`;
+                    }
+
+                    return `(${digits.slice(0, 3)})-${digits.slice(3, 6)}-${digits.slice(6)}`;
+                };
+
+                phoneInput.value = formatPhoneNumber(phoneInput.value);
+                phoneInput.addEventListener('input', event => {
+                    event.target.value = formatPhoneNumber(event.target.value);
+                });
+            }
 
             /* ==============================
                 Section Scroll Animation

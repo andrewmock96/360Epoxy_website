@@ -2,12 +2,14 @@
 
 html{
   background: #191919;
+  color-scheme: dark;
   scrollbar-color: #777 #181818;
   scrollbar-width: thin;
 }
 
 body{
   background: #f4f4f4;
+  color-scheme: light;
 }
 
 ::-webkit-scrollbar{

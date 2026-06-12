@@ -235,7 +235,7 @@ def inject_site_metadata():
     return {
         "site_url": SITE_URL,
         "business_name": "360Epoxy",
-        "business_phone": "+13854012227",
+        "business_phone": "+13855583495",
         "business_email": "360epoxyaz@gmail.com",
     }
 
@@ -465,7 +465,7 @@ def not_found_handler(e):
 @limiter.limit("10 per minute")
 def place_diagnostics():
     query = clean_field(request.args.get("q"), 120) or "360 Epoxy Salt Lake City"
-    phone_query = "+13854012227"
+    phone_query = "+13855583495"
 
     if not GOOGLE_API_KEY:
         return jsonify({

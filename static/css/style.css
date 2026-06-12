@@ -1843,13 +1843,13 @@ section.gallery .project-card h3{
   border-radius: 15px;
   padding: 13px 15px;
   border: none;
+  background-color: white;
+  color: #333;
   font-size: 1rem;
 }
 
 .hero-contact form select{
   width: 100%;
-  background-color: white;
-  color: #333;
 }
 
 .hero-contact form button{

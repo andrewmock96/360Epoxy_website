@@ -5,19 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | 360Epoxy</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/approved-layout.css') }}">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <a href="/"><img src="{{ url_for('static', filename='images/logo/360Epoxy_logo.webp') }}" alt="360Epoxy Logo" class="logo"></a>
-            <nav class="nav-links desktop-nav">
-                <a href="/" class="nav-link">Home</a>
-                <a href="/services" class="nav-link">Services</a>
-                <a href="/gallery" class="nav-link">Gallery</a>
-                <a href="/contact" class="nav-link">Contact Us</a>
-            </nav>
-        </div>
-    </header>
+    {% include "_header.html" %}
     <main class="legal-page">
         <h1>Privacy Policy</h1>
         {% for block in legal_blocks %}
@@ -34,22 +25,6 @@
             {% endif %}
         {% endfor %}
     </main>
-    <footer>
-        <div class="footer-socials">
-            <a href="https://www.facebook.com/360epoxy" target="_blank" rel="noopener noreferrer">
-                <img src="{{ url_for('static', filename='images/icons/facebook.webp') }}" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com/360epoxy" target="_blank" rel="noopener noreferrer">
-                <img src="{{ url_for('static', filename='images/icons/instagram.webp') }}" alt="Instagram">
-            </a>
-        </div>
-        <div class="footer-divider"></div>
-        <div class="footer-contact">
-            <a href="tel:+13855583495">Phone: (385)-558-3495</a>
-            <a href="mailto:360epoxyaz@gmail.com">Email: 360epoxyaz@gmail.com</a>
-            <a href="/terms">Terms of Service</a>
-        </div>
-        <p>&copy; 2026 360Epoxy. All rights reserved.</p>
-    </footer>
+    {% include "_footer.html" %}
 </body>
 </html>

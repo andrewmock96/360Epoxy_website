@@ -19,52 +19,11 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/googlesearchicon-48px.png') }}">
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/googlesearchicon-48px.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/approved-layout.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
     <body>
-        <!-- TOP BANNER BAR -->
-        <div class="top-banner">
-            <div class="banner-left">
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61576135785952#" target="_blank" rel="noopener noreferrer" class="social-icon fb">
-                        <img src="{{ url_for('static', filename='images/icons/facebook.webp') }}" alt="Facebook">
-                    </a>
-                    <a href="https://www.instagram.com/360epoxy" target="_blank" rel="noopener noreferrer" class="social-icon ig">
-                        <img src="{{ url_for('static', filename='images/icons/instagram.webp') }}" alt="Instagram">
-                    </a>
-                </div>
-            </div>
-
-            <div class="banner-right">
-
-                <!-- Hamburger icon -->
-                <button class="menu-toggle" aria-label="Toggle menu">
-                    ☰
-                </button>
-            </div>
-
-            <!-- Navigation links Mobile -->
-            <nav class="nav-links mobile-nav">
-                <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
-                <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
-                <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
-                <a href="/contact" class="nav-link active">Contact Us</a>
-            </nav>
-        </div>
-
-        <header>
-            <div class="header-container">
-                <img src="{{ url_for('static', filename='images/logo/360Epoxy_logo.webp') }}" alt="360 Epoxy Logo" class="logo">
-
-                <!-- Navigation links Desktop -->
-                <nav class="nav-links desktop-nav">
-                    <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
-                    <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
-                    <a href="/gallery" class="nav-link {% if request.path == '/gallery' %}active{% endif %}">Gallery</a>
-                    <a href="/contact" class="nav-link active">Contact Us</a>
-                </nav>
-            </div>
-        </header>
+        {% include "_header.html" %}
 
         <section class="hero-contact">
             <form method="post" action="/contact">
@@ -203,131 +162,8 @@
             </form>
         </section>
 
-        <footer>
-            <!-- Social icons at the top -->
-            <div class="footer-socials">
-                <a href="https://www.facebook.com/360epoxy" target="_blank" rel="noopener noreferrer">
-                    <img src="{{ url_for('static', filename='images/icons/facebook.webp') }}" alt="Facebook">
-                </a>
-                <a href="https://www.instagram.com/360epoxy" target="_blank" rel="noopener noreferrer">
-                    <img src="{{ url_for('static', filename='images/icons/instagram.webp') }}" alt="Instagram">
-                </a>
-            </div>
+        {% include "_footer.html" %}
 
-            <!-- Divider line -->
-            <div class="footer-divider"></div>
-
-            <!-- Contact info stacked -->
-            <div class="footer-contact">
-                <a href="tel:+13855583495">Phone: (385)-558-3495</a>
-                <a href="mailto:360epoxyaz@gmail.com">Email: 360epoxyaz@gmail.com</a>
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms of Service</a>
-            </div>
-
-            <!-- Copyright -->
-            <p>&copy; 2025 360Epoxy. All rights reserved.</p>
-        </footer>
-
-        <!-- Hamburger Menu Script -->
-        <script>
-            const menuToggle = document.querySelector('.menu-toggle');
-            const mobileNav = document.querySelector('.mobile-nav');
-            const mobileLinks = document.querySelectorAll('.mobile-nav a');
-            const allNavLinks = document.querySelectorAll('.nav-links a');
-            if (menuToggle && mobileNav) {
-                menuToggle.addEventListener('click', () => {
-                    mobileNav.classList.toggle('active');
-                });
-            }
-
-            const currentPath = window.location.pathname;
-
-            allNavLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPath) {
-                    link.classList.add('active');
-                }
-            });
-
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileNav.classList.remove('active');
-                });
-            });
-
-            const phoneInput = document.getElementById('phone');
-
-            if (phoneInput) {
-                const formatPhoneNumber = value => {
-                    let digits = value.replace(/\D/g, '');
-
-                    if (digits.length === 11 && digits.startsWith('1')) {
-                        digits = digits.slice(1);
-                    }
-
-                    digits = digits.slice(0, 10);
-
-                    if (digits.length < 4) {
-                        return digits ? `(${digits}` : '';
-                    }
-
-                    if (digits.length < 7) {
-                        return `(${digits.slice(0, 3)})-${digits.slice(3)}`;
-                    }
-
-                    return `(${digits.slice(0, 3)})-${digits.slice(3, 6)}-${digits.slice(6)}`;
-                };
-
-                phoneInput.value = formatPhoneNumber(phoneInput.value);
-                phoneInput.addEventListener('input', event => {
-                    event.target.value = formatPhoneNumber(event.target.value);
-                });
-            }
-
-            /* ==============================
-                Section Scroll Animation
-            ============================== */
-            // Scroll animation for any elements with .animate-on-scroll
-            const scrollItems = document.querySelectorAll('.animate-on-scroll');
-
-            const scrollObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // animate only once
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            scrollItems.forEach(item => {
-                scrollObserver.observe(item);
-            });
-
-            /* ==============================
-                        ZOOM MODAL
-            ============================== */
-            const zoomModal = document.getElementById("zoom-modal");
-            const zoomImg = document.getElementById("zoom-image");
-
-            if (zoomModal && zoomImg) {
-                document.querySelectorAll(".flake-card img").forEach(img => {
-                    img.addEventListener("click", () => {
-                        zoomImg.src = img.src;
-                        zoomModal.style.display = "flex";
-
-                        requestAnimationFrame(() => {
-                            zoomModal.classList.add("show");
-                        });
-                    });
-                });
-
-                zoomModal.addEventListener("click", () => {
-                    zoomModal.classList.remove("show");
-                    setTimeout(() => {
-                        zoomModal.style.display = "none";
-                    }, 300);
-                });
-            }
-        </script>
+        <script src="{{ url_for('static', filename='js/contact.js') }}" defer></script>
     </body>
 </html>

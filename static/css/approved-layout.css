@@ -1,0 +1,113 @@
+/* Final responsive overrides for the approved header and footer design. */
+
+html{
+  scrollbar-color: #777 #181818;
+  scrollbar-width: thin;
+}
+
+body{
+  background: #f4f4f4;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: #181818;
+}
+
+::-webkit-scrollbar-thumb{
+  border: 2px solid #181818;
+  border-radius: 999px;
+  background: #777;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner{
+  display: none;
+  width: 0;
+  height: 0;
+  background: #181818;
+}
+
+body .top-banner{
+  padding: 9px clamp(20px, 4vw, 64px);
+}
+
+body .top-banner .banner-left,
+body .top-banner .banner-right{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+body header{
+  padding: 22px clamp(20px, 4vw, 64px);
+}
+
+body .header-container{
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+body .header-brand .logo{
+  width: 132px;
+  max-width: 132px;
+  margin: 0;
+}
+
+body .desktop-nav{
+  margin: 0;
+}
+
+body .social-icon img,
+body .footer-socials .social-icon img{
+  width: 100%;
+  height: 100%;
+  max-width: 32px;
+  max-height: 32px;
+}
+
+body footer{
+  border-image: linear-gradient(90deg, #FF9800, #FFC107) 1;
+}
+
+body .footer-column a{
+  text-decoration: none;
+}
+
+@media (max-width: 768px){
+  body .top-banner{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 14px;
+  }
+
+  body header{
+    padding: 16px;
+  }
+
+  body .header-container{
+    justify-content: center;
+  }
+
+  body .header-brand .logo{
+    width: 92px;
+    max-width: 92px;
+  }
+
+  body .top-banner .banner-right{
+    margin-left: auto;
+  }
+
+  body .top-banner .mobile-nav{
+    position: static;
+    order: 3;
+    flex: 0 0 calc(100% + 28px);
+    width: calc(100% + 28px);
+    margin: 10px -14px -10px;
+    padding: 18px 20px 22px;
+  }
+}

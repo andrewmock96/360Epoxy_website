@@ -73,6 +73,7 @@ body .footer-socials .social-icon img{
 
 body footer{
   border-image: linear-gradient(90deg, #FF9800, #FFC107) 1;
+  padding-bottom: calc(22px + env(safe-area-inset-bottom));
 }
 
 body .footer-column a{
@@ -83,7 +84,6 @@ body .footer-column a{
   body .top-banner{
     display: flex;
     flex-wrap: wrap;
-    position: relative;
     padding: 10px 14px;
   }
 

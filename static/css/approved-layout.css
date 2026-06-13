@@ -82,9 +82,20 @@ body .footer-socials .social-icon img{
 }
 
 body footer{
+  position: relative;
   background: #191919;
   border-image: linear-gradient(90deg, #FF9800, #FFC107) 1;
   padding-bottom: calc(22px + env(safe-area-inset-bottom));
+}
+
+body footer::after{
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FF9800, #FFC107);
 }
 
 body .footer-column a{

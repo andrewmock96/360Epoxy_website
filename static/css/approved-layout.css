@@ -86,6 +86,10 @@ body .footer-socials .social-icon img{
   max-height: 32px;
 }
 
+body .footer-brand > .footer-seasonal-logo{
+  width: 176px;
+}
+
 body footer{
   position: relative;
   background: #191919;

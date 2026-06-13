@@ -16,10 +16,7 @@
     <meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='images/jobs/efriens_floor.webp') }}">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/googletabicon-32px.png') }}">
-    <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='images/googlesearchicon-48px.png') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='images/googlesearchicon-48px.png') }}">
-    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/googlesearchicon-48px.png') }}">
+    {% include "_favicons.html" %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/approved-layout.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">

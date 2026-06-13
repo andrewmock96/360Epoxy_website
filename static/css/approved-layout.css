@@ -69,9 +69,9 @@ body .header-brand .logo{
   margin: 0;
 }
 
-body .header-brand .seasonal-logo{
-  width: 176px;
-  max-width: 176px;
+body .seasonal-logo{
+  width: 220px;
+  max-width: 220px;
 }
 
 body .desktop-nav{
@@ -84,10 +84,6 @@ body .footer-socials .social-icon img{
   height: 100%;
   max-width: 32px;
   max-height: 32px;
-}
-
-body .footer-brand > .footer-seasonal-logo{
-  width: 176px;
 }
 
 body footer{
@@ -131,9 +127,9 @@ body .footer-column a{
     max-width: 92px;
   }
 
-  body .header-brand .seasonal-logo{
-    width: 123px;
-    max-width: 123px;
+  body .seasonal-logo{
+    width: 176px;
+    max-width: 176px;
   }
 
   body .top-banner .banner-right{

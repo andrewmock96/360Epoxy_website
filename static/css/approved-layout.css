@@ -74,6 +74,11 @@ body .seasonal-logo{
   max-width: 220px;
 }
 
+body .header-brand .logo.seasonal-logo{
+  width: 220px;
+  max-width: 220px;
+}
+
 body .desktop-nav{
   margin: 0;
 }
@@ -128,6 +133,11 @@ body .footer-column a{
   }
 
   body .seasonal-logo{
+    width: 176px;
+    max-width: 176px;
+  }
+
+  body .header-brand .logo.seasonal-logo{
     width: 176px;
     max-width: 176px;
   }

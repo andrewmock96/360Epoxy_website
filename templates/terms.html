@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#191919">
+    <meta name="theme-color" content="#181818">
     <meta name="color-scheme" content="dark">
     <title>Terms of Service | 360Epoxy</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -11,22 +11,24 @@
 </head>
 <body>
     {% include "_header.html" %}
-    <main class="legal-page">
-        <h1>Terms of Service</h1>
-        {% for block in legal_blocks %}
-            {% if block.type == 'updated' %}
-                <p class="legal-updated">{{ block.text }}</p>
-            {% elif block.type == 'heading' %}
-                <h2>{{ block.text }}</h2>
-            {% elif block.type == 'subheading' %}
-                <h3>{{ block.text }}</h3>
-            {% elif block.type == 'callout' %}
-                <p class="legal-callout">{{ block.text }}</p>
-            {% else %}
-                <p>{{ block.text }}</p>
-            {% endif %}
-        {% endfor %}
-    </main>
+    <div class="page-surface">
+        <main class="legal-page">
+            <h1>Terms of Service</h1>
+            {% for block in legal_blocks %}
+                {% if block.type == 'updated' %}
+                    <p class="legal-updated">{{ block.text }}</p>
+                {% elif block.type == 'heading' %}
+                    <h2>{{ block.text }}</h2>
+                {% elif block.type == 'subheading' %}
+                    <h3>{{ block.text }}</h3>
+                {% elif block.type == 'callout' %}
+                    <p class="legal-callout">{{ block.text }}</p>
+                {% else %}
+                    <p>{{ block.text }}</p>
+                {% endif %}
+            {% endfor %}
+        </main>
+    </div>
     {% include "_footer.html" %}
 </body>
 </html>

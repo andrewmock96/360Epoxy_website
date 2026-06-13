@@ -69,6 +69,11 @@ body .header-brand .logo{
   margin: 0;
 }
 
+body .header-brand .seasonal-logo{
+  width: 176px;
+  max-width: 176px;
+}
+
 body .desktop-nav{
   margin: 0;
 }
@@ -120,6 +125,11 @@ body .footer-column a{
   body .header-brand .logo{
     width: 92px;
     max-width: 92px;
+  }
+
+  body .header-brand .seasonal-logo{
+    width: 123px;
+    max-width: 123px;
   }
 
   body .top-banner .banner-right{

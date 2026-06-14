@@ -31,6 +31,9 @@ IS_PRODUCTION = FLASK_ENV == "production"
 SITE_URL = os.environ.get("SITE_URL", "https://360-epoxy.com").rstrip("/")
 GHL_CONTACT_WEBHOOK_URL = os.environ.get("GHL_CONTACT_WEBHOOK_URL")
 RATELIMIT_STORAGE_URI = os.environ.get("RATELIMIT_STORAGE_URI", "memory://")
+TURNSTILE_SITE_KEY = os.environ.get("TURNSTILE_SITE_KEY")
+TURNSTILE_SECRET_KEY = os.environ.get("TURNSTILE_SECRET_KEY")
+TURNSTILE_ENABLED = os.environ.get("TURNSTILE_ENABLED", "false").lower() == "true"
 GHL_WEBHOOK_ENABLED = os.environ.get(
     "GHL_WEBHOOK_ENABLED",
     "true" if IS_PRODUCTION else "false",
@@ -82,6 +85,10 @@ if IS_PRODUCTION:
     require_https_url("SITE_URL", SITE_URL)
     if GHL_WEBHOOK_ENABLED:
         require_https_url("GHL_CONTACT_WEBHOOK_URL", GHL_CONTACT_WEBHOOK_URL)
+    if TURNSTILE_ENABLED and (not TURNSTILE_SITE_KEY or not TURNSTILE_SECRET_KEY):
+        raise RuntimeError(
+            "TURNSTILE_SITE_KEY and TURNSTILE_SECRET_KEY must be set when Turnstile is enabled."
+        )
 
 # ==============================
 # Security settings
@@ -105,11 +112,12 @@ Talisman(
     app,
     content_security_policy={
         "default-src": ["'self'"],
-        "script-src": ["'self'"],
+        "script-src": ["'self'", "https://challenges.cloudflare.com"],
         "style-src": ["'self'", "https://fonts.googleapis.com"],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
         "img-src": ["'self'", "data:", "https:"],
-        "connect-src": ["'self'"],
+        "connect-src": ["'self'", "https://challenges.cloudflare.com"],
+        "frame-src": ["https://challenges.cloudflare.com"],
         "frame-ancestors": ["'none'"],
         "base-uri": ["'self'"],
         "form-action": ["'self'"],
@@ -197,6 +205,35 @@ def google_get(url, params):
     return response.status_code, data
 
 
+def verify_turnstile_token(token):
+    if not TURNSTILE_ENABLED:
+        return True
+    if not token or len(token) > 2048:
+        return False
+
+    try:
+        response = requests.post(
+            "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+            data={
+                "secret": TURNSTILE_SECRET_KEY,
+                "response": token,
+                "remoteip": request.remote_addr,
+            },
+            timeout=5,
+        )
+        response.raise_for_status()
+        data = response.json()
+        expected_hostname = urlparse(SITE_URL).hostname
+        return (
+            data.get("success") is True
+            and data.get("hostname") == expected_hostname
+            and data.get("action") == "contact"
+        )
+    except (requests.RequestException, ValueError):
+        app.logger.exception("Turnstile verification failed.")
+        return False
+
+
 def fetch_google_reviews():
     """
     Fetch reviews from Google Places API and return:
@@ -243,6 +280,8 @@ def fetch_google_reviews():
 def inject_site_metadata():
     return {
         "site_url": SITE_URL,
+        "turnstile_enabled": TURNSTILE_ENABLED,
+        "turnstile_site_key": TURNSTILE_SITE_KEY,
         "business_name": "360Epoxy",
         "business_phone": "+13855583495",
         "business_email": "360epoxyaz@gmail.com",
@@ -343,6 +382,10 @@ def contact():
 
         if not is_valid_phone(form_data["phone"]):
             flash("Please enter a valid phone number.", "error")
+            return render_template("contact.html", form_data=form_data), 400
+
+        if not verify_turnstile_token(request.form.get("cf-turnstile-response")):
+            flash("Please complete the security check and try again.", "error")
             return render_template("contact.html", form_data=form_data), 400
 
         submitted_at = datetime.now(timezone.utc).isoformat()

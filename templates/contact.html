@@ -159,6 +159,11 @@
                         <span>I understand the minimum project investment is $1,999 and I am ready to move forward with my free estimate.</span>
                     </label>
                 </div>
+                {% if turnstile_enabled %}
+                    <div class="turnstile-container">
+                        <div class="cf-turnstile" data-sitekey="{{ turnstile_site_key }}" data-action="contact" data-theme="dark"></div>
+                    </div>
+                {% endif %}
                 <button type="submit">Request Free Estimate</button>
             </form>
         </section>
@@ -166,6 +171,9 @@
 
         {% include "_footer.html" %}
 
+        {% if turnstile_enabled %}
+            <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+        {% endif %}
         <script src="{{ url_for('static', filename='js/contact.js') }}" defer></script>
     </body>
 </html>

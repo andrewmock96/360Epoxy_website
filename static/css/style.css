@@ -1863,6 +1863,12 @@ section.gallery .project-card h3{
   font-size: 1rem;
 }
 
+.turnstile-container{
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
 .consent-option{
   display: grid;
   grid-template-columns: 20px 1fr;

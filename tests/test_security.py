@@ -1,6 +1,10 @@
 import unittest
+from unittest.mock import Mock, patch
 
-from app import app
+import app as app_module
+
+
+app = app_module.app
 
 
 class SecurityTests(unittest.TestCase):
@@ -38,6 +42,55 @@ class SecurityTests(unittest.TestCase):
         self.assertEqual(response.headers["X-Content-Type-Options"], "nosniff")
         self.assertEqual(response.headers["Cross-Origin-Opener-Policy"], "same-origin")
         self.assertIn("camera=()", response.headers["Permissions-Policy"])
+
+    def test_turnstile_widget_is_rendered_when_enabled(self):
+        with (
+            patch.object(app_module, "TURNSTILE_ENABLED", True),
+            patch.object(app_module, "TURNSTILE_SITE_KEY", "test-site-key"),
+        ):
+            response = self.client.get("/contact", headers=self.https_headers)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'class="cf-turnstile"', response.data)
+        self.assertIn(b'data-sitekey="test-site-key"', response.data)
+        self.assertIn(b"https://challenges.cloudflare.com/turnstile/v0/api.js", response.data)
+
+    def test_turnstile_verification_accepts_valid_token(self):
+        turnstile_response = Mock()
+        turnstile_response.raise_for_status.return_value = None
+        turnstile_response.json.return_value = {
+            "success": True,
+            "hostname": "360-epoxy.com",
+            "action": "contact",
+        }
+
+        with (
+            app.test_request_context("/", environ_base={"REMOTE_ADDR": "203.0.113.10"}),
+            patch.object(app_module, "TURNSTILE_ENABLED", True),
+            patch.object(app_module, "TURNSTILE_SECRET_KEY", "test-secret-key"),
+            patch.object(app_module.requests, "post", return_value=turnstile_response) as post,
+        ):
+            self.assertTrue(app_module.verify_turnstile_token("valid-token"))
+
+        post.assert_called_once_with(
+            "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+            data={
+                "secret": "test-secret-key",
+                "response": "valid-token",
+                "remoteip": "203.0.113.10",
+            },
+            timeout=5,
+        )
+
+    def test_turnstile_verification_rejects_missing_token(self):
+        with (
+            app.test_request_context("/"),
+            patch.object(app_module, "TURNSTILE_ENABLED", True),
+            patch.object(app_module.requests, "post") as post,
+        ):
+            self.assertFalse(app_module.verify_turnstile_token(""))
+
+        post.assert_not_called()
 
     def test_oversized_contact_submission_is_rejected(self):
         response = self.client.post(

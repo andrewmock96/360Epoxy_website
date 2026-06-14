@@ -16,7 +16,7 @@
     <meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='images/logo/logo_for_CRM.webp') }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{ site_url }}{{ url_for('static', filename='images/logo/logo_for_CRM.webp') }}">
-    <script type="application/ld+json">
+    <script type="application/ld+json" nonce="{{ csp_nonce() }}">
     {
         "@context": "https://schema.org",
         "@type": "HomeAndConstructionBusiness",
@@ -43,7 +43,7 @@
             "Concrete restoration"
         ],
         "sameAs": [
-            "https://www.facebook.com/360epoxy",
+            "{{ business_facebook_url }}",
             "https://www.instagram.com/360epoxy"
         ]
     }
@@ -59,7 +59,7 @@
 
         <main class="page-surface">
         <div class="hero-image">
-            <img src="{{ url_for('static', filename='images/jobs/Garage_with_viper.webp') }}" alt="Finished gray epoxy garage floor coating by 360Epoxy" style="width:100%; border-radius:0;">
+            <img src="{{ url_for('static', filename='images/jobs/Garage_with_viper.webp') }}" alt="Finished gray epoxy garage floor coating by 360Epoxy">
         </div>
         </section>
 
@@ -306,9 +306,6 @@
             <span id="zoom-close">&times;</span>
             <img id="zoom-image" src="" alt="Zoomed Image">
         </div>
-
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
         <script src="{{ url_for('static', filename='js/index.js') }}" defer></script>
     </body>

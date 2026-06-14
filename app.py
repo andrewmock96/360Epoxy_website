@@ -1,16 +1,15 @@
-from functools import wraps
 from datetime import datetime, timezone
-from collections import deque
 from pathlib import Path
 import re
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, Response, abort
+from urllib.parse import urlparse
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, Response
 import requests
 import os
 from dotenv import load_dotenv
 from flask_wtf.csrf import CSRFError, CSRFProtect
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from flask_talisman import Talisman
+from flask_talisman import DENY, Talisman
 from flask_caching import Cache
 
 load_dotenv()
@@ -25,13 +24,16 @@ app.secret_key = os.environ.get("FLASK_SECRET_KEY", "dev-only-secret")
 
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 PLACE_ID = os.environ.get("GOOGLE_PLACE_ID")
-FLASK_ENV = os.environ.get("FLASK_ENV", "development")
-ADMIN_API_TOKEN = os.environ.get("ADMIN_API_TOKEN")
+FLASK_ENV = os.environ.get("FLASK_ENV", "production").lower()
+if FLASK_ENV not in {"development", "production"}:
+    raise RuntimeError("FLASK_ENV must be either 'development' or 'production'.")
+IS_PRODUCTION = FLASK_ENV == "production"
 SITE_URL = os.environ.get("SITE_URL", "https://360-epoxy.com").rstrip("/")
 GHL_CONTACT_WEBHOOK_URL = os.environ.get("GHL_CONTACT_WEBHOOK_URL")
+RATELIMIT_STORAGE_URI = os.environ.get("RATELIMIT_STORAGE_URI", "memory://")
 GHL_WEBHOOK_ENABLED = os.environ.get(
     "GHL_WEBHOOK_ENABLED",
-    "true" if FLASK_ENV == "production" else "false",
+    "true" if IS_PRODUCTION else "false",
 ).lower() == "true"
 SMS_CONSENT_DISCLOSURE = (
     "I agree to receive conversational text messages from 360Epoxy about my estimate, "
@@ -50,7 +52,6 @@ PLACEHOLDER_MARKETING_SMS = (
     "360Epoxy: Ready to transform your floor? Ask us about current coating options and "
     "availability. Reply STOP to opt out."
 )
-TEST_CONTACT_SUBMISSIONS = deque(maxlen=20)
 PROJECT_TYPE_OPTIONS = {
     "garage_floor": "Garage Floor",
     "basement_floor": "Basement Floor",
@@ -69,15 +70,26 @@ TIMELINE_OPTIONS = {
 }
 STATE_OPTIONS = {"Utah", "Arizona", "Colorado", "Idaho", "Nevada", "Wyoming", "Other"}
 
-if FLASK_ENV == "production" and app.secret_key == "dev-only-secret":
-    raise RuntimeError("FLASK_SECRET_KEY must be set in production.")
+def require_https_url(name, value):
+    parsed = urlparse(value or "")
+    if parsed.scheme != "https" or not parsed.netloc:
+        raise RuntimeError(f"{name} must be a valid HTTPS URL in production.")
+
+
+if IS_PRODUCTION:
+    if app.secret_key == "dev-only-secret" or len(app.secret_key) < 32:
+        raise RuntimeError("FLASK_SECRET_KEY must be set to at least 32 characters in production.")
+    require_https_url("SITE_URL", SITE_URL)
+    if GHL_WEBHOOK_ENABLED:
+        require_https_url("GHL_CONTACT_WEBHOOK_URL", GHL_CONTACT_WEBHOOK_URL)
 
 # ==============================
 # Security settings
 # ==============================
 app.config["SESSION_COOKIE_HTTPONLY"] = True
-app.config["SESSION_COOKIE_SECURE"] = FLASK_ENV == "production"
+app.config["SESSION_COOKIE_SECURE"] = IS_PRODUCTION
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
+app.config["MAX_CONTENT_LENGTH"] = 64 * 1024
 
 # ==============================
 # Cache
@@ -93,15 +105,31 @@ Talisman(
     app,
     content_security_policy={
         "default-src": ["'self'"],
-        "script-src": ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
-        "style-src": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdn.jsdelivr.net"],
+        "script-src": ["'self'"],
+        "style-src": ["'self'", "https://fonts.googleapis.com"],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
         "img-src": ["'self'", "data:", "https:"],
         "connect-src": ["'self'"],
-        "frame-ancestors": ["'self'"],
+        "frame-ancestors": ["'none'"],
+        "base-uri": ["'self'"],
+        "form-action": ["'self'"],
+        "object-src": ["'none'"],
     },
-    force_https=FLASK_ENV == "production",
-    session_cookie_secure=FLASK_ENV == "production",
+    content_security_policy_nonce_in=["script-src"],
+    frame_options=DENY,
+    force_https=IS_PRODUCTION,
+    permissions_policy={
+        "browsing-topics": "()",
+        "camera": "()",
+        "microphone": "()",
+        "geolocation": "()",
+        "payment": "()",
+        "usb": "()",
+    },
+    session_cookie_secure=IS_PRODUCTION,
+    strict_transport_security=IS_PRODUCTION,
+    strict_transport_security_max_age=31536000,
+    strict_transport_security_include_subdomains=True,
 )
 
 csrf = CSRFProtect(app)
@@ -109,7 +137,8 @@ csrf = CSRFProtect(app)
 limiter = Limiter(
     key_func=get_remote_address,
     app=app,
-    default_limits=["200 per day", "50 per hour"]
+    default_limits=["200 per day", "50 per hour"],
+    storage_uri=RATELIMIT_STORAGE_URI,
 )
 
 # ==============================
@@ -159,21 +188,6 @@ def load_legal_document(filename: str):
     return blocks
 
 
-def admin_required(view):
-    @wraps(view)
-    def wrapped_view(*args, **kwargs):
-        if not ADMIN_API_TOKEN:
-            abort(404)
-
-        token = request.headers.get("X-Admin-Token") or request.args.get("token")
-        if token != ADMIN_API_TOKEN:
-            abort(404)
-
-        return view(*args, **kwargs)
-
-    return wrapped_view
-
-
 def google_get(url, params):
     response = requests.get(url, params=params, timeout=10)
     try:
@@ -217,14 +231,9 @@ def fetch_google_reviews():
             "reviews": result.get("reviews", [])
         }, 200
 
-    except requests.RequestException as exc:
-        app.logger.error("Google request exception: %s", exc)
-        return {
-            "error": "Unable to fetch reviews right now.",
-            "debug": {
-                "exception": str(exc)
-            }
-        }, 502
+    except requests.RequestException:
+        app.logger.exception("Google reviews request failed.")
+        return {"error": "Unable to fetch reviews right now."}, 502
 
 
 # ==============================
@@ -237,20 +246,13 @@ def inject_site_metadata():
         "business_name": "360Epoxy",
         "business_phone": "+13855583495",
         "business_email": "360epoxyaz@gmail.com",
+        "business_facebook_url": "https://www.facebook.com/profile.php?id=61576135785952",
     }
 
 
 @app.route("/")
 def home():
     return render_template("index.html")
-
-
-@app.route("/mobile-preview")
-def mobile_preview():
-    if FLASK_ENV == "production":
-        abort(404)
-
-    return render_template("mobile_preview.html")
 
 
 @app.route("/services")
@@ -370,14 +372,9 @@ def contact():
         }
 
         if not GHL_WEBHOOK_ENABLED:
-            TEST_CONTACT_SUBMISSIONS.appendleft(payload)
-            app.logger.info("Contact form test submission accepted; LeadConnector webhook is disabled.")
-            flash(
-                "Test successful! Your request was validated and saved in the local test inbox, "
-                "but it was not sent to the CRM.",
-                "success",
-            )
-            return redirect(url_for("contact"))
+            app.logger.error("Contact form rejected because the LeadConnector webhook is disabled.")
+            flash("We could not send your request right now. Please call or email us.", "error")
+            return render_template("contact.html", form_data=form_data), 503
 
         if not GHL_CONTACT_WEBHOOK_URL:
             app.logger.error("GHL_CONTACT_WEBHOOK_URL is not configured.")
@@ -417,29 +414,6 @@ def get_reviews():
     return jsonify(data), status_code
 
 
-@app.route("/api/test-contact-submissions")
-@admin_required
-@limiter.limit("20 per minute")
-def test_contact_submissions():
-    if FLASK_ENV == "production":
-        abort(404)
-
-    return jsonify({
-        "webhook_enabled": GHL_WEBHOOK_ENABLED,
-        "submission_count": len(TEST_CONTACT_SUBMISSIONS),
-        "submissions": list(TEST_CONTACT_SUBMISSIONS),
-    }), 200
-
-
-@app.route("/api/clear-reviews-cache", methods=["POST"])
-@csrf.exempt
-@admin_required
-@limiter.limit("5 per minute")
-def clear_reviews_cache():
-    cache.clear()
-    return jsonify({"message": "Reviews cache cleared."}), 200
-
-
 @app.errorhandler(429)
 def ratelimit_handler(e):
     return jsonify({"error": "Too many requests. Please try again later."}), 429
@@ -460,121 +434,26 @@ def not_found_handler(e):
     return "Not found.", 404
 
 
-@app.route("/api/place-diagnostics")
-@admin_required
-@limiter.limit("10 per minute")
-def place_diagnostics():
-    query = clean_field(request.args.get("q"), 120) or "360 Epoxy Salt Lake City"
-    phone_query = "+13855583495"
-
-    if not GOOGLE_API_KEY:
-        return jsonify({
-            "error": "GOOGLE_API_KEY is not configured.",
-            "checks": {
-                "google_api_key_set": False,
-                "google_place_id_set": bool(PLACE_ID),
-            }
-        }), 500
-
-    diagnostics = {
-        "checks": {
-            "google_api_key_set": True,
-            "google_place_id_set": bool(PLACE_ID),
-            "site_url": SITE_URL,
-        },
-        "stored_place_id_check": None,
-        "find_place_results": [],
-        "notes": [
-            "If stored_place_id_check.status is NOT_FOUND, the saved Place ID is probably obsolete.",
-            "If responses show REQUEST_DENIED, check Google Cloud billing, Places API enablement, and API key restrictions.",
-            "If searches do not return 360Epoxy, verify the Google Business Profile name, service area, category, and phone number."
-        ]
-    }
-
-    details_url = "https://maps.googleapis.com/maps/api/place/details/json"
-    find_url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
-
-    try:
-        if PLACE_ID:
-            status_code, data = google_get(details_url, {
-                "place_id": PLACE_ID,
-                "fields": "place_id,name,business_status,rating,user_ratings_total,formatted_address",
-                "key": GOOGLE_API_KEY,
-            })
-            diagnostics["stored_place_id_check"] = {
-                "google_http_status": status_code,
-                "status": data.get("status"),
-                "error_message": data.get("error_message"),
-                "result": data.get("result"),
-            }
-
-        for search_query in (query, phone_query):
-            status_code, data = google_get(find_url, {
-                "input": search_query,
-                "inputtype": "textquery",
-                "fields": "place_id,name,formatted_address,business_status,rating,user_ratings_total",
-                "locationbias": "circle:50000@40.2349254,-111.740896",
-                "key": GOOGLE_API_KEY,
-            })
-            diagnostics["find_place_results"].append({
-                "query_used": search_query,
-                "google_http_status": status_code,
-                "status": data.get("status"),
-                "error_message": data.get("error_message"),
-                "candidates": data.get("candidates", []),
-            })
-
-        return jsonify(diagnostics), 200
-
-    except requests.RequestException as exc:
-        app.logger.error("Google diagnostics request failed: %s", exc)
-        return jsonify({
-            "error": "Google diagnostics request failed.",
-            "details": str(exc)
-        }), 502
+@app.errorhandler(413)
+def request_too_large_handler(e):
+    if request.path == "/contact":
+        flash("Your submission was too large. Please shorten the project details and try again.", "error")
+        return redirect(url_for("contact"))
+    return "Request too large.", 413
 
 
-@app.route("/api/find-place")
-@admin_required
-@limiter.limit("10 per minute")
-def find_place():
-    query = request.args.get("q", "360 Epoxy Salt Lake City").strip()
+@app.errorhandler(500)
+def internal_server_error_handler(e):
+    if request.path.startswith("/api/"):
+        return jsonify({"error": "Internal server error."}), 500
+    return "Internal server error.", 500
 
-    url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
-    params = {
-        "input": query,
-        "inputtype": "textquery",
-        "fields": "place_id,name,formatted_address,business_status,rating,user_ratings_total",
-        "key": GOOGLE_API_KEY,
-    }
 
-    try:
-        response = requests.get(url, params=params, timeout=10)
-        return jsonify({
-            "query_used": query,
-            "google_response": response.json()
-        }), response.status_code
-    except requests.RequestException as exc:
-        return jsonify({
-            "error": "Request failed",
-            "details": str(exc)
-        }), 502
-    
-@app.route("/api/nearby-place")
-@admin_required
-@limiter.limit("10 per minute")
-def nearby_place():
-    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
-    params = {
-        "location": "40.2349254,-111.740896",
-        "radius": 50000,
-        "keyword": "epoxy",
-        "key": GOOGLE_API_KEY,
-    }
-
-    response = requests.get(url, params=params, timeout=10)
-    return jsonify(response.json()), response.status_code
+@app.after_request
+def add_security_headers(response):
+    response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
+    return response
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port, debug=False)

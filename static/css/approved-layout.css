@@ -94,7 +94,7 @@ body .footer-socials .social-icon img{
 body footer{
   position: relative;
   background: #191919;
-  border-image: linear-gradient(90deg, #FF9800, #FFC107) 1;
+  border-image: none;
   padding-bottom: calc(22px + env(safe-area-inset-bottom));
 }
 
@@ -105,7 +105,7 @@ body footer::after{
   bottom: 0;
   left: 0;
   height: 1px;
-  background: linear-gradient(90deg, rgba(255, 152, 0, 0.25), rgba(255, 193, 7, 0.25));
+  background: rgba(255, 193, 7, 0.25);
 }
 
 body .footer-column a{

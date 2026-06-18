@@ -539,7 +539,7 @@ header{
 footer{
   padding: 46px clamp(22px, 4vw, 64px) 22px;
   background: #191919;
-  border-top: 3px solid;
+  border-top: 1px solid;
   border-image: linear-gradient(90deg, #55a8cf, #FFC107) 1;
   color: #fff;
   text-align: left;

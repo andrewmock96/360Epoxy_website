@@ -9,9 +9,9 @@ By accessing and using this website, you confirm that you have read, understood,
 2. SMS Messaging Program Description
 360Epoxy operates an SMS (Short Message Service) text messaging program to communicate with customers and prospective customers who have explicitly opted in through our website forms. Our messaging program name is "360Epoxy Alerts" and is operated by 360Epoxy, located in Utah, United States.
 
-Our SMS program consists of two distinct messaging categories, each requiring separate opt-in consent:
+Our SMS program may include both project-related and promotional messaging after you explicitly opt in through the SMS consent checkbox on our website form:
 
-Transactional SMS Messages (separate opt-in required):
+Project-Related SMS Messages:
 
 Service-related messages tied directly to your project inquiry and account activity, including:
 
@@ -21,7 +21,7 @@ Scheduling updates, changes, and cancellations
 Project status notifications and milestone updates
 Service completion confirmations
 Account and billing notifications
-Marketing & Promotional SMS Messages (separate opt-in required):
+Marketing & Promotional SMS Messages:
 
 Promotional messages about our products, services, and offers, including:
 
@@ -30,7 +30,7 @@ Special discounts and exclusive deals
 New service announcements and service area expansions
 Company news, tips, and updates
 Referral program information
-Each category of SMS messaging requires its own explicit opt-in via a separate, unchecked checkbox on our website form. Neither checkbox is pre-selected. Opting in to either or both categories is entirely voluntary and is not a condition of purchasing any goods or services from 360Epoxy.
+SMS messaging requires explicit opt-in via an unchecked checkbox on our website form. The checkbox is not pre-selected. Opting in is entirely voluntary and is not a condition of purchasing any goods or services from 360Epoxy.
 
 3. How to Opt Out of SMS Messages
 You may opt out of receiving SMS text messages from 360Epoxy at any time using any of the following methods:
@@ -50,7 +50,7 @@ Opt Out by Phone: Call 385-558-3495 during business hours and request to be remo
 
 Opt Out by Email: Send an email to 360epoxyaz@gmail.com with the subject line "UNSUBSCRIBE SMS" and include the phone number you wish to remove.
 
-If you wish to re-enroll in our SMS program after opting out, you may do so by submitting a new form on our website and checking the appropriate consent checkboxes.
+If you wish to re-enroll in our SMS program after opting out, you may do so by submitting a new form on our website and checking the SMS consent checkbox.
 
 4. Support & Help
 If you need assistance with our SMS messaging program, have questions about these Terms, or need help with any aspect of our services, you can reach our support team through the following channels:

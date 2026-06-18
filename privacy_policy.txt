@@ -16,25 +16,25 @@ We do not collect sensitive personal information such as Social Security numbers
 We use the personal information we collect strictly for the following business purposes:
 
 Providing Estimates: To prepare and deliver a free project estimate based on the details you provide
-Communication: To contact you by phone call, email, or SMS regarding your project inquiry, estimate, or appointment
+Communication: To contact you by phone call, email, or SMS regarding your project inquiry, estimate, appointment, or related promotional offers
 Appointment Scheduling: To schedule, confirm, and send reminders for on-site evaluations and project appointments
 Transactional SMS: If you opt in, to send transactional text messages including appointment reminders, project status updates, estimate follow-ups, and scheduling confirmations
-Marketing SMS: If you separately opt in, to send promotional text messages including special offers, seasonal discounts, new service announcements, and company updates
+Marketing SMS: If you opt in to SMS messaging, to send promotional text messages including special offers, seasonal discounts, new service announcements, and company updates
 Customer Service: To respond to your questions, requests, and feedback
 Service Improvement: To analyze how visitors use our website so we can improve our services and user experience
 We will never use your personal information for purposes other than those listed above without obtaining your explicit consent first.
 
 3. SMS Opt-In & Messaging Details
-By checking the SMS consent checkboxes on our website form, you expressly consent to receive text messages from 360Epoxy at the mobile phone number you provide. We maintain two separate categories of SMS messaging, each requiring its own explicit consent:
+By checking the SMS consent checkbox on our website form, you expressly consent to receive text messages from 360Epoxy at the mobile phone number you provide. This opt-in may include project-related and promotional SMS messages from 360Epoxy:
 
-Transactional Messages (requires separate opt-in):
+Project-Related Messages:
 
 Appointment confirmations and reminders
 Project estimate follow-ups
 Scheduling updates and changes
 Project status notifications
 Service completion confirmations
-Marketing & Promotional Messages (requires separate opt-in):
+Marketing & Promotional Messages:
 
 Seasonal promotions and special offers
 New service announcements
@@ -77,7 +77,7 @@ You have the following rights regarding your personal information held by 360Epo
 Right to Access: You may request a copy of the personal information we hold about you at any time.
 Right to Correction: You may request that we update or correct any inaccurate or incomplete information in our records.
 Right to Deletion: You may request that we permanently delete your personal information from our systems and records.
-Right to Opt Out of SMS: Reply STOP to any text message to immediately stop receiving SMS communications. This applies separately to transactional and marketing messages.
+Right to Opt Out of SMS: Reply STOP to any text message to immediately stop receiving SMS communications.
 Right to Opt Out of Email: Click the "Unsubscribe" link at the bottom of any marketing email to stop receiving promotional emails from us.
 Right to Withdraw Consent: You may withdraw your consent for any data processing activities at any time. Withdrawal of consent does not affect the lawfulness of processing performed before the withdrawal.
 Right to Data Portability: You may request your personal data in a commonly used, machine-readable format.

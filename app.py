@@ -39,13 +39,12 @@ GHL_WEBHOOK_ENABLED = os.environ.get(
     "true" if IS_PRODUCTION else "false",
 ).lower() == "true"
 SMS_CONSENT_DISCLOSURE = (
-    "I agree to receive conversational text messages from 360Epoxy about my estimate, "
-    "appointments, and project. Message frequency varies. Message and data rates may apply. "
-    "Reply STOP to opt out or HELP for help."
+    "By providing your phone number, you consent to receive text messages from 360Epoxy "
+    "regarding your project, appointments, and promotions. Message frequency varies. "
+    "Message and data rates may apply. Reply STOP to unsubscribe or HELP for help."
 )
 MARKETING_SMS_CONSENT_DISCLOSURE = (
-    "I agree to receive occasional promotional text messages from 360Epoxy. Message frequency "
-    "varies. Message and data rates may apply. Reply STOP to opt out or HELP for help."
+    SMS_CONSENT_DISCLOSURE
 )
 PLACEHOLDER_CONVERSATIONAL_SMS = (
     "Hi {{contact.first_name}}, this is 360Epoxy. Thanks for requesting a free estimate. "
@@ -324,6 +323,7 @@ def contact():
     form_data = {}
 
     if request.method == "POST":
+        sms_consent = request.form.get("sms_consent") == "yes"
         form_data = {
             "first_name": clean_field(request.form.get("first_name"), 50),
             "last_name": clean_field(request.form.get("last_name"), 50),
@@ -338,8 +338,8 @@ def contact():
             "zip_code": clean_field(request.form.get("zip_code"), 10),
             "additional_details": clean_field(request.form.get("additional_details"), 2000),
             "minimum_project_acknowledged": request.form.get("minimum_project_acknowledged") == "yes",
-            "sms_consent": request.form.get("sms_consent") == "yes",
-            "marketing_sms_consent": request.form.get("marketing_sms_consent") == "yes",
+            "sms_consent": sms_consent,
+            "marketing_sms_consent": sms_consent,
         }
 
         if not all(

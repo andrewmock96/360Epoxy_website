@@ -103,6 +103,46 @@ class SecurityTests(unittest.TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertTrue(response.headers["Location"].endswith("/contact"))
 
+    def test_single_sms_checkbox_opts_into_project_and_marketing_payload_fields(self):
+        webhook_response = Mock()
+        webhook_response.raise_for_status.return_value = None
+
+        form_data = {
+            "first_name": "Alex",
+            "last_name": "Customer",
+            "email": "alex@example.com",
+            "phone": "(385)-555-1234",
+            "project_type": "garage_floor",
+            "square_feet": "500",
+            "desired_timeline": "within_1_month",
+            "street_address": "123 Main St",
+            "city": "Salt Lake City",
+            "state": "Utah",
+            "zip_code": "84101",
+            "additional_details": "Looking for a garage floor estimate.",
+            "sms_consent": "yes",
+            "minimum_project_acknowledged": "yes",
+        }
+
+        with (
+            patch.object(app_module, "GHL_WEBHOOK_ENABLED", True),
+            patch.object(app_module, "GHL_CONTACT_WEBHOOK_URL", "https://example.com/webhook"),
+            patch.object(app_module.requests, "post", return_value=webhook_response) as post,
+        ):
+            response = self.client.post(
+                "/contact",
+                data=form_data,
+                headers=self.https_headers,
+                follow_redirects=False,
+            )
+
+        self.assertEqual(response.status_code, 302)
+        payload = post.call_args.kwargs["json"]
+        self.assertTrue(payload["sms_consent"])
+        self.assertTrue(payload["marketing_sms_consent"])
+        self.assertEqual(payload["sms_consent_status"], "opted_in")
+        self.assertEqual(payload["marketing_sms_consent_status"], "opted_in")
+
 
 if __name__ == "__main__":
     unittest.main()

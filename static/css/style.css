@@ -1801,7 +1801,8 @@ section.gallery .project-card h3{
 }
 
 .minimum-acknowledgement{
-  margin: 0;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .is-hidden{
@@ -1892,7 +1893,7 @@ section.gallery .project-card h3{
   font-size: 0.76rem;
   line-height: 1.5;
   color: #ddd;
-  text-align: left;
+  text-align: center;
 }
 
 @media (min-width: 521px) and (max-width: 850px){

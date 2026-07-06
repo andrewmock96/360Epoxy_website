@@ -10,6 +10,8 @@ app = app_module.app
 class SecurityTests(unittest.TestCase):
     def setUp(self):
         app.config["TESTING"] = True
+        app.config["WTF_CSRF_ENABLED"] = False
+        app_module.TURNSTILE_ENABLED = False
         self.client = app.test_client()
         self.https_headers = {"X-Forwarded-Proto": "https"}
 

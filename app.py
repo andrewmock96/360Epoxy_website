@@ -71,6 +71,14 @@ TIMELINE_OPTIONS = {
     "exploring_options": "Just Exploring Options",
 }
 STATE_OPTIONS = {"Utah", "Arizona", "Colorado", "Idaho", "Nevada", "Wyoming", "Other"}
+MARKETING_PAGES = (
+    ("home", "/"),
+    ("services", "/services"),
+    ("gallery", "/gallery"),
+    ("contact", "/contact"),
+    ("privacy", "/privacy"),
+    ("terms", "/terms"),
+)
 
 def require_https_url(name, value):
     parsed = urlparse(value or "")
@@ -272,6 +280,34 @@ def fetch_google_reviews():
         return {"error": "Unable to fetch reviews right now."}, 502
 
 
+def build_robots_txt() -> str:
+    return "\n".join(
+        (
+            "User-agent: *",
+            "Allow: /",
+            "",
+            "User-agent: Googlebot",
+            "Allow: /",
+            "",
+            f"Sitemap: {SITE_URL}/sitemap.xml",
+            "",
+        )
+    )
+
+
+def build_sitemap_xml() -> str:
+    urls = "\n".join(
+        f"  <url><loc>{SITE_URL}{path}</loc></url>"
+        for _, path in MARKETING_PAGES
+    )
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{urls}\n"
+        "</urlset>\n"
+    )
+
+
 # ==============================
 # Routes
 # ==============================
@@ -305,17 +341,13 @@ def gallery():
 @app.route('/robots.txt')
 @limiter.exempt
 def robots():
-    with open('static/robots.txt', 'r', encoding='utf-8') as f:
-        text = f.read()
-    return Response(text, mimetype='text/plain')
+    return Response(build_robots_txt(), mimetype='text/plain')
 
 
 @app.route('/sitemap.xml')
 @limiter.exempt
 def sitemap():
-    with open('static/sitemap.xml', 'r', encoding='utf-8') as f:
-        xml = f.read()
-    return Response(xml, mimetype='application/xml')
+    return Response(build_sitemap_xml(), mimetype='application/xml')
 
 @app.route("/contact", methods=["GET", "POST"])
 @limiter.limit("5 per minute", methods=["POST"])

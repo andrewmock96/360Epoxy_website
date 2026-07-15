@@ -39,12 +39,14 @@ GHL_WEBHOOK_ENABLED = os.environ.get(
     "true" if IS_PRODUCTION else "false",
 ).lower() == "true"
 SMS_CONSENT_DISCLOSURE = (
-    "By providing your phone number, you consent to receive text messages from 360Epoxy "
-    "regarding your project, appointments, and promotions. Message frequency varies. "
-    "Message and data rates may apply. Reply STOP to unsubscribe or HELP for help."
+    "By checking this box, I consent to receive appointment reminders and project updates "
+    "from 360 Epoxy LLC via SMS. Message and data rates may apply. Reply STOP to "
+    "unsubscribe. Consent is not a condition of purchase."
 )
 MARKETING_SMS_CONSENT_DISCLOSURE = (
-    SMS_CONSENT_DISCLOSURE
+    "By checking this box, I consent to receive promotional offers and deals from 360 "
+    "Epoxy LLC via SMS. Message and data rates may apply. Reply STOP to unsubscribe. "
+    "Consent is not a condition of purchase."
 )
 PLACEHOLDER_CONVERSATIONAL_SMS = (
     "Hi {{contact.first_name}}, this is 360Epoxy. Thanks for requesting a free estimate. "
@@ -355,7 +357,6 @@ def contact():
     form_data = {}
 
     if request.method == "POST":
-        sms_consent = request.form.get("sms_consent") == "yes"
         form_data = {
             "first_name": clean_field(request.form.get("first_name"), 50),
             "last_name": clean_field(request.form.get("last_name"), 50),
@@ -370,8 +371,8 @@ def contact():
             "zip_code": clean_field(request.form.get("zip_code"), 10),
             "additional_details": clean_field(request.form.get("additional_details"), 2000),
             "minimum_project_acknowledged": request.form.get("minimum_project_acknowledged") == "yes",
-            "sms_consent": sms_consent,
-            "marketing_sms_consent": sms_consent,
+            "sms_consent": request.form.get("sms_consent") == "yes",
+            "marketing_sms_consent": request.form.get("marketing_sms_consent") == "yes",
         }
 
         if not all(
@@ -434,7 +435,7 @@ def contact():
             "ip_address": request.remote_addr if has_sms_consent else None,
             "user_agent": request.user_agent.string if has_sms_consent else None,
             "ip_address_collected_for_consent_evidence": has_sms_consent,
-            "consent_disclosure_version": "2026-06-11",
+            "consent_disclosure_version": "2026-07-15",
             "sms_consent_disclosure": SMS_CONSENT_DISCLOSURE,
             "marketing_sms_consent_disclosure": MARKETING_SMS_CONSENT_DISCLOSURE,
             "consent_is_not_condition_of_purchase": True,

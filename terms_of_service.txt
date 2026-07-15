@@ -9,7 +9,7 @@ By accessing and using this website, you confirm that you have read, understood,
 2. SMS Messaging Program Description
 360Epoxy operates an SMS (Short Message Service) text messaging program to communicate with customers and prospective customers who have explicitly opted in through our website forms. Our messaging program name is "360Epoxy Alerts" and is operated by 360Epoxy, located in Utah, United States.
 
-Our SMS program may include both project-related and promotional messaging after you explicitly opt in through the SMS consent checkbox on our website form:
+Our SMS program includes separate opt-in choices for project-related and promotional messaging on our website form:
 
 Project-Related SMS Messages:
 
@@ -30,7 +30,7 @@ Special discounts and exclusive deals
 New service announcements and service area expansions
 Company news, tips, and updates
 Referral program information
-SMS messaging requires explicit opt-in via an unchecked checkbox on our website form. The checkbox is not pre-selected. Opting in is entirely voluntary and is not a condition of purchasing any goods or services from 360Epoxy.
+SMS messaging requires explicit opt-in through two separate checkboxes on our website form: one for transactional messages and one for marketing messages. Both checkboxes are unchecked by default. You may select either, both, or neither. Opting in is entirely voluntary and is not a condition of purchasing any goods or services from 360Epoxy.
 
 3. How to Opt Out of SMS Messages
 You may opt out of receiving SMS text messages from 360Epoxy at any time using any of the following methods:
@@ -50,7 +50,7 @@ Opt Out by Phone: Call 385-558-3495 during business hours and request to be remo
 
 Opt Out by Email: Send an email to 360epoxyaz@gmail.com with the subject line "UNSUBSCRIBE SMS" and include the phone number you wish to remove.
 
-If you wish to re-enroll in our SMS program after opting out, you may do so by submitting a new form on our website and checking the SMS consent checkbox.
+If you wish to re-enroll in our SMS program after opting out, you may do so by submitting a new form on our website and checking the applicable SMS consent checkbox or checkboxes.
 
 4. Support & Help
 If you need assistance with our SMS messaging program, have questions about these Terms, or need help with any aspect of our services, you can reach our support team through the following channels:

@@ -25,7 +25,7 @@ Service Improvement: To analyze how visitors use our website so we can improve o
 We will never use your personal information for purposes other than those listed above without obtaining your explicit consent first.
 
 3. SMS Opt-In & Messaging Details
-By checking the SMS consent checkbox on our website form, you expressly consent to receive text messages from 360Epoxy at the mobile phone number you provide. This opt-in may include project-related and promotional SMS messages from 360Epoxy:
+Our website form provides two separate, optional SMS consent checkboxes: one for transactional appointment reminders and project updates, and one for marketing offers and deals. Both checkboxes are unchecked by default, and you may select either, both, or neither.
 
 Project-Related Messages:
 

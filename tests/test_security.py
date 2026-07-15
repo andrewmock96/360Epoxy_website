@@ -105,7 +105,16 @@ class SecurityTests(unittest.TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertTrue(response.headers["Location"].endswith("/contact"))
 
-    def test_single_sms_checkbox_opts_into_project_and_marketing_payload_fields(self):
+    def test_sms_checkboxes_are_separate_and_unchecked_by_default(self):
+        response = self.client.get("/contact", headers=self.https_headers)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'name="sms_consent" value="yes"', response.data)
+        self.assertIn(b'name="marketing_sms_consent" value="yes"', response.data)
+        self.assertNotIn(b'name="sms_consent" value="yes" checked', response.data)
+        self.assertNotIn(b'name="marketing_sms_consent" value="yes" checked', response.data)
+
+    def test_transactional_sms_checkbox_does_not_opt_into_marketing(self):
         webhook_response = Mock()
         webhook_response.raise_for_status.return_value = None
 
@@ -141,9 +150,11 @@ class SecurityTests(unittest.TestCase):
         self.assertEqual(response.status_code, 302)
         payload = post.call_args.kwargs["json"]
         self.assertTrue(payload["sms_consent"])
-        self.assertTrue(payload["marketing_sms_consent"])
+        self.assertFalse(payload["marketing_sms_consent"])
         self.assertEqual(payload["sms_consent_status"], "opted_in")
-        self.assertEqual(payload["marketing_sms_consent_status"], "opted_in")
+        self.assertEqual(payload["marketing_sms_consent_status"], "not_opted_in")
+        self.assertIsNotNone(payload["sms_consent_timestamp_utc"])
+        self.assertIsNone(payload["marketing_sms_consent_timestamp_utc"])
 
 
 if __name__ == "__main__":

@@ -33,7 +33,9 @@ GHL_CONTACT_WEBHOOK_URL = os.environ.get("GHL_CONTACT_WEBHOOK_URL")
 RATELIMIT_STORAGE_URI = os.environ.get("RATELIMIT_STORAGE_URI", "memory://")
 TURNSTILE_SITE_KEY = os.environ.get("TURNSTILE_SITE_KEY")
 TURNSTILE_SECRET_KEY = os.environ.get("TURNSTILE_SECRET_KEY")
-TURNSTILE_ENABLED = os.environ.get("TURNSTILE_ENABLED", "false").lower() == "true"
+# Temporarily disabled so A2P reviewers can access the contact form without a
+# Cloudflare challenge. Restore the environment-backed flag after approval.
+TURNSTILE_ENABLED = False
 GHL_WEBHOOK_ENABLED = os.environ.get(
     "GHL_WEBHOOK_ENABLED",
     "true" if IS_PRODUCTION else "false",

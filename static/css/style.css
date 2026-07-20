@@ -1778,31 +1778,18 @@ section.gallery .project-card h3{
   color: #ddd;
 }
 
-.minimum-project-notice{
-  padding: 14px 16px;
-  border: 1px solid rgba(255,193,7,0.55);
-  border-radius: 15px;
-  background: rgba(0,0,0,0.35);
-  text-align: left;
-}
-
-.minimum-project-notice > strong{
-  display: block;
-  color: #FFC107;
-  font-size: 1.15rem;
-  text-align: center;
-}
-
-.minimum-project-notice > p{
-  margin: 5px 0 10px;
-  color: #eee;
+.business-identity{
+  margin: -10px 0 6px;
+  color: #ddd;
   font-size: 0.9rem;
   text-align: center;
 }
 
-.minimum-acknowledgement{
-  width: fit-content;
-  margin: 0 auto;
+.sms-opt-in-heading{
+  margin: 8px 0 -2px;
+  color: #FFC107;
+  font-size: 1.25rem;
+  text-align: center;
 }
 
 .is-hidden{

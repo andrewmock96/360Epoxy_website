@@ -29,6 +29,7 @@
         <section class="hero-contact">
             <form method="post" action="/contact">
                 <h1>Get Your Free Estimate</h1>
+                <p class="business-identity">360 Epoxy LLC doing business as 360Epoxy</p>
                 <!-- <p class="contact-intro">Tell us about your floor project and our local team will follow up.</p> -->
 
                 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -139,26 +140,19 @@
                 <label class="field-label" for="additional_details">Additional Project Details <span class="optional-label">(optional)</span></label>
                 <textarea id="additional_details" name="additional_details" rows="3" placeholder="Condition of floor, color preferences, or anything else we should know.">{{ form_data.get('additional_details', '') }}</textarea>
 
+                <h2 class="sms-opt-in-heading">SMS Opt-In</h2>
+
                 <label class="consent-option">
                     <input type="checkbox" name="sms_consent" value="yes" {% if form_data.get('sms_consent') %}checked{% endif %}>
-                    <span>By checking this box, I consent to receive appointment reminders and project updates from 360 Epoxy LLC via SMS. Message and data rates may apply. Reply STOP to unsubscribe. Consent is not a condition of purchase.</span>
+                    <span>By checking this box, I consent to receive appointment reminders and project updates via SMS from 360 Epoxy LLC, doing business as 360Epoxy. Message and data rates may apply. Reply STOP to unsubscribe. Consent is not a condition of purchase.</span>
                 </label>
 
                 <label class="consent-option">
                     <input type="checkbox" name="marketing_sms_consent" value="yes" {% if form_data.get('marketing_sms_consent') %}checked{% endif %}>
-                    <span>By checking this box, I consent to receive promotional offers and deals from 360 Epoxy LLC via SMS. Message and data rates may apply. Reply STOP to unsubscribe. Consent is not a condition of purchase.</span>
+                    <span>By checking this box, I consent to receive promotional offers and deals via SMS from 360 Epoxy LLC, doing business as 360Epoxy. Message and data rates may apply. Reply STOP to unsubscribe. Consent is not a condition of purchase.</span>
                 </label>
 
                 <p class="consent-note">Both SMS options are optional. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
-
-                <div class="minimum-project-notice">
-                    <strong>$1,999 Minimum Project Investment</strong>
-                    <p>Our professional flooring systems include premium materials and thorough surface preparation.</p>
-                    <label class="consent-option minimum-acknowledgement">
-                        <input type="checkbox" name="minimum_project_acknowledged" value="yes" {% if form_data.get('minimum_project_acknowledged') %}checked{% endif %} required>
-                        <span>I understand the minimum project investment is $1,999 and I am ready to move forward with my free estimate.</span>
-                    </label>
-                </div>
                 {% if turnstile_enabled %}
                     <div class="turnstile-container">
                         <div class="cf-turnstile" data-sitekey="{{ turnstile_site_key }}" data-action="contact" data-theme="dark"></div>

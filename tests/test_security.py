@@ -111,6 +111,9 @@ class SecurityTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'name="sms_consent" value="yes"', response.data)
         self.assertIn(b'name="marketing_sms_consent" value="yes"', response.data)
+        self.assertIn(b">SMS Opt-In</h2>", response.data)
+        self.assertIn(b"360 Epoxy LLC doing business as 360Epoxy", response.data)
+        self.assertNotIn(b'name="minimum_project_acknowledged"', response.data)
         self.assertNotIn(b'name="sms_consent" value="yes" checked', response.data)
         self.assertNotIn(b'name="marketing_sms_consent" value="yes" checked', response.data)
 
@@ -132,7 +135,6 @@ class SecurityTests(unittest.TestCase):
             "zip_code": "84101",
             "additional_details": "Looking for a garage floor estimate.",
             "sms_consent": "yes",
-            "minimum_project_acknowledged": "yes",
         }
 
         with (

@@ -42,12 +42,12 @@ GHL_WEBHOOK_ENABLED = os.environ.get(
 ).lower() == "true"
 SMS_CONSENT_DISCLOSURE = (
     "By checking this box, I consent to receive appointment reminders and project updates "
-    "from 360 Epoxy LLC via SMS. Message and data rates may apply. Reply STOP to "
+    "via SMS from 360 Epoxy LLC, doing business as 360Epoxy. Message and data rates may apply. Reply STOP to "
     "unsubscribe. Consent is not a condition of purchase."
 )
 MARKETING_SMS_CONSENT_DISCLOSURE = (
-    "By checking this box, I consent to receive promotional offers and deals from 360 "
-    "Epoxy LLC via SMS. Message and data rates may apply. Reply STOP to unsubscribe. "
+    "By checking this box, I consent to receive promotional offers and deals via SMS from "
+    "360 Epoxy LLC, doing business as 360Epoxy. Message and data rates may apply. Reply STOP to unsubscribe. "
     "Consent is not a condition of purchase."
 )
 PLACEHOLDER_CONVERSATIONAL_SMS = (
@@ -372,7 +372,6 @@ def contact():
             "state": clean_field(request.form.get("state"), 50),
             "zip_code": clean_field(request.form.get("zip_code"), 10),
             "additional_details": clean_field(request.form.get("additional_details"), 2000),
-            "minimum_project_acknowledged": request.form.get("minimum_project_acknowledged") == "yes",
             "sms_consent": request.form.get("sms_consent") == "yes",
             "marketing_sms_consent": request.form.get("marketing_sms_consent") == "yes",
         }
@@ -405,10 +404,6 @@ def contact():
 
         if not re.match(r"^\d{5}(?:-\d{4})?$", form_data["zip_code"]):
             flash("Please enter a valid ZIP code.", "error")
-            return render_template("contact.html", form_data=form_data), 400
-
-        if not form_data["minimum_project_acknowledged"]:
-            flash("Please acknowledge the $1,999 minimum project investment.", "error")
             return render_template("contact.html", form_data=form_data), 400
 
         if not is_valid_email(form_data["email"]):

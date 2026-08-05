@@ -378,15 +378,12 @@ def contact():
 
         if not all(
             form_data[field]
-            for field in (
-                "first_name", "last_name", "email", "phone", "project_type",
-                "square_feet", "street_address", "city", "state", "zip_code",
-            )
+            for field in ("first_name", "last_name", "phone")
         ):
             flash("Please fill out all required fields.", "error")
             return render_template("contact.html", form_data=form_data), 400
 
-        if form_data["project_type"] not in PROJECT_TYPE_OPTIONS:
+        if form_data["project_type"] and form_data["project_type"] not in PROJECT_TYPE_OPTIONS:
             flash("Please select your project type.", "error")
             return render_template("contact.html", form_data=form_data), 400
 
@@ -394,19 +391,21 @@ def contact():
             flash("Please select a valid project timeline.", "error")
             return render_template("contact.html", form_data=form_data), 400
 
-        if form_data["state"] not in STATE_OPTIONS:
+        if form_data["state"] and form_data["state"] not in STATE_OPTIONS:
             flash("Please select a valid state.", "error")
             return render_template("contact.html", form_data=form_data), 400
 
-        if not form_data["square_feet"].isdigit() or int(form_data["square_feet"]) < 1:
+        if form_data["square_feet"] and (
+            not form_data["square_feet"].isdigit() or int(form_data["square_feet"]) < 1
+        ):
             flash("Please enter a valid approximate square footage.", "error")
             return render_template("contact.html", form_data=form_data), 400
 
-        if not re.match(r"^\d{5}(?:-\d{4})?$", form_data["zip_code"]):
+        if form_data["zip_code"] and not re.match(r"^\d{5}(?:-\d{4})?$", form_data["zip_code"]):
             flash("Please enter a valid ZIP code.", "error")
             return render_template("contact.html", form_data=form_data), 400
 
-        if not is_valid_email(form_data["email"]):
+        if form_data["email"] and not is_valid_email(form_data["email"]):
             flash("Please enter a valid email address.", "error")
             return render_template("contact.html", form_data=form_data), 400
 
@@ -424,7 +423,7 @@ def contact():
             **form_data,
             "name": f"{form_data['first_name']} {form_data['last_name']}",
             "message": form_data["additional_details"],
-            "project_type_label": PROJECT_TYPE_OPTIONS[form_data["project_type"]],
+            "project_type_label": PROJECT_TYPE_OPTIONS.get(form_data["project_type"], ""),
             "desired_timeline_label": TIMELINE_OPTIONS.get(form_data["desired_timeline"], ""),
             "source": "360Epoxy website contact form",
             "source_url": request.url,

@@ -57,8 +57,8 @@
 
                 <div class="contact-name-fields">
                     <div class="contact-field">
-                        <label class="field-label" for="email">Email <span class="required-marker" aria-hidden="true">*</span></label>
-                        <input id="email" type="email" name="email" value="{{ form_data.get('email', '') }}" autocomplete="email" required>
+                        <label class="field-label" for="email">Email <span class="optional-label">(optional)</span></label>
+                        <input id="email" type="email" name="email" value="{{ form_data.get('email', '') }}" autocomplete="email">
                     </div>
                     <div class="contact-field">
                         <label class="field-label" for="phone">Phone <span class="required-marker" aria-hidden="true">*</span></label>
@@ -84,8 +84,8 @@
                     <input id="lead_source_other" type="text" name="lead_source_other" value="{{ form_data.get('lead_source_other', '') }}" maxlength="120">
                 </div> -->
 
-                <label class="field-label" for="project_type">Project Type <span class="required-marker" aria-hidden="true">*</span></label>
-                <select id="project_type" name="project_type" required>
+                <label class="field-label" for="project_type">Project Type <span class="optional-label">(optional)</span></label>
+                <select id="project_type" name="project_type">
                     <option value="" {% if not form_data.get('project_type') %}selected{% endif %} disabled>Select your project type...</option>
                     <option value="garage_floor" {% if form_data.get('project_type') == 'garage_floor' %}selected{% endif %}>Garage Floor</option>
                     <option value="basement_floor" {% if form_data.get('project_type') == 'basement_floor' %}selected{% endif %}>Basement Floor</option>
@@ -97,8 +97,8 @@
 
                 <div class="contact-name-fields">
                     <div class="contact-field">
-                        <label class="field-label" for="square_feet">Approximate Sq. Ft. <span class="required-marker" aria-hidden="true">*</span></label>
-                        <input id="square_feet" type="number" name="square_feet" value="{{ form_data.get('square_feet', '') }}" min="50" step="50" inputmode="numeric" placeholder="e.g. 500" required>
+                        <label class="field-label" for="square_feet">Approximate Sq. Ft. <span class="optional-label">(optional)</span></label>
+                        <input id="square_feet" type="number" name="square_feet" value="{{ form_data.get('square_feet', '') }}" min="50" step="50" inputmode="numeric" placeholder="e.g. 500">
                     </div>
                     <div class="contact-field">
                         <label class="field-label" for="desired_timeline">Desired Timeline</label>
@@ -116,16 +116,16 @@
 
                 <div class="contact-address-fields">
                     <div class="contact-field contact-address-street">
-                        <label class="field-label" for="street_address">Street Address <span class="required-marker" aria-hidden="true">*</span></label>
-                        <input id="street_address" type="text" name="street_address" value="{{ form_data.get('street_address', '') }}" autocomplete="street-address" required>
+                        <label class="field-label" for="street_address">Street Address <span class="optional-label">(optional)</span></label>
+                        <input id="street_address" type="text" name="street_address" value="{{ form_data.get('street_address', '') }}" autocomplete="street-address">
                     </div>
                     <div class="contact-field">
-                        <label class="field-label" for="city">City <span class="required-marker" aria-hidden="true">*</span></label>
-                        <input id="city" type="text" name="city" value="{{ form_data.get('city', '') }}" autocomplete="address-level2" required>
+                        <label class="field-label" for="city">City <span class="optional-label">(optional)</span></label>
+                        <input id="city" type="text" name="city" value="{{ form_data.get('city', '') }}" autocomplete="address-level2">
                     </div>
                     <div class="contact-field">
-                        <label class="field-label" for="state">State <span class="required-marker" aria-hidden="true">*</span></label>
-                        <select id="state" name="state" autocomplete="address-level1" required>
+                        <label class="field-label" for="state">State <span class="optional-label">(optional)</span></label>
+                        <select id="state" name="state" autocomplete="address-level1">
                             <option value="" {% if not form_data.get('state') %}selected{% endif %} disabled>Select...</option>
                             {% for state_name in ['Utah', 'Arizona', 'Colorado', 'Idaho', 'Nevada', 'Wyoming', 'Other'] %}
                                 <option value="{{ state_name }}" {% if form_data.get('state') == state_name %}selected{% endif %}>{{ state_name }}</option>
@@ -133,8 +133,8 @@
                         </select>
                     </div>
                     <div class="contact-field">
-                        <label class="field-label" for="zip_code">ZIP Code <span class="required-marker" aria-hidden="true">*</span></label>
-                        <input id="zip_code" type="text" name="zip_code" value="{{ form_data.get('zip_code', '') }}" autocomplete="postal-code" inputmode="numeric" maxlength="10" required>
+                        <label class="field-label" for="zip_code">ZIP Code <span class="optional-label">(optional)</span></label>
+                        <input id="zip_code" type="text" name="zip_code" value="{{ form_data.get('zip_code', '') }}" autocomplete="postal-code" inputmode="numeric" maxlength="10">
                     </div>
                 </div>
 

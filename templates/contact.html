@@ -30,6 +30,7 @@
             <form method="post" action="/contact">
                 <h1>Get Your Free Estimate</h1>
                 <p class="business-identity">360 Epoxy LLC doing business as 360Epoxy</p>
+                <p class="required-fields-note"><span aria-hidden="true">*</span> Required fields</p>
                 <!-- <p class="contact-intro">Tell us about your floor project and our local team will follow up.</p> -->
 
                 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -45,22 +46,22 @@
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <div class="contact-name-fields">
                     <div class="contact-field">
-                        <label class="field-label" for="first_name">First Name</label>
+                        <label class="field-label" for="first_name">First Name <span class="required-marker" aria-hidden="true">*</span></label>
                         <input id="first_name" type="text" name="first_name" value="{{ form_data.get('first_name', '') }}" autocomplete="given-name" required>
                     </div>
                     <div class="contact-field">
-                        <label class="field-label" for="last_name">Last Name</label>
+                        <label class="field-label" for="last_name">Last Name <span class="required-marker" aria-hidden="true">*</span></label>
                         <input id="last_name" type="text" name="last_name" value="{{ form_data.get('last_name', '') }}" autocomplete="family-name" required>
                     </div>
                 </div>
 
                 <div class="contact-name-fields">
                     <div class="contact-field">
-                        <label class="field-label" for="email">Email</label>
+                        <label class="field-label" for="email">Email <span class="required-marker" aria-hidden="true">*</span></label>
                         <input id="email" type="email" name="email" value="{{ form_data.get('email', '') }}" autocomplete="email" required>
                     </div>
                     <div class="contact-field">
-                        <label class="field-label" for="phone">Phone</label>
+                        <label class="field-label" for="phone">Phone <span class="required-marker" aria-hidden="true">*</span></label>
                         <input id="phone" type="tel" name="phone" value="{{ form_data.get('phone', '') }}" autocomplete="tel" inputmode="tel" maxlength="14" placeholder="(385)-558-3495" required>
                     </div>
                 </div>
@@ -83,7 +84,7 @@
                     <input id="lead_source_other" type="text" name="lead_source_other" value="{{ form_data.get('lead_source_other', '') }}" maxlength="120">
                 </div> -->
 
-                <label class="field-label" for="project_type">Project Type</label>
+                <label class="field-label" for="project_type">Project Type <span class="required-marker" aria-hidden="true">*</span></label>
                 <select id="project_type" name="project_type" required>
                     <option value="" {% if not form_data.get('project_type') %}selected{% endif %} disabled>Select your project type...</option>
                     <option value="garage_floor" {% if form_data.get('project_type') == 'garage_floor' %}selected{% endif %}>Garage Floor</option>
@@ -96,7 +97,7 @@
 
                 <div class="contact-name-fields">
                     <div class="contact-field">
-                        <label class="field-label" for="square_feet">Approximate Sq. Ft.</label>
+                        <label class="field-label" for="square_feet">Approximate Sq. Ft. <span class="required-marker" aria-hidden="true">*</span></label>
                         <input id="square_feet" type="number" name="square_feet" value="{{ form_data.get('square_feet', '') }}" min="50" step="50" inputmode="numeric" placeholder="e.g. 500" required>
                     </div>
                     <div class="contact-field">
@@ -115,15 +116,15 @@
 
                 <div class="contact-address-fields">
                     <div class="contact-field contact-address-street">
-                        <label class="field-label" for="street_address">Street Address</label>
+                        <label class="field-label" for="street_address">Street Address <span class="required-marker" aria-hidden="true">*</span></label>
                         <input id="street_address" type="text" name="street_address" value="{{ form_data.get('street_address', '') }}" autocomplete="street-address" required>
                     </div>
                     <div class="contact-field">
-                        <label class="field-label" for="city">City</label>
+                        <label class="field-label" for="city">City <span class="required-marker" aria-hidden="true">*</span></label>
                         <input id="city" type="text" name="city" value="{{ form_data.get('city', '') }}" autocomplete="address-level2" required>
                     </div>
                     <div class="contact-field">
-                        <label class="field-label" for="state">State</label>
+                        <label class="field-label" for="state">State <span class="required-marker" aria-hidden="true">*</span></label>
                         <select id="state" name="state" autocomplete="address-level1" required>
                             <option value="" {% if not form_data.get('state') %}selected{% endif %} disabled>Select...</option>
                             {% for state_name in ['Utah', 'Arizona', 'Colorado', 'Idaho', 'Nevada', 'Wyoming', 'Other'] %}
@@ -132,7 +133,7 @@
                         </select>
                     </div>
                     <div class="contact-field">
-                        <label class="field-label" for="zip_code">ZIP Code</label>
+                        <label class="field-label" for="zip_code">ZIP Code <span class="required-marker" aria-hidden="true">*</span></label>
                         <input id="zip_code" type="text" name="zip_code" value="{{ form_data.get('zip_code', '') }}" autocomplete="postal-code" inputmode="numeric" maxlength="10" required>
                     </div>
                 </div>

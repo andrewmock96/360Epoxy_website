@@ -117,6 +117,16 @@ class SecurityTests(unittest.TestCase):
         self.assertNotIn(b'name="sms_consent" value="yes" checked', response.data)
         self.assertNotIn(b'name="marketing_sms_consent" value="yes" checked', response.data)
 
+    def test_name_and_phone_fields_are_required(self):
+        response = self.client.get("/contact", headers=self.https_headers)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertRegex(response.data, rb'<input[^>]+name="first_name"[^>]+required')
+        self.assertRegex(response.data, rb'<input[^>]+name="last_name"[^>]+required')
+        self.assertRegex(response.data, rb'<input[^>]+name="phone"[^>]+required')
+        self.assertIn(b'class="required-fields-note"', response.data)
+        self.assertIn(b"Required fields", response.data)
+
     def test_transactional_sms_checkbox_does_not_opt_into_marketing(self):
         webhook_response = Mock()
         webhook_response.raise_for_status.return_value = None

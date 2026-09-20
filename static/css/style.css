@@ -375,7 +375,7 @@ header{
 .footer-socials{
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 0;
 }
 
 .social-icon{
@@ -409,7 +409,7 @@ header{
 }
 
 .social-icon.ig .social-icon-svg{
-  transform: translateY(2px);
+  transform: translateY(3px);
 }
 
 .social-icon img,
@@ -642,6 +642,11 @@ footer{
 }
 
 @media (max-width: 768px){
+  .social-icons,
+  .footer-socials{
+    gap: 4px;
+  }
+
   .top-banner{
     flex-wrap: nowrap;
     padding: 10px 14px;
@@ -722,6 +727,7 @@ footer{
 
   .footer-socials{
     justify-content: center;
+    transform: translateX(2px);
   }
 
   .footer-bottom{

@@ -23,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "dev-only-secret")
 
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
-PLACE_ID = os.environ.get("GOOGLE_PLACE_ID")
+# The legacy GOOGLE_PLACE_ID was a supplier's listing, not 360Epoxy.
+PLACE_ID = os.environ.get("GOOGLE_REVIEWS_PLACE_ID", "ChIJhQaI8w1vZ2QRyvapJkqxiak")
 FLASK_ENV = os.environ.get("FLASK_ENV", "production").lower()
 if FLASK_ENV not in {"development", "production"}:
     raise RuntimeError("FLASK_ENV must be either 'development' or 'production'.")
@@ -207,15 +208,6 @@ def load_legal_document(filename: str):
     return blocks
 
 
-def google_get(url, params):
-    response = requests.get(url, params=params, timeout=10)
-    try:
-        data = response.json()
-    except ValueError:
-        data = {"status": "INVALID_JSON", "raw_response": response.text[:500]}
-    return response.status_code, data
-
-
 def verify_turnstile_token(token):
     if not TURNSTILE_ENABLED:
         return True
@@ -246,41 +238,43 @@ def verify_turnstile_token(token):
 
 
 def fetch_google_reviews():
-    """
-    Fetch reviews from Google Places API and return:
-    (data_dict, status_code)
-    """
+    """Fetch the service-area listing through Places API (New)."""
     if not GOOGLE_API_KEY or not PLACE_ID:
         return {
             "error": "Reviews are not configured yet."
         }, 500
 
-    url = "https://maps.googleapis.com/maps/api/place/details/json"
-    params = {
-        "place_id": PLACE_ID,
-        "fields": "name,rating,reviews,formatted_address",
-        "key": GOOGLE_API_KEY,
-    }
-
     try:
-        google_http_status, data = google_get(url, params)
-
-        if data.get("status") != "OK":
-            app.logger.error("Google Places API error: %s", data)
-            return {
-                "error": "Google reviews are currently unavailable."
-            }, 502
-
-        result = data.get("result", {})
+        response = requests.get(
+            f"https://places.googleapis.com/v1/places/{PLACE_ID}",
+            headers={
+                "X-Goog-Api-Key": GOOGLE_API_KEY,
+                "X-Goog-FieldMask": "displayName,rating,userRatingCount,reviews,googleMapsUri",
+            },
+            timeout=10,
+        )
+        response.raise_for_status()
+        result = response.json()
         return {
-            "name": result.get("name"),
+            "name": result.get("displayName", {}).get("text"),
             "rating": result.get("rating"),
-            "formatted_address": result.get("formatted_address"),
-            "reviews": result.get("reviews", [])
+            "total_reviews": result.get("userRatingCount", 0),
+            "google_maps_url": result.get("googleMapsUri"),
+            "reviews": [
+                {
+                    "author_name": review.get("authorAttribution", {}).get("displayName", "Google user"),
+                    "author_url": review.get("authorAttribution", {}).get("uri"),
+                    "profile_photo_url": review.get("authorAttribution", {}).get("photoUri"),
+                    "rating": review.get("rating"),
+                    "text": review.get("text", {}).get("text", ""),
+                    "relative_time": review.get("relativePublishTimeDescription", ""),
+                    "google_maps_url": review.get("googleMapsUri"),
+                }
+                for review in result.get("reviews", [])
+            ],
         }, 200
-
-    except requests.RequestException:
-        app.logger.exception("Google reviews request failed.")
+    except (requests.RequestException, ValueError):
+        app.logger.warning("Google reviews request failed.")
         return {"error": "Unable to fetch reviews right now."}, 502
 
 
@@ -480,10 +474,12 @@ def terms():
 
 @app.route("/api/reviews")
 @limiter.limit("20 per minute")
-@cache.cached(timeout=3600)
 def get_reviews():
     data, status_code = fetch_google_reviews()
-    return jsonify(data), status_code
+    response = jsonify(data)
+    response.status_code = status_code
+    response.headers["Cache-Control"] = "no-store"
+    return response
 
 
 @app.errorhandler(429)

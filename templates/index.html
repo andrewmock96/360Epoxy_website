@@ -105,32 +105,32 @@
         <div class="section-divider"></div>
 
         <!-- GOOGLE REVIEWS -->
-        <section class="google-reviews-static">
-            <h2 class="animate-on-scroll">See Our Google Reviews</h2>
-
-            <div class="google-reviews-card animate-on-scroll">
-                <div class="google-reviews-rating" aria-label="5 out of 5 stars">
-                    <span class="google-reviews-stars" aria-hidden="true">
-                        <span>&#9733;</span>
-                        <span>&#9733;</span>
-                        <span>&#9733;</span>
-                        <span>&#9733;</span>
-                        <span>&#9733;</span>
-                    </span>
+        <section class="reviews-section" aria-labelledby="reviews-heading">
+            <div class="reviews-heading">
+                <div>
+                    <p class="reviews-eyebrow">CUSTOMER REVIEWS</p>
+                    <h2 id="reviews-heading">What Our Customers Say</h2>
+                    <p id="reviews-summary">See what our customers are saying on Google Maps.</p>
                 </div>
-                <div class="google-reviews-copy">
-                    <h3>5 Star Google Rating</h3>
-                    <p>
-                        See what customers are saying about 360Epoxy on Google Maps, or leave a review after your project.
-                    </p>
-                </div>
-                <a href="https://www.google.com/maps/place/360Epoxy/@40.2349821,-112.0705195,10z/data=!3m1!4b1!4m6!3m5!1s0x64676f0df3880685:0xa989b14a26a9f6ca!8m2!3d40.2349254!4d-111.740896!16s%2Fg%2F11msb7tnrz"
-                   class="google-reviews-btn"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Read Reviews on Google
-                </a>
+                <a href="https://www.google.com/maps/search/?api=1&amp;query=360Epoxy&amp;query_place_id=ChIJhQaI8w1vZ2QRyvapJkqxiak"
+                   class="reviews-google-link" target="_blank" rel="noopener noreferrer">Read Reviews on Google <span aria-hidden="true">&#8594;</span></a>
             </div>
+            <p id="reviews-message" role="status">Customer reviews are available on Google Maps.</p>
+            <div id="reviews-carousel" role="region" aria-roledescription="carousel" aria-label="Customer reviews" hidden>
+                <div id="reviews-container" class="reviews-track" tabindex="0" aria-label="Reviews. Use the left and right arrow keys to browse."></div>
+                <div class="reviews-toolbar">
+                    <div class="reviews-attribution">
+                        <span translate="no">Google Maps</span>
+                        <small>Reviews sorted by relevance</small>
+                    </div>
+                    <div id="reviews-controls" class="reviews-controls">
+                        <button type="button" id="reviews-prev" aria-label="Previous review" aria-controls="reviews-container">&#8592;</button>
+                        <span id="reviews-position" aria-live="polite" aria-atomic="true"></span>
+                        <button type="button" id="reviews-next" aria-label="Next review" aria-controls="reviews-container">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+            <noscript><p>Visit Google Maps using the link above to read our customer reviews.</p></noscript>
         </section>
 
         <!-- SECTION DIVIDER -->
@@ -306,5 +306,6 @@
         </div>
 
         <script src="{{ url_for('static', filename='js/index.js') }}" defer></script>
+        <script src="{{ url_for('static', filename='js/reviews.js') }}" defer></script>
     </body>
 </html>

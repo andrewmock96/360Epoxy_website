@@ -2,10 +2,18 @@
     <div class="banner-left">
         <div class="social-icons">
             <a href="{{ business_facebook_url }}" target="_blank" rel="noopener noreferrer" class="social-icon fb" aria-label="Facebook">
-                <img src="{{ url_for('static', filename='images/icons/facebook.webp') }}" alt="">
+                <svg class="social-icon-svg header-facebook-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <defs><linearGradient id="header-facebook-gradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9800"/><stop offset="1" stop-color="#FFC107"/></linearGradient></defs>
+                    <path fill="currentColor" d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1Z"/>
+                </svg>
             </a>
             <a href="https://www.instagram.com/360epoxy" target="_blank" rel="noopener noreferrer" class="social-icon ig" aria-label="Instagram">
-                <img src="{{ url_for('static', filename='images/icons/instagram.webp') }}" alt="">
+                <svg class="social-icon-svg header-instagram-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <defs><linearGradient id="header-instagram-gradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9800"/><stop offset="1" stop-color="#FFC107"/></linearGradient></defs>
+                    <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"/>
+                </svg>
             </a>
         </div>
     </div>

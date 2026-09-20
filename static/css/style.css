@@ -385,21 +385,31 @@ header{
   height: 32px;
   display: grid;
   place-items: center;
-  border-radius: 7px;
+  border-radius: 50%;
   background: transparent;
-  transition: transform 180ms ease, filter 180ms ease;
+  text-decoration: none;
+  transition: transform 180ms ease, color 180ms ease;
 }
 
-.social-icon::after{
-  content: "";
-  position: absolute;
-  inset: 3px;
-  border: 1px solid #FFC107;
-  border-radius: 7px;
-  opacity: 0;
-  transform: scale(0.88);
-  box-shadow: 0 0 5px rgba(255, 193, 7, 0.24);
-  transition: opacity 180ms ease, transform 180ms ease;
+.social-icon.fb{
+  color: #fff;
+}
+
+.social-icon.ig{
+  color: #fff;
+}
+
+.social-icon-svg{
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+
+.social-icon.ig .social-icon-svg{
+  transform: translateY(2px);
 }
 
 .social-icon img,
@@ -415,12 +425,32 @@ header{
 
 .social-icon:hover{
   transform: translateY(-2px) scale(1.03);
-  filter: brightness(1.12);
 }
 
-.social-icon:hover::after{
-  opacity: 1;
-  transform: scale(1);
+.social-icon:hover .header-facebook-icon path{
+  fill: url(#header-facebook-gradient);
+}
+
+.social-icon:hover .footer-facebook-icon path{
+  fill: url(#footer-facebook-gradient);
+}
+
+.social-icon:hover .header-instagram-icon rect,
+.social-icon:hover .header-instagram-icon circle:not(:last-child){
+  stroke: url(#header-instagram-gradient);
+}
+
+.social-icon:hover .header-instagram-icon circle:last-child{
+  fill: url(#header-instagram-gradient);
+}
+
+.social-icon:hover .footer-instagram-icon rect,
+.social-icon:hover .footer-instagram-icon circle:not(:last-child){
+  stroke: url(#footer-instagram-gradient);
+}
+
+.social-icon:hover .footer-instagram-icon circle:last-child{
+  fill: url(#footer-instagram-gradient);
 }
 
 .top-banner .banner-btn{

@@ -85,6 +85,14 @@ body .footer-socials .social-icon img{
   max-height: 32px;
 }
 
+body .social-icon svg,
+body .footer-socials .social-icon svg{
+  width: 24px;
+  height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+}
+
 body footer{
   position: relative;
   background: #191919;

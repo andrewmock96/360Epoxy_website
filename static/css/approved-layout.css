@@ -64,19 +64,13 @@ body .header-container{
 }
 
 body .header-brand .logo{
-  width: 132px;
-  max-width: 132px;
+  width: 165px;
+  max-width: 165px;
   margin: 0;
 }
 
-body .seasonal-logo{
-  width: 220px;
-  max-width: 220px;
-}
-
-body .header-brand .logo.seasonal-logo{
-  width: 220px;
-  max-width: 220px;
+body .footer-brand > img{
+  width: 162.5px;
 }
 
 body .desktop-nav{
@@ -128,18 +122,8 @@ body .footer-column a{
   }
 
   body .header-brand .logo{
-    width: 92px;
-    max-width: 92px;
-  }
-
-  body .seasonal-logo{
-    width: 176px;
-    max-width: 176px;
-  }
-
-  body .header-brand .logo.seasonal-logo{
-    width: 176px;
-    max-width: 176px;
+    width: 115px;
+    max-width: 115px;
   }
 
   body .top-banner .banner-right{
